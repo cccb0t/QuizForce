@@ -1,0 +1,801 @@
+How can attribute names be modified to match a naming convention in Cloud File Storage target?
+Update attribute names in the data stream configuration
+*Update field names in the data model
+Set preferred attribute names when configuring activation
+Use a formula field to update the field name in an activation
+
+To import campaign members into a campaign in CRM a user wants to export the segment to Amazon S3. The resulting file needs to include CRM Campaign ID in the name. How can this outcome be achieved?
+Include campaign identifier into the activation name
+Hard-code the campaign identifier as a new attribute in the campaign activation
+*Include campaign identifier into the filename specification
+Include campaign identifier into the segment name
+
+Which two applications automatically create activation targets at the time the application is connected to Data Cloud? (Choose 2)
+*Personalization powered by Interaction Studio
+Amazon S3
+*B2C Commerce
+Marketing Cloud Engagement
+
+Which two steps are required when configuring a Marketing Cloud activation? (Choose 2)
+Set an Activation Schedule
+*Select an Activation Target
+Add Additional Attributes
+*Select Contact Points
+
+What component of Calculated Insights can be included as attribute data in an activation?
+Metrics and Dimensions
+*Dimensions
+Metrics
+Filters
+
+Which data model subject area defines the revenue or quantity for an opportunity by product family?
+Engagement
+Product
+Party
+*Sales Order
+
+An organization wants to enable users with the ability to identify and select text attributes from a picklist of options. Which Data Cloud feature can help with this use case?
+Transformation Formulas
+Data Harmonization
+*Value Suggestion
+Global Picklists
+
+What can be customized in the Data Cloud canonical model?
+Fields
+*Objects, Fields, and Relationships
+Objects and Fields
+Objects
+
+Which data stream category should be assigned to use the data for time-based operations in segmentation and calculated insights?
+*Transaction
+Individual
+Sales Order
+Engagement
+
+Every day, Northern Trail Outfitters (NTO) uploads a summary of the last 24 hours of store transactions to a new file in an Amazon S3 bucket, and files older than 7 days are automatically deleted. Each file contains a timestamp in a standardized naming convention. What should a consultant consider when ingesting this data stream?
+*Ensure the refresh mode is set to Upsert and Refresh only new files is selected
+Ensure the refresh mode is set to Full Refresh and the filename contains a wildcard to accommodate the timestamp
+Ensure the refresh mode is set to Full Refresh and Refresh only new files' is selected
+Advise NTO to change their processes: this configuration is not supported
+
+Which two statements about Data Cloud's Web and Mobile App connector are true? (Choose 2)
+Any Data Streams associated with Web or Mobile connector app will be automatically deleted upon deleting the app from Data Cloud Setup
+*Data Cloud administrators can see the status of a Web or Mobile connector app on the app details page
+*Tenant Specific Endpoint is auto-generated in Data Cloud when setting up a Mobile or Web app connection
+Mobile and Web SDK schema can be updated to delete an existing field
+
+Which data model subject area should be used for any Organization, Individual, or Member in the Customer 360 data model?
+Individual
+Global Account
+*Party
+Membership
+
+Which two statements about Data Cloud's Web and Mobile App connector are true? (Choose 2)
+Any Data Streams associated with Web or Mobile connector app will be automatically deleted upon deleting the app from Data Cloud Setup
+*Data Cloud administrators can see the status of a Web or Mobile connector app on the app details page
+*Tenant Specific Endpoint is auto-generated in Data Cloud when setting up a Mobile or Web app connection
+Mobile and Web SDK schema can be updated to delete an existing field
+
+Which two objects or fields are supported for ingestion using the Salesforce CRM connector? (Choose 2)
+Custom Big Objects
+Standard Big Objects
+*Standard Objects
+*Custom Objects
+
+Which option allows an organization an easy way to ingest Marketing Cloud subscriber profile attributes into Data Cloud on a daily basis?
+Marketing Cloud Connect API
+Email Studio Starter Data Bundle
+Profile attributes are not yet supported
+*Automation Studio and Profile API
+
+How does Data Cloud handle an individual's right to be forgotten?
+Deletes the specified Individual and records from any DMO/DLO related to the Individual.
+*Deletes the specified Individual and records from any DSO mapped to the Individual DMO.
+Deletes the records from all DSOs and any downstream DMOs are updated at the next scheduled ingestion.
+Deletes the specified Individual record and its Unified Individual Link record.
+
+Cloud Kicks has received a Request to be Forgotten by a customer. In which two ways can Data Cloud honor this request? (Choose 2)
+Use Data Explorer to locate and manually remove the Individual
+*Use the Consent API to suppress processing and delete the individual and related records from source data streams
+Delete the data from the incoming data stream and perform a full refresh
+*Add the Individual Id to a headerless file and use the delete from file functionality
+
+A customer wants to use the transactional data from their data warehouse in Data Cloud. They are only able to export the data via a SFTP site. What are two recommended ways to bring this data into Data Cloud? (Choose 2)
+Manually import the file using the Data Import Wizard
+Utilize Salesforce's Dataloader application to perform a bulk upload from a desktop
+*Import the file into Google Cloud Storage and ingest with the Cloud Storage Connector
+*Import the file into Amazon S3 and ingest with the Cloud Storage Connector
+
+A segment fails to refresh with the error Segment references too many Data Lake Objects (DLOs). What are two remedies for this issue? (Choose 2)
+*Space out the segment schedules to reduce Data Lake Object load
+Refine segmentation criteria to limit up to 5 custom DMOs
+*Split the segment into smaller segments
+Use Calculated Insights in order to reduce the complexity of the segmentation query
+
+Which operator can be used to create a segment for a birthday campaign that is evaluated daily?
+Is This Year
+*Is Anniversary Of
+Is Between
+Is Birthday
+
+What is a unique requirement of a Streaming Insight query?
+A dimension
+A measurement
+*A window function
+A WHERE clause
+
+Which three options can be used to build a filter in the Segmentation Canvas? (Choose 3)
+Data Lake Objects
+*Streaming Insights
+*Calculated Insights
+Related Attributes
+*Direct Attributes
+
+Which method should an administrator use when performing aggregations in windows of 15 minutes on data collected via the Interactions SDK and Mobile SDK?
+Activation
+Segment
+*Streaming Insight
+Calculated Insight
+
+The leadership team at Cumulus Financial has declared that customers who have deposited more than $250,000 in the last 5 years and who are not using advisory services, will be the central focus for all new campaigns in the next year. Which two features support this need? (Choose 2)
+*Calculated Insight
+Report
+*Segment
+Dashboard
+
+Which feature can integrate in real time with Salesforce CRM?
+*Data Actions
+Identity Resolution
+CRM Starter Bundle
+Data Model Triggers
+
+Northern Trail Outfitters wants to be able to calculate each customer's lifetime value (LTV) but also create breakdowns of the revenue sourced by website, mobile app, and retail channels. How should this use case be addressed in Data Cloud?
+Nested segments
+Flow orchestration
+*Streaming data transformations
+Metrics on metrics
+
+The website team at Cumulus Financial Services wants to understand which identified users have browsed the jobs page on their website at least twice within the last 12 hours. Which component should a consultant recommend to achieve this goal?
+*Streaming Insight
+Calculated Insight
+Streaming Data Transformation
+Segment
+
+What is allowed when editing a Calculated Insight?
+Removing existing measures
+*Adding new measures
+Adding new dimensions
+Removing existing dimensions
+
+Which three actions can be applied to a previously created segment? (Choose 3)
+Reactivate
+*Export
+*Delete
+*Copy
+Inactivate
+
+What are the two minimum requirements needed when using the Visual Insights Builder to create a Calculated Insight? (Choose 2)
+WHERE clause is required
+At least two objects to join
+*At least one dimension
+*At least one measure
+
+What does it mean to build a trust-based, first-party data asset?
+Pass the trust-based compliance rules as a first-party data asset is added to Data Cloud
+*Provide transparency and security for data gathered from individuals who provide consent for its use and receive value in exchange
+Obtain competitive data from reliable sources through interviews, surveys, and polls
+Ensure opt-in consents are collected for all email marketing as required by law
+
+What are the two distinct phases of data model management in Data Cloud? (Choose 2)
+Data Activation
+*Data Ingestion
+Data Actions
+*Data Modeling
+
+Which two statements are true about using consent API and exercising right to be forgotten? (Choose 2)
+Data Deletion requests are processed within 1 hour
+*Data Deletion requests are reprocessed at 30, 60, and 90 days
+*Data Deletion requests are submitted for Individual profiles
+Data deletion requests submitted to Data Cloud are passed to all connected Salesforce Clouds
+
+A customer has requested that their personal data be deleted. Which action should be performed to accommodate this request in Data Cloud?
+Manually delete customer and related records using the Profile Explorer
+*Use Consent API to request deletion of the customer's information
+Utilize the Data Rights Subject Request tool to request deletion of the customer's information
+Use Ingestion API to request deletion of the customer's information
+
+What are two benefits Data Cloud provides a company in relation to managing customer data? (Choose 2)
+*Unified Identity Resolution
+*Data Harmonization
+Data Governance
+Data Marketplace
+
+Which data sources are available from Marketing Cloud as a starter bundle?
+Email, Cloud Pages, Einstein Web & Email Recommendations
+Email, MobileConnect, MobilePush and GroupConnect
+Email, Mobile Connect, and Einstein Engagement Scoring
+*Email, MobileConnect and MobilePush
+
+Which two features are impacted by the timezone setting in the org Data Cloud is provisioned in? (Choose 2)
+*Segment Schedule
+Identity Resolution
+Ingestion Schedule
+*Activation Schedule
+
+Which three out-of-the-box connectors are available for Data Cloud? (Choose 3)
+*Marketing Cloud
+*B2C Commerce
+Slack Connector
+*Amazon S3
+Amazon Redshift Connector
+
+Which permission setting should an administrator check if the custom CRM object is not available in New Data Stream configuration?
+Modify All object permission enabled in Data Cloud org
+Ingest Object permission is enabled in the CRM org
+Create object permission enabled in Data Cloud org
+*View All object permission enabled in source CRM org
+
+What is the first thing a business stakeholder should focus on when considering a Data Cloud implementation?
+Review consent and privacy management policies
+*Obtain cross-organizational buy-in
+Identify activation targets
+Identify data sources
+
+Which three features can be used to validate the data in the unified profile object? (Choose 3)
+Data Actions
+*Data Explorer
+*Query API
+*Profile Explorer
+Identity Reconciliation
+
+Which configuration can support separate Amazon S3 buckets for data ingestion and activation?
+Dedicated S3 data sources in activation setup
+*Dedicated S3 data sources in Data Cloud setup
+Separate user credentials for data stream and activation
+Separate user credentials for data stream and activation target
+
+A user needs permissions to access Data Cloud to create, manage, and publish segments. However, the user should not be allowed to create reports or manage data sources. Which permission set should an administrator assign?
+Customer Data Cloud for Marketing Admin
+*Customer Data Cloud for Marketing Specialist
+Customer Data Cloud for Marketing Data Aware Specialist
+Customer Data Cloud for Marketing Manager
+
+Which three components of Data Cloud can be bundled within a Data Kit? (Choose 3)
+*Data Models
+Calculated Insights
+*Segments
+*Data Streams
+Identity Resolution Rulesets
+
+An organization is looking to use Data Cloud to unify data across 5 Salesforce orgs, 2 Marketing Cloud accounts, 6 Amazon S3 Buckets, and 4 Personalization datasets. As far as connection limits are concerned, which platform is going to present a challenge?
+Amazon S3 Bucket
+Personalization
+*Marketing Cloud
+Salesforce CRM
+
+How does an administrator increase the consolidation rate for Identity Resolution?
+Change all reconciliation rules to Source Sequence
+Add more matching rules to broaden the search for matches
+Change the Ignore Empty Value option
+*Reduce the number of matching rules
+
+Which three Data Model objects do Reconciliation Rules operate across? (Choose 3)
+*Individual
+*Party Identification
+*Contact Point Email
+Contact
+Lead
+
+Which match criteria is only available as custom in order to perform an exact match in Identity Resolution?
+Phone Number
+Email Address
+*Party Identification Id
+Government Id
+
+How does Identity Resolution select attributes for Unified Individuals when there is conflicting information in the Data Model?
+Create additional Rule Sets
+*Leverage Reconciliation Rules
+Create additional Contact Points
+Leverage Match Rules
+
+What is the relationship between Individual and Contact Point Objects?
+1:1
+*1: Many
+Many: Many
+None of the above
+
+Which of these is present in Identity Resolution Summary?
+Unified Individuals
+Last Processing Status
+Matched Individuals
+*All the above
+
+When can the data types be changed during ingestion?
+After the DSO is created
+*Before DSO is created
+Data type can never be changed
+Data type can be changed at any time
+
+Which of the following functions returns the first value from a list that isn't empty?
+CONCAT
+*COALESCE
+REPLACE
+FIND
+
+How many days of historical data is loaded when B2C Commerce Data Stream is created from the Order Bundle?
+90 days
+60 days
+*30 days
+10 days
+
+What is the maximum limit of the number of records for Full Refresh Extract Method?
+*10 million
+40 million
+50 million
+No hard limit
+
+Which type of measures with aggregate functions are supported?
+Date
+Text
+*Numeric
+Boolean
+
+How many Metrics can be present in 1 segment container?
+*1
+5
+10
+100
+
+How many calculated insights can be created per tenant?
+5
+10
+*50
+100
+
+Which of the following cannot be used in Segmentation? (Choose 2)
+Numeric Measures
+*Text Measures
+Aggregate Functions
+*Date Time Measures
+
+Which of the following are characteristics of Formulas? (Choose 2)
+*Simple logic on a row-based operation
+*Ease of use, self-service
+Highly reusable content
+Attribute updated regularly
+
+What is a DMO called if it inherits the name, shape, and semantics of the reference object?
+Custom DMO
+*Standard DMO
+Data Lake Object (DLO)
+Data Source Object (DSO)
+
+How do the Data streams that use the Marketing Cloud Connector refresh data?
+Manually refreshed by CDP Admin
+*Marketing Cloud's Automation Studio handles this process.
+APIs are used for refresh
+None of the above
+
+What should be the type of the Event Time Field while ingesting Engagement data?
+Mutable
+Inconsistent
+*Immutable
+None of the above
+
+What happens if no file name is specified in AWS S3 data stream during ingestion?
+*The system does not fetch any file and the data stream shows an error.
+The system chooses the first file found in the S3 bucket
+The ingestion setup can't be completed without specifying the filename.
+The ingestion setup is completed but the data stream shows 0 records
+
+A customer wants to create segments of users based on their Customer Lifetime Value. The source data that will be brought into the Data Cloud does not include that KPI. What process should be followed to achieve this outcome?
+Map Data to Data Model > Create Calculated Insight > Use in Segmentation
+*Ingest Data > Map Data to Data Model > Create Calculated Insight
+Insight > Use in Segmentation
+Ingest Data > Create Calculated Insight > Use in Segmentation
+Create Calculated Insight > Map Data to Data Model > Use in Segmentation
+
+Which two common use cases can be addressed with Data Cloud? (Choose 2)
+*Harmonize data from multiple sources with a standardized and extendable data model
+*Understand and act upon customer data to drive more relevant experiences
+Safeguard critical business data by serving as a centralized system for backup and disaster recovery
+Govern enterprise data lifecycle through a centralized set of policies and processes
+
+What is Data Cloud's primary value to customers?
+A single source of truth for all anonymous data
+A platform that can update all connected systems with a golden record in real-time
+*A platform that provides a unified view of a customer and their related data
+A platform that can create personalized campaigns by listening, understanding, and acting on customer behavior
+
+Which two objects or fields are supported for ingestion using the Salesforce CRM connector?
+*Standard Objects
+Standard Big Objects
+Custom Big Objects
+*Custom Objects
+
+An administrator is setting up a data stream with transactional data. What field type should the administrator choose to ensure that leading zeros in the purchase order number are preserved?
+Number
+Decimal
+*Text
+Serial
+
+A customer has a custom 'Customer_Email_c' object related to the standard 'Contact' object in Salesforce CRM. To which data entity is this mapped?
+Contact
+*Contact Point Email
+Custom 'Customer_Email' Object
+Individual
+
+Which two characteristics describe the Customer 360 data model? (Choose 2)
+*A Conceptual Model
+A Static Model
+A Product Sold By Salesforce
+*A Canonical Model
+
+When setting up the data source object or schema for data ingestion, what are the three data categories to select from? (Choose 3)
+*Engagement Data
+Event Data
+Other Data
+*Order Data
+*Profile Data
+
+To which Data Model entity should the Email field from a CRM Contact object be mapped?
+Lead
+Account Contact
+Individual
+*Contact Point Email
+
+What is the correct formula to display the value of the raw data column of RetailPrice' plus an additional 5 percent?
+sourceField['RetailPrice1*l .05
+SELECT(['RetailPrice']*1.05)
+*sourceField['retailprice']*1.05
+SELECT(['retailprice']*1.05)
+
+Which two dependencies need to be removed prior to disconnecting a data source? (Choose 2)
+Activation Target
+*Data Stream
+*Segment
+Activation
+
+What is the first step to set up and configure a Data Cloud instance after it has been provisioned?
+Complete the Salesforce Data Cloud Get Started'' process
+Connect to the Marketing Cloud Account Data Cloud is provisioned in
+Enable Customer Data Cloud Admin permission set to the relevant Salesforce CRM user
+*Connect to the Salesforce CRM org Data Cloud is provisioned in
+
+When performing Segmentation or Activation, which timezone is used to publish and refresh data?
+Timezone of the Data Cloud Admin user
+Timezone is explicitly specified when creating a segment or activation
+*Timezone set by the Salesforce Data Cloud org
+Timezone of the user defining the activity
+
+An administrator has configured the Salesforce CRM connector and set up a data stream for the Case object. A new custom field called Business Priority was created on the Case object. However, that field is not available when trying to add it in the data stream. What could be causing this issue?
+Custom fields on the Case objects are not supported for ingesting into Data Cloud
+Utilize the Salesforce Dataloader application to perform a bulk upload from a desktop
+The Data Cloud administrator does not need to do anything. After 24 hours when the data stream refreshes, it will automatically include any new fields that were added to CRM
+*The Salesforce Integration User is missing Read permissions on the newly created field
+
+Which two dependencies can prevent a Data Stream from being deleted? (Choose 2)
+*A data stream attribute is mapped to a Data Model object
+*A data stream attribute is used in Calculated Insight
+A data stream attribute is used in Segmentation
+A data stream attribute is used in Activation
+
+A retail customer wants to bring customer data from different sources and wants to take advantage of Identity Resolution so that it can be used in Segmentation. On which entity should this be segmented for activation membership?
+Subscriber
+Unified Contact
+*Unified Individual
+Individual
+
+Which authentication type is supported for a Cloud File Storage activation target?
+Using private key certificate
+*Using access and secret keys
+Using encrypted username and password
+Using JWT token
+
+Northern Trail Outfitters uploads new customer data to an Amazon S3 Bucket on a daily basis to be ingested in Data Cloud. In what order should each process be run to ensure that freshly imported data is ready and available to use for any segment?
+Refresh Data Stream > Calculated Insight > Identity Resolution
+Identity Resolution > Calculated Insight > Refresh Data Stream
+Calculated Insight > Identity Resolution > Refresh Data Stream
+*Refresh Data Stream > Identity Resolution > Calculated Insight
+
+What does the Ignore Empty Value option do in Identity Resolution?
+Ignores Individual object records with empty fields when running Identity Resolution rules
+Ignores empty fields when running any custom match rules
+*Ignores empty fields when running reconciliation rules
+Ignores empty fields when running the standard match rules
+
+Which three objects are created as a result of Identity Resolution? (Choose 3)
+Unified Subscriber
+Unified Data Model
+*Unified Contact Point
+*Unified Link
+*Unified Individual
+
+What does the Source Sequence reconciliation rule do in Identity Resolution?
+*Sets the priority of specific data sources when building attributes in a unified profile such as a first or last name
+Identifies which data sources should be used in the process of reconciliation by prioritizing the most recently updated data source
+Includes data from sources where the data is alphanumerically sequenced
+Identifies which individual records should be merged into a unified profile by setting a priority for specific data sources
+
+When creating a segment on an individual, what is the result of using two separate containers linked by an AND: At Least 1 of GoodsProduct.Color Is Equal To 'red' AND At Least 1 of GoodsProduct.PrimaryProductCategory Is Equal To shoes'?
+*Individuals who purchased at least 1 of any red' product and also purchased at least 1 pair of shoes'
+Individuals who purchased at least 1 'red shoes' as a single line item in a purchase
+Individuals who purchased at least 1 'red shoes'. 1 of any red' item, or 1 of any 'shoes' item in a purchase
+Individuals who made a purchase of at least 1 of only 'red shoes' and nothing else
+
+Which data model object category can a Data Cloud user create segments on?
+Profile
+*Unified Individual only
+Engagement
+Other
+
+What are three benefits of Calculated Insights over Segmentation Operators? (Choose 3)
+*Calculated Insights are better suited for non-trivial calculations, such as calculating a Net Promoter Score as a percentage
+Calculated Insights results can be refreshed near real time
+Calculated Insights are better suited for single row based operation
+*Calculated Insights can query engagement data greater than 2 years
+*Calculated Insights are better suited for complex queries over multiple objects
+
+What is the result of a segmentation criteria filtering on City | Is Equal To I 'San Jose?
+Cities containing 'San Jose', 'San Jose', 'san jose'. or 'san jose'
+Cities only containing 'San Jose' or 'San Jose'
+*Cities only containing 'San Jose' or 'san jose'
+
+An administrator wants to be able to create a multi-dimensional metric to identify unified individual lifetime value (LTV). Which sequence of DMO joins are necessary within the Calculated Insight to enable this calculation?
+Unified Individual > Individual > Sales Order
+*Unified Individual > Unified Link Individual > Sales Order
+Sales Order > Unified Individual
+Sales Order > Individual > Unified Individual
+
+What should an administrator do to pause a segment activation but with the intent of using that segment again?
+Inactivate the segment
+Delete the segment
+*Stop the Publish Schedule
+Skip the Activation
+
+Cumulus Financial wants to be able to track the daily transaction volume for of each of its customers in real time and send out a notification as soon it detects volume outside a customer's normal range. How should an administrator accommodate this request?
+Use Streaming Data Transformations with a Flow
+*Use a Streaming Insight paired with a Data Action
+Use Streaming Data Transformations combined with a Data Action
+Use a Calculated Insight paired with a Flow
+
+When authoring streaming insights via structured query language (SQL), which activities do you perform? Choose two.
+*Mapping to real-time sources
+*Using data actions
+Creating timestamps in Data Cloud
+
+What are three supported data-action targets for Salesforce Data Cloud streaming insights?
+*Salesforce Marketing Cloud
+*Webhook
+*Salesforce Platform Event
+Salesforce Commerce Cloud
+Slack
+
+A customer is interested in updating the CRM contact lead based on streaming data that’s coming to Data Cloud. Which two features would meet this requirement?
+*Data actions
+Activate to CRM
+CRM Connector
+*Copy fields
+
+What data points can be retrieved from Calculated Insights when activating a segment?
+*Metrics
+Dimensions
+Metrics and Dimensions
+Related Attributes
+
+What are the different ways to create a Calculated Insight?
+*Using Insights Builder
+Import query activity from Marketing Cloud
+*Using structured query language
+Import Salesforce object query language from developer console
+
+Which two statements are true for Value Suggestions?
+*Only text attributes can be enabled.
+*“Enable Value Suggestion” needs to be enabled.
+A value with more than 15 characters isn’t possible.
+Attribute values are displayed in date order with the most recent displaying first. 
+
+If you want to use the same criteria in multiple segments, which feature would you recommend?
+Segment membership data model object
+*Nested segments
+Segment exclusions
+Segmentation API
+
+When activating an unified individual to Marketing Cloud, which three attributes are automatically included? Select three.
+*Email subscriber key
+*Contact email address
+*Contact phone number
+Contact address
+Contact ID
+
+Which type of insight is best suited to analyze clickstream data every five minutes?
+Calculated insights
+*Streaming insights
+Einstein insights
+Inline list insights
+
+Which three types of usages are Calculated Insights best suited for?
+*Nontrivial calculation
+*Complex queries across multiple objects
+*Reusability purposes
+Data collected in batches
+High volume of data processing
+
+How can you view details on segment membership, including which users are in a specific segment?
+It’s not possible to access details on segment membership.
+Open the segmentation canvas and review details on who is in a specific segment.
+*View the segment membership data model object data via Data Explorer.
+Download the segment membership data via the download feature.
+
+Attributes with which data type support value suggestion?
+Date
+Number
+*Text
+All types
+
+Which attributes in the attribute library have a one-to-many relationship with the segment target?
+*Related attributes
+Engagement attributes
+Profile attributes
+Direct attributes
+
+Which entity type(s) can be used to “Segment On” in Segmentation?
+*Profile
+Engagement
+Profile and Engagement
+Profile, Engagement, and Other
+
+Which three types of Data Cloud metadata can be accessed via Salesforce Flow for orchestration?
+*Data stream ingestion
+Data model mapping
+*Calculated insights publish
+*Publish identity resolution job
+Initiate a streaming transform
+
+What makes segments available only to certain groups based on their role?
+Salesforce Metadata API 
+*Sharing Rules
+Lightning App Builder
+Lightning Report Builder
+
+Which three Data Cloud actions are available via Flow?
+*Publish Calculated Insights
+*Publish Segments
+*Trigger Identity Resolution Job
+Map Data Model Object Fields
+Publish Streaming Insights
+
+Which of the following attributes describe a package? Choose three.
+*A container that’s distributed
+A framework to custom-tie metadata
+*If managed, then used by an independent software vendor on AppExchange
+Allows more control in the package content
+*May include data streams (S3), data models, and calculated insights
+
+What receives notifications about the latest status of Data Cloud usage without users viewing records?
+Salesforce Metadata API 
+Sharing Rules
+Lightning Report Builder
+*Salesforce Flow
+
+What can be used to import AWS Data Streams into Salesforce without using the Data Cloud Product interface?
+*Salesforce Metadata API 
+Lightning App Builder
+Lightning Report Builder
+Salesforce Flow
+
+Which of the following are features of an unmanaged package? Choose three.
+*It’s not upgradeable or supported.
+It’s typically used by independent software vendors on AppExchange.
+*It’s commonly used for one-time migration of metadata.
+It contains a namespace.
+*A package developer has no control over the components once installed.
+It’s upgradeable and supported.
+
+How can a user ensure that their Data Cloud dashboards are refreshed on a daily basis?
+*Select Subscribe and set a refresh window for after the data streams are refreshed.
+Configure the Dashboard settings in the org setup screen.
+Disable and republish the dashboard.
+Schedule a refresh window for each report individually.
+
+Identify the three objects that are supported by Sharing Rules.
+Data Models
+*Calculated Insights
+*Segments 
+*Activation Targets
+Unified Individuals
+
+Which Permission Set manages the overall segmentation strategy and identifies the target campaigns?
+IT manager
+*Marketing manager
+Data-aware specialist
+Marketing specialist
+
+Which tab in the navigation manages the data coming into Data Cloud?
+Segments
+*Data streams
+Activation
+Data model
+
+What must the Admin user do first when setting up users in Data Cloud?
+Assign permission sets
+Setup each user as an admin
+*Create profiles for each user role
+Configure data sources
+
+Which of the following reflects the correct order of the Data Cloud Setup process flow?
+*Configure Admin user, provision and complete Data Cloud setup, configure additional users & permissions, and connect to relevant Salesforce Clouds
+Connect to relevant Salesforce Clouds, provision and complete Data Cloud setup, configure Admin user, and configure additional users and permissions
+Provision and complete Data Cloud setup, connect to relevant Salesforce Clouds, and configure Admin user
+Configure additional users and permissions, configure Admin user, provision and complete Data Cloud setup, and Connect to relevant Salesforce Clouds
+
+Which connection can a Data Aware Specialist setup to ingest data from without needing the Admin to explicitly setup the connection?
+Google Cloud Storage
+B2C Commerce
+*Amazon S3
+Salesforce CRM
+
+When using the GCS Connector, how frequently is data from Google Cloud Storage synchronized with Data Cloud?
+Every 15 minutes
+*Every 1 hour
+Every 12 hours
+Every 24 hours
+
+What 2 scenarios would you recommend when provisioning Data Cloud in an existing CRM Data Org? 
+Existing CRM Data Org has been highly customized
+*Customer data is housed in a single Salesforce Org
+*Customer is using Loyalty Management and Promotions
+Customer has a need to connect multiple CRM Orgs
+
+Which permission set is required to setup an External Activation Platform? 
+*Customer Data Platform Admin
+Customer Data Platform Data Aware Specialist
+Customer Data Platform Marketing Manager
+Customer Data Platform Marketing Specialist
+
+What is used to customize and organize Data Cloud Unified Individual Record Pages for surfacing insights?
+Salesforce Metadata API 
+Sharing Rules
+*Lightning App Builder
+Lightning Report Builder
+Salesforce Flow
+
+Identify a typical use case for customizing and organizing the Data Cloud Unified Individual record page.
+So only specific teams can view a specific record page
+*To order and hide specific fields that are relevant to a team
+To reduce potential metadata duplications
+To trigger an action when a change is made
+
+What can be used to make Segments available only to certain groups based on their role?
+Salesforce Metadata API 
+*Sharing Rules
+Lightning App Builder
+Lightning Report Builder
+Salesforce Flow
+
+Identify the features of an Unmanaged Package. Choose three.
+*Not upgradeable or supported
+Typically used by ISVs on AppExchange
+*Commonly used for one-time migration of metadata
+Contains a namespace
+*Package Developer has no control over the components once installed
+Is upgradeable and supported
+
+Which three Data Cloud actions are available via Flow?
+*Publish Calculated Insights
+*Publish Segments
+*Trigger Identity Resolution Job
+Map Data Model Object Fields
+Publish Streaming Insights
+
+What cannot be used to create a report on Data Cloud data that’s in a DMO (Data Model Objects)?
+Tableau
+CRM Analytics
+*CRM Reports and Dashboards
+Marketing Cloud Intelligence
+
+If you want to build a CRM report to include a Data Cloud configuration object, what do you need to do first?
+*Configure a custom report type
+Customize the object
+Import metadata for the object
+Create a sharing rule to make the object available
