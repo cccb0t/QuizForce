@@ -1,0 +1,1929 @@
+
+Question 1 of 30 You got this correct! Objective: Salesforce Fundamentals
+Ursa Major Solar recently enabled the multiple currencies feature.
+As a result, which currency will be used as the foundation for all currency conversion rates?
+A. Record currency
+Incorrect. By default, Salesforce organizations use a single currency. Once you set the required currency locale in your
+company settings, all currency values on records display in that currency.
+B. Personal currency
+Incorrect. By default, Salesforce organizations use a single currency. Once you set the required currency locale in your
+company settings, all currency values on records display in that currency.
+C. Corporate currency
+Correct. By default, Salesforce organizations use a single currency. Once you set the required currency locale in your
+company settings, all currency values on records display in that currency.
+D. Active currency
+Incorrect. By default, Salesforce organizations use a single currency. Once you set the required currency locale in your
+company settings, all currency values on records display in that currency.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Trailhead Badge
+Question 2 of 30 You got this correct! Objective: Salesforce Fundamentals
+At Ursa Major Solar, Salesforce users have a session timeout of 12 hours. Management wants
+the session timeout to be increased to 24 hours. Management also wants inactive users to be
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 2/14
+logged out at that time. What should the administrator do to fulfill this request?
+A. In session settings, select 24 hours, and check the box for force logout on session timeout.
+Correct. In order to log users out after 24 check the force timeout and set the timeout value to 24 hours in the session
+settings.
+B. In session settings, select 24 hours, and uncheck the box for force logout on session timeout.
+Incorrect. In order to log users out after 24 check the force timeout and set the timeout value to 24 hours in the session
+settings.
+C. In user profiles, enter 24 hours in the timeout section, and check the box for Fforce logout on session
+timeout.
+Incorrect. In order to log users out after 24 check the force timeout and set the timeout value.
+D. In user profiles, type in 24 hours in the timeout section, and uncheck the box for force logout on
+session timeout.
+Incorrect. In order to log users out after 24 check the force timeout and set the timeout value.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 3 of 30 You got this incorrect. You chose D. Objective: Object Manager &
+Lightning App Builder
+Ursa Major Solar has the following process regarding its opportunities:
+There are three different lines of business (Widget A, Widget B, Widget C) that each
+contain fields specific to that line of business's industry and customers.
+For each line of business, there is a specific set of fields that Sales users should see and
+a different set of fields that Marketing users should see.
+An Administrator needs to configure Page Layouts and Record Types for the Opportunity
+object so that each team sees what it needs to see, without cluttered layouts containing
+unnecessary fields.
+What should the Administrator do to accomplish this goal?
+A. Create six Record Types (Sales Widget A, Sales Widget B, Sales Widget C, Marketing Widget A, Marketing
+Widget B, and Marketing Widget C) with one Page Layout.
+Incorrect. Record types let you offer different business processes, picklist values, and page layouts to different users. Only
+three record types are needed to track the different widget types. Six page layouts to provide the proper fields for each
+group.
+B. Create one Record Type with six Page Layouts (Marketing Widget A, Marketing Widget B, Marketing
+Widget C, Sales Widget A, Sales Widget B, and Sales Widget C).
+Incorrect. Record types let you offer different business processes, picklist values, and page layouts to different users. Three
+record types are needed to track the different widget types. Six page layouts to provide the proper fields for each group.
+C. Create three Record Types (Widget A, Widget B, Widget C) with six Page Layouts (Sales Widget A,
+Sales Widget B, Sales Widget C, Marketing Widget A, Marketing Widget B, and Marketing Widget C).
+Correct. Record types let you offer different business processes, picklist values, and page layouts to different users. Three
+record types to track the different widget types. Six page layouts to provide the proper fields for each group.
+D. Create six Record Types (Marketing Widget A, Marketing Widget B, Marketing Widget C, Sales Widget A,
+Sales Widget B, and Sales Widget C) with six total Page Layouts, one for each Record Type.
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 3/14
+Incorrect. Record types let you offer different business processes, picklist values, and page layouts to different users. Only
+three record types are needed to track the different widget types. Six page layouts to provide the proper fields for each
+group.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 4 of 30 You got this correct! Objective: Salesforce Fundamentals
+How can a System Administrator discover who added a field to the account page layout?
+A. Download the Setup Audit Trail.
+Correct. The Setup Audit Trail tracks field history.
+B. Run an Account History report.
+Incorrect. Running a report will not show changes to the Account page.
+C. Create a poll in the Admin Chatter group.
+Incorrect. Creating a poll is not a verified way to track field changes to the account page layout.
+D. Review the Account Last Modified By field.
+Incorrect. The Account Last Modified By might show a change made after the information you would be looking for.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 5 of 30 You got this correct! Objective: Workflow/Process Automation
+Universal Containers has asked its Administrator to automatically set some fields when a
+Lead is created.
+What is the best way for the administrator to perform this automation?
+A. Use a Screen Flow with default values
+Incorrect. Update new and changed records by using before-save updates in flows.
+B. Use Process Builder that launches a flow
+Incorrect. Update new and changed records by using before-save updates in flows.
+C. Create 1 Workflow rule per field
+Incorrect. Update new and changed records by using before-save updates in flows.
+D. Record Triggered-Flow that runs Before save
+Correct. Update new and changed records by using before-save updates in flows.
+Learn more about the topic(s) discussed in this question by reviewing this Trailhead Badge.
+Question 6 of 30 You got this correct! Objective: Data & Analytics Management
+A System Administrator will use the Import Wizard to update existing Account records.
+Which values can the Import Wizard use to find matching records?
+A. Address field
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 4/14
+Incorrect. Match Account Id, Account Name, and Account Site exactly as they appear in the application.
+B. Created By field
+Incorrect. Match Account Id, Account Name, and Account Site exactly as they appear in the application.
+C. Account Name and Site fields
+Correct. Match Account Id, Account Name, and Account Site exactly as they appear in the application.
+D. Parent Account field
+Incorrect. Match Account Id, Account Name, and Account Site exactly as they appear in the application.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 7 of 30 You got this incorrect. You chose B. Objective: Data & Analytics
+Management
+Universal Containers has inconsistent data in its 20,000 existing Accounts and asked the
+System Administrator to convert all of the standard country fields to ISO codes.
+What method should the System Administrator use?
+A. Mass Update Addresses
+Correct. Use mass update when data is inconsistent.
+B. Data.com Clean
+Incorrect. Data.com is not a standard tool. Use mass update when data is inconsistent.
+C. Report Exports
+Incorrect. Exporting data cannot help to mass update information. Use mass update when data is inconsistent.
+D. List View Inline Editing
+Incorrect. List view inline editing cannot help to mass update information. Use mass update when data is inconsistent.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 8 of 30 You got this correct! Objective: Service and Support Applications
+Universal Containers wants internal support requests to be directed to any of the IT
+representatives. They want external support requests to be directed to customer support
+representatives based on the contact's location.
+What should the System Administrator use to set this up?
+A. Auto-responses Rules and Profiles
+Incorrect. Assignment rules automate support processes. Queues prioritize, distribute, and assign records to teams who
+share workloads.
+B. Automated Notifications and Groups
+Incorrect. Assignment rules automate support processes. Queues prioritize, distribute, and assign records to teams who
+share workloads.
+C. Territory Management and Teams
+Incorrect. Territory management and teams make it easy for your sales team to structure Salesforce data the way sales
+territories are structured.
+D. Assignment Rules and Queues
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 5/14
+Correct. Assignment rules automate support processes. Queues prioritize, distribute, and assign records to teams who share
+workloads.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Reference Document
+Question 9 of 30 You got this correct! Objective: Object Manager & Lightning App
+Builder
+The customer support team wants to use a different Page Layout when closing a Case.
+Which method should the System Administrator use to fulfill this request?
+A. Field-Level Security
+Incorrect. When agents close a case, they see the close case page layout, where agents can enter information about the case
+resolution.
+B. Case Close Page Layout
+Correct. When agents close a case, they see the close case page layout, where agents can enter information about the case
+resolution.
+C. Support Process
+Incorrect. When agents close a case, they see the close case page layout, where agents can enter information about the case
+resolution.
+D. Record Type and Page Layout
+Incorrect. When agents close a case, they see the close case page layout, where agents can enter information about the case
+resolution.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 10 of 30 You got this correct! Objective: Workflow/Process Automation
+Universal Containers wants to create a Workflow Rule to send an email alert to members of
+its Board of Directors, none of whom use Salesforce.
+How many of the board members can be added to a single Email Alert?
+A. Up to 250 additional email addresses can be added to the Email Alert.
+Incorrect. Salesforce allows up to five additional email addresses for recipients who are not Salesforce users, leads, or
+contacts.
+B. It is not possible to add additional email addresses to the Email Alert.
+Incorrect. Salesforce allows up to five additional email addresses for recipients who are not Salesforce users, leads, or
+contacts.
+C. Up to 5 additional email addresses can be added to the Email Alert.
+Correct. Salesforce allows up to five additional email addresses for recipients who are not Salesforce users, leads, or
+contacts.
+D. Up to 25 additional email addresses can be added to the Email Alert.
+Incorrect. Salesforce allows up to five additional email addresses for recipients who are not Salesforce users, leads, or
+contacts.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 6/14
+Question 11 of 30 You got this correct! Objective: Data & Analytics Management
+Ursa Major Solar has a million new Account records to upload into Salesforce.
+What is the recommended method for uploading this data?
+A. Utilize the Data Import Wizard.
+Incorrect. Data Import Wizard is supported for loads up to 50,000 records at a time.
+B. Utilize the Data Loader.
+Correct. Data Loader is supported for loads of up to 5 million records.
+C. Request help from Salesforce.
+Incorrect. Salesforce support is not needed. Data Loader is supported for loads of up to 5 million records.
+D. Utilize an AppExchange app.
+Incorrect. AppExchange is a marketplace offering solutions, such as apps, components, and consulting services.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 12 of 30 You got this incorrect. You chose A C. Objective: Salesforce
+Fundamentals
+Which two changes are tracked in the Setup Audit Trail?
+Choose 2 options.
+A. Resetting a user's password
+Correct. The Setup Audit Trail tracks password resets.
+B. Using the Data Import Wizard
+Correct. The Setup Audit Trail tracks the use of the Data Import Wizard.
+C. Creating a List View
+Incorrect. The Setup Audit Trail does not track List View creation.
+D. Using the Data Loader
+Incorrect. The Setup Audit Trail does not track use of Data Loader
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 13 of 30 You got this correct! Objective: Sales and Marketing Applications
+Which two objects can be related to Campaign Members?
+Choose 2 options.
+A. Contact Roles
+Incorrect. Campaign members are contacts or leads associated with campaigns, not contact roles.
+B. Partners
+Incorrect. Campaign members are contacts or leads associated with campaigns, not partners.
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 7/14
+C. Contacts
+Correct. Campaign members are contacts or leads associated with campaigns.
+D. Leads
+Correct. Campaign members are contacts or leads associated with campaigns.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 14 of 30 You got this correct! Objective: Sales and Marketing Applications
+Universal Containers sells through many different reseller networks. Each reseller's deals are
+tracked on separate opportunities. The sales manager is concerned that the pipeline report is
+not accurate due to multiple opportunities for the same end customer.
+How should the sales process be modified to ensure opportunities are not double-counted in
+the pipeline?
+A. Create one opportunity and use the competitors related list to track the different resellers.
+Incorrect. Competiors would not help track resellers.
+B. Enable duplicate management to prevent the creation of the duplicate opportunities.
+Incorrect. Duplicate rules would not help to omit duplicate opporutnities.
+C. Change the amount on the duplicate opportunities to zero.
+Incorrect. Changing the amount to zero would not help to omit duplicate opporutnities.
+D. Change the forecast category to Omitted on the duplicate opportunities.
+Correct. A forecast category is the category within the sales cycle to which an opportunity is assigned based on its
+opportunity stage. The standard forecast categories are Pipeline, Best Case, Commit, Omitted, and Closed.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Trailhead Badge
+Question 15 of 30 You got this correct! Objective: Object Manager & Lightning App
+Builder
+An administrator at Ursa Major Solar (UMS) has created a new Lightning record page for the
+sales team to display a report chart embedded on the account page. No record types
+currently exist for an account.
+Which action should the administrator perform to make this page the default view of the
+UMS app for the sales team without impacting the support team?
+A. Create an account record type and make the page the default object record page.
+Incorrect. Making the page the object default would be for the entire object affecting all users.
+B. Make the page the default object record page for the UMS app.
+Incorrect. Making the page the object default would be for the app affecting all users.
+C. Make the page the org default.
+Incorrect. Making the page the org default would be for the entire org affecting all users.
+D. Make the page the default object record page for the UMS app for the sales profile.
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 8/14
+Correct. Activate Lightning record pages as the default record page for profiles.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 16 of 30 You got this correct! Objective: Data & Analytics Management
+Universal Containers uses a private data access model. Product managers and sales
+representatives are in different branches of the role hierarchy.
+What should an Administrator do to ensure that product managers can report on
+opportunities in their product line?
+A. Create a new role for product managers and sales representatives.
+Incorrect. A criteria-based sharing rule determines with whom to share records based on field values.
+B. Save all opportunity reports in a public folder.
+Incorrect. A criteria-based sharing rule determines with whom to share records based on field values.
+C. Create a sharing rule based on criteria.
+Correct. A criteria-based sharing rule determines with whom to share records based on field values.
+D. Move all product managers to a role below the sales representatives.
+Incorrect. A criteria-based sharing rule determines with whom to share records based on field values.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 17 of 30 You got this correct! Objective: Service and Support Applications
+A System Administrator enables Case Feed Actions and Feed Items in Support Settings.
+With the appropriate Profile permissions enabled, what change will users see?
+A. Cases will use Feed Layouts rather than standard Page Layouts.
+Correct. When you enable case feed-specific actions and feed items, existing cases are upgraded to the case feed user
+interface.
+B. All Case fields will be added to the Chatter Feed Tracking.
+Incorrect. When you enable case feed-specific actions and feed items, existing cases are upgraded to the case feed user
+interface.
+C. All Case buttons will be converted to Actions in the Case Feed.
+Incorrect. When you enable case feed-specific actions and feed items, existing cases are upgraded to the case feed user
+interface.
+D. Case Feeds will no longer be hidden on standard Page Layouts.
+Incorrect. When you enable case feed-specific actions and feed items, existing cases are upgraded to the case feed user
+interface.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 18 of 30 You got this correct! Objective: Workflow/Process Automation
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 9/14
+The administrator for the Cloud Kicks has a flow that makes several updates to Contacts
+when they are being created. If the Contact Status is “New” and the Contact’s email is known,
+the administrator would also like to send a welcome email.
+What should the administrator do to complete this requirement?
+A. Update the flow with a decision to send the email when needed.
+Correct. When a flow executes a Decision element, it evaluates each decision outcome in order.
+B. Update the flow with a formula to send the email when needed.
+Incorrect. When a flow executes a Decision element, it evaluates each decision outcome in order.
+C. Create a process builder with email alert to send the email.
+Incorrect. When a flow executes a Decision element, it evaluates each decision outcome in order.
+D. Create a workflow rule with email alert to send the email.
+Incorrect. When a flow executes a Decision element, it evaluates each decision outcome in order.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 19 of 30 You got this correct! Objective: Object Manager & Lightning App
+Builder
+Which type of field do administrators use when creating a junction object?
+A. Formula
+Incorrect. Formula fields allow you to define calculations that reference other fields to display new numeric, text, date, or
+checkbox values in that field, but they are not used when creating a junction object.
+B. Master-detail
+Correct. Master-detail is a custom field that is used when creating a junction object. The junction object allows a many-to-
+many relationship.
+C. Look-up
+Incorrect. A look-up field is not used when creating a junction object. The look-up field allows users to create a relationship
+between two records so you can associate them with each other.
+D. Text area
+Incorrect. Text area is not used when creating a junction object.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 20 of 30 You got this incorrect. You chose C D. Objective: Salesforce
+Fundamentals
+What are two reasons a user cannot be deactivated?
+Choose 2 options.
+A. The user account is frozen.
+Incorrect. A user account can be frozen if unable to be deactivated, but it does not prevent an account from being
+deactivated.
+B. The user is a Customer Community Administrator.
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 10/14
+Correct. The user cannot be deactivated if they are a Customer Community Administrator.
+C. The user is the Owner of open Opportunities.
+Incorrect. The user can still be deactivated if they are the owner of open opportunities. The ownership can then be
+transferred to another user account.
+D. The user is the recipient of Workflow Email Alerts.
+Correct. If a user is active in a workflow, it will prevent the user from being deactivated.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 21 of 30 You got this correct! Objective: Data & Analytics Management
+What is the maximum number of components that can be added to a single Dashboard?
+A. 3
+Incorrect. Each dashboard can have up to 20 components.
+B. 15
+Incorrect. Each dashboard can have up to 20 components.
+C. 20
+Correct. Each dashboard can have up to 20 components.
+D. 50
+Incorrect. Each dashboard can have up to 20 components.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 22 of 30 You got this correct! Objective: Data & Analytics Management
+Ursa Major Solar wants all Sales Users to see a dashboard that displays Total Closed/Won
+Opportunity Amount by User on a monthly basis. The Opportunity sharing model is private.
+What should the administrator do to fulfill this request?
+A. Create the Dashboard from the Opportunities by User Report, choose the Sales Manager as RunAs User
+and Save in the private Dashboard Folder.
+Incorrect. Saving to a private folder will not allow access for the Sales users.
+B. Request for the Sales Manager to create the Dashboard from the Opportunities by User Report,
+select "View Dashboard as Me"
+, and save in the shared Dashboard Folder.
+Correct. By setting the running user to the Sales Manager and saving in a shared folder the Sales user will see all the records
+the Sales Manager can see.
+C. Request for the Sales Manager to create the Dashboard from the Opportunities by User Report and save
+it to her private Dashboards Folder.
+Incorrect. Saving to a private folder will not allow access for the Sales users.
+D. Create the Dashboard from the Opportunities by User Report, then save it in the shared Dashboard
+Folder as a Dynamic Dashboard.
+Incorrect. Dynamic dashboard would only show data the running users has access too.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 11/14
+Question 23 of 30 You got this correct! Objective: Sales and Marketing Applications
+Ursa Major Solar (UMS) is configuring the lead conversion process.
+Which two factors should UMS consider before setting up the process?
+Choose 2 options.
+A. Standard lead fields are automatically converted to account, contact, and opportunity fields.
+Correct. When leads are converted lead records, standard lead fields map to contact, account, person account, and
+opportunity fields. Custom fields are map to newly created records.
+B. Roll-up summary lead fields can be mapped to custom contact fields.
+Incorrect. Roll-up summarizes are not avalible to map to another object.
+C. Custom lead fields can be mapped to account, contact, and opportunity fields.
+Correct. When leads are converted lead records, standard lead fields map to contact, account, person account, and
+opportunity fields. Custom fields are map to newly created records.
+D. Custom lead fields can be mapped to custom object fields.
+Incorrect. Leads are not converted to custom objects.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 24 of 30 You got this correct! Objective: Salesforce Fundamentals
+The administrator at Ursa Major Solar needs to provide information for total Salesforce
+licenses, used licenses, and the remaining Salesforce licenses.
+Where in setup can this information be found?
+A. Company Information
+Correct. You would find information about how many licenses have been used and how many are still available under the
+Company Information section in Setup.
+B. Users
+Incorrect. Though you can find information for each individual user's license under the Users section of Setup, you would
+not find information about how many licenses have been used, and how many are still available.
+C. Profiles
+Incorrect. Profiles define how users can access objects and data. This is not where you would find information about how
+many licenses have been used or are still available.
+D. Critical Updates
+Incorrect. Critical Updates is found in Company Settings and is where you would review and activite release updates to
+improve performance, security, business logic and usability.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 25 of 30 You got this correct! Objective: Service and Support Applications
+Customers complain that they do not know when Comments have been added to their
+Cases.
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 12/14
+Which configuration can a System Administrator implement to address this concern?
+A. Configure the Case Auto-Response Rules.
+Incorrect. Enable Case Comment Notification to notify contacts when a case comment has been modified or added to a
+case.
+B. Configure Feed Tracking for Case Comments.
+Incorrect. Enable Case Comment notification to notify contacts when a case comment has been modified or added to a
+case.
+C. Create a Workflow Rule Email Alert on Case Comments.
+Incorrect. Enable Case Comment notification to notify contacts when a case comment has been modified or added to a
+case.
+D. Enable Case Comment Notification to Contacts.
+Correct. This notifies contacts when a case comment has been modified or added to a case.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 26 of 30 You got this correct! Objective: Productivity & Collaboration
+An administrator needs to configure Ursa Major Solar's Salesforce Mobile app with the
+company's brand-specific images and color schemes.
+Which set of branding options should the administrator use?
+A. Loading Page Logo, Brand Color, Loading Page Color
+Correct. Change the Salesforce mobile app’s appearance, including the loading page background color, loading page logo,
+and header background color, so the app matches your company’s branding.
+B. Tab Colors, Action Colors, Loading Page Logo
+Incorrect. Change the Salesforce mobile app’s appearance, including the loading page background color, loading page logo,
+and header background color, so the app matches your company’s branding.
+C. Individual Page Colors, Multiple Loading Page Logos
+Incorrect. Change the Salesforce mobile app’s appearance, including the loading page background color, loading page logo,
+and header background color so the app matches your company’s branding.
+D. Loading Page Color, Action Colors, Loading Page Logo
+Incorrect. Change the Salesforce mobile app’s appearance, including the loading page background color, loading page logo,
+and header background color, so the app matches your company’s branding.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Trailhead Badge
+Question 27 of 30 You got this correct! Objective: Workflow/Process Automation
+Ursa Major Solar (UMS) is using the workflow field update.
+Which two actions can UMS complete with this feature?
+Choose 2 options.
+A. Modify the record type of a record.
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 13/14
+Correct. Use a field update action to change the record type.
+B. Choose a formula field for a field update.
+Incorrect. Formula fields are a calculation and cannot be updated with a workflow.
+C. Apply a specific value to a field.
+Correct. Use a field update action to apply the value.
+D. Update the value of a field on a child object.
+Incorrect. Workflow actions cannot update child records.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 28 of 30 You got this correct! Objective: Productivity & Collaboration
+Users at Universal Containers (UC) adhere to the following process for expense reports:
+Create the expense report.
+Attach receipts in an Expenses app.
+Send the report to the accountant to review and approve.
+An administrator needs to enable this app for Salesforce Mobile.
+What should the administrator consider from the User's perspective?
+A. A user can create list views, attach receipts as photos, and submit records for approval.
+Incorrect. List views are not able to be submitted for approval.
+B. A user can create records, attach receipts as photos, and submit for approval.
+Correct. An approval process automates how records are approved in Salesforce.
+C. A user can search Salesforce Records, attach receipts as photos, and approve records from Chatter.
+Incorrect. An approval process automates how records are approved in Salesforce.
+D. A user can utilize Search, create list views, and receive record push notifications from Chatter.
+Incorrect. An approval process automates how records are approved in Salesforce.
+Learn more about the topic(s) discussed in this question by reviewing this Trailhead Badge.
+Question 29 of 30 You got this correct! Objective: Sales and Marketing Applications
+Universal Containers has an inside sales team that only sells warranty renewals and an
+outside sales team that only sells products. Each type of sale captures different information
+and has a different sales cycle.
+How should the System Administrator configure Salesforce to meet these requirements?
+A. Create a custom Object for warranty renewals with the appropriate Sales Process.
+Incorrect. Use record types to offer different business processes, picklist values, and page layouts to different users.
+B. Create a custom picklist field on the Opportunity to specify if it is a product or warranty sale.
+Incorrect. Use record types to offer different business processes, picklist values, and page layouts to different users.
+C. Create a Page Layout, Sales Process, and Record Type for each type of sale.
+1/23/24, 9:49 AM Administrator Practice Test Results
+about:blank 14/14
+Correct. Record types offer different business processes, picklist values, and page layouts to different users.
+D. Create a Validation Rule that displays the correct Page Layout and Sales Process based on Role.
+Incorrect. Use record types to offer different business processes, picklist values, and page layouts to different users.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 30 of 30 You got this correct! Objective: Service and Support Applications
+Which configuration action should be performed to ensure every Case gets assigned to a
+valid Owner?
+A. Create a Validation Rule based on the Created By field.
+Incorrect. Validation rules verify that the data a user enters in a record meets the standards specify before the user can save
+the record.
+B. Create a Workflow Rule that checks for a blank Owner field.
+Incorrect. Define a default case owner to automatically assign a user or queue to all cases that don't match any case
+assignment rule entries.
+C. Define the Default Case Owner in Support Settings.
+Correct. This automatically assigns a user or queue to all cases that don't match any case assignment rule entries.
+D. Configure a default value for the Case Owner field.
+Incorrect. Define a default case owner to automatically assign a user or queue to all cases that don't match any case
+assignment rule entries.
+Question 1 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+Universal Containers has two business groups, Products and Services. Both groups will be using
+opportunities to track deals, but different fields are required by each group.
+In which two ways should an administrator meet this requirement?
+Choose 2 options.
+A. Create two page layouts.
+Correct. By creating two page layouts, you are able to customize what fields are shown for each group based on the type of page
+layout they have access to.
+B. Create two record types.
+Correct. By creating two record types you are able to customize what fields are shown fo each group based on the type of record
+they have access to.
+C. Create two permission sets.
+Incorrect. A user is assigned a permission set, and that does affect what the user can see. However, if the user needs to see both
+types of opportunities based on whether the opportunity is a product or service, you would want them to be able to easily pick the
+type of opportunity and the corresponding page layout/fields.
+D. Create two lead processes.
+Incorrect. Lead processes are used before the opportunity is created.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 2 of 30 You got this correct! Objective: Sales and Marketing Applications
+Universal Containers wants the sales team to access information about Closed Won Opportunities
+with a common competitor for all pending big deals.
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 2/13
+Which features should the System Administrator implement?
+A. Competitors and Similar Opportunities
+Correct. Enable similar opportunities and competitors to allow users to find Closed - Won opportunities that match the attributes
+of an opportunity they're currently working on, so they can quickly access information that can help them close their deals.
+B. Big Deal Alerts and Sales Teams
+Incorrect. Enable similar opportunities and competitors to allow users to find Closed - Won opportunities that match the attributes
+of an opportunity they're currently working on, so they can quickly access information that can help them close their deals.
+C. Commonalities and Won Information
+Incorrect. Enable similar opportunities and competitors to allow users to find Closed - Won opportunities that match the attributes
+of an opportunity they're currently working on, so they can quickly access information that can help them close their deals.
+D. Sales Teams and Closed Won Opportunities
+Incorrect. Enable similar opportunities and competitors to allow users to find Closed - Won opportunities that match the attributes
+of an opportunity they're currently working on, so they can quickly access information that can help them close their deals.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 3 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+Ursa Major Solar recently acquired a company whose sales team has a unique sales process, with
+stages that are different from the current setup of stages in Salesforce.
+The Chief Technology Officer (CTO) has decided that the new sales team should NOT change their
+process at all.
+What should the administrator do to incorporate the new sales team's process?
+A. Create new values for the opportunity stage field and use field-level security to control which teams see
+which fields.
+Incorrect. Record types let you offer different business processes, picklist values, and page layouts to different users.
+B. Create new values for the opportunity stage field; create a new sales process assigned to a custom record
+type for the new sales team.
+Correct. Record types let you offer different business processes, picklist values, and page layouts to different users.
+C. Create new values for the opportunity stage field; order them so that the new Sales team's values are at the
+bottom of the picklist.
+Incorrect. Record types let you offer different business processes, picklist values, and page layouts to different users.
+D. Create a record type and page layout for the new sales team and a custom field for the new stages.
+Incorrect. Record types let you offer different business processes, picklist values, and page layouts to different users.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 4 of 30 You got this incorrect. You chose B. Objective: Workflow/Process
+Automation
+The administrator at Universal Containers is creating a flow with several steps.
+How can the administrator check their work as they are developing the flow?
+A. Perform the same steps manually via the UI
+Incorrect. Test a new flow or troubleshoot a flow that fails with the debug option in Flow Builder.
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 3/13
+B. Use debug logs found in Setup
+Incorrect. Test a new flow or troubleshoot a flow that fails with the debug option in Flow Builder.
+C. Use debug logs in the Developer Console
+Incorrect. Test a new flow or troubleshoot a flow that fails with the debug option in Flow Builder.
+D. Use the Debug tool in the flow builder
+Correct. Test a new flow or troubleshoot a flow that fails with the debug option in Flow Builder.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 5 of 30 You got this incorrect. You chose A D E. Objective: Salesforce Fundamentals
+A user's profile can be controlled by which three settings?
+Choose 3 options.
+A. Assigned apps
+Correct. Profiles define how users access objects and data, and what they can do within the application.
+B. Security at the field-level
+Correct. Profiles define how users access objects and data, and what they can do within the application.
+C. Record type assignment
+Correct. Profiles define how users access objects and data, and what they can do within the application.
+D. Feature license assignment
+Incorrect. Feature license assignment grants access to features that need to be added to a user license.
+E. Locale settings
+Incorrect. Locales determine the display formats for date and time, users’ names, addresses, and commas and periods in numbers.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 6 of 30 You got this incorrect. You chose A. Objective: Data & Analytics
+Management
+Which report should a System Administrator use to display the number of Contacts related to an
+Account?
+A. Tabular report with a Roll-up Summary Account field
+Incorrect. Write summary formulas to evaluate a report's group subtotals and grand totals.
+B. Tabular report with a report formula
+Incorrect. Write summary formulas to evaluate a report's group subtotals and grand totals.
+C. Summary report with a report formula
+Correct. Write summary formulas to evaluate a report's group subtotals and grand totals.
+D. Summary report with a Roll-up Summary Account field
+Incorrect. Write summary formulas to evaluate a report's group subtotals and grand totals.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 7 of 30 You got this correct! Objective: Salesforce Fundamentals
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 4/13
+At Ursa Major Solar, Salesforce users have a session timeout of 12 hours. Management wants the
+session timeout to be increased to 24 hours. Management also wants inactive users to be logged
+out at that time. What should the administrator do to fulfill this request?
+A. In user profiles, type in 24 hours in the timeout section, and uncheck the box for force logout on session
+timeout.
+Incorrect. In order to log users out after 24 check the force timeout and set the timeout value.
+B. In session settings, select 24 hours, and uncheck the box for force logout on session timeout.
+Incorrect. In order to log users out after 24 check the force timeout and set the timeout value to 24 hours in the session settings.
+C. In user profiles, enter 24 hours in the timeout section, and check the box for Fforce logout on session
+timeout.
+Incorrect. In order to log users out after 24 check the force timeout and set the timeout value.
+D. In session settings, select 24 hours, and check the box for force logout on session timeout.
+Correct. In order to log users out after 24 check the force timeout and set the timeout value to 24 hours in the session settings.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 8 of 30 You got this correct! Objective: Data & Analytics Management
+Ursa Major Solar has a million new Account records to upload into Salesforce.
+What is the recommended method for uploading this data?
+A. Request help from Salesforce.
+Incorrect. Salesforce support is not needed. Data Loader is supported for loads of up to 5 million records.
+B. Utilize the Data Loader.
+Correct. Data Loader is supported for loads of up to 5 million records.
+C. Utilize an AppExchange app.
+Incorrect. AppExchange is a marketplace offering solutions, such as apps, components, and consulting services.
+D. Utilize the Data Import Wizard.
+Incorrect. Data Import Wizard is supported for loads up to 50,000 records at a time.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 9 of 30 You got this correct! Objective: Productivity & Collaboration
+How should a Chatter user send a message to another Chatter user that cannot be viewed by
+anyone else?
+A. Use #secret to send the message to the recipient.
+Incorrect. Using a hashtag is public. Use Chatter Messages for secure private conversations with other Chatter users.
+B. Post a Message to Record owner.
+Incorrect. Posting on a record inherites the sharing rules. Use Chatter Messages for secure private conversations with other Chatter
+users.
+C. Post a Private Message to the recipient.
+Correct. Use Chatter Messages for secure private conversations with other Chatter users.
+D. Use @mention to include the recipient within the message.
+Incorrect. @mention is public. Use Chatter messages for secure private conversations with other Chatter users.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 5/13
+Question 10 of 30 You got this correct! Objective: Service and Support Applications
+A System Administrator enables Case Feed Actions and Feed Items in Support Settings.
+With the appropriate Profile permissions enabled, what change will users see?
+A. All Case buttons will be converted to Actions in the Case Feed.
+Incorrect. When you enable case feed-specific actions and feed items, existing cases are upgraded to the case feed user interface.
+B. Cases will use Feed Layouts rather than standard Page Layouts.
+Correct. When you enable case feed-specific actions and feed items, existing cases are upgraded to the case feed user interface.
+C. Case Feeds will no longer be hidden on standard Page Layouts.
+Incorrect. When you enable case feed-specific actions and feed items, existing cases are upgraded to the case feed user interface.
+D. All Case fields will be added to the Chatter Feed Tracking.
+Incorrect. When you enable case feed-specific actions and feed items, existing cases are upgraded to the case feed user interface.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 11 of 30 You got this incorrect. You chose A D. Objective: Data & Analytics
+Management
+Ursa Major Solar needs to transfer records from one user to another user during a mass transfer of
+account records.
+Which two record types can be used for this transfer?
+Choose 2 options.
+A. Closed activities
+Incorrect. Use the Mass Transfer tool to transfer multiple accounts, leads, service contracts, and custom objects from one user to
+another.
+B. Open cases
+Correct. Use the Mass Transfer tool to transfer multiple accounts, leads, service contracts, and custom objects from one user to
+another.
+C. Closed cases
+Correct. Use the Mass Transfer tool to transfer multiple accounts, leads, service contracts, and custom objects from one user to
+another.
+D. Related custom object records
+Incorrect. Use the Mass Transfer tool to transfer multiple accounts, leads, service contracts, and custom objects from one user to
+another.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 12 of 30 You got this correct! Objective: Workflow/Process Automation
+Universal Containers has a team of Account Managers that requested email alerts any time an
+Opportunity or Case is created on Accounts that they own.
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 6/13
+What is the minimum number of workflows needed to accomplish this task?
+A. No workflow rules, but two email alerts
+Incorrect. Workflow rules are specific to each object.
+B. Two workflow rules with one email alert each
+Correct. Workflow rules are specific to each object.
+C. One workflow rule with two email alerts
+Incorrect. Workflow rules are specific to each object.
+D. Four workflow rules for create and update on Opportunities and Accounts
+Incorrect. Workflow rules are specific to each object.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 13 of 30 You got this incorrect. You chose A. Objective: Salesforce Fundamentals
+Universal Containers uses a private sharing model for Cases. Each product line has several product
+specialists who want to have visibility to all Cases involving their product line.
+How should the System Administrator meet this requirement?
+A. Create an owner-based Case Sharing Rule to share corresponding Cases with the product specialist role.
+Incorrect. Use a case team to allow the group of people to work together to solve cases.
+B. Create a pre-defined Case Team for each group of product specialists and assign the team using Case
+Assignment Rules.
+Correct. A case team is a group of people that work together to solve cases.
+C. Change the Org-Wide Default for Cases to Controlled By Parent and add product specialists to Account
+Teams.
+Incorrect. Use a case team to allow the group of people to work together to solve cases.
+D. Add the product specialists to the Account Team for each Account that has purchased a product from the
+product line.
+Incorrect. Use a case team to allow the group of people to work together to solve cases.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 14 of 30 You got this incorrect. You chose C. Objective: Sales and Marketing
+Applications
+How should the System Administrator implement biweekly notifications for Sales Reps that
+include Opportunities that need attention based on the Opportunity Owner's last login, past due
+Opportunities, and all Opportunities that have not been updated in the last 30 days?
+A. Create Opportunity Update Reminders.
+Correct. Opportunity update reminders allow managers to automatically send and schedule emails that include a report of the
+team's open opportunities to direct reports. You can select the fields you want to include in the reminders such as last login date,
+or # not updated in the last 30 days.
+B. Create a Chatter Group.
+Incorrect. A Chatter group would not post reminders based on the user's last login.
+C. Create Scheduled Dashboards.
+Incorrect. Scheduled dashboards would not be able to be schedule based on the user's last login.
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 7/13
+D. Create Scheduled Reports.
+Incorrect. Scheduled reports would not be able to be schedule based on the user's last login.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 15 of 30 You got this correct! Objective: Data & Analytics Management
+How should a System Administrator configure a report for each sales rep to see their own Open
+Opportunities?
+A. Create a report filtered by "My Opportunities"
+.
+Correct. Filter a report by value to define the filter criteria.
+B. Create a separate report for each Sales Rep.
+Incorrect. Filter a report by value to define the filter criteria.
+C. Create a report schedule for each Sales Rep.
+Incorrect. Filter a report by value to define the filter criteria.
+D. Create a Summary report grouped by Sales Rep.
+Incorrect. Filter a report by value to define the filter criteria.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 16 of 30 You got this correct! Objective: Data & Analytics Management
+Ursa Major Solar wants to ensure that unique data is always input into a specific field.
+Which two field properties should the administrator configure?
+Choose 2 options.
+A. Unique
+Correct. Customize standard and custom fields to tailor your org to your own unique requirements.
+B. Required
+Correct. Customize standard and custom fields to tailor your org to your own unique requirements.
+C. Data Type
+Incorrect. Customize standard and custom fields to tailor your org to your own unique requirements.
+D. Default Value
+Incorrect. Customize standard and custom fields to tailor your org to your own unique requirements.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 17 of 30 You got this correct! Objective: Productivity & Collaboration
+Ursa Major Solar has the following environment and requirements:
+Critical, high-priority accounts have an assigned District Manager, Sales Representative,
+Inside Sales Representative, and Customer Service Representative.
+The Sales Manager wants to prevent these accounts from being inadvertently contacted
+more than once on the same day.
+The Sales Manager wants to report on various customer interactions.
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 8/13
+How should the administrator fulfill these requirements?
+A. Post customer interactions in Chatter on the account.
+Incorrect. Activities should be used to log key touchpoints on customers so that a report can be pulled.
+B. Log a case on the account.
+Incorrect. Case are an inbound touchpoint from the customer, not to the customer.
+C. Enter comments into the notes section on the account.
+Incorrect. Activities should be used to log key touchpoints on customers so that a report can be pulled.
+D. Log a separate task, call, or activity on the account.
+Correct. Use activities to log key touchpoints on customers so that a report can be pulled.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 18 of 30 You got this correct! Objective: Service and Support Applications
+Ursa Major Solar (USM) has a Web-to-Case form on its Lightning Customer Community. USM
+wants to separate Cases into the following product categories:
+Residential
+Lots/Land
+Commercial
+USM has added a picklist field to store this data.
+How can the Case be automatically placed in the correct queue upon submission?
+A. Create Record Types for each picklist value and assign to each product team's profile.
+Incorrect. Record types let you offer different business processes, picklist values, and page layouts to different users not assign
+records.
+B. Create an Escalation Rule entry for each picklist value and set to zero minutes.
+Incorrect. Escalation rules automatically escalate cases when the case meets the criteria defined in the rule entry.
+C. Create Assignment Rules based on the picklist values to move Cases to a Queue.
+Correct. Assignment Rules define conditions that determine how leads or cases are processed. The rules assign leads and cases to
+the specified user or queue.
+D. Create Record Types for each picklist value and a Business Process to move each Case to the correct Queue.
+Incorrect. Business processes display different picklist values according to each user’s profile but do not assign records.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 19 of 30 You got this correct! Objective: Sales and Marketing Applications
+Universal Containers sells through many different reseller networks. Each reseller's deals are
+tracked on separate opportunities. The sales manager is concerned that the pipeline report is not
+accurate due to multiple opportunities for the same end customer.
+How should the sales process be modified to ensure opportunities are not double-counted in the
+pipeline?
+A. Enable duplicate management to prevent the creation of the duplicate opportunities.
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 9/13
+Incorrect. Duplicate rules would not help to omit duplicate opporutnities.
+B. Create one opportunity and use the competitors related list to track the different resellers.
+Incorrect. Competiors would not help track resellers.
+C. Change the forecast category to Omitted on the duplicate opportunities.
+Correct. A forecast category is the category within the sales cycle to which an opportunity is assigned based on its opportunity
+stage. The standard forecast categories are Pipeline, Best Case, Commit, Omitted, and Closed.
+D. Change the amount on the duplicate opportunities to zero.
+Incorrect. Changing the amount to zero would not help to omit duplicate opporutnities.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this Trailhead
+Badge
+Question 20 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+Ursa Major Solar needs to fulfill the following requirements:
+A custom object must be created to capture account survey data.
+Users need the ability to select an account from the survey record and view related surveys
+on the account record.
+Which two actions can an administrator configure to meet these requirements?
+Choose 2 options.
+A. Put the account related list on the survey page layout.
+Incorrect. Records in Salesforce include details and links to other related records. Add the related list to the account page to
+provide access to the releated survey.
+B. Create a lookup relationship field on the account object.
+Incorrect. A lookup relationship links two objects together. Adding the lookup relationship field on the survey object will allow the
+user to link to an account.
+C. Put the survey related list on the account page layout.
+Correct. Records in Salesforce include details and links to other related records. Add the related list to the account page to provide
+access to the releated survey.
+D. Create a lookup relationship field on the survey object.
+Correct. A lookup relationship links two objects together. Adding the lookup relationship field on the survey object will allow the
+user to link to an account.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 21 of 30 You got this incorrect. You chose D. Objective: Service and Support
+Applications
+Support Representatives at Universal Containers want the same Technical Engineer group to be
+associated with each new Case.
+What should a System Administrator define to implement this requirement?
+A. A Case Assignment Rule to associate the Case Team
+Correct. Assignment rules automate support processes. Create case teams to help groups of people work together to solve cases.
+B. A Workflow Rule to add the Case Team
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 10/13
+Incorrect. Assignment rules automate support processes. Create case teams to help groups of people work together to solve cases.
+C. A Default Case Team on each User's record
+Incorrect. Default case teams provide access to records. Assignment rules automate support processes. Create case teams to help
+groups of people work together to solve cases.
+D. A Default Case Team on each Account record
+Incorrect. Default case teams provide access to records. Assignment rules automate support processes. Create case teams to help
+groups of people work together to solve cases.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 22 of 30 You got this correct! Objective: Service and Support Applications
+In which situation is the Case Contact notified when a support representative adds a new case
+comment?
+A. The System Administrator enables Case Comment Notification to Contacts.
+Correct. A contact is notified when a case comment has been modified or added to a case.
+B. The Support Representative posts the comment to the Case Chatter Feed.
+Incorrect. A contact is notified when a case comment has been modified or added to a case.
+C. The System Administrator configures the Case Auto-Response Rules.
+Incorrect. A contact is notified when a case comment has been modified or added to a case.
+D. The Support Representative uses the Send Email Action on the Case Feed.
+Incorrect. A contact is notified when a case comment has been modified or added to a case.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 23 of 30 You got this correct! Objective: Data & Analytics Management
+Universal Containers uses a private data access model. Product managers and sales
+representatives are in different branches of the role hierarchy.
+What should an Administrator do to ensure that product managers can report on opportunities in
+their product line?
+A. Create a new role for product managers and sales representatives.
+Incorrect. A criteria-based sharing rule determines with whom to share records based on field values.
+B. Move all product managers to a role below the sales representatives.
+Incorrect. A criteria-based sharing rule determines with whom to share records based on field values.
+C. Create a sharing rule based on criteria.
+Correct. A criteria-based sharing rule determines with whom to share records based on field values.
+D. Save all opportunity reports in a public folder.
+Incorrect. A criteria-based sharing rule determines with whom to share records based on field values.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 24 of 30 You got this correct! Objective: Salesforce Fundamentals
+At Universal Containers, a user's department determines which fields the user can see and edit on
+opportunities. For example, users on the sales team can edit all fields on the opportunity, while
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 11/13
+users on the support team have read-only access to these fields.
+In which location is field-level security controlled for users on these teams?
+A. Profile
+Correct. Profiles control object access, field-level security (which fields are visible or editable), page layouts, record types and apps.
+Profiles control what a user can do in the Salesforce org. This is referred to as CRED (create, read, edit, and delete). It also defines
+data administration access to "View all" or "Modify all.
+"
+B. Role
+Incorrect. Roles control access to objects, and open access from the org-wide default settings. Roles do not give access at a field-
+level.
+C. Public groups
+Incorrect. Public groups arer collections of individual users, other groups, individual roles or territories, and/or roles or teritories
+with their subordinates that all have a function in common. They are used when defning sharing rules and also define access and
+sharing settings at the object level.
+D. Sharing rules
+Incorrect. Sharing Rules define the level of access to a record at the object-level. Sharing rules cannot be stricter than the org-wide.
+default settings. Sharing rules just allow greater access for particular users by making exceptions to the org-wide sharing settings.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 25 of 30 You got this correct! Objective: Sales and Marketing Applications
+How can multiple Campaign records be associated with a single Opportunity?
+A. Campaign Hierarchy
+Incorrect. Associating campaigns using a lookup relationship allows you to group campaigns within a specific marketing program
+or initiative, but it doesn’t show influence.
+B. Campaign Influence
+Correct. Use Campaign Influence to relate multiple campaigns to an opportunity.
+C. Primary Campaign Source
+Incorrect. Use Campaign Influence to relate multiple campaigns to an opportunity. Primary campaign source is a picklist.
+D. Campaign Members
+Incorrect. Campaign members are contacts or leads associated with campaigns.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this Reference
+Document
+Question 26 of 30 You got this correct! Objective: Salesforce Fundamentals
+When a Salesforce user is deactivated, what happens to all of the records the user owns in
+Salesforce?
+A. They are automatically assigned to the administrator.
+Incorrect. Deactivated users lose access to any records that were manually shared directly with them, or implicitly shared with
+them as team members. Users higher in the role hierarchy relative to the deactivated users also lose access to those records.
+However, you can still transfer their data to other users and view their names on the Users page.
+B. They are automatically assigned to another user.
+Incorrect. Deactivated users lose access to any records that were manually shared directly with them, or implicitly shared with
+them as team members. Users higher in the role hierarchy relative to the deactivated users also lose access to those records.
+However, you can still transfer their data to other users and view their names on the Users page.
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 12/13
+C. They are automatically deleted.
+Incorrect. Deactivated users lose access to any records that were manually shared directly with them, or implicitly shared with
+them as team members. Users higher in the role hierarchy relative to the deactivated users also lose access to those records.
+However, you can still transfer their data to other users and view their names on the Users page.
+D. They are assigned to the deactivated user until reassigned.
+Correct. Deactivated users lose access to any records that were manually shared directly with them, or implicitly shared with them
+as team members. Users higher in the role hierarchy relative to the deactivated users also lose access to those records. However,
+you can still transfer their data to other users and view their names on the Users page.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 27 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+Ursa Major Solar's administrator created a new account record type, but when marketing users are
+creating new account records, they are unable to choose the new record type.
+What are two potential causes of this issue?
+Choose 2 options.
+A. The record type is disassociated from the page layout.
+Incorrect. The record type is not populated by the page layout relationship.
+B. The record type default setting is disabled.
+Incorrect. A record type can be active or inactive.
+C. The record type is disabled on the marketing user profile.
+Correct. Record types need to be assigned to a profile.
+D. The record type is deactivated.
+Correct. Record types need to be active in order for users to access them.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 28 of 30 You got this correct! Objective: Salesforce Fundamentals
+A user at Ursa Major Solar attempts to log in to Salesforce from an IP address that is outside the
+login IP range on the user's profile but within the organization-wide trusted IP range.
+What occurs as a result of this scenario?
+A. The user will be able to log in without activating the computer.
+Incorrect. Trusted IP Ranges define a list of IP addresses from which users can log in. When you define IP address restrictions for a
+profile, a login from any other IP address is denied.
+B. The user will be unable to log in at all.
+Correct. Trusted IP Ranges define a list of IP addresses from which users can log in. When you define IP address restrictions for a
+profile, a login from any other IP address is denied.
+C. The user will be able to log in after the computer is activated.
+Incorrect. Trusted IP Ranges define a list of IP addresses from which users can log in. When you define IP address restrictions for a
+profile, a login from any other IP address is denied.
+D. The user will be able to log in after answering one security question.
+Incorrect. Trusted IP Ranges define a list of IP addresses from which users can log in. When you define IP address restrictions for a
+profile, a login from any other IP address is denied.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+1/13/24, 12:55 AM Administrator Practice Test Results
+about:blank 13/13
+Question 29 of 30 You got this incorrect. You chose A. Objective: Workflow/Process
+Automation
+The administrator at Cloud Kicks want to update the Account with the number of records on a
+custom object.
+How should the administrator fulfill this requirement?
+A. Create a Formula
+Incorrect. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+B. Create a Flow
+Correct. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+C. Create a Workflow Rule
+Incorrect. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+D. Create a Process
+Incorrect. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 30 of 30 You got this incorrect. You chose A B. Objective: Workflow/Process
+Automation
+An administrator at Ursa Major Solar is configuring a workflow rule.
+What are two considerations for an administrator in this situation?
+Choose 2 options.
+A. Before the Data Import Wizard is used, rules must be deactivated.
+Incorrect. The data import wizard will still run with workflow rules.
+B. Rule actions can take place immediately or can be time based.
+Correct. Workflow rules can be triggered any time a record is saved or created, depending on your rule
+criteria.https:/ /help.salesforce.com/articleView?id=sf.workflow
+_
+rules
+_
+considerations.htm&type=5
+C. When a new rule is activated, each existing record is evaluated.
+Incorrect. Workflow rules can be triggered any time a record is saved or created, depending on your rule criteria. Rules created
+after saving records don’t affect those records retroactively.
+D. Rules can be evaluated when records are created or edited.
+Correct. Workflow rules can be triggered any time a record is saved or created, depending on your rule criteria.
+Question 1 of 30 You got this correct! Objective: Workflow/Process Automation
+The administrator at Cloud Kicks want to update the Account with the number of records on a
+custom object.
+How should the administrator fulfill this requirement?
+A. Create a Workflow Rule
+Incorrect. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+B. Create a Flow
+Correct. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+C. Create a Process
+Incorrect. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+D. Create a Formula
+Incorrect. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 2 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+An administrator at Ursa Major Solar (UMS) has created a new Lightning record page for the sales
+team to display a report chart embedded on the account page. No record types currently exist for
+an account.
+Which action should the administrator perform to make this page the default view of the UMS
+app for the sales team without impacting the support team?
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 2/13
+A. Make the page the org default.
+Incorrect. Making the page the org default would be for the entire org affecting all users.
+B. Make the page the default object record page for the UMS app.
+Incorrect. Making the page the object default would be for the app affecting all users.
+C. Create an account record type and make the page the default object record page.
+Incorrect. Making the page the object default would be for the entire object affecting all users.
+D. Make the page the default object record page for the UMS app for the sales profile.
+Correct. Activate Lightning record pages as the default record page for profiles.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 3 of 30 You got this correct! Objective: Salesforce Fundamentals
+Universal Containers created a new custom object to track Inventory items. The Support Team
+cannot see the Inventory object's tab.
+Which two settings should the System Administrator check to find the cause of the problem?
+Choose 2 options.
+A. Support Team Permission Sets
+Correct. Object permissions specify the type of access that users have to objects.
+B. Inventory object Sharing Settings
+Incorrect. Object permissions specify the type of access that users have to objects.
+C. Support Team Profiles
+Correct. Object permissions specify the type of access that users have to objects.
+D. Inventory object Page Layouts
+Incorrect. Object permissions specify the type of access that users have to objects.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 4 of 30 You got this correct! Objective: Service and Support Applications
+Universal Containers uses an Auto-numbering system to uniquely identify each support request.
+They want customers to know this number as soon as possible.
+Which two features should the System Administrator implement to allow customers have quick
+access to this information?
+Choose 2 options.
+A. Case Feed Layout Actions
+Incorrect. Case feed layout actions do not allow for self-service.
+B. Auto-response Rules
+Correct. Auto-response rules let you automatically send email responses for case submissions based on the record’s attributes.
+C. Case Comment Notifications
+Incorrect. Case comment notifications do not allow for self-service.
+D. Self-service Portal
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 3/13
+Correct. A self-service portal provides an online support channel for your customers - allowing them to resolve their inquiries
+without contacting a customer service representative.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Reference Document
+Question 5 of 30 You got this correct! Objective: Data & Analytics Management
+What is a benefit of using a Lookup Filter instead of a Validation Rule?
+A. Better error messages when an incorrect record is selected
+Incorrect. Lookup filters do not provide error messages.
+B. Improves user efficiency when selecting a related record
+Correct. To improve user efficiency by limiting the number of available options in a lookup search dialog.
+C. Faster page refresh on the Salesforce Mobile App
+Incorrect. To improve user efficiency by limiting the number of available options in a lookup search dialog.
+D. Adds the ability to edit multiple records from list views
+Incorrect. Improve user efficiency by limiting the number of available options in a lookup search dialog.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 6 of 30 You got this correct! Objective: Productivity & Collaboration
+How should a sales rep create an all-day event in Salesforce?
+A. Ensure the event is scheduled for times within the Start and End of Day hours.
+Incorrect. Checking the all-day event checkbox sets the start and end times for 24 hours.
+B. Check the all-day event checkbox on the event.
+Correct. Checking the all-day event checkbox sets the start and end times for 24 hours.
+C. Use a task for an all-day event because then no time fields are needed.
+Incorrect. Tasks have due dates.
+D. Ask the System Administrator to check all-day events in the Activity settings.
+Incorrect. Checking the all-day event checkbox sets the start and end times for 24 hours.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 7 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+Ursa Major Solar's administrator needs to create a custom field to track a specific Tier 2 support
+user on a case record.
+What is the appropriate data type to utilize when creating this custom field?
+A. Formula
+Incorrect. A formula is an algorithm that derives its value from other fields, expressions, or values. Formulas can help you
+automatically calculate the value of a field based on other fields.
+B. Hierarchical relationship
+Incorrect. A special lookup relationship available for only the user object.
+C. Lookup filter
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 4/13
+Incorrect. Lookup filters are administrator settings that restrict the valid values and lookup dialog results for lookup, master-detail,
+and hierarchical relationship fields.
+D. Lookup relationship
+Correct. A lookup relationship links two objects together. This is an optional relationship.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 8 of 30 You got this correct! Objective: Sales and Marketing Applications
+How can multiple Campaign records be associated with a single Opportunity?
+A. Campaign Members
+Incorrect. Campaign members are contacts or leads associated with campaigns.
+B. Campaign Hierarchy
+Incorrect. Associating campaigns using a lookup relationship allows you to group campaigns within a specific marketing program
+or initiative, but it doesn’t show influence.
+C. Primary Campaign Source
+Incorrect. Use Campaign Influence to relate multiple campaigns to an opportunity. Primary campaign source is a picklist.
+D. Campaign Influence
+Correct. Use Campaign Influence to relate multiple campaigns to an opportunity.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Reference Document
+Question 9 of 30 You got this correct! Objective: Data & Analytics Management
+What is the maximum number of components that can be added to a single Dashboard?
+A. 20
+Correct. Each dashboard can have up to 20 components.
+B. 15
+Incorrect. Each dashboard can have up to 20 components.
+C. 3
+Incorrect. Each dashboard can have up to 20 components.
+D. 50
+Incorrect. Each dashboard can have up to 20 components.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 10 of 30 You got this correct! Objective: Service and Support Applications
+What two valid assignee options should an administrator use to configure case assignment rules?
+Choose 2 options.
+A. Queue
+Correct. User and queue can be assigned to a case.
+B. User
+Correct. User and queue can be assigned to a case.
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 5/13
+C. Case team
+Incorrect. A case team is a group of people that work together to solve cases. Case teams cannot own records.
+D. Public group
+Incorrect. A public group consists of a set of users. Public groups cannot own records.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 11 of 30 You got this incorrect. You chose C. Objective: Data & Analytics
+Management
+Ursa Major Solar is looking into backup methods.
+Which set of small and large data backup methods are available in native Salesforce?
+A. Data Loader Exports, Report Exports, and Weekly Data Export Service
+Correct. Data can be backed up via Data Loader Exports, Report Exports, and Weekly Data Export Service.
+B. Report Exports, Dashboard Exports, and Weekly Data Export Service
+Incorrect. Dashboards are not avalible for backup.
+C. Mass Export Wizard, Weekly Data Export Service, and Data Loader Exports
+Incorrect. Mass exports are not avalible.
+D. Data Loader Exports, Mass Exports, and Weekly Data Export Service
+Incorrect. Mass exports are not avalible.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 12 of 30 You got this correct! Objective: Salesforce Fundamentals
+At Universal Containers, a user's department determines which fields the user can see and edit on
+opportunities. For example, users on the sales team can edit all fields on the opportunity, while
+users on the support team have read-only access to these fields.
+In which location is field-level security controlled for users on these teams?
+A. Profile
+Correct. Profiles control object access, field-level security (which fields are visible or editable), page layouts, record types and apps.
+Profiles control what a user can do in the Salesforce org. This is referred to as CRED (create, read, edit, and delete). It also defines
+data administration access to "View all" or "Modify all.
+"
+B. Sharing rules
+Incorrect. Sharing Rules define the level of access to a record at the object-level. Sharing rules cannot be stricter than the org-wide.
+default settings. Sharing rules just allow greater access for particular users by making exceptions to the org-wide sharing settings.
+C. Public groups
+Incorrect. Public groups arer collections of individual users, other groups, individual roles or territories, and/or roles or teritories
+with their subordinates that all have a function in common. They are used when defning sharing rules and also define access and
+sharing settings at the object level.
+D. Role
+Incorrect. Roles control access to objects, and open access from the org-wide default settings. Roles do not give access at a field-
+level.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 6/13
+Question 13 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+Universal Containers has a sales team focused on renewals. They will use many of the same
+Opportunity fields as other teams, but need different Stage values.
+What should the System Administrator update to support this requirement?
+A. Field-Level Security in the User Profile
+Incorrect. Use multiple business processes to display different picklist values according to each user’s profile.
+B. Stage field picklist options in Record Types
+Incorrect. Use multiple business processes to display different picklist values according to each user’s profile.
+C. Page Layouts to include the correct field
+Incorrect. Use multiple business processes to display different picklist values according to each user’s profile.
+D. Stage Selected Values in the Sales Processes
+Correct. Use multiple business processes to display different picklist values according to each user’s profile.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 14 of 30 You got this correct! Objective: Productivity & Collaboration
+A System Administrator wants to implement a feature for call recording to monitor customer
+service quality using Salesforce Service Cloud.
+Which two statements regarding call recording should be considered when implementing this
+requirement?
+Choose 2 options.
+A. Call recording is a feature of some add-on products from the AppExchange.
+Correct. Use the AppExchange to find solutions for complex processes.
+B. Call recording is a native feature available with Salesforce by default.
+Incorrect. Use the AppExchange for solutions to find complex processes.
+C. Call recording is a feature that a developer might create with Salesforce App Cloud.
+Correct. Use a developer to code to create solutions for complex processes.
+D. Call recording is a feature that will not work with Salesforce Service Cloud.
+Incorrect. Use the AppExchange to find solutions for complex processes.
+Learn more about the topic(s) discussed in this question by reviewing this Trailhead Badge and this Reference
+Document
+Question 15 of 30 You got this incorrect. You chose B. Objective: Salesforce Fundamentals
+Universal Containers utilizes a private sharing model for Accounts, Contacts, and Opportunities.
+When account owners are on vacation, a back-up sales rep needs access to all Accounts with the
+rating of Hot.
+How should the System Administrator give the back-up sales rep access to Hot Accounts?
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 7/13
+A. Instruct the Hot Account owner to manually share the Accounts with the back-up rep before leaving on
+vacation.
+Correct. Allow the user to manually share records.
+B. Create a criteria-based sharing rule to share all Hot Accounts with all the users in the back-up rep's public
+group.
+Incorrect. Changing sharing rules is not needed. Allow the user to manually share records.
+C. Create a criteria-based sharing rule to share all Hot Accounts with the user in the back-up rep account field.
+Incorrect. Changing sharing rules is not needed. Allow the user to manually share records.
+D. Use a workflow rule to change ownership for all the Hot Accounts where the owner's On Vacation field is
+checked.
+Incorrect. Changing sharing rules is not needed. Allow the user to manually share records.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 16 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+Universal Containers has a complex sales process with multiple record types, each shared with all
+Profiles. Some users complain about the Record Type selection screen when creating new
+Opportunities.
+Which two actions should the System Administrator take to allow these users to bypass choosing
+a Record Type?
+Choose 2 options.
+A. Instruct users to update the Default Record Type in My Settings.
+Correct. Set an option to automatically insert your default record type when you create records.
+B. Remove the Record Type field from the users' Page Layout.
+Incorrect. Each profile is associated with record types.
+C. Remove Record Types from the users' Sales Process.
+Incorrect. Each profile is associated with record types.
+D. Remove Record Types from the users' Profiles.
+Correct. Each profile is associated with a single record type; users will never be prompted to select a record type when creating
+records.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Reference Document
+Question 17 of 30 You got this correct! Objective: Sales and Marketing Applications
+An Administrator at Ursa Major Solar is converting a lead and needs to capture custom lead data
+on the converted contact.
+What should the administrator do to accomplish this goal?
+A. Utilize the lead conversion wizard to select the fields.
+Incorrect. Fields are not selected by the converting user, they are setup by the admin
+B. Map custom lead fields to custom contact fields.
+Correct. When leads are converted lead records, standard lead fields map to contact, account, person account, and opportunity
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 8/13
+fields. Custom fields are map to newly created records.
+C. Utilize the data loader to move the custom lead data.
+Incorrect. The standard lead convertion process converts data.
+D. Map custom lead fields to standard contact fields.
+Incorrect. Custom lead fields cannot be mapped to standard contact fields.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 18 of 30 You got this incorrect. You chose B D. Objective: Data & Analytics
+Management
+A Finance user with the "View All Data" permission enabled sees no Opportunities when opening
+a Sales pipeline report. However, a Sales Rep sees Opportunities as expected.
+Which two actions should a System Administrator perform to resolve this problem?
+A. Select Save Hierarchy Level on the pipeline report.
+Correct. Show the hierarchy to see your org’s role hierarchy above the report results. You can use the role hierarchy to share report
+data with people at different levels in the hierarchy.
+B. Change the Org-Wide Opportunity Sharing Default to Public Read.
+Incorrect. Show the hierarchy to see your org’s role hierarchy above the report results. You can use the role hierarchy to share
+report data with people at different levels in the hierarchy.
+C. Create a Custom Report Type for the user that shows all records.
+Incorrect. Show the hierarchy to see your org’s role hierarchy above the report results. You can use the role hierarchy to share
+report data with people at different levels in the hierarchy.
+D. Update the report filter to show All Opportunities.
+Correct. Use filters to pare down a report until it only shows the data that is needed.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Reference Document
+Question 19 of 30 You got this incorrect. You chose A. Objective: Workflow/Process
+Automation
+Universal Containers wants to create a Workflow Rule to send an email alert to members of its
+Board of Directors, none of whom use Salesforce.
+How many of the board members can be added to a single Email Alert?
+A. Up to 25 additional email addresses can be added to the Email Alert.
+Incorrect. Salesforce allows up to five additional email addresses for recipients who are not Salesforce users, leads, or contacts.
+B. It is not possible to add additional email addresses to the Email Alert.
+Incorrect. Salesforce allows up to five additional email addresses for recipients who are not Salesforce users, leads, or contacts.
+C. Up to 250 additional email addresses can be added to the Email Alert.
+Incorrect. Salesforce allows up to five additional email addresses for recipients who are not Salesforce users, leads, or contacts.
+D. Up to 5 additional email addresses can be added to the Email Alert.
+Correct. Salesforce allows up to five additional email addresses for recipients who are not Salesforce users, leads, or contacts.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 9/13
+Question 20 of 30 You got this incorrect. You chose A D. Objective: Data & Analytics
+Management
+Which two best practices are recommendedprior to mass-deleting records?
+Choose 2 options.
+A. Run and export a report to archive data before deletion.
+Correct. Back up data prior to mass deleting.
+B. Download a Setup Audit Trail for the last six months before deletion.
+Incorrect. Back up data prior to mass deleting.
+C. Schedule a weekly data export and download the backup zip files.
+Correct. Back up data prior to mass deleting.
+D. Create a new list view for all records that need to be deleted.
+Incorrect. Back up data prior to mass deleting.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 21 of 30 You got this correct! Objective: Sales and Marketing Applications
+Sales representatives at Ursa Major Solar are working on opportunities and need to see how their
+colleagues have effectively managed other opportunities with comparable products, competing
+against the same competitors.
+Which two features should an administrator use to allow for this?
+Choose 2 options.
+A. Opportunity update reminders
+Incorrect. Reminder updates will not allow for comparison or discussion.
+B. Chatter groups
+Correct. A chatter group allows for discussion and sharing of the dashboard.
+C. Big deal alerts
+Incorrect. Big Deal Alerts automatically email your users whenever an opportunity reaches a threshold of amount and probability.
+D. Opportunity Dashboard
+Correct. An opportunity dashboard allows for the reporting and camparison of products.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 22 of 30 You got this correct! Objective: Workflow/Process Automation
+The administrator for the Cloud Kicks has a flow that makes several updates to Contacts when
+they are being created. If the Contact Status is “New” and the Contact’s email is known, the
+administrator would also like to send a welcome email.
+What should the administrator do to complete this requirement?
+A. Update the flow with a formula to send the email when needed.
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 10/13
+Incorrect. When a flow executes a Decision element, it evaluates each decision outcome in order.
+B. Create a process builder with email alert to send the email.
+Incorrect. When a flow executes a Decision element, it evaluates each decision outcome in order.
+C. Update the flow with a decision to send the email when needed.
+Correct. When a flow executes a Decision element, it evaluates each decision outcome in order.
+D. Create a workflow rule with email alert to send the email.
+Incorrect. When a flow executes a Decision element, it evaluates each decision outcome in order.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 23 of 30 You got this incorrect. You chose D. Objective: Service and Support
+Applications
+Support Representatives at Universal Containers want the same Technical Engineer group to be
+associated with each new Case.
+What should a System Administrator define to implement this requirement?
+A. A Default Case Team on each User's record
+Incorrect. Default case teams provide access to records. Assignment rules automate support processes. Create case teams to help
+groups of people work together to solve cases.
+B. A Workflow Rule to add the Case Team
+Incorrect. Assignment rules automate support processes. Create case teams to help groups of people work together to solve cases.
+C. A Case Assignment Rule to associate the Case Team
+Correct. Assignment rules automate support processes. Create case teams to help groups of people work together to solve cases.
+D. A Default Case Team on each Account record
+Incorrect. Default case teams provide access to records. Assignment rules automate support processes. Create case teams to help
+groups of people work together to solve cases.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 24 of 30 You got this incorrect. You chose B D. Objective: Salesforce Fundamentals
+An administrator at Ursa Major Solar is using sharing rules to grant record access to users.
+Which two types of record access can the administrator grant?
+Choose 2 options.
+A. Read Only
+Correct. Read Only access is granted with sharing rules
+B. Read/Write/Transfer
+Incorrect. An admin cannot grant Read/Write/Transfer access with sharing rules.
+C. Read/Write/Delete
+Incorrect. An admin cannot grant Read/Write/Delete access with sharing rules.
+D. Read/Write
+Correct. Read/Write access is granted with sharing rurles.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 11/13
+Question 25 of 30 You got this correct! Objective: Data & Analytics Management
+How should a System Administrator configure a report for each sales rep to see their own Open
+Opportunities?
+A. Create a Summary report grouped by Sales Rep.
+Incorrect. Filter a report by value to define the filter criteria.
+B. Create a report schedule for each Sales Rep.
+Incorrect. Filter a report by value to define the filter criteria.
+C. Create a report filtered by "My Opportunities"
+.
+Correct. Filter a report by value to define the filter criteria.
+D. Create a separate report for each Sales Rep.
+Incorrect. Filter a report by value to define the filter criteria.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 26 of 30 You got this correct! Objective: Salesforce Fundamentals
+What is a benefit of entering Trusted IP Ranges in the Network Access section?
+A. Users that log in within the network will not be required to verify their identity.
+Correct. Entering Trusted IP Ranges in the Network Access section allows users to bypass verification.
+B. AppExchange packages can communicate with an external site.
+Incorrect. All apps can communicate with an external site as long as a verification code or security token is used to authenticate.
+C. All attempts to log in from outside the network will be denied.
+Incorrect. If they are not logging in from a trusted IP , users can use a verification code or security token to authenticate and then
+log in.
+D. Users are unable to log in through the API on networks not marked as trusted.
+Incorrect. If they are not logging in from a trusted IP , users are able to log in through the API using a verification code or security
+token.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 27 of 30 You got this correct! Objective: Service and Support Applications
+Universal Containers wants to allow potential customers to submit Cases for technical inquiries.
+They do not have resources to set up a call center and need to make support available through
+another means.
+Which two options should they consider?
+Choose 2 options.
+A. Adding a link to a specified routing address for Email-to-Case
+Correct. Set up Email-to-Case to efficiently resolve customer issues. Salesforce automatically creates cases and auto-populates case
+fields when customers send messages to the specified email addresses.
+B. Adding a link for Auto-Response Rules for Solutions
+Incorrect. A link and auto-response rules can't submit cases to support.
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 12/13
+C. Implement a Lightning Partner Community with Knowledge
+Incorrect. Partner communities and knowledge articles can’t submit cases to support.
+D. Generate Web-to-Case HTML code to add to the website
+Correct. Gather customer support requests directly from a website and automatically generate new cases with Web-to-Case.
+Setting up Web-to-Case involves enabling the feature, choosing settings, and adding the Web-to-Case form to your website.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Reference Document and this Reference Document and this Reference Document
+Question 28 of 30 You got this correct! Objective: Salesforce Fundamentals
+How should a System Administrator provide a Sales Rep Commission report that is visible only to
+the Executive Team?
+A. Set Opportunity Org-Wide Default Sharing Settings to Private.
+Incorrect. Each user, group, or role can have its own level of access to a report and dashboard folder. Viewers can see the data.
+Editors can determine what data is shown. Managers can control access.
+B. Save the report in the My Personal Report folder.
+Incorrect. My personal reports are only avalible to the logged in user.
+C. Save the report in a folder shared with the Executive Team.
+Correct. Each user, group, or role can have its own level of access to a report and dashboard folder. Viewers can see the data.
+Editors can determine what data is shown. Managers can control access.
+D. Name the report "For Executive Team Use Only - DO NOT USE.
+"
+Incorrect. Each user, group, or role can have its own level of access to a report and dashboard folder. Viewers can see the data.
+Editors can determine what data is shown. Managers can control access.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 29 of 30 You got this correct! Objective: Workflow/Process Automation
+A sales executive at Universal Containers wants to be notified whenever high-value opportunities
+are created for hot accounts.
+What should an administrator do to meet this requirement?
+A. Create an escalation rule based on the opportunity amount.
+Incorrect. Escalation rules automatically escalate cases when the case meets the criteria defined in the rule entry.
+B. Create a workflow rule on the opportunity object.
+Correct. Automate your organization’s standard process by creating a workflow rule.
+C. Create an auto-response rule on the opportunity object.
+Incorrect. Auto-response rules let you automatically send email responses to lead or case submissions based on the record’s
+attributes.
+D. Create a validation rule that evaluates the account rating.
+Incorrect. Validation rules verify that the data a user enters in a record meets the standards you specify before the user can save
+the record.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 30 of 30 You got this incorrect. You chose A C. Objective: Sales and Marketing
+Applications
+1/13/24, 12:43 AM Administrator Practice Test Results
+about:blank 13/13
+Which two related lists should be added to the Opportunity page layout to track how Campaigns
+contribute to the overall pipeline?
+Choose 2 options.
+A. Campaign Influence
+Correct. The Campaign Influence tool helps attribute a percentage of success to influential campaigns.
+B. Contact Roles
+Correct. Opportunity contact roles specify the part that each contact plays in a deal.
+C. Campaign Members
+Incorrect. Campaign members are contacts or leads associated with campaigns.
+D. Open Activities
+Incorrect. Open Activities will not help track campaign information.
+Question 1 of 30 You got this correct! Objective: Sales and Marketing Applications
+Which two related lists should be added to the Opportunity page layout to track how Campaigns
+contribute to the overall pipeline?
+Choose 2 options.
+A. Campaign Influence
+Correct. The Campaign Influence tool helps attribute a percentage of success to influential campaigns.
+B. Campaign Members
+Incorrect. Campaign members are contacts or leads associated with campaigns.
+C. Open Activities
+Incorrect. Open Activities will not help track campaign information.
+D. Contact Roles
+Correct. Opportunity contact roles specify the part that each contact plays in a deal.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 2 of 30 You got this correct! Objective: Service and Support Applications
+Ursa Major Solar (USM) has a Web-to-Case form on its Lightning Customer Community. USM
+wants to separate Cases into the following product categories:
+Residential
+Lots/Land
+Commercial
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 2/13
+USM has added a picklist field to store this data.
+How can the Case be automatically placed in the correct queue upon submission?
+A. Create an Escalation Rule entry for each picklist value and set to zero minutes.
+Incorrect. Escalation rules automatically escalate cases when the case meets the criteria defined in the rule entry.
+B. Create Record Types for each picklist value and assign to each product team's profile.
+Incorrect. Record types let you offer different business processes, picklist values, and page layouts to different users not assign
+records.
+C. Create Record Types for each picklist value and a Business Process to move each Case to the correct Queue.
+Incorrect. Business processes display different picklist values according to each user’s profile but do not assign records.
+D. Create Assignment Rules based on the picklist values to move Cases to a Queue.
+Correct. Assignment Rules define conditions that determine how leads or cases are processed. The rules assign leads and cases to
+the specified user or queue.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 3 of 30 You got this incorrect. You chose B D E. Objective: Data & Analytics
+Management
+Which three reports can be used to display a list of the Top 10 Accounts on a dashboard?
+Choose 3 options.
+A. Tabular report with a chart
+Incorrect. Use a tabular report as the source report .
+B. Tabular report with Rows to Display set to 10
+Correct. Use a tabular report as the source report .
+C. Summary report with a chart
+Correct. The default two-column table uses the first grouping and summary field from the chart in the source report. If the report
+has no chart, default columns are based on the first grouping and summary field in the report.
+D. Summary report with Rows to Display set to 10
+Incorrect. The default two-column table uses the first grouping and summary field from the chart in the source report. If the report
+has no chart, default columns are based on the first grouping and summary field in the report.
+E. Summary report without a chart
+Correct. The default two-column table uses the first grouping and summary field from the chart in the source report. If the report
+has no chart, default columns are based on the first grouping and summary field in the report.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 4 of 30 You got this correct! Objective: Sales and Marketing Applications
+Universal Containers wants the sales team to access information about Closed Won Opportunities
+with a common competitor for all pending big deals.
+Which features should the System Administrator implement?
+A. Sales Teams and Closed Won Opportunities
+Incorrect. Enable similar opportunities and competitors to allow users to find Closed - Won opportunities that match the attributes
+of an opportunity they're currently working on, so they can quickly access information that can help them close their deals.
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 3/13
+B. Big Deal Alerts and Sales Teams
+Incorrect. Enable similar opportunities and competitors to allow users to find Closed - Won opportunities that match the attributes
+of an opportunity they're currently working on, so they can quickly access information that can help them close their deals.
+C. Commonalities and Won Information
+Incorrect. Enable similar opportunities and competitors to allow users to find Closed - Won opportunities that match the attributes
+of an opportunity they're currently working on, so they can quickly access information that can help them close their deals.
+D. Competitors and Similar Opportunities
+Correct. Enable similar opportunities and competitors to allow users to find Closed - Won opportunities that match the attributes
+of an opportunity they're currently working on, so they can quickly access information that can help them close their deals.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 5 of 30 You got this correct! Objective: Data & Analytics Management
+Universal Containers uses a private data access model. Product managers and sales
+representatives are in different branches of the role hierarchy.
+What should an Administrator do to ensure that product managers can report on opportunities in
+their product line?
+A. Move all product managers to a role below the sales representatives.
+Incorrect. A criteria-based sharing rule determines with whom to share records based on field values.
+B. Create a sharing rule based on criteria.
+Correct. A criteria-based sharing rule determines with whom to share records based on field values.
+C. Create a new role for product managers and sales representatives.
+Incorrect. A criteria-based sharing rule determines with whom to share records based on field values.
+D. Save all opportunity reports in a public folder.
+Incorrect. A criteria-based sharing rule determines with whom to share records based on field values.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 6 of 30 You got this correct! Objective: Salesforce Fundamentals
+An administrator at Ursa Major Solar is implementing an organization-wide default option for the
+Account object.
+What is a correct option for the administrator in this scenario?
+A. Public Read/Write/Delete
+Incorrect. An admin would not want everyone in the org to have Read/Write/Delete access, and you cannot restrict access from
+the org-wide default level, so you would want to start with a more restrictive default, and open access from there.
+B. No Access
+Incorrect. No access would not allow anyone in the organization to access the Account object.
+C. Private
+Correct. An admin would want to choose Private access at an org-wide level, because you can always open up access from the org-
+wide default, but you cannot restrict access.
+D. Public Read/Write/Transfer
+Incorrect. An admin would not want everyone in the org to have Read/Write/Transfer access, and you cannot restrict access from
+the org-wide default level, so you would want to start with a more restrictive default, and open access from there.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 4/13
+Question 7 of 30 You got this correct! Objective: Productivity & Collaboration
+A new approval process is being adapted by Ursa Major Solar. After an opportunity has been
+approved, the contract is sent to the customer for signature as the final step in that process.
+How can the administrator implement this functionality?
+A. Use the Salesforce Autosign flow.
+Incorrect. AppExchange is the leading enterprise cloud marketplace with ready-to-install apps, solutions, and consultants that let
+you extend Salesforce.
+B. Hire a consulting firm to develop a document signing workflow.
+Incorrect. AppExchange is the leading enterprise cloud marketplace with ready-to-install apps, solutions, and consultants that let
+you extend Salesforce.
+C. Check the "Send PDF" box on the approval process setup.
+Incorrect. AppExchange is the leading enterprise cloud marketplace with ready-to-install apps, solutions, and consultants that let
+you extend Salesforce.
+D. Install an app from the AppExchange.
+Correct. AppExchange is the leading enterprise cloud marketplace with ready-to-install apps, solutions, and consultants that let
+you extend Salesforce.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 8 of 30 You got this correct! Objective: Workflow/Process Automation
+Universal Containers has a team of Account Managers that requested email alerts any time an
+Opportunity or Case is created on Accounts that they own.
+What is the minimum number of workflows needed to accomplish this task?
+A. Two workflow rules with one email alert each
+Correct. Workflow rules are specific to each object.
+B. No workflow rules, but two email alerts
+Incorrect. Workflow rules are specific to each object.
+C. One workflow rule with two email alerts
+Incorrect. Workflow rules are specific to each object.
+D. Four workflow rules for create and update on Opportunities and Accounts
+Incorrect. Workflow rules are specific to each object.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 9 of 30 You got this correct! Objective: Salesforce Fundamentals
+Ursa Major Solar recently purchased 15 new Salesforce licenses.
+How many users can an administrator create at the same time on the add multiple users page?
+A. A maximum of 5 users.
+Incorrect. You can add up to 10 users at a time to your organization.
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 5/13
+B. A maximum of 15 users.
+Incorrect. You can add up to 10 users at a time to your organization.
+C. An unlimited number of users.
+Incorrect. You can add up to 10 users at a time to your organization.
+D. A maximum of 10 users.
+Correct. You can add up to 10 users at a time to your organization.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 10 of 30 You got this correct! Objective: Sales and Marketing Applications
+Universal Containers offers a variety of products that are comparable to products from other
+companies. Sales representatives request a method to track product strengths and weaknesses
+compared to those offered by other vendors.
+What should the System Administrator implement?
+A. Big Deal Alerts on high-value Opportunities
+Incorrect. The fields for competitors help track competition as sales work to close deals.
+B. Products and Pricebooks on Opportunity Line Items
+Incorrect. The fields for competitors help track competition as sales work to close deals.
+C. Competitors on the Opportunity Page Layout
+Correct. The fields for competitors help track competition as sales work to close deals.
+D. Strength and Weakness fields on Company Information
+Incorrect. The fields for competitors help track competition as sales work to close deals.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 11 of 30 You got this correct! Objective: Service and Support Applications
+Ursa Major Solar needs to ensure compliance with a platinum service level agreement; therefore,
+cases that stay in the Tier 2 queue for longer than 4 hours must be re-assigned to the Tier 3
+queue.
+Which Salesforce feature should be used to fulfill this requirement?
+A. Case comments
+Incorrect. Case comments are used to add notes to a case.
+B. Auto response rule
+Incorrect. Auto-response rules automatically send email responses to lead or case submissions based on the record’s attributes.
+C. Case assignment rule
+Incorrect. Assignment rules automate lead generation and support processes.
+D. Case escalation rule
+Correct. Case escalation rules automatically escalate cases when the case meets the criteria defined in the rule entry.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Reference Document
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 6/13
+Question 12 of 30 You got this correct! Objective: Salesforce Fundamentals
+Ursa Major Solar has a social marketing team set up as a public group. A sales representative
+would like to engage the social marketing team on one opportunity.
+What should the sales representative do to ensure the social marketing team can access the
+opportunity?
+A. Change the opportunity owner to the public group.
+Incorrect. Public groups cannot be owers of records.
+B. Add the public group to the opportunity team.
+Incorrect. Public groups are not sharable with oppotunity teams.
+C. Manually share the record with the public group.
+Correct. Manual sharing gives other users access to certain types of records, including accounts, contacts, and leads.
+D. Add the public group to an opportunity queue.
+Incorrect. Public groups cannot be part of a queue.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 13 of 30 You got this incorrect. You chose B D. Objective: Salesforce Fundamentals
+Which two changes are tracked in the Setup Audit Trail?
+Choose 2 options.
+A. Using the Data Import Wizard
+Correct. The Setup Audit Trail tracks the use of the Data Import Wizard.
+B. Creating a List View
+Incorrect. The Setup Audit Trail does not track List View creation.
+C. Using the Data Loader
+Incorrect. The Setup Audit Trail does not track use of Data Loader
+D. Resetting a user's password
+Correct. The Setup Audit Trail tracks password resets.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 14 of 30 You got this correct! Objective: Workflow/Process Automation
+Universal Containers has asked its Administrator to automatically set some fields when a Lead is
+created.
+What is the best way for the administrator to perform this automation?
+A. Use Process Builder that launches a flow
+Incorrect. Update new and changed records by using before-save updates in flows.
+B. Use a Screen Flow with default values
+Incorrect. Update new and changed records by using before-save updates in flows.
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 7/13
+C. Record Triggered-Flow that runs Before save
+Correct. Update new and changed records by using before-save updates in flows.
+D. Create 1 Workflow rule per field
+Incorrect. Update new and changed records by using before-save updates in flows.
+Learn more about the topic(s) discussed in this question by reviewing this Trailhead Badge.
+Question 15 of 30 You got this correct! Objective: Service and Support Applications
+Universal Containers wants internal support requests to be directed to any of the IT
+representatives. They want external support requests to be directed to customer support
+representatives based on the contact's location.
+What should the System Administrator use to set this up?
+A. Territory Management and Teams
+Incorrect. Territory management and teams make it easy for your sales team to structure Salesforce data the way sales territories
+are structured.
+B. Automated Notifications and Groups
+Incorrect. Assignment rules automate support processes. Queues prioritize, distribute, and assign records to teams who share
+workloads.
+C. Auto-responses Rules and Profiles
+Incorrect. Assignment rules automate support processes. Queues prioritize, distribute, and assign records to teams who share
+workloads.
+D. Assignment Rules and Queues
+Correct. Assignment rules automate support processes. Queues prioritize, distribute, and assign records to teams who share
+workloads.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Reference Document
+Question 16 of 30 You got this correct! Objective: Productivity & Collaboration
+Which two actions allow the System Administrator to limit Chatter access during roll-out to a
+subset of Salesforce users?
+Choose 2 options.
+A. Create a Permission Set with the "Enable Chatter" permission for the subset of users.
+Correct. Control access to Chatter with a profile or permission set.
+B. Add the subset of users to the company-wide Chatter group.
+Incorrect. Control access to Chatter with a profile or permission set.
+C. Edit a Profile to "Enable Chatter" for the subset of users.
+Correct. Control access to Chatter with a profile or permission set.
+D. Create an email invitation for the subset of users.
+Incorrect. Control access to Chatter with a profile or permission set.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 8/13
+Question 17 of 30 You got this incorrect. You chose B D. Objective: Service and Support
+Applications
+The marketing team is asked to provide branding and messaging for email templates to be used
+throughout the customer support process.
+In which two locations can the System Administrator implement customer-facing email templates
+with respect to Cases?
+Choose 2 options.
+A. Owner Assignment Notifications
+Incorrect. Auto-response rules let you automatically send email responses to lead or case submissions based on the record’s
+attributes.
+B. Case Auto-response Rules
+Correct. Auto-response rules let you automatically send email responses to lead or case submissions based on the record’s
+attributes.
+C. Support Reps' Send Email options
+Correct. These options let you create email templates for support users.
+D. Case Escalation Notifications
+Incorrect. Auto-response rules let you automatically send email responses to lead or case submissions based on the record’s
+attributes.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Reference Document
+Question 18 of 30 You got this correct! Objective: Salesforce Fundamentals
+A sales manager recently left Universal Containers and the Salesforce administrator has received
+the urgent request to deactivate their username. Because the sales manager was part of several
+approval processes, it is taking longer than expected.
+What should the Salesforce administrator do?
+A. Reset the User password.
+Incorrect. Resetting the password will prompt the user to reset their own password, and would still allow the user to log in to their
+account.
+B. Freeze the User record.
+Correct. If we are unable to deactivate a user immediately because of account configuration with approval processes, etc., the
+admin should freeze the user account. This will prevent the user from logging into the organization as the admin takes the
+necessary steps to deactivate them.
+C. Change the User profile.
+Incorrect. Changing the user's profile changes the user's access and settings, not login information or access.
+D. Change the User email address.
+Incorrect. Changing the user email address does not change the user's login information and will not prevent them from logging
+into their account.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 9/13
+Question 19 of 30 You got this incorrect. You chose C. Objective: Workflow/Process
+Automation
+The administrator at Cloud Kicks want to update the Account with the number of records on a
+custom object.
+How should the administrator fulfill this requirement?
+A. Create a Formula
+Incorrect. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+B. Create a Flow
+Correct. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+C. Create a Workflow Rule
+Incorrect. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+D. Create a Process
+Incorrect. Use the debug option in Flow Builder to test a new flow or troubleshoot a flow that fails.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 20 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+Universal Containers has a complex sales process with multiple record types, each shared with all
+Profiles. Some users complain about the Record Type selection screen when creating new
+Opportunities.
+Which two actions should the System Administrator take to allow these users to bypass choosing
+a Record Type?
+Choose 2 options.
+A. Remove Record Types from the users' Sales Process.
+Incorrect. Each profile is associated with record types.
+B. Remove Record Types from the users' Profiles.
+Correct. Each profile is associated with a single record type; users will never be prompted to select a record type when creating
+records.
+C. Remove the Record Type field from the users' Page Layout.
+Incorrect. Each profile is associated with record types.
+D. Instruct users to update the Default Record Type in My Settings.
+Correct. Set an option to automatically insert your default record type when you create records.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document and this
+Reference Document
+Question 21 of 30 You got this correct! Objective: Sales and Marketing Applications
+The Sales Operations team notices an increase in Opportunities without Products.
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 10/13
+Which configuration change should the System Administrator make to help Sales Reps remember
+to add Products to every Opportunity?
+A. Enable the Opportunity setting to prompt users to add products to opportunities.
+Correct. Prompting users to add products to opportunities allows sales to easliy add products.
+B. Create a related list to enable the user to view the related products.
+Incorrect. Prompting users to add products to opportunities allows sales to easliy add products.
+C. Set the Org-Wide Defaults for Price Books to Use and Products to Read Only.
+Incorrect. Prompting users to add products to opportunities allows sales to easliy add products.
+D. Create a Workflow Rule on the Opportunity object to add a default Product to Opportunities with no
+Products.
+Incorrect. Prompting users to add products to opportunities allows sales to easliy add products.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 22 of 30 You got this correct! Objective: Data & Analytics Management
+Which report should a System Administrator use to display the number of Contacts related to an
+Account?
+A. Summary report with a report formula
+Correct. Write summary formulas to evaluate a report's group subtotals and grand totals.
+B. Tabular report with a Roll-up Summary Account field
+Incorrect. Write summary formulas to evaluate a report's group subtotals and grand totals.
+C. Summary report with a Roll-up Summary Account field
+Incorrect. Write summary formulas to evaluate a report's group subtotals and grand totals.
+D. Tabular report with a report formula
+Incorrect. Write summary formulas to evaluate a report's group subtotals and grand totals.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 23 of 30 You got this correct! Objective: Workflow/Process Automation
+Universal Containers created a Time-Based Workflow rule that sends a follow-up email to the
+customer two days after a Case is closed. The System Administrator wants to verify that the
+workflow functions correctly.
+Which queue should the System Administrator view to monitor pending Workflow Actions?
+A. Mass Email Queue
+Incorrect. When a workflow rule that has time-dependent actions is triggered, use the workflow queue to view pending actions
+and cancel them if necessary.
+B. Time-Based Workflow Queue
+Correct. When a workflow rule that has time-dependent actions is triggered, use the workflow queue to view pending actions and
+cancel them if necessary.
+C. Background Jobs Queue
+Incorrect. When a workflow rule that has time-dependent actions is triggered, use the workflow queue to view pending actions
+and cancel them if necessary.
+D. Outbound Messaging Delivery Queue
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 11/13
+Incorrect. When a workflow rule that has time-dependent actions is triggered, use the workflow queue to view pending actions
+and cancel them if necessary.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 24 of 30 You got this correct! Objective: Salesforce Fundamentals
+Where does an administrator control field-level security for users?
+A. Profile
+Correct. Profiles allow admins to grant field-level access and access in the profile bypasses rules and org-wide defaults set by
+sharing rules.
+B. Sharing rule
+Incorrect. Sharing rules control object-level access.
+C. User
+Incorrect. When you set up a user, you do not configure field-level security access.
+D. Role
+Incorrect. Role-based sharing controls object-level access.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 25 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+Ursa Major Solar has the following environment and requirements:
+A new custom object named Regulations
+__
+c is a child of the account object.
+All users need the ability to view Regulations
+__
+c when viewing accounts with the sales
+account page layout.
+How should an administrator provide access to Regulations
+__
+c on the sales account page layout?
+A. By adding a new section for Regulations
+__
+c to the sales account page layout
+Incorrect. Adding the related list will allow users to access the child accounts. Related lists are within a section.
+B. By adding a new custom link for Regulations
+__
+c to the sales account page layout
+Incorrect. Adding a custom link will not allow users to view the child accounts.
+C. By adding a new related list for Regulations
+__
+c to the sales account page layout
+Correct. Adding the related list will allow users to access the child accounts.
+D. By adding a new action for Regulations
+__
+c to the sales account page layout
+Incorrect. Adding an action will not allow users to view the child accounts.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 26 of 30 You got this correct! Objective: Data & Analytics Management
+Which configuration option shows sales representatives the fields they must fill in prior to saving
+an Opportunity?
+A. Field-level Security
+Incorrect. Make the field required on a specific page layout.
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 12/13
+B. Opportunity Validation Rules
+Incorrect. Make the field required on a specific page layout.
+C. Page Layout required fields
+Correct. Make the field required on a specific page layout.
+D. Dependent Picklist Fields
+Incorrect. Make the field required on a specific page layout.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 27 of 30 You got this correct! Objective: Data & Analytics Management
+A System Administrator will use the Import Wizard to update existing Account records.
+Which values can the Import Wizard use to find matching records?
+A. Address field
+Incorrect. Match Account Id, Account Name, and Account Site exactly as they appear in the application.
+B. Account Name and Site fields
+Correct. Match Account Id, Account Name, and Account Site exactly as they appear in the application.
+C. Created By field
+Incorrect. Match Account Id, Account Name, and Account Site exactly as they appear in the application.
+D. Parent Account field
+Incorrect. Match Account Id, Account Name, and Account Site exactly as they appear in the application.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 28 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+Ursa Major Solar's administrator needs to create a custom field to track a specific Tier 2 support
+user on a case record.
+What is the appropriate data type to utilize when creating this custom field?
+A. Lookup filter
+Incorrect. Lookup filters are administrator settings that restrict the valid values and lookup dialog results for lookup, master-detail,
+and hierarchical relationship fields.
+B. Formula
+Incorrect. A formula is an algorithm that derives its value from other fields, expressions, or values. Formulas can help you
+automatically calculate the value of a field based on other fields.
+C. Hierarchical relationship
+Incorrect. A special lookup relationship available for only the user object.
+D. Lookup relationship
+Correct. A lookup relationship links two objects together. This is an optional relationship.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 29 of 30 You got this correct! Objective: Object Manager & Lightning App Builder
+1/13/24, 2:07 PM Administrator Practice Test Results
+about:blank 13/13
+An administrator at Ursa Major Solar (UMS) has created a new Lightning record page for the sales
+team to display a report chart embedded on the account page. No record types currently exist for
+an account.
+Which action should the administrator perform to make this page the default view of the UMS
+app for the sales team without impacting the support team?
+A. Make the page the default object record page for the UMS app for the sales profile.
+Correct. Activate Lightning record pages as the default record page for profiles.
+B. Create an account record type and make the page the default object record page.
+Incorrect. Making the page the object default would be for the entire object affecting all users.
+C. Make the page the default object record page for the UMS app.
+Incorrect. Making the page the object default would be for the app affecting all users.
+D. Make the page the org default.
+Incorrect. Making the page the org default would be for the entire org affecting all users.
+Learn more about the topic(s) discussed in this question by reviewing this Reference Document.
+Question 30 of 30 You got this correct! Objective: Data & Analytics Management
+What should a System Administrator configure to provide each Sales Rep a dashboard that shows
+their current Opportunity pipeline?
+A. Set the Dashboard Running User to the current user.
+Correct. The dashboard viewer allows the dashboard readers see data as themselves, according to their own access to data. These
+types of dashboards are often called dynamic dashboards.
+B. Create a dashboard folder for each user.
+Incorrect. The dashboard viewer allows the dashboard readers see data as themselves, according to their own access to data.
+These types of dashboards are often called dynamic dashboards.
+C. Create a dashboard for each user.
+Incorrect. The dashboard viewer allows the dashboard readers see data as themselves, according to their own access to data.
+These types of dashboards are often called dynamic dashboards.
+D. Set a Dashboard filter to the current user.
+Incorrect. The dashboard viewer allows the dashboard readers see data as themselves, according to their own access to data.
+These types of dashboards are often called dynamic dashboards.

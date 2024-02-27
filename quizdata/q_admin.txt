@@ -1,0 +1,25 @@
+Ursa Major Solar recently enabled the multiple currencies feature.  As a result, which currency will be used as the foundation for all currency conversion rates?
+Record currency
+Personal currency
+*Corporate currency
+Active currency
+
+At Ursa Major Solar, Salesforce users have a session timeout of 12 hours. Management wants the session timeout to be increased to 24 hours. Management also wants inactive users to be logged out at that time. What should the administrator do to fulfill this request?
+*In session settings, select 24 hours, and check the box for force logout on session timeout.
+In session settings, select 24 hours, and uncheck the box for force logout on session timeout.
+In user profiles, enter 24 hours in the timeout section, and check the box for Fforce logout on session timeout.In user profiles, type in 24 hours in the timeout section, and uncheck the box for force logout on
+session timeout.
+
+Ursa Major Solar has the following process regarding its opportunities:
+There are three different lines of business (Widget A, Widget B, Widget C) that each contain fields specific to that line of business's industry and customers. For each line of business, there is a specific set of fields that Sales users should see and a different set of fields that Marketing users should see.  An Administrator needs to configure Page Layouts and Record Types for the Opportunity object so that each team sees what it needs to see, without cluttered layouts containing unnecessary fields. What should the Administrator do to accomplish this goal?
+Create six Record Types (Sales Widget A, Sales Widget B, Sales Widget C, Marketing Widget A, Marketing Widget B, and Marketing Widget C) with one Page Layout three record types are needed to track the different widget types
+Create one Record Type with six Page Layouts (Marketing Widget A, Marketing Widget B, Marketing Widget C, Sales Widget A, Sales Widget B, and Sales Widget C)
+*Create three Record Types (Widget A, Widget B, Widget C) with six Page Layouts (Sales Widget A, Sales Widget B, Sales Widget C, Marketing Widget A, Marketing Widget B, and Marketing Widget C)
+Create six Record Types (Marketing Widget A, Marketing Widget B, Marketing Widget C, Sales Widget A, Sales Widget B, and Sales Widget C) with six total Page Layouts, one for each Record Type
+
+How can a System Administrator discover who added a field to the account page layout?
+*Download the Setup Audit Trail
+Run an Account History report
+Create a poll in the Admin Chatter group
+Review the Account Last Modified By field
+

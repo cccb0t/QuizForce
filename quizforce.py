@@ -118,11 +118,6 @@ class Quiz:
         return '\n\n'.join(list(map(str, self.questions)))
 
 if __name__ == '__main__':
-    shuffleQ = True
-    shuffleA = True
-    feedback = True
-    requiz = True
-
     parser = argparse.ArgumentParser(description='Run a quiz.')
     parser.add_argument('quiz_file', help='Path to the quiz file.')
     parser.add_argument('--numQ', type=int, help='Number of questions to be presented in the quiz.', default=None)
@@ -132,6 +127,5 @@ if __name__ == '__main__':
     parser.add_argument('--no-requiz', action='store_false', help='Do not requiz on missed questions.')
 
     args = parser.parse_args()
-    print(args)
 
     Quiz.run_from_file(args.quiz_file, numQ=args.numQ, shuffle_questions=args.no_shuffle_questions, shuffle_answers=args.no_shuffle_answers, feedback=args.no_feedback, requiz=args.no_requiz)
