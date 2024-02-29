@@ -98,6 +98,37 @@ class Quiz:
             wrong_questions = [questions[i] for i, correct in enumerate(results) if not correct]
             Quiz(wrong_questions).run(len(wrong_questions), shuffle_questions, shuffle_answers, feedback, False)
 
+    def analyze(self):
+        # Identifying duplicate questions
+        seen_questions = {}
+        duplicates = []
+        correct_answers_distribution = {}
+
+        for question in self.questions:
+            if question.question in seen_questions:
+                duplicates.append(question.question)
+            else:
+                seen_questions[question.question] = True
+            correct_answers = sum(answer.correct for answer in question.answers)
+            correct_answers_distribution[correct_answers] = correct_answers_distribution.get(correct_answers, 0) + 1
+
+        # Printing statistics
+        print(f"Total Questions: {len(self.questions)}")
+        print(f"Total Unique Questions: {len(seen_questions)}")
+        print(f"Total Duplicate Questions: {len(duplicates)}")
+        
+        for num_correct, count in sorted(correct_answers_distribution.items()):
+            print(f"Questions with {num_correct} correct answer{'s' if num_correct != 1 else ''}: {count}")
+
+        if duplicates:
+            qcount = 1
+            print("\nDuplicate Questions:")
+            for dup in set(duplicates):
+                print(f"{qcount}) {dup}")
+                print()
+                qcount=qcount+1
+
+
     @classmethod
     def from_string(cls, string: str):
         return cls(list(map(Question.from_string, string.split('\n\n'))))
@@ -106,7 +137,6 @@ class Quiz:
     def from_file(cls, path: str):
         with open(path) as file_handle:
             return cls.from_string(file_handle.read().strip())
-
     def __str__(self):
         return '\n\n'.join(list(map(str, self.questions)))
 
@@ -118,8 +148,13 @@ if __name__ == '__main__':
     parser.add_argument('--no-shuffle-answers', action='store_false', dest='shuffle_answers', help='Shuffle answers for each question.')
     parser.add_argument('--no-feedback', action='store_false', dest='feedback', help='Do not provide feedback after each question.')
     parser.add_argument('--no-requiz', action='store_false', dest='requiz', help='Do not requiz on missed questions.')
+    parser.add_argument('--analyze', action='store_true', help='Analyze the quiz file for duplicates and statistics instead of running the quiz.')
 
     args = parser.parse_args()
 
-    Quiz.run_from_file(args.quiz_file, numQ=args.numQ, shuffle_questions=args.shuffle_questions, shuffle_answers=args.shuffle_answers, feedback=args.feedback, requiz=args.requiz)
+    if args.analyze:
+        quiz = Quiz.from_file(args.quiz_file)
+        quiz.analyze()
+    else:
+        Quiz.run_from_file(args.quiz_file, numQ=args.numQ, shuffle_questions=args.shuffle_questions, shuffle_answers=args.shuffle_answers, feedback=args.feedback, requiz=args.requiz)
 
