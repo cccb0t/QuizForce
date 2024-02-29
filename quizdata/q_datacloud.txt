@@ -28,12 +28,6 @@ Metrics and Dimensions
 Metrics
 Filters
 
-Which data model subject area defines the revenue or quantity for an opportunity by product family?
-Engagement
-Product
-Party
-*Sales Order
-
 An organization wants to enable users with the ability to identify and select text attributes from a picklist of options. Which Data Cloud feature can help with this use case?
 Transformation Formulas
 Data Harmonization
@@ -57,18 +51,6 @@ Every day, Northern Trail Outfitters (NTO) uploads a summary of the last 24 hour
 Ensure the refresh mode is set to Full Refresh and the filename contains a wildcard to accommodate the timestamp
 Ensure the refresh mode is set to Full Refresh and Refresh only new files' is selected
 Advise NTO to change their processes: this configuration is not supported
-
-Which two statements about Data Cloud's Web and Mobile App connector are true? (Choose 2)
-Any Data Streams associated with Web or Mobile connector app will be automatically deleted upon deleting the app from Data Cloud Setup
-*Data Cloud administrators can see the status of a Web or Mobile connector app on the app details page
-*Tenant Specific Endpoint is auto-generated in Data Cloud when setting up a Mobile or Web app connection
-Mobile and Web SDK schema can be updated to delete an existing field
-
-Which data model subject area should be used for any Organization, Individual, or Member in the Customer 360 data model?
-Individual
-Global Account
-*Party
-Membership
 
 Which two statements about Data Cloud's Web and Mobile App connector are true? (Choose 2)
 Any Data Streams associated with Web or Mobile connector app will be automatically deleted upon deleting the app from Data Cloud Setup
@@ -179,12 +161,6 @@ WHERE clause is required
 At least two objects to join
 *At least one dimension
 *At least one measure
-
-What does it mean to build a trust-based, first-party data asset?
-Pass the trust-based compliance rules as a first-party data asset is added to Data Cloud
-*Provide transparency and security for data gathered from individuals who provide consent for its use and receive value in exchange
-Obtain competitive data from reliable sources through interviews, surveys, and polls
-Ensure opt-in consents are collected for all email marketing as required by law
 
 What are the two distinct phases of data model management in Data Cloud? (Choose 2)
 Data Activation
@@ -401,12 +377,6 @@ Which two common use cases can be addressed with Data Cloud? (Choose 2)
 Safeguard critical business data by serving as a centralized system for backup and disaster recovery
 Govern enterprise data lifecycle through a centralized set of policies and processes
 
-What is Data Cloud's primary value to customers?
-A single source of truth for all anonymous data
-A platform that can update all connected systems with a golden record in real-time
-*A platform that provides a unified view of a customer and their related data
-A platform that can create personalized campaigns by listening, understanding, and acting on customer behavior
-
 Which two objects or fields are supported for ingestion using the Salesforce CRM connector?
 *Standard Objects
 Standard Big Objects
@@ -492,13 +462,7 @@ Using private key certificate
 Using encrypted username and password
 Using JWT token
 
-Northern Trail Outfitters uploads new customer data to an Amazon S3 Bucket on a daily basis to be ingested in Data Cloud. In what order should each process be run to ensure that freshly imported data is ready and available to use for any segment?
-Refresh Data Stream > Calculated Insight > Identity Resolution
-Identity Resolution > Calculated Insight > Refresh Data Stream
-Calculated Insight > Identity Resolution > Refresh Data Stream
-*Refresh Data Stream > Identity Resolution > Calculated Insight
-
-What does the Ignore Empty Value option do in Identity Resolution?
+XXXWhat does the Ignore Empty Value option do in Identity Resolution?
 Ignores Individual object records with empty fields when running Identity Resolution rules
 Ignores empty fields when running any custom match rules
 *Ignores empty fields when running reconciliation rules
@@ -781,13 +745,6 @@ Contains a namespace
 *Package Developer has no control over the components once installed
 Is upgradeable and supported
 
-Which three Data Cloud actions are available via Flow?
-*Publish Calculated Insights
-*Publish Segments
-*Trigger Identity Resolution Job
-Map Data Model Object Fields
-Publish Streaming Insights
-
 What cannot be used to create a report on Data Cloud data that’s in a DMO (Data Model Objects)?
 Tableau
 CRM Analytics
@@ -798,32 +755,14 @@ If you want to build a CRM report to include a Data Cloud configuration object, 
 *Configure a custom report type
 Customize the object
 Import metadata for the object
-Create a sharing rule to make the object availableA consultant is setting up a data stream with transactional data. Which field type should the consultant choose to ensure that leading zeros in the purchase order number are preserved?
+Create a sharing rule to make the object available
+
+A consultant is setting up a data stream with transactional data. Which field type should the consultant choose to ensure that leading zeros in the purchase order number are preserved?
 *Number
 Decimal
 Serial
 Text
 Explanation: Text fields are suitable for preserving leading zeros in alphanumeric values like purchase order numbers. Unlike numerical fields, text fields treat the entry as a sequence of characters rather than a numerical value, thereby maintaining any leading zeros in the data. This is crucial for preserving the integrity of purchase order numbers where the presence of leading zeros might be significant for identification or system processing purposes.
-
-A customer is concerned that the consolidation rate displayed in the identity resolution is quite low compared to their initial estimations. Which configuration change should a consultant consider in order to increase the consolidation rate?
-Include additional attributes in the existing matching rules.
-Reduce the number of matching rules.
-*Increase the number of matching rules
-Change reconciliation rules to Most Occuring.
-Explanation: Adding more matching rules allows for a more granular comparison of attributes, potentially leading to better identification and consolidation of records. It enhance the consolidation rate in identity resolution by providing more criteria for accurate matching.
-
-Every day, Northern Trail Outfitters uploads a summary of the last 24 hours of store transactions to a new file in an Amazon S3 bucket, and files older than seven days are automatically deleted. Each file contains a timestamp in a standardized naming convention. Which two options should a consultant configure when ingesting this data stream? Choose 2 answers.
-*Ensure the refresh mode is set to "Upsert"
-Ensure the refresh mode is set to "Full Refresh".
-Ensure that deletion of old files is enabled.
-*Ensure the filename contains a wildcard to accommodate the timestamp
-Explanation: <strong>Ensure the filename contains a wildcard to accommodate the timestamp.</strong> This is crucial to allow the system to recognize and ingest files based on the varying timestamps present in the filenames. <strong>Ensure the refresh mode is set to "Upsert".</strong> "Upsert" mode helps in updating existing records and inserting new ones. In this scenario, it might not directly relate to the deletion of old files but allows for efficient data updates in the system if changes occur in the existing files. <br>
-
-A consultant has an activation that is set to publish every 12 hours, but has discovered that updates to the data prior to activation are delayed by up to 24 hours. Which two areas should a consultant review to troubleshoot this issue? Choose 2 answers
-*Review segments to ensure they're refreshed after the data is ingested.
-*Review data transformations to ensure they're run after calculated insights.
-Review calculated insights to make sure they're run before segments are refreshed.
-Review calculated insights to make sure they're run after the segments are refreshed.
 
 Which statement about Data Cloud's Web and Mobile Application Connector is true?
 *A standard schema containing event, profile, and transaction data is created at the time the connector is configured.
@@ -832,7 +771,7 @@ The connector schema can be updated to delete an existing field.
 Any data streams associated with the connector will be automatically deleted upon deleting the app from Data Cloud Setup.
 Explanation: This connector typically establishes a structured schema that encompasses various types of data related to events, profiles, and transactions from web and mobile applications. This standardized schema formation occurs during the setup of the connector to facilitate the integration and ingestion of these different types of data into Data Cloud.
 
-What does the Ignore Empty Value option do in identity resolution?
+XXXWhat does the Ignore Empty Value option do in identity resolution?
 *Ignores empty fields when running reconciliation rules
 Ignores Individual object records with empty fields when running identity resolution rules
 Ignores empty fields when running the standard match rules
@@ -845,13 +784,6 @@ Value suggestion will only return results for the first 50 values of a specific 
 Value suggestion can only work on direct attributes and not related attributes.
 *Value suggestion is still processing and takes up to 24 hours to be available.
 Explanation: When new data is modeled or added to the system, it often needs time to undergo processing and indexing before value suggestions become available. This processing period might take up to 24 hours before the system can suggest values for attributes that have been recently added or modified. During this processing time, the system is organizing and indexing the data, making it ready for use in features like value suggestion. So, if a user isn't seeing suggestions for values with newly-modeled data, it could be because the system is still processing the information, and it may take some time before the suggestions become available for use in segmentation.
-
-A customer requests that their personal data be deleted. Which action should the consultant take to accommodate this request in Data Cloud?
-Use Consent API to request deletion of the customer's information.
-*Use the Data Rights Subject Request tool to request deletion of the customer's information.
-Use Profile Explorer to delete the customer data from Data Cloud.
-Use a streaming API call to delete the customer's information.
-Explanation: This tool is designed specifically for handling data subject requests, such as requests for data deletion. It allows the consultant to manage and process requests related to data rights, including deletion requests, in accordance with privacy regulations and company policies. Using this tool ensures that the customer's request is appropriately handled within the DataCloud system.
 
 Northern Trail Outfitters (NTO) is configuring an identity resolution ruleset based on Fuzzy Name and Normalized Email. What should NTO do to ensure the best email address is activated?
 Set the default reconciliation rule to Last Updated.
@@ -914,10 +846,10 @@ Set a refresh schedule for the calculated insights to occur every hour.
 Explanation: By using Flow to initiate a change data event on the e-commerce data store, the consultant can trigger the recalculation or refresh of calculated insights and segments before the scheduled activations. This ensures that the insights and segments are updated with the latest e-commerce data, maintaining accuracy and relevance for each scheduled activation. This proactive approach guarantees that the activations utilize the most recent and accurate data when executing their campaigns.
 
 Northern Trail Outfitters uploads new customer data to an Amazon S3 Bucket on a daily basis to be ingested in Data Cloud. In what order should each process be run to ensure that freshly imported data is ready and available to use for any segment?
-RefreshData Stream&gt;CalculatedInsight&gt;IdentityResolution
-CalculatedInsight&gt;Refresh DataStream&gt;IdentityResolution
-*RefreshDataStream&gt;IdentityResolution&gt;CalculatedInsight
-IdentityResolution&gt;RefreshData Stream&gt;CalculatedInsight
+RefreshData Stream>CalculatedInsight>IdentityResolution
+CalculatedInsight>Refresh DataStream>IdentityResolution
+*RefreshDataStream>IdentityResolution>CalculatedInsight
+IdentityResolution>RefreshData Stream>CalculatedInsight
 Explanation: To ensure that freshly imported data is ready and available for any segment in DataCloud, the following order of processes should be executed:</p><ol><li><p><strong>Refresh DataStream</strong>: This step involves bringing in the newly uploaded customer data from the Amazon S3 bucket into the DataCloud. It's the initial stage where the raw data is updated and made available for processing.</p></li><li><p><strong>IdentityResolution</strong>: Once the new data is ingested, the Identity Resolution process should follow. This step aims to match and consolidate customer profiles based on the updated data, ensuring that the identities are correctly resolved and associated.</p></li><li><p><strong>CalculatedInsight</strong>: Lastly, Calculated Insight processes should occur after the Identity Resolution is complete. This step involves deriving insights or creating calculated fields based on the consolidated data, making it ready for segment creation or any other analytics-driven tasks.</p></li></ol></div></div></form></div><div class="detailed-result-panel--panel-row--4lvVX detailed-result-panel--question-container--vh1KF"><form class="mc-quiz-question--container--dV-tK"><span>
 
 A customer has multiple team members who create segment audiences that work in different time zones. One team member works at the home office in the Pacific time zone, that matches the org Time Zone setting. Another team member works remotely in the Eastern time zone. Which user will see their home time zone in the segment and activation schedule areas?
@@ -928,10 +860,10 @@ The team member in the Pacific time zone.
 Explanation: DataCloud typically adjusts the segment and activation schedules to match the timezone of the user who is logged in and creating or managing those segments. This accommodation ensures that users working in different time zones can see and work with schedules and segments in their respective local times, providing convenience and accuracy in their operations within DataCloud.
 
 A customer wants to create segments of users based on their Customer Lifetime Value. However, the source data that will be brought into Data Cloud does not include that key performance indicator (KPI). Which sequence of steps should the consultant follow to achieve this requirement?
-Create Calculated Insight&gt; Map Data to Data Model&gt;Ingest Data&gt;Use in Segmentation
-Ingest Data &gt;Create Calculated Insight &gt;Map Data to Data Model &gt;Use in Segmentation
-Create Calculated Insight &gt;Ingest Data &gt;Map Data to Data Model&gt;Use in Segmentation
-*Ingest Data&gt;Map Data to Data Model&gt;Create Calculated Insight&gt;Use in Segmentation
+Create Calculated Insight> Map Data to Data Model>Ingest Data>Use in Segmentation
+Ingest Data >Create Calculated Insight >Map Data to Data Model >Use in Segmentation
+Create Calculated Insight >Ingest Data >Map Data to Data Model>Use in Segmentation
+*Ingest Data>Map Data to Data Model>Create Calculated Insight>Use in Segmentation
 
 Cumulus Financial uses calculated insights to compute the total banking value per branch for its high net worth customers. In the calculated insight, "banking value" is a metric, "branch" is a dimension, and "high net worth" is a filter. What can be included as an attribute in activation?
 *"branch"(dimension)
@@ -939,13 +871,6 @@ Cumulus Financial uses calculated insights to compute the total banking value pe
 "banking value"(metric)
 "high net worth" (filter)
 Explanation: Attributes usually represent dimensions or categorical values that help in segmenting or filtering data. The "branch" dimension can be included as an attribute in activation as it allows the segmentation or grouping of data based on different branches, enabling targeted actions or campaigns for each specific branch within CumulusFinancial's high net worth customer base.
-
-What is Data Cloud's primary value to customers?
-To connect all systems with a golden record
-To create a single source of truth for all anonymous data
-To create personalized campaigns by listening,understanding, and acting on customer behavior
-*To provide a unified view of a customer and their related data
-Explanation: The primary value of a Data Cloud to customers generally aligns with: A. <strong>To provide a unified view of a customer and their related data</strong> Data Cloud solutions aim to aggregate and integrate data from various sources to create a comprehensive, unified view of customers or entities. This unified view helps organizations gain insights into customer behaviour, preferences, and interactions across different touchpoints. It allows for better decision-making, personalized experiences, and more effective engagement strategies based on a holistic understanding of the customer.
 
 A consultant is working in a customer's Data Cloud org and is asked to delete the existing  identity resolution rule set. Which two impacts should the consultant communicate as a result of this action? Choose 2 answers
 All source profile data will be removed.
@@ -989,25 +914,12 @@ To create and orchest rate cross-channel marketing messages
 To eliminate the need for separate business intelligence and IT data management tools
 Explanation: For Northern Trail Outfitters' use cases, the following two options are considered good fits for Data Cloud implementation: A. <strong>To ingest and unify data from various sources to reconcile customer identity</strong> Data Cloud solutions are well-suited for ingesting data from multiple sources and unifying it to create a cohesive and accurate view of customer identity. This helps in understanding and managing customer profiles effectively. C. <strong>To use harmonized data to more accurately understand the customer and business impact</strong> Utilizing harmonized data to gain insights into customer behavior and its impact on the business aligns with the core capabilities of Data Cloud solutions. This comprehensive understanding aids in making informed decisions and deriving actionable insights.
 
-A consultant wants to build a new audience in Data Cloud. Which three criteria can the consultant include when building a segment? Choose 3 answers
-Calculated insights
-Streaming insights
-*Direct attributes
-*Data stream attributes
-*Related attributes
-
 Cumulus Financial wants its service agents to view a display of all cases associated with a Unified Individual on a contact record. Which two features should a consultant consider for this use case? Choose 2 answers
 Query API
 *Lightning Web Components
 Data Action
 *Profile API
 Explanation: Lightning Web Components: These can be utilized to build customized user interfaces within Salesforce. By leveraging Lightning Web Components, the consultant can create a tailored display on the contact record that showcases all cases associated with the UnifiedIndividual. This provides a user-friendly and integrated way for service agents to view this information within the Salesforce environment. Profile API: The Profile API can be employed to retrieve specific information associated with an individual or a profile. In this scenario, it could be used to fetch and display all cases linked to the UnifiedIndividual on the contact record, allowing service agents to access this information seamlessly without switching between different interfaces or systems. Utilizing Lightning Web Components for the user interface and Profile API to access and display case information can offer an integrated and efficient solution for service agents to view cases associated with UnifiedIndividuals directly from the contact record within Salesforce.
-
-Which two common use cases can be addressed with Data Cloud? Choose 2 answers.
-*Understand and act upon customer data to drive more relevant experiences.
-*Harmonize data from multiple sources with a standardized and extendable data model.
-Safeguard critical business data by serving as a centralized system for backup and disaster recovery.
-Govern enterprise data lifecycle through a centralized set of policies and processes.
 
 A consultant is building a segment to announce a new product launch for customers that have previously purchased black pants. How should the consultant place the attributes for product color and product type from the Order Product object to meet this criteria?
 *Place the attribute for product color in one container and the attribute for product type in another container.
@@ -1051,12 +963,6 @@ Use streaming data transform with a flow.
 Use a streaming insight paired with a data action.
 Explanation: By using streaming data transform in tandem with a data action, Cumulus Financial can achieve real-time monitoring of transaction volumes and receive timely notifications when volumes deviate from a customer's normal range. This combination ensures swift detection and response to abnormal transaction patterns.
 
-During an implementation project, a consultant completed ingestion of all data streams for their customer. Prior to segmenting and acting on that data, which additional configuration is required?
-*Identity Resolution
-Calculated Insights
-Data Activation
-Data Mapping
-
 A consultant is planning the ingestion of a data stream that has profile information including a mobile phone number. To ensure that the phone number can be used for future SMS campaigns, they need to confirm the phone number field is in the proper E164 Phone Number format. However, the phone numbers in the file appear to be in varying formats. What is the most efficient way to guarantee that the various phone number formats arestandardized?
 Assign the Phone Number field type when creating the data stream.
 Create a formula field to standardize the format.
@@ -1083,19 +989,6 @@ Membership
 *Party
 Explanation: The "Party" subject area typically covers a wide range of data related to individuals, organizations, or any entity that interacts with the organization. It includes demographic information, contact details, preferences, and other relevant information about the customer or member. This subject area forms the foundational element in many Customer360 models as it captures the basic details of the involved parties.
 
-During discovery, which feature should a consultant highlight for a customer who has multiple data sources and needs to match and reconcile data about individuals into a single unified profile?
-Data Cleansing
-Harmonization
-Data Consolidation
-*Identity Resolution
-Explanation: This feature involves the process of matching and consolidating data from various sources to identify and link records belonging to the same individual. It focuses on accurately determining that multiple records across datasets indeed represent the same person. This process is fundamental in creating a unified profile by resolving and consolidating disparate data into a single cohesive representation for each individual. Identity Resolution helps in removing duplicates, reconciling conflicting information, and creating a comprehensive view of an individual across various data sources. Therefore, for a customer dealing with multiple data sources and aiming to create unified profiles, Identity Resolution becomes a crucial feature to highlight during discovery.
-
-Cumulus Financial uses Service Cloud as its CRM and stores mobile phone, home phone, and work phone as three separate fields for its customers on the Contact record. The company plans to use Data Cloud and ingest the Contact object via the CRM Connector. What is the most efficient approach that a consultant should take when ingesting this data to ensure all the different phone numbers are properly mapped and available for use in activation?
-Ingest the Contact object and then create a calculated insight to normalize the phone numbers, and then map to the Contact Point Phone data map object.
-Ingest the Contact object and map the Work Phone, Mobile Phone, and Home Phone to the Contact Point Phone data map object from the Contact data stream.
-Ingest the Contact object and create formula fields in the Contact datastream on the phone numbers, and then map to the Contact Point Phone data map object.
-*Ingest the Contact object and use streaming transforms to normalize the phone numbers from the Contact datastream into a separate Phone data lake object (DLO) that contains three rows, and then map this new DLO to the Contact Point Phone data map object.
-
 A customer has outlined requirements to trigger a journey for an abandoned browse behavior. Based on the requirements, the consultant determines they will use streaming insights to trigger a data action to Journey Builder every hour. How should the consultant configure the solution to ensure the data action is triggered at the cadence required?
 Set the journey entry schedule to run every hour.
 *Set the insights aggregation time window to 1 hour.
@@ -1109,13 +1002,6 @@ The .txt file
 The .zip file
 Explanation: JSON (JavaScript Object Notation) files are commonly used for structured data storage and transmission. In the context of an Amazon S3 activated campaign, the JSON file format is often utilized to contain metadata and structured information about segments, configurations, or settings related to the campaign. JSON files offer a structured and readable format that can encapsulate various metadata details, making it convenient for systems to process and extract necessary information about segments and their attributes. This file format is suitable for storing and conveying metadata in a structured and organized manner, often used for configurations and data descriptions.
 
-A user has built a segment in Data Cloud and is in the process of creating an activation. When selecting related attributes, they cannot find a specific set of attributes they know to be related to the individual. Which statement explains why these attributes are not available?
-Activations can only include 1-to-1 attributes.
-The segment is not segmenting on profile data.
-The attributes are being used in another activation.
-*The desired attributes reside on different related paths.
-Explanation: <strong>Attributes residing on different related paths:</strong> In Data Cloud, related attributes are accessed based on paths or connections between different attributes. If the desired attributes are located on separate or different paths, they might not be available for selection when building an activation related to a specific segment. These related paths or connections determine how attributes are linked or associated within the system. If the desired attributes are not on the same or directly linked paths as the segment being used for activation, they might not be accessible or available for selection during the activation setup. This situation often arises when the attributes needed for activation are not directly connected or part of the same linked chain of related attributes as the segment being used, leading to the unavailability of these attributes during the activation configuration.
-
 A client wants to bring in loyalty data from a custom object in Salesforce CRM that contains a point balance for accrued hotel points and airline points within the same record. The client wantstosplitthesepointsystemsintotwoseparaterecordsforbettertrackingand processing. What should a consultant recommend in this scenario?
 *Create a junction object in Salesforce CRM and modify the ingestion strategy.
 Clone the data source object.
@@ -1123,7 +1009,7 @@ Use batch transforms to create a second data lake object.
 Create a data kit from the data lake object and deploy it to the same Data- Cloud org.
 Explanation: In this scenario, the consultant should recommend: C. <strong>Create a junction object in Salesforce CRM and modify the ingestion strategy.</strong> By creating a junction object in Salesforce CRM, it becomes possible to split the loyalty data into separate records, allowing for better tracking and processing of hotel points and airline points independently within their respective records. Modifying the ingestion strategy alongside this creation will ensure that the data is processed accurately, reflecting the split nature of the loyalty points systems. This approach maintains the integrity of the data within Salesforce CRM and aligns with the client's requirement for distinct records for hotel and airline points.
 
-Which configuration supports separate Amazon S3 buckets for data ingestion and activation?
+XXXWhich configuration supports separate Amazon S3 buckets for data ingestion and activation?
 Dedicated S3 datasources in Data Cloud setup
 Dedicated S3 datasources in activation setup
 *Separate user credentials for datastream and activation target
@@ -1217,13 +1103,6 @@ The underlying data lake object is used in activation.
 *The underlying data lake object is used in segmentation.
 Explanation: When a data lake object is mapped to a data model object, a dependency is established. Deleting the data stream becomes restricted as it's linked to a specific data model object. Removing the data stream would potentially disrupt the flow or mapping between the data lake object and the data model, impacting downstream processes relying on this mapping. If the underlying data lake object is utilized in segmentation, attempting to delete the data stream becomes restricted. Segmentation uses this object as a reference or source, and deleting the data stream could disrupt or invalidate the segmentation processes reliant on that particular object.
 
-Which two requirements must be met for a calculated insight to appear in the segmentation canvas? Choose 2 answers
-* The primary key of the segmented table must be a dimension in the calculated insight.
-The primary key of the segmented table must be a metric in the calculated insight.
-The metrics of the calculated insights must only contain numeric values.
-* The calculated insight must contain a dimension including the Individual or Unified Individual Id.
-Explanation: <strong>The primary key of the segmented table must be a dimension in the calculated insight :</strong> In segmentation, dimensions are attributes used to categorize and filter data. For a calculated insight to appear in the segmentation canvas, the primary key (which is essential for linking and identifying records in the segmented table) needs to be part of the dimensions within the calculated insight. <strong>The calculated insight must contain a dimension including the Individual or Unified Individual Id :</strong> The Individual or Unified Individual Id is crucial for linking and identifying specific individuals within the segmented data. Including this identifier as a dimension in the calculated insight ensures that the insight provides data at an individual level, allowing for personalized segmentation based on unique identities.
-
 Where is value suggestion for attributes in seqmentation enabled when creating the DMO?
 Data Mapping
 *Data Transformation
@@ -1235,7 +1114,7 @@ A customer has a requirement to receive a notification whenever an activation fa
 Dashboard
 Report
 *Activation alert
-Flow
+*Flow
 Explanation: Activation alerts are specifically designed to notify users or stakeholders about specific events or occurrences within the activation process. In this scenario, setting up an activation alert for the particular segment would enable the customer to receive notifications whenever there's a failure in activating that specific segment. This feature allows for proactive monitoring and immediate awareness of any issues related to segment activation.
 
 What should a user do to pause a segment activation with the intent of using that segment again?
@@ -1244,13 +1123,6 @@ Stop the publish schedule.
 Skip the activation.
 *Deactivate the segment.
 Explanation: Deactivating the segment temporarily halts its activation while preserving its settings and configurations. This action allows the user to pause the segment's current activation schedule or activities without losing the segment itself. Once deactivated, the user can later reactivate the segment when needed, using it again for various purposes without having to recreate it from scratch. <br>
-
-Northern Trail Outfitters (NTO) wants to connect their B2C Commerce data with Data Cloud and bring two years of transactional history into Data Cloud. What should NTO use to achieve this?
-Direct Sales Product entity ingestion
-B2C Commerce Starter Bundles
-Direct Sales Order entity ingestion
-*B2C Commerce Starter Bundles plus a custom extract
-Explanation: Northern Trail Outfitters (NTO) should utilize a combination of the B2C Commerce Starter Bundles, which offer predefined connectors for integrating B2C Commerce data into Data Cloud, and a custom extract to fulfill their requirement of bringing two years of transactional history into Data Cloud. While the Starter Bundles provide a foundational framework, a custom extract allows NTO to extract and ingest the specific historical transactional data they need beyond what the default integration might offer. This combination ensures a comprehensive integration that meets NTO's specific historical data needs.
 
 A client wants to bring in loyalty data from a custom object in Salesforce CRM that contains a point balance for accrued hotel points and airline points within the same record, The client wants to split these point systems into two separate records for better tracking and processing. What should 2 consultant recommend in this scenario?
 Clone the data source object.
@@ -1301,20 +1173,6 @@ Streaming insights
 Batch transforms
 Explanation: Segmentation exclude rules to remove customers who have made purchases within the last week. This functionality allows for the refinement or exclusion of certain segments based on specific criteria. Segmentation exclude rules enable the consultant to further filter or refine the segment created for customers who purchased within the past 6 months by excluding those who made purchases within the last week. This way, the promotional campaign will target customers who made purchases within the specified time frame (past 6 months) while excluding the most recent ones.
 
-Which two dependencies prevent a data stream from being deleted? Choose 2 answers
-*The underlying data lake object is used in segmentation.
-*The underlying data lake object is mapped to a data model object.
-The underlying data lake object is used in activation.
-The underlying data lake object is used in a data transform.
-Explanation: <strong>The underlying data lake object is mapped to a data model object:</strong> If the data lake object is directly mapped to a data model object, deleting the data stream might disrupt the functionality or integrity of the connected data model, leading to dependencies that prevent its deletion. <strong>The underlying data lake object is used in segmentation:</strong> When a data lake object is actively utilized in segmentation processes, deleting it can affect the segmentation functionalities or workflows that rely on this data stream. The dependencies in segmentation prevent the deletion of the data stream.
-
-A customer needs to integrate in real time with Salesforce CRM. Which feature accomplishes this requirement?
-Data actions and Lightning web components
-*Data model triggers
-Streaming transforms
-Sales and Service bundle
-Explanation: "Data model triggers" are not explicitly a feature in Salesforce but could refer to triggers in the Salesforce data model. Triggers in Salesforce are Apex code that runs before or after specific data manipulation language (DML) events occur, such as insertions, updates, or deletions of records. They are used to perform custom actions or logic in response to these events.
-
 Northern Trail Outfitters (NTO), an outdoor lifestyle clothing brand, recently started a new line of business. The new business specializes in gourmet camping food. For business reasons as well as security reasons, it's important to NTO to keep all Data Cloud data separated by brand. Which capability best supports NTO's desire to separate its data by brand?
 Data sources for each brand
 Data spaces for each brand
@@ -1330,18 +1188,11 @@ Transformation formulas
 Explanation: Global picklists in Data Cloud provide a way to create standardized lists of values that users can select from when entering text attributes. They offer a predefined set of options for users to choose from, ensuring consistency and accuracy in data entry by limiting selections to the provided list.
 
 Northern Trail Outtitters uploads new customer data to an Amazon S3 Bucket on a daily basis to be ingested in Data Cloud.
-Refresh Data Stream &gt; Calculated Insight &gt; Identity Resolution
-Identity Resolution &gt; Refresh Data Stream &gt; Calculated Insight
-Calculated Insight &gt; Refresh Data Stream &gt; Identity Resolution
-*Refresh Data Stream &gt; Identity Resolution &gt; Calculated Insight
+Refresh Data Stream > Calculated Insight > Identity Resolution
+Identity Resolution > Refresh Data Stream > Calculated Insight
+Calculated Insight > Refresh Data Stream > Identity Resolution
+*Refresh Data Stream > Identity Resolution > Calculated Insight
 Explanation: <strong>Refresh Data Stream:</strong> Initiating the data stream refresh ensures that the latest data from the Amazon S3 Bucket is brought into Data Cloud. This step ensures that the system has the most recent data available for processing.</p></li><li><p><strong>Identity Resolution:</strong> Following the data refresh, performing identity resolution is crucial. This process helps reconcile and link data from various sources, establishing a unified view of customers/entities across datasets. Ensuring data consistency and accuracy through identity resolution is fundamental before utilizing the data for segmentation or insights.</p></li><li><p><strong>Calculated Insight:</strong> Once the data is refreshed and identity resolution is completed, running calculated insights can utilize the unified and updated dataset. Calculated insights can extract meaningful information or analytics from the data, aiding in segmentation or other data-driven actions.</p></li></ol><p>This sequence ensures a structured approach where the data is refreshed first, followed by necessary reconciliation and then utilizing the updated dataset for insights or segmentation purposes.
-
-A retailer wants to unify profiles using Loyalty ID which is different than the unique ID of their customers. Which object should the consultant use in identity resolution to perform exact match rules on the Loyalty ID?
-*Party Identification object
-Individual object
-Loyalty Identification object
-Contact Identification object
-Explanation: The Party Identification object within identity resolution is designed to manage and resolve identities across various identifiers. When a retailer aims to unify profiles using a Loyalty ID that differs from the unique customer ID, using the Party Identification object allows for the creation of precise rules for exact match resolutions based specifically on Loyalty IDs. This object is tailored to handle diverse identifiers, ensuring accurate matching criteria for unifying profiles based on the Loyalty ID as a specific identifier. <br>
 
 Northern Trail Outfitters (NTO) creates a calculated insight to compute recency, frequency, monetary (RFM) scores on its unified individuals. NTO then creates a segment based on these scores that it activates to a Marketing Cloud activation target. Which two actions are required when configuring the activation?
 Add additional attributes.
@@ -1350,18 +1201,11 @@ Add the calculated insight in the activation.
 *Choose a segment.
 Explanation: Choose a segment: This is a necessary step in configuring activation. Once the RFM scores are calculated and segments are created based on these scores, selecting the specific segment or segments that NTO wants to activate is crucial. Therefore, choosing a segment is an essential action.  Select contact points: In the context of activation, selecting contact points is also crucial. Contact points refer to the channels or touch points through which NTO intends to reach its audience in the Marketing Cloud. This could include email, social media, SMS, etc. Selecting the appropriate contact points is essential to ensure the targeted segments receive the intended marketing communications.
 
-A consultant wants to ensure that every segment managed by multiple brand teams adheres to the same set of exclusion criteria, that are updated on a monthly basis. What is the most efficient option to allow for this capability?
-Create a segment and copy it for each brand.
-*Create a reusable container block with common criteria.
-Create a nested segment.
-Create, publish, and deploy a data kit.
-Explanation: By using a reusable container block, the consultant can create a standardized set of exclusion criteria that can be shared across multiple segments managed by different brand teams. Any updates or changes to the exclusion criteria need to be done only once within the container block, ensuring consistency across all segments that use it. This helps in maintaining uniformity and streamlining the management of exclusion criteria, making it efficient especially when updates are required on a monthly basis.
-
 A user wants to be able to create a multi-dimensional metric to identify unified individual lifetime value (LTV). Which sequence of data model object (DMO) joins is necessary within the calculated Insight to enable this calculation?
-Sales Order &gt; Individual &gt; Unified Individual
-Unified Individual &gt; Individual &gt; Sales Order
-*Unified Individual &gt; Unified Link Individual &gt; Sales Order
-Sales Order &gt; Unified Individual
+Sales Order > Individual > Unified Individual
+Unified Individual > Individual > Sales Order
+*Unified Individual > Unified Link Individual > Sales Order
+Sales Order > Unified Individual
 Explanation: By joining these Data Model Objects in this sequence, you connect the Unified Individuals to their associated Sales Orders through an intermediary link, allowing you to calculate a comprehensive, multi-dimensional metric for unified individual lifetime value by considering information from both Unified Individuals and their corresponding Sales Orders. <br>
 
 Customer has a master customer table from their CRM to injust into data cloud the table contains a name and primary email address along with other personally identifyable information PIL how should the the fields be mad to support identity resolution?
@@ -1377,13 +1221,6 @@ Calculated Insights
 *Identity Resolution
 Data Mapping
 Explanation: Before moving on to segmenting and acting on the ingested data, setting up Identity Resolution is crucial. Identity Resolution helps reconcile and link data from various sources that refer to the same individual or entity, creating a unified view. This process ensures that the data is associated correctly, eliminating duplicates and inconsistencies that might arise from multiple sources. Having a unified and accurate view of individuals/entities is fundamental for effective segmentation and subsequent actions on the data.
-
-A customer has a requirement to receive a notification whenever an activation fails for a particular segment. Which feature should the consultant use to solution for this use case?
-*Flow
-Dashboard
-Activation alert
-Report
-Explanation: Flows in Data Cloud enable the automation of processes based on specific triggers or events. In this case, a consultant can set up a Flow to monitor segment activations and trigger a notification whenever an activation fails for the specified segment. Flows offer customizable, automated actions in response to defined conditions, making them the ideal choice for creating notifications in the event of activation failures.
 
 Cumulus Financial created a segment called Multiple Investments that contains individuals who have invested in two or more mutual funds. The company plans to send an email to this segment regarding a new mutual fund offering, and wants to personalize the email content with information about each customer's current mutual fund investments. How should the Data Cloud consultant configure this activation?
 Include Fund Type equal to "Mutual Fund" as a related attribute. Configure an activation based on the new segment with no additional attributes.
@@ -1511,33 +1348,12 @@ Create a nested segment.
 Create, publish, and deploy a data kit.
 Explanation: By creating a reusable container block containing the common exclusion criteria, the consultant can ensure consistency and efficiency. This block can encapsulate the updated exclusion criteria that need to be applied to multiple segments. When the exclusion criteria are updated on a monthly basis, modifying this container block automatically updates all segments linked to it. This approach centralizes the criteria management, ensuring uniformity across all segments without the need to replicate changes individually in each segment.
 
-What is Data Cloud's primary value to customers?
-To create a single source of truth for all anonymous data
-*To provide a unified view of a customer and their related data
-To create personalized campaigns by listening, understanding, and acting on customer behaviour
-To connect all systems with a golden record
-Explanation: Data Cloud solutions excel in aggregating, integrating, and harmonizing data from various sources. This enables the creation of a comprehensive, unified view of customers by consolidating data scattered across different platforms or systems. This unified view helps businesses understand customers better, allowing for improved decision-making, personalized interactions, and enhanced customer experiences.
-
-A consultant has an activation that is set to publish every 12 hours, but has discovered that updates to the data prior to activation are delayed by up to 24 hours. Which two areas should a consultant review to troubleshoot this issue? Choose 2 answers
-Review calculated insights to make sure they're run after the segments are refreshed.
-*Review segments to ensure they're refreshed after the data is ingested.
-*Review data transformations to ensure they're run after calculated insights.
-Review calculated insights to make sure they're run before segments are refreshed.
-Explanation: A. Review data transformations to ensure they're run after calculated insights. This option suggests reviewing the sequence of operations within the data processing pipeline. If data transformations occur before calculated insights, it might mean that insights are derived from outdated or incomplete data. Adjusting the sequence to ensure that insights are derived from the latest data can reduce delays in updates before activation. C. Review segments to ensure they're refreshed after the data is ingested. Segments need to be refreshed after new data is ingested to incorporate the latest information. If the segments are not refreshed promptly after data ingestion, they might retain outdated information, causing delays in reflecting the most recent data updates. Ensuring segments are refreshed post data ingestion helps maintain data currency and accuracy.
-
 A segment fails to refresh with the error "Segment references too many data lake objects (DLOS)". Which two troubleshooting tips should help remedy this issue? Choose 2 answers
 *Split the segment into smaller segments.
 Space out the segment schedules to reduce DLO load.
 *Use calculated insights in order to reduce the complexity of the segmentation query.
 Refine segmentation criteria to limit up to five custom data model objects (DMOs).
 Explanation: A. <strong>Split the segment into smaller segments:</strong> Breaking down the segment into smaller, more manageable segments can help reduce the complexity and the number of data lake objects referenced in each individual segment. By dividing the segment, you distribute the load across multiple segments, potentially alleviating the issue. B. <strong>Use calculated insights to reduce the complexity of the segmentation query:</strong> Calculated insights can pre-calculate certain complex computations or aggregations, reducing the complexity of the segmentation query itself. By utilizing calculated insights, you might decrease the number of data lake objects referenced or optimize the query's computational load, thus mitigating the error related to excessive DLOs. Both of these approaches aim to reduce the complexity and load associated with the segment's query or composition, thereby addressing the issue of referencing too many data lake objects and potentially resolving the segment refresh failure.
-
-Cloud Kicks received a Request to be Forgotten by a customer, In which two ways should a consultant use Data Cloud to honour this request? Choose 2 answers
-Delete the data from the incoming data stream and perform a full refresh.
-Use Data Explorer to locate and manually remove the Individual.
-*Use the Consent API to suppress processing and delete the individual and related records from source data streams.
-*Add the Individual ID to a heacerless file and use the delete trom file functionality.
-Explanation: Use the Consent API to suppress processing and delete the individual and related records from source data streams: The Consent API allows for managing consent-related requests. Using it to suppress processing and delete individual records from the source data streams ensures compliance with the request by removing the specified individual's data.  Add the Individual ID to a headerless file and use the delete from file functionality: This approach involves compiling the Individual ID into a file and using the "delete from file" functionality, likely available in Data Cloud, to facilitate the removal of the specified individual's data from the datasets.
 
 A Data Cloud customer wants to adjust their identity resolution rules to increase their accuracy of matches. Rather than matching on email address, they want to review a rule that joins their CRM Contacts with their Marketing Contacts, where both use the CRM ID as their primary key. Which two steps should the consultant take to address this new use case? Choose 2 answers
 Map the primary key from the two systems to party identification, using CRM ID as the identification name for individuals coming from the CRM, and Marketing ID as the identification name for individuals coming from the marketing platform.
@@ -1553,13 +1369,6 @@ Marketing Cloud activations automatically suppress individuals who are unengaged
 Marketing Cloud activations only activate those individuals that already exist in Marketing Cloud. They do not allow activation of new records.
 Explanation: When activating segments from Data Cloud to Marketing Cloud for email communication, Data Cloud requires a related Contact Point to be present for each individual within the segment. If there's no associated Contact Point (which could be an email address or another identifiable contact information) for individuals within the segment, they won't be activated for email communication. This process ensures that activations are linked to reachable contact points, ensuring the effectiveness of the email communication strategy and avoiding sending emails to individuals without valid contact information.
 
-Which permission setting should a consultant check if the custom Salesforce CRM object is not available in New Data Stream configuration?
-*Confirm the View All object permission is enabled in the source Salesforce CRM org.
-Confirm the Ingest Object permission is enabled in the Salesforce CRM org.
-Confirm that the Modify Object permission is enabled in the Data Cloud org.
-Confirm the Create object permission is enabled in the Data Cloud org.
-Explanation: The "View All" permission in the source Salesforce CRM org allows users to view all records, including those they don't own. When setting up Data Streams in Salesforce or integrating data from Salesforce to another platform (like Data Cloud), it's crucial that the user configuring the Data Stream has the necessary permissions to access and view the object in Salesforce. If the user setting up the Data Stream lacks the "View All" permission for that object, it might not appear or be available for selection in the Data Stream configuration.
-
 A consultant has an activation that is set to publish every 12 hours, but has discovered that updates to the data prior to activation are delayed by up to 24 hours. Which two areas should a consultant review to troubleshoot this issue? Choose 2 answers
 *Review calculated insights to make sure they're run before segments are refreshed.
 Review calculated insights to make sure they're run after the segments are retreshed.
@@ -1574,13 +1383,6 @@ Calculated insights
 *segment membership data model object
 Explanation: This data model object stores information about segment membership, including historical data, allowing organizations to query and analyze individuals' membership in particular segments over time. It enables businesses to understand the composition and characteristics of segments and the individuals within them, offering insights into how these segments have evolved or remained consistent over the specified period. Utilizing the Segment Membership Data Model Object, Cumulus Financial can effectively analyze and extract information about customers who were part of specific segments within the last 2 years, supporting their analytical and strategic decision-making processes.
 
-Which two common use cases can be addressed with Data Cloud? Choose 2 answers
-*Understand and act upon customer data to drive more relevant experiences.
-*Harmonize data from multiple sources with a standardized and extendable data model.
-Govern enterprise data lifecycle through a centralized set of policies and processes.
-Safeguard critical business data by serving as a centralized system for backup and disaster recovery.
-Explanation: <strong>Harmonizing Data from Multiple Sources :</strong> Data Cloud solutions often provide the infrastructure and tools necessary to aggregate, integrate, and standardize data from various sources. By employing a standardized and extendable data model, these platforms enable organizations to unify disparate data into a coherent format, facilitating analytics, reporting, and decision-making processes.</p></li><li><p><strong>Utilizing Customer Data for Personalized Experiences :</strong> Data Cloud solutions can assist in analyzing and leveraging customer data effectively. They provide capabilities to collect, store, process, and analyze vast amounts of customer-related information. This enables businesses to derive insights, understand customer behavior, preferences, and patterns, subsequently driving more personalized and relevant experiences for customers.</p></li></ul></div></div></form></div><div class="detailed-result-panel--panel-row--4lvVX detailed-result-panel--question-container--vh1KF"><form class="mc-quiz-question--container--dV-tK"><span>
-
 Cumulus Financial uses Service Cloud as its CRM and stores mobile phone, home phone, and work phone as three separate fields for its customers on the Contact record. The company plans to use Data Cloud and ingest the Contact object via the CRM Connector. What is the most efficient approach that 4 consultant should take when ingesting this data to ensure all the different phone numbers are properly mapped and available for use in activation?
 Ingest the Contact object and use streaming transforms to normalize the phone numbers from the Contact data stream into a separate Phone data lake object (DLO) that contains three rows, and then map this new DLO to the Contact Point Phone data map object.
 Ingest the Contact object and then create a calculated insight to normalize the phone numbers, and then map to the Contact Point Phone data map object.
@@ -1588,26 +1390,12 @@ Ingest the Contact object and then create a calculated insight to normalize the 
 Ingest the Contact object and create formula fields in the Contact data stream on the phone numbers, and then map to the Contact Point Phone data map object.
 Explanation: It involves organizing the phone numbers from the Contact object into a separate structured data object called a Phone Data Lake Object (DLO). This DLO contains three rows, one for each type of phone number (mobile, home, work). By doing this, it ensures that all the different phone numbers are properly organized and available for use in activation without the need for additional steps or complexity in data handling.
 
-What should an organization use to stream inventory levels from an inventory management system into Data Cloud in a fast and scalable, near-real-time way?
-Marketing Cloud Personalization Connector
-*Ingestion API
-Commerce Cloud Connector
-Cloud Storage Connector
-Explanation: The Ingestion API is the ideal choice for streaming inventory levels from an inventory management system into Data Cloud because it offers a direct, efficient, and optimized method specifically designed for data ingestion. It allows rapid, scalable, and near-real-time transmission of data from external sources, ensuring quick and reliable updates, such as inventory level changes, within the Data Cloud environment. This API facilitates a fast and seamless integration of external data into Data Cloud, maintaining a close-to-real-time representation of inventory data for analysis and other purposes.
-
-A customer wants to use the transactional data from their data warehouse in Data Cloud. They are only able to export the data via an SFTP site. How should the file be brought into Data Cloud?
+XXXA customer wants to use the transactional data from their data warehouse in Data Cloud. They are only able to export the data via an SFTP site. How should the file be brought into Data Cloud?
 *Ingest the file with the SFTP Connector.
 Manually import the file using the Data Import Wizard.
 Use Salesforce's Dataloader application to perform a bulk upload from a desktop.
 Ingest the file through the Cloud Storage Connector.
 Explanation: SFTP (Secure File Transfer Protocol) is a standard method for securely transferring files over a network, and the SFTP Connector is specifically designed to handle data ingestion from SFTP sites. It allows seamless and secure transfer of files from the customer's data warehouse to the Data Cloud platform, ensuring the transactional data can be efficiently utilized within the Salesforce ecosystem.
-
-What does it mean to build a trust-based, first-party data asset?
-To obtain competitive data from reliable sources through interviews, surveys, and polls
-To ensure opt-in consents are collected for all email marketing as required by law
-*To provide transparency and security for data gathered from individuals who provide consent for its use and receive value in exchange
-Te provide trusted, first-party data in the Data Cloud Marketplace that follows all cornpliance regulations
-Explanation: Building a trust-based, first-party data asset revolves around collecting data directly from individuals who willingly provide their information with consent. This data collection process is transparent, ensuring individuals understand how their data will be used and providing them with security and control over their information. In exchange for sharing their data, individuals receive some form of value, whether it's personalized experiences, better services, or other benefits. This approach fosters trust between the data collector and the individuals, creating a reliable and ethical first-party data asset.
 
 When performing segmentation or activation, which time zone is used to publish and refresh data?
 Time zone of the user creating the activity
@@ -1650,7 +1438,7 @@ Date streams for each brand
 *Data spaces for each brand
 Explanation: Data spaces provide distinct and isolated environments within Data Cloud, allowing for the segregation of data by creating separate spaces for different brands or business units. This segregation ensures that data from various brands or lines of business remains separate and independent within their designated spaces. It's an effective way to maintain data separation for security, compliance, and operational reasons, meeting NTO's requirement to keep Data Cloud data separated by brand.
 
-A customer wants to use the transactional data from their data warehouse in Data Cloud. They are only able to export the data via an SFTP site. How should the file be brought into Data Cloud?
+XXXA customer wants to use the transactional data from their data warehouse in Data Cloud. They are only able to export the data via an SFTP site. How should the file be brought into Data Cloud?
 Use Salesforce’s Dataloader application to perform a bulk upload from a desktop.
 *Ingest the file through the Cloud Storage Connector.
 Ingest the file with the SFTP Connector.
@@ -1663,20 +1451,6 @@ Flow Orchestration
 *Metrics on metrics
 Nested segments
 Explanation: Metrics on metrics allow for the creation of derived or calculated metrics within Data Cloud. This functionality enables the calculation of LTV for each customer while also breaking down the revenue by different channels such as website, mobile app, and retail.By utilizing this feature, the consultant can construct metrics that capture LTV per customer and further break down revenue metrics by the different channels, providing the necessary insights for both customer LTV and revenue segmentation by various sources.
-
-Which two common use cases can be addressed with Data Cloud? Choose 2 answers.
-*Harmonize data from multiple sources with a standardized and extendable data model.
-Safeguard critical business data by serving as a centralized system for backup and disaster recovery.
-Govern enterprise data lifecycle through a centralized set of policies and processes.
-*Understand and act upon customer data to drive more relevant experiences.
-Explanation: A. Understand and act upon customer data to drive more relevant experiences: Data Cloud platforms often allow businesses to gather, analyze, and derive insights from customer data. This facilitates creating personalized experiences, understanding customer behavior, and tailoring products or services to meet their needs effectively.<strong>C. Harmonize data from multiple sources with a standardized and extendable data model: Data Cloud solutions typically enable the integration and alignment of data from various sources into a unified, standardized format. This unified view aids in consistent analysis, reporting, and decision-making by ensuring data consistency and coherence across the organization.class="detailed-result-panel--panel-row--4lvVX detailed-result-panel--question-container--vh1KF">class="mc-quiz-question--container--dV-tK">
-
-What is Data Cloud's primary value to customers?
-*To provide a unified view of a customer and their related data
-To connect all systems with a golden record
-To create a single source of truth for all anonymous data
-To create personalized campaigns by listening,understanding, and acting on customerbehavior
-Explanation: The primary value of a Data Cloud to customers generally aligns with:A. To provide a unified view of a customer and their related dataData Cloud solutions aim to aggregate and integrate data from various sources to create a comprehensive, unified view of customers or entities. This unified view helps organizations gain insights into customer behaviour, preferences, and interactions across different touchpoints. It allows for better decision-making, personalized experiences, and more effective engagement strategies based on a holistic understanding of the customer.
 
 A customer notices that their consolidation rate has recently increased. They contact the consultant to ask why. What are two likely explanations for the increase?Choose 2 answers
 *New data sources have been added to Data Cloud that largely overlap with the existing profiles.
@@ -1713,7 +1487,7 @@ Create a data kit from the data lake object and deploy it to the same Data- Clou
 Use batch transforms to create a second data lake object.
 Explanation: In this scenario, the consultant should recommend:C. Create a junction object in Salesforce CRM and modify the ingestion strategy.By creating a junction object in Salesforce CRM, it becomes possible to split the loyalty data into separate records, allowing for better tracking and processing of hotel points and airline points independently within their respective records.Modifying the ingestion strategy alongside this creation will ensure that the data is processed accurately, reflecting the split nature of the loyalty points systems. This approach maintains the integrity of the data within Salesforce CRM and aligns with the client's requirement for distinct records for hotel and airline points.
 
-What does the Ignore Empty Value option do in identity resolution?
+XXXWhat does the Ignore Empty Value option do in identity resolution?
 Ignores empty fields when running the standard match rules
 Ignores empty fields when running reconciliation rules
 *Ignores Individual object records with empty fields when running identity resolution rules
@@ -1741,13 +1515,6 @@ To eliminate the need for separate business intelligence and IT data management 
 To create and orchestrate cross-channel marketing messages
 Explanation: To use harmonized data to more accurately understand the customer and business impact: Data Cloud is adept at harmonizing data from various sources, which can provide a unified view of customers. This unified data can then be used to gain deeper insights into customer behaviors, preferences, and their impact on business outcomes.To ingest and unify data from various sources to reconcile customer identity: Data Cloud specializes in ingesting and unifying data from multiple sources. This capability allows for the reconciliation of customer identity across disparate datasets, enabling a cohesive and accurate view of customer profiles.
 
-How can a consultant modify attribute names to match a naming convention in Cloud File Storage targets?
-Use a formula field to update the field name in an activation.
-Update field names in the data model object.
-*Update attribute names in the data stream configuration.
-Set preferred attribute names when configuring activation.
-Explanation: When dealing with Cloud File Storage targets, the attribute names can be modified to match a specific naming convention by updating the attribute names within the data stream configuration. This process allows consultants to align the attribute names as per the desired naming convention before the data is stored in the Cloud File Storage target. Adjusting attribute names at the data stream configuration level ensures that the data stored follows the prescribed naming conventions without impacting the original data source or the data model object.
-
 A retailer wants to unify profiles using Loyalty ID which is different than the unique ID of their customers. Which object should the consultant use in identity resolution to perform exact match rules on the Loyalty ID?
 Contact Identification object
 Individual object
@@ -1755,26 +1522,12 @@ Loyalty Identification object
 *Party Identification object
 Explanation: The Party Identification object within identity resolution is designed to manage and resolve identities across various identifiers. When a retailer aims to unify profiles using a Loyalty ID that differs from the unique customer ID, using the Party Identification object allows for the creation of precise rules for exact match resolutions based specifically on Loyalty IDs. This object is tailored to handle diverse identifiers, ensuring accurate matching criteria for unifying profiles based on the Loyalty ID as a specific identifier.
 
-A customer is trying to activate data from Data Cloud to an Amazon S3 Cloud File Storage Bucket. Which authentication type should the consultant recommend to connect to the S3 bucket from Data Cloud?
-Use an S3 Encrypted Username and Password.
-*Use an S3 Access Key and Secret Key.
-Use a JWT Token generated on S3.
-Use an S3 Private Key Certificate.
-Explanation: This method involves providing an Access Key ID and Secret Access Key generated from the AWS Identity and Access Management (IAM) service. These keys are used to securely authenticate and access resources within the S3 bucket. It's a standard and widely accepted way to authenticate access to AWS services like S3.
-
 A client wants to bring in loyalty data from a custom object in Salesforce CRM that contains a point balance for accrued hotel points and airline points within the same record, The client wants to split these point systems into two separate records for better tracking and processing.What should 2 consultant recommend in this scenario?
 Clone the data source object.
 Use batch transforms to create a second data lake object.
 Create 8 data kit from the date lake object and deploy it to the same Data Cloud org.
 * Create a junction object in Salesforce CRM and modify the ingestion strategy.
 Explanation: By creating a junction object in Salesforce CRM, the client can establish a separate entity to handle the two types of loyalty points (hotel points and airline points). Modifying the ingestion strategy to incorporate this junction object allows for a more structured and organized way to manage and process the loyalty point data separately.
-
-What does the Source Sequence reconciliation rule do in identity resolution?
-*Identifies which data sources should be used in the process of reconciliation by prioritizing the most recently updated data source
-Identifies which individual records should be merged into a unified profile by setting a priority for specific data sources
-Includes data from sources where the data is most frequently occurring
-Sets the priority of specific data sources when building attributes in a unified profile, such as a first or last name
-Explanation: This rule focuses on determining the most recently updated or refreshed data source to prioritize its information during the reconciliation process, ensuring that the latest and most relevant data is used when consolidating or reconciling different sources into a unified profile.
 
 Which two common use cases can be addressed with Data Cloud? Choose 2 answers
 Govern enterprise data lifecycle through a centralized set of policies and processes.
@@ -1784,10 +1537,10 @@ Safeguard critical business date by serving as a centralized system for backup a
 Explanation:  Understand and act upon customer data to drive more relevant experiences: Data Cloud allows businesses to aggregate, unify, and analyze customer data from various sources. This unified view enables better insights into customer behaviour, preferences, and interactions, empowering businesses to personalize their services and offerings, resulting in more relevant and targeted customer experiences.Harmonize data from multiple sources with a standardized and extendable data model: Data Cloud offers the capability to consolidate and harmonize data from disparate sources into a centralized platform using a standardized data model. This harmonization process ensures that data from various systems or sources is aligned, standardized, and accessible in a uniform structure, enabling better analysis, reporting, and decision-making across the organization.
 
 A customer wants to create segments of users based on their Customer Lifetime Value. However, the source data that will be brought into Data Cloud does not include that key performanceindicator (KPI). Which sequence of steps should the consultant follow to achieve this requirement?
-Ingest Date &gt; Create Calculated Insight &gt; Map Data to Data Model &gt; Use in Segmentation
-Ingest Data &gt; Map Data to Data Model &gt; Create Calculated Insight &gt; Use in Segmentation
-Create Calculated Insight &gt; Ingest Data &gt; Map Data to Data Model &gt; Use in Segmentation
-*Create Calculated Insight &gt; Map Data to Data Model &gt; Ingest Data &gt; Use in Segmentation
+Ingest Date > Create Calculated Insight > Map Data to Data Model > Use in Segmentation
+Ingest Data > Map Data to Data Model > Create Calculated Insight > Use in Segmentation
+Create Calculated Insight > Ingest Data > Map Data to Data Model > Use in Segmentation
+*Create Calculated Insight > Map Data to Data Model > Ingest Data > Use in Segmentation
 Explanation: Create Calculated Insight: Initially, you create a calculated insight within Data Cloud. This insight will derive or calculate the Customer Lifetime Value from available data or existing KPIs.<strong>Map Data to Data Model: Once the calculated insight is created, you map this new insight to the data model within Data Cloud. This step integrates the derived CLV into the existing data structure, making it available for segmentation.<strong>Ingest Data: Subsequently, you ingest or import the updated data, which now includes the calculated Customer Lifetime Value, into Data Cloud.<strong>Use in Segmentation: Finally, after the CLV is integrated into the data model, you can utilize this data attribute in segmentation to create segments based on Customer Lifetime Value.This sequence ensures that the necessary KPI (Customer Lifetime Value) is derived or calculated within Data Cloud, mapped into the data structure, integrated into the dataset through data ingestion, and finally utilized for segmentation purposes.
 
 A consultant is integrating an Amazon S3 activated campaign with the customer's destination system. In order for the destination system to find the metadata about the segment, which file on the $3 will contain this information for processing?
@@ -1818,13 +1571,6 @@ Create a custom matching rule for en exact match on the Individual 1D attribute.
  Map the primary key from the two systems to Party Identification, using CRM ID as the identification name for both.
 Explanation:  Map the primary key from the two systems to party identification, using CRM ID as the identification name for individuals coming from the CRM, and Marketing ID as the identification name for individuals coming from the marketing platform. This step involves mapping the primary keys (CRM ID and Marketing ID) from both systems to the party identification within the identity resolution process. It sets up the identification names for individuals from each system, enabling accurate matching based on these IDs. Create a matching rule based on party identification that matches on CRM ID as the party identification name. This step involves creating a matching rule within the identity resolution process that specifically matches based on party identification names, focusing on CRM ID as the key for matching individuals from both CRM Contacts and Marketing Contact
 
-A user is not seeing suggested values from newly-modeled data when building a segment. What is causing this issue?
-*Value suggestion is still processing and takes up to 24 hours to be available.
-Value suggestion can only work on direct attributes and not related attributes.
-Value suggestion requires Data Aware Specialist permissions at a minimum.
-Value suggestion will only return results for the first 50 values of a specific attribute.
-Explanation: When new data is modeled or added to the system, it often needs time to undergo processing and indexing before value suggestions become available. This processing period might take up to 24 hours before the system can suggest values for attributes that have been recently added or modified.During this processing time, the system is organizing and indexing the data, making it ready for use in features like value suggestion. So, if a user isn't seeing suggestions for values with newly-modeled data, it could be because the system is still processing the information, and it may take some time before the suggestions become available for use in segmentation.
-
 What is Data Cloud's primary value to customers?
 * To provide a unified view of a customer and their related data
 To connect all systems with a golden record
@@ -1846,7 +1592,7 @@ Contact Identification object
 Individual object
 Explanation: Using the Loyalty Identification object allows the consultant to specifically target and perform exact match rules on the Loyalty ID, which is distinct from the unique ID used for customers. This object serves as the specific field or attribute where the Loyalty ID information is stored, enabling the exact matching process based on this particular identifier.
 
-Which configuration supports separate Amazon S3 buckets for data ingestion and activation?
+XXXWhich configuration supports separate Amazon S3 buckets for data ingestion and activation?
 Dedicated S3 data sources in activation setup
 Separate user credentials for data stream and activation target
 *Dedicated S3 data sources in Data Cloud setup
@@ -1867,16 +1613,9 @@ Confirm the Create Object permission is enabled in the Data Cloud org.
 * Confirm the View All object permission is enabled in the source Salesforce CRM org.
 Explanation: This permission ensures that the Data Cloud user has the necessary access rights to view all objects within the source Salesforce CRM organization. If this permission is not enabled, it might restrict the visibility of certain objects, including custom objects, within the Data Cloud configuration interface, leading to the absence of the custom object in the New Data Stream setup. Hence, verifying and enabling the "View All" object permission in the source Salesforce CRM org is crucial for visibility and selection of custom objects during Data Stream configuration.
 
-During a privacy law discussion with a customer, the customer indicates they need to honor requests for the right to be forgotten. The consultant determines that Consent API will solve this business need. Which two considerations should the consultant inform the customer about? Choose 2 answers
-Data deletion requests are processed within 1 hour.
-Data deletion requests are reprocessed at 30, 60, and 90 days.
-*Data deletion requests submitted to Data Cloud are passed to all connected Salesforce clouds.
-*Data deletion requests are submitted for Individual profiles.
-Explanation: Data deletion requests are submitted for Individual profiles: The Consent API typically processes data deletion requests at an individual profile level. This means that when a request for the right to be forgotten is made, it pertains specifically to the individual's profile or data record within the system.Data deletion requests submitted to DataCloud are passed to all connected Salesforce clouds: The Salesforce clouds connected to DataCloud, such as Sales Cloud, Service Cloud, Marketing Cloud, etc., are part of the Salesforce ecosystem. When a data deletion request is submitted through the Consent API in DataCloud, it triggers a cascade effect where the request is transmitted to all connected Salesforce clouds, ensuring that the individual's data is deleted consistently across the entire Salesforce environment.
-
 An organization wants to enable users with the ability to identity and select text attributes from a picklist of options. Which Data Cloud feature should help with this use case?
 Data harmonization
-Global picklists
+Global picklis
 Transformation formulas
 * Value suggestion
 Explanation: The "Value suggestion" feature helps by suggesting and predicting values based on historical data or predefined patterns, assisting users in selecting appropriate text attributes from a list of suggested options. This functionality aids in streamlining data entry, improving accuracy, and facilitating the selection of values from a set of suggested options.
@@ -1896,10 +1635,10 @@ Ensure the segments are set to Rapid Publish and set to refresh every hour.
 Explanation: By using Flow to trigger a change data event on the ecommerce data, it initiates a process that refreshes the insights associated with that data. This ensures that the insights utilized in scheduled activations are updated and accurate before the activations occur. Triggering this event just before the activations are set to run allows for the most recent data insights to be available, maintaining accuracy in the customer's scheduled campaign messages.
 
 A user wants to be able to create a multi-dimensional metric to identify unified individual lifetime value (LTV). Which sequence of data mode! object (DMO) joins is necessary within the calculated insight to enable this calculation?
-Sales Order &gt; Unified Individual
-* Unified Individual &gt; Unified Link Individual &gt; Sales Order
-Unified Individual &gt; Individual &gt; Sales Order
-Sales Order &gt; Individual &gt; Unified Individual
+Sales Order > Unified Individual
+* Unified Individual > Unified Link Individual > Sales Order
+Unified Individual > Individual > Sales Order
+Sales Order > Individual > Unified Individual
 Explanation: This sequence suggests joining the "Unified Individual" data model object with the "Unified Link Individual" data model object, and then further connecting it to the "Sales Order" data model object. This progression likely establishes a linkage between unified individuals and their linked records, and then extends it to the sales order data, allowing for the calculation of lifetime value (LTV) within this specific data model structure.
 
 Cumulus Financial created a called Multiple that i ir who have invested in two or more mutual funds.‘The company plans to send an email to this segment regarding a new mutual fund offering, and wants to personalize the email content with information about each customer's current mutualfund investments. How should the Data Cloud consultant configure this activation?
@@ -1943,13 +1682,6 @@ A segment fails to refresh with the error "Segment references too many data lake
 Refine segmentation criteria to limit up to five custom data model objects (DMOs).
 Space out the segment schedules to reduce DLO load.
 Explanation: A. Split the segment into smaller segments: Breaking down the segment into smaller, more manageable segments can help reduce the complexity and the number of data lake objects referenced in each individual segment. By dividing the segment, you distribute the load across multiple segments, potentially alleviating the issue.B. Use calculated insights to reduce the complexity of the segmentation query: Calculated insights can pre-calculate certain complex computations or aggregations, reducing the complexity of the segmentation query itself. By utilizing calculated insights, you might decrease the number of data lake objects referenced or optimize the query's computational load, thus mitigating the error related to excessive DLOs.Both of these approaches aim to reduce the complexity and load associated with the segment's query or composition, thereby addressing the issue of referencing too many data lake objects and potentially resolving the segment refresh failure.
-
-Which statement about Data Cloud's Web and Mobile Application Connector is true?
-The connector schema can be updated to delete an existing field.
-Any data streams associated with the connector will be automatically deleted upon deleting the app from Data Cloud Setup.
-*A standard schema containing event, profile, and transaction data is created at the time the connector is configured.
-The Tenant Specific Endpoint is auto-generated in Data Cloud when setting the connector.
-Explanation: This connector typically establishes a structured schema that encompasses various types of data related to events, profiles, and transactions from web and mobile applications. This standardized schema formation occurs during the setup of the connector to facilitate the integration and ingestion of these different types of data into Data Cloud.
 
 Which two steps should a consultant take if a successfully contiqured Amazon $3 data stream fails to refresh with a “NO FILE FOUND” error message?Choose 2 answers
 Check if correct permissions are configured for the Data Cloud user.
@@ -2000,13 +1732,6 @@ Use a streaming API call to delete the customer's information.
 Use Profile Explorer to delete the customer data from Data Cloud.
 Explanation: This tool is designed specifically for handling data subject requests, such as requests for data deletion. It allows the consultant to manage and process requests related to data rights, including deletion requests, in accordance with privacy regulations and company policies. Using this tool ensures that the customer's request is appropriately handled within the DataCloud system.
 
-During discovery, which feature should a consultant highlight for a customer who has multiple data sources and needs to match and reconcile data about individuals into a single unified profile?
-Harmonization
-Data Consolidation
-*Identity Resolution
-Data Cleansing
-Explanation: This feature involves the process of matching and consolidating data from various sources to identify and link records belonging to the same individual. It focuses on accurately determining that multiple records across datasets indeed represent the same person. This process is fundamental in creating a unified profile by resolving and consolidating disparate data into a single cohesive representation for each individual.Identity Resolution helps in removing duplicates, reconciling conflicting information, and creating a comprehensive view of an individual across various data sources. Therefore, for a customer dealing with multiple data sources and aiming to create unified profiles, Identity Resolution becomes a crucial feature to highlight during discovery.
-
 To import campaign members into 2 campaign in Salesforce CRM, 2 user wants to export the segment to Amazon 53. The resulting file needs to include the Salesforce CRM Campaign ID in the name. What are two ways to achieve this outcome? Choose 2 answers:
 *Include campaign identifier in the activation name
 Include campaign identifier in the segment name
@@ -2020,13 +1745,6 @@ All source profile data will be removed.
 *All individual data will be removed.
 Dependencies on data model objects will be removed.
 Explanation: Unified customer data associated with this ruleset will be removed. When an identity resolution ruleset is deleted, the association between the ruleset and the unified customer data processed through it is typically removed as well. This means that the organization might lose the unified view of customers based on the ruleset's specifications.All individual data will be removed. Deleting the identity resolution ruleset could impact the individual data processed or organized based on those rules. It might remove the data categorization or organization carried out through that specific ruleset, potentially affecting how individual data was identified or associated with each other.Communicating these impacts is crucial as deleting an identity resolution ruleset could result in the loss or disruption of data associations, organization, or categorization tied to the ruleset, affecting the unified view of customers and individual data within Data Cloud.
-
-When performing segmentation or activation, which time zone is used to publish and refresh data?
-Time zone of the user creating the activity
-Time zone specified on the activity at the time of creation
-Time zone of the Data Cloud Admin user
-*Time zone set by the Salesforce Data Cloud org
-Explanation: The org-level time zone settings can dictate the time zone used for various automated processes, including scheduling activities like data refresh or segmentation within the Data Cloud environment. This configuration ensures consistency in timing and execution based on the organization's specified time zone preferences. Time zone set by the Salesforce Data Cloud org—can indeed determine the time zone used for scheduling and refreshing data in Salesforce Data Cloud activities.
 
 A consultant wants to build a new audience in Data Cloud. Which three criteria can the consultant include when building a segment? Choose 3 answers
 *Direct attributes
@@ -2042,3 +1760,193 @@ Cloud i i who are and have not opened or clicked on an email in the last six mon
 Marketing Cloud activabons only activate those individuals that already exist in Marketing Cloud. They do not allow activation of new records.
 Cloud apply &amp; cap and limut the number of records that can be sent in an activaton.
 Explanation: Data Cloud often requires the presence of a Contact Point (such as an email address) for activation. If the individuals within the segment lack a related Contact Point (for instance, an email address), they might not be activated or included in the activation process. This condition can result in a smaller activated count compared to the segment count, especially if some individuals within the segment don't have the necessary Contact Points for email activation.
+
+What is the purpose of Data Explorer? (choose all that apply)
+To inspect only DMOs and DSOs
+*To enable validation of the configured mappings for DMOs
+*To inspect initial values and validate formula fields for DSOs
+To view over 250 records and 25 attributes
+*To inspect calculated insights
+
+You need to integrate new data sources with custom attributes that will be added to a standard data model object. Which type of data model objects would you build?
+Custom
+*Hybrid
+Standard
+
+Why should a cardinality setting of 1:M be set for objects such as Contact Point Phone, Email, or  Party Identification?
+*Allows a relationship to multiple records
+Is the default field for all relationship definitions
+Requires the same cardinality as the Individual object
+Allows a relationship to multiple objects
+
+How is the Individual Object referenced in other DMOs within a data model?
+Via Party Identification Object
+Via Contact Point Identifier
+Via Individual.Id Attribute
+*Via Party Attribute
+
+What do you do when datasets have fields that align to one DMO and another portion aligns to another DMO?
+Denormalize the data
+Transpose the single records to multiple records
+*Create formula fields
+Use a subscriber key value
+
+Which objects must be mapped to the Individual DMO to enable the unification and activation process to work? (choose all that apply)
+Unified Individual
+*Customer Profile
+Purchase Order
+*Contact Point
+Party Identification
+
+Match Rules can make use of ________ and _________ attributes mapped to the data model.
+unified individual and unified contact
+*standard and custom
+
+What reconciliation rule is defined by default when selecting profile attributes in the Unified Individual?
+*Last updated 
+Source sequence
+Most occurring
+Oldest record
+
+Which of the following are true of anonymous profiles? Choose two.
+*Once at least one known individual profile is matched with an anonymous record, that record will be marked as known going forward.
+For anonymous profiles to be counted correctly, the value of the Is Anonymous field must be set to 0.
+*They’re excluded from the known profile utilization consumption.
+
+Which three match rules are available to link multiple records into a unified customer profile? 
+*Exact Device and Name
+Exact org ID
+*Exact name and email
+Exact email
+*Exact phone number
+
+When using match rules with Individual Attributes and contact points, you risk creating combinations of records when the same contact point (such as a shared business phone number) is used across several individuals. What should you do to prevent this from happening?
+Include many attributes and contact points.
+Avoid using match rules with Individual Attributes and contact points, since this is not a recommended practice.
+Set up match rules with a single connected contact point.
+*Ensure names are included into the rules.
+
+Identify the two correct statements.
+*Segments do not publish by default.
+Never use the Unified Individual as the segment target.
+*The Attribute Library contains data that has been mapped and marked for segmentation. 
+The Rule Builder defines your target audience using only 1:1 data.
+Count segment can be used to see which individual-level record details are in a segment.  
+Segments are always published on a schedule.
+
+Which type of Insight can be used in Segmentation?
+*Calculated Insight
+Streaming Insight
+Commerce Insight
+
+For customers who want to "set it and forget it" for ongoing campaigns, what are the two automated publish schedule options on a segment?
+*Every 4 hours
+*Every 24 hours
+Every 1 hour
+Every  8 hours
+Every 12 hours
+
+How many attributes can be enabled for Value Suggestion?
+No limit
+*500
+50
+100
+
+Which step in a segment configuration determines the attributes that show up in the Attribute Library?
+*Containers
+Publish Schedule
+Population
+Segment On
+
+Which attributes in the Attribute Library have a 1:Many relationship with the segment target?
+*Related attributes
+Engagement attributes
+Direct attributes
+Profile attributes
+
+Which options can you use to create a Calculated Insight? Choose four.
+*Create with Builder
+Create from API
+*Create with SQL
+*Create from a package
+Create Streaming Insights
+*Import Query from Marketing Cloud
+
+Which activity is not performed with authoring Streaming Insights via SQL?
+Mapping to real-time sources
+Using Data Actions
+*Creating timestamps in Data Cloud
+
+True or False: Once you save an Insight from Visual Insights Builder, you can no longer edit it using the Visual Builder.
+True
+*False
+
+How are Calculated Insights added to an Activation?
+*Additional Attribute
+Activation Target
+Contact Point
+Activation Membership
+
+Where do you define the location where you want to use your segment?
+Calculated Insights
+Segment
+*Activation Target
+Activation
+
+A customer is interested in updating the CRM Contact lead based on streaming Data that’s coming to Data Cloud. What feature would you recommend?
+*Data Actions
+Activate to CRM
+Leverage the CRM Connector
+
+For which Activation Target does Data Cloud not enforce the presence of contact points (email address, phone number)?
+*AWS S3
+Marketing Cloud
+AppExchange
+Cloud File Storage
+
+When activating on Unified Individual to Marketing Cloud, which three attributes are automatically included?
+Email subscriber key
+*Contact email address
+*Contact phone number
+Contact address
+*Contact ID
+
+Select the best option that completes the statement. Cloud File Storage Activation Target lets you publish segments...
+*From Data Cloud to Amazon S3.
+Directly from Data Cloud to Marketing Cloud Business Units.
+So Salesforce Core apps can query.
+
+Select the correct option below to complete this sentence. Activation Membership expands the possibility of activating the profile entities that have a _______ relationship with the Segmented On entity.
+Many:1
+*1:Many
+1:2
+1:1
+
+In which activation target does Data Cloud also create a separate segment metadata JSON file?
+Marketing Cloud
+Loyalty
+*Amazon S3
+Marketing Cloud Personalization
+
+What edition of Salesforce supports External Activation Platform creation?
+Enterprise Edition
+Unlimited Edition
+*Namespaced Developer Edition
+Professional Edition
+
+When are Activation Targets created?
+*Before setting up an activation
+Before creating a segment
+After setting up an activation
+After publishing a segment
+
+Which two options are available for automated batch publish and activation?
+*12 hours
+1 hour
+*24 hours
+15 minutes
+
+What data points can be activated in Calculated Insights when activating a segment?
+*Metrics
+Dimensions
+Metrics and Dimensions
