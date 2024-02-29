@@ -1722,8 +1722,8 @@ Explanation:  Including the campaign identifier in the activation name. This act
 A consultant is working in a customer's Data Cloud org and is asked to delete the existing identity resolution ruleset. Which two impacts should the consultant communicate as a result of this action? Choose 2 answers
 *Unified customer data associated with this ruleset will be removed.
 All source profile data will be removed.
-*All individual data will be removed.
-Dependencies on data model objects will be removed.
+All individual data will be removed.
+*Dependencies on data model objects will be removed.
 Explanation: Unified customer data associated with this ruleset will be removed. When an identity resolution ruleset is deleted, the association between the ruleset and the unified customer data processed through it is typically removed as well. This means that the organization might lose the unified view of customers based on the ruleset's specifications.All individual data will be removed. Deleting the identity resolution ruleset could impact the individual data processed or organized based on those rules. It might remove the data categorization or organization carried out through that specific ruleset, potentially affecting how individual data was identified or associated with each other.Communicating these impacts is crucial as deleting an identity resolution ruleset could result in the loss or disruption of data associations, organization, or categorization tied to the ruleset, affecting the unified view of customers and individual data within Data Cloud.
 
 A consultant wants to build a new audience in Data Cloud. Which three criteria can the consultant include when building a segment? Choose 3 answers
