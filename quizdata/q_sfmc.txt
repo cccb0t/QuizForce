@@ -1,0 +1,1562 @@
+A customer wants Sales Cloud users to create and send Marketing Cloud emails. Which two recommendations should the consultant make? (Choose two.)
+*The consultant should enable deep linking in Marketing Cloud Connect configuration.
+*Each user should have a one-to-one relationship between the Marketing Cloud user and the Sales Cloud user.
+Each Sales Cloud user should have a System Administrator Profile and a Role at the top of the Role Hierarchy.
+The consultant should enable the Create Email feature on the user Profile in Sales Cloud.
+
+Why would a contact fail to enter a Journey Builder interaction? (Choose three.)
+The interaction has an A/B/n split, and the contact does not meet the criteria.
+*The interaction allows re-entry only after exiting, and the contact already exists.
+*The contact falls below the High Water Mark.
+*The contact did not meet the entry criteria.
+The entry event was not fired via Automation Studio.
+
+A user in Marketing Cloud needs to send an email to a Salesforce Report via a Send Flow process. How should the consultant meet this requirement?
+Assign the integrated user the Marketing Cloud for AppExchange User permission in Sales Cloud.
+Create data validation rules for the integrated user in Sales Cloud.
+*Create a Salesforce Data Extension for the user to select during a Send Flow.
+Add custom VisualForce Page to the page layouts in Marketing Cloud.
+
+Analyst of Northern Trail Outfitters (NTO) marketing team needs to pull email metrics for an upcoming quarterly company meeting. These metrics need to be reported per email campaign for each of NTO’s Business Units: • Number of Sends • Delivery Rate • Overall Bounce Rate • Block Bounce Rate • Open Rate • Click Rate • Complaint Rate • Unsubscribe Rate Which email report should NTO’s Marketing Analyst pull from Marketing Cloud to get this information?
+*Campaign Email Tracking Report
+Account Send Summary Report
+Email Send Report
+Email Performance Over Time Report
+
+A retail company’s database of record resides at a third party company that also keeps track of purchase history. Their database only updates once a day where new records can be created and merged. The database uses the unique identified “Customer ID”. The company wants to send real-time Welcome emails to newly registered website users who provide their email address in exchange for getting 10% off their first order, and ensure this send is connected to “Customer ID” in the database. What three key issues should be addressed? (Choose three.)
+*How will Marketing Cloud and the database synchronize?
+What will be used as Subscriber Key?
+*Will the company need a custom preference center?
+*What publication lists will be used?
+Will new users have an “Customer ID”?
+
+A customer wants to perform an email send to a subset of a Synchronized Data Extension referencing Sales Cloud custom object data and return tracking to Sales Cloud. What approaches should the consultant recommend? (Choose two.)
+Use SQL Query Activities to create a Sendable Synchronized Data Extension.
+*Use Synchronized Data Sources to sync Sales Cloud objects to Marketing Cloud.
+*Use SQL Query Activities to output a Sendable Salesforce Data Extension.
+Use Data Filters to segment data to output a Sendable Data Extension.
+
+Which two statements are correct about Send Logging? (Choose two.)
+*AMPscript can be used to pull data from Send Logs for use within emails.
+Send Log data extensions are archived automatically based on retention settings.
+A business unit can support up to three Send Logs.
+*SQL Query Activities can reference Send Logs in combination with system data views.
+
+If I want to introduce a new line of footwear. I am excluding anyone who does not have shoe as an attribute listed in their preference center. I plan to send the emails daily. After a short time, I notice many people updating their preferences, and less emails are going out. What is the issue causing less emails to go out?
+Preference center is too strict.
+*High Watermark if journey builder.
+Email frequency too high.
+Deliverability issues on account.
+
+A customer needs to link demographic information to its contact model in Contact Builder. What type of relationship should be used?
+*One-to-Many Relationship
+Many-to-One Relationship
+Many-to-Many Relationship
+One-to-One Relationship
+
+ABC Company is setting up new hires on its instance of Marketing Cloud, which includes Email Studio, Mobile Connect, and Social Studio. One of the hires needs to manage the operations of all of the North American Business Units. What two roles, custom or standard, could be assigned to this user to meet the requirement? (Choose two.)
+*Marketing Cloud Channel Manager
+*Marketing Cloud Administrator
+Marketing Cloud Email Marketing Manager
+Marketing Cloud Regional or Local Administrator
+
+A consultant wants to trigger an email whenever the Status field on the Lead Object changes to Hot. Tracking data will need to be kept in the Sales Cloud. Which three steps should the consultant use in the solution? (Choose three.)
+Put a SOAP API in place via the Marketing Cloud API.
+*Write an Apex Trigger on the Lead Object.
+*Create the Triggered Send Definition in the Marketing Cloud.
+Create the Triggered Send Definition in the Sales Cloud.
+*Enable Triggered Sends on the Lead Object in configuration.
+
+A large retail group consists of a corporate team and several divisions operating under different brand names. All plan to share one Marketing Cloud account. Each brand has its own marketing department and operates independently, with its own creative assets, subscribers, and data structure. What are the two reasons why the recommended account configuration is one corporate Parent account, with each brand configured as a separate child Business Unit? (Choose two.)
+*Subscribers can be maintained at the Business Unit level.
+User roles can be customized to allow or deny specific permissions.
+*Brands can set their own physical address and SAP.
+Email sends can be separated into Tracking folders for each brand.
+
+A customer is developing a new eCommerce section of their website and plans to leverage transactional data in customer journeys. Which two Marketing Cloud features will support this effort? (Choose two.)
+Data Designer
+Cloud Pages
+*Web Analytics Connector
+*Content Builder
+
+ABC Company has a requirement to create a distinction between marketing and transactional emails in terms of From Name and IP Address for reputation purposes. Which two actions should ABC Company take in order to create Send Classifications? (Choose two.)
+Define custom Reply Mail Management.
+*Define a Delivery Profile.
+Define a Subscriber – specific From Name.
+*Define a Sender Profile.
+
+A subscriber asked to be removed from a customer’s email list multiple times by replying directly to the customer’s marketing message, but continues to receive emails. Which three settings should be confirmed? (Choose three.)
+*Reply Mail Management (RMM) is configured for the customer’s account.
+The RMM setting ‘Delete auto-replies and out-of-office replies’ is set to NO.
+*An email address was provided as the Routing Address for Remaining Replies.
+*The RMM setting ‘Unsubscribe Manual Requests’ is set to YES.
+The subscriber’s request contained one of the standard terms that qualify for automatic unsubscribe.
+
+A retail company wants to create journeys to target subscribers based on website behavior. They have identified three separate groups: customers who searched for an item, abandoned a cart, and made a purchase. Which three questions should the consultant ask to design the data structure for this solution? (Choose three.)
+*How long after the behavior occurs will a subscriber need to enter a journey?
+*How are subscribers identified in your web analytics?
+Should customers exit the journey when the goal is met?
+How many messages should be included in each journey?
+*Should a single customer exist in multiple journeys at the same time?
+
+A company is hosting a series of events and wants its customers who register to enter into a journey. Which two methods are viable configurations for entry? (Choose two.)
+A form hosted on the company website that fires the entry event via SOAP API.
+*A form hosted on the company website that fires the entry event via REST API.
+A SmartCapture form hosted in CloudPages that updates a Profile attribute.
+*A SmartCapture form hosted in CloudPage that populates the entry source.
+
+Northern Trail Outfitters (NTO) is launching a new campaign, driving them to redesign their data structure. NTO needs to change the cardinality between two data extensions inside Contact Builder. What are two consequences of this change? (Choose two.)
+All filters created before will adapt automatically to the new cardinality.
+One of the data extensions must be deleted from the attribute group in order to change the cardinality.
+*All scheduled sends using a filter based on one of the data extensions should be reviewed.
+*A contact may not show up in the filter based on one of the data extensions.
+
+Which three statements are correct regarding the automation tools in Marketing Cloud? (Choose three.)
+*Journey Builder and Automation Studio allow users to define the parameters for a send within the tool.
+Automation Studio and Journey Builder allow users to repeat an interaction indefinitely.
+Automation Studio and Journey Builder allow users to define a wait activity based on duration.
+*Journey Builder allows users to inject Contacts from a data extension which is updated by Automation Studio.
+*Journey Builder allows users to update a contact record in a journey or import data into a data
+
+A customer has an eCommerce site and imports data into three data extensions daily: Orders, Order_Details, and Products. The data extensions contain the following information: - Orders: OrderID, CustomerID, OrderNumber, OrderDate, OrderTotal, GrandTotal. - Order_Details: ProductID, OrderID, Qty, UnitPrice, ExtendedPrice, Discount. - Products: ProductID, SKU, Name, Description, Cost, Price. Which two actions should be taken in Data Designer? (Choose two.)
+*Create a one-to-many relationship between Orders and Order_Details.
+Create a one-to-one relationship between Orders and Order_Details.
+*Create a one-to-one relationship between Order_Details and Products.
+Create a one-to-one relationship between the contact record and Order_Details.
+
+The Corporate Apparel Division of ABC Company is moving to Marketing Cloud and will be using ABC existing account. The Corporate Apparel team has asked for a recommendation on whether they should have a separate business unit. Which consideration warrants the creation of a separate business unit for Corporate Apparels instance of Marketing Cloud?
+*Managing Unsubscribes for the Corporate Apparel Division only.
+Sending from a separate IP Address and Domain.
+Using different From Name and Email Address settings.
+Branding for the Corporate Apparel is different from ABC Company.
+
+A start-up meal delivery company recently launched in Canada to great success. Through their website, customers can order individual meal kits for up to six people or subscribe to a weekly meal kit delivery. As a new company, resources are limited, but demand is taxing their manual processes for sending out ecommerce messages, such as order confirmation and subscription confirmations. What recommendation would best provide a scalable solution for the start-up?
+An automated program to send daily transactional messages.
+A triggered automation to send transactional messages.
+*Triggered email sends to deliver transactional messages.
+A manual email send for each transactional message.
+
+A university plans to use Journey Builder to improve their 1:1 marketing to potential students, current students, and alumni. The university currently has student data in the Sales Cloud. Other data, such as course catalog, student demographics, and alumni information, is stored in external systems. Which two actions should the Consultant recommend? (Choose two.)
+*Use Data Designer to link student and alumni data to the contact record.
+*Use Synchronized Data Sources to obtain data from the Sales Cloud.
+Create an Import Activity to import alumni data into Salesforce Report.
+Create list attributes to store student data from the Sales Cloud.
+
+A customer wants to automate a series of three emails as part of a Membership Renewal drip campaign. Email #1 will be sent one month prior to the member’s renewal date. Email #2 will be sent one week prior to the member’s renewal date. Email #3 will be sent on the member’s renewal date. A master audience is updated in real time via the API. Which steps should be included in the customer’s automation?
+Import File Activity > three Send Activities to the master data extension.
+Three Send Activities to the master data extension.
+*Three Filter Activities > three Send Activities to the filtered audiences.
+Import File Activity > three Filter Activities > three Send Activities to the filtered audiences.
+
+A restaurant supply company captures email subscribers and leads through trade shows. They hold a giveaway at each trade show to entice booth visitors to leave their contact information. In the past, they have used a fishbowl to capture business cards, but need to update this to an online sweepstakes entry vehicle displayed on a mounted tablet. Individuals should only be allowed to enter once, and the winner will be selected randomly. All entrants receive a follow-up email after the trade show asking them to confirm their opt-in for a monthly newsletter. Which two components are appropriate for this solution? (Choose two.)
+Microsite with Web Collect to store entrants on a data extension.
+Send Email Activity with a link to a subscription center.
+*Data Extension with double opt-in status defined.
+*Microsite with Smart Capture to store entrants on a data extension.
+
+What are two possible outcomes when “Send as Multipart MIME” is selected during the send process? (Choose two.)
+*The email will avoid detection by various SPAM filters.
+Open and click activity are tracked in either version.
+*An auto-generated text version will be sent with your HTML email.
+A custom text version will be sent with your HTML email.
+
+A customer with limited technical resources has requested assistance in setting up a small email deployment that the customer will maintain long term. The email will display men’s shoes to males in the audience and women’s shoes to females in the audience. The sendable data extension contains a field with a value of Male or Female. Which method should a consultant recommended to ensure content is displayed properly within the email?
+*Dynamic Content Wizard
+AMPscript conditional against the Gender field
+AMPscriptLookupRows functions
+NB Test content type
+
+How do you add a contact in contact builder? (Choose two.)
+Import to All Subscribers List.
+Add manually to All Subscribers.
+*Import to MyLists.
+*Import to DE.
+
+Northern Trail Outfitters (NTO) wants its monthly distributor newsletter email to appear to be sent on behalf of the subscriber’s account representative without segmenting the audience by sales representative. In which two ways could this distributor-specific sender profile be configured in the Marketing Cloud account with Sender Authentication Package Implemented? (Choose two.)
+*Utilize AMPscript data extension lookups to dynamically populate the From Name and From Email Values.
+*Use substitution strings to populate the From Name and From Email values in the sender profile.
+Pick “Choose from list,” selecting the From Name and From Email Values from the list of account users.
+Match the external keys of the sender profile and data extension containing account representative details.
+
+A user in the MC wants to use Salesforce custom object data for segmenting and personalization. How should the consultant approach this requirement?
+Map the custom objects to the profile center and use the email editor to insert the custom data. Create a user-initiated send to associate the email to the largest audience and return tracking data.
+Sync contact and custom objects with Data Stream and send from Synchronized Data Extension with Salesforce email send. Ensure there is a lookup relationship to a contact or lead record.
+*Create a custom report type that contains the contact or lead ID, email address, and custom object data, then from the marketing cloud, import into a Salesforce Data extension. Use AMPscript in the email to call data.
+Export report data from the sales cloud and import into a marketing cloud synchronized data extension. Use a filter activity to produce a sendable data extension. Create an email send activity in Automation Studio.
+
+The company wants to display the subscriber’s first name and the send date in a monthly newsletter. The subscriber’s first name is stored in a data extension which is not used in the send definition. How can this be achieved? Choose
+*AMPscript
+SQL Query
+Personalization Strings
+Guide Template Language
+
+The company wants to use tracking aliases. Which statement is correct regarding tracking aliases? Choose 2.
+*Tracking aliases are primarily relevant when used with email conversion tracking.
+*Tracking aliases can differentiate click activity in an email to the same URL
+Tracking aliases are found in Tracking and some standard reports
+Tracking aliases are associated with a URL in HTML as: tag=”alias text”
+
+A company wants to use Contact Builder to manage data extension records. Which data operations are supported in Contact Builder? Choose 2.
+Extract Data
+Edit Multiple Records
+*Clear Records
+*Add Single Record
+
+A company wants monthly customer newsletters to appear to be sent on behalf of each subscriber’s account representative. Segmenting the email audience by sales representative should be avoided. How can this be achieved? Choose 2.
+Match the external keys of the sender profile and data extension containing account representative details.
+Pick “Choose from list,” selecting the from name and from email values from the list of account users.
+*Populate substitution strings in the sender profile for the profile attributes containing from name and from email values.
+*Utilize data extension AMPScript lookups to dynamically populate the from name and from email values.
+
+A bank wants to send out a series of emails to new customers that open a checking or savings account. The emails will be used to educate and inform customers regarding their current account and other bank offerings. - Data for the campaign will be in two data extensions: Customer and New Accounts. - The Customer data extension is currently used for multiple campaigns and is updated at 1:00 a.m. - The New Accounts data is encrypted and will be placed on the SFTP at 10:00 p.m. Which automated workflow meets the customers’ requirements?
+A scheduled automation which starts at 2:00 a.m. and executes Data Extract Activity > Import File Activity > SQL Query Activity > Wait Activity > Send Email Activity.
+ drop automation which executes File Transfer Activity > Import File Activity > SQL Query Activity > Wait Activity > Send Email Activity.
+* scheduled automation which starts at 2:00 a.m. and executes a File Transfer Activity > Import File Activity > SQL Query Activities > Wait Activity > Send Email Activity.
+ scheduled automation which starts at 12:00 a.m. and executes a File Transfer Activity > Import File Activity > SQL Query Activities > Wait Activity > Send Email Activity.
+
+ABC Company wants to automate the sending of shipping notices and a customer survey. - Shipping notices will be sent once a day. - The shipping file will be placed on the FTP some time after 4:00 p.m. - The shipping data will be sorted in the Shipping Notice data extension. - A field in the data extension will contain the shipping date. - The survey needs to be sent at 9:00 a.m., exactly 10 days after the customer’s order ships. Which workflow would most effectively enable ABC Company to do this?
+*utomation 1: Triggered Import File -> Filter -> Send Email -> Wait-> Filter -> Send Email
+utomation 1: Scheduled to run daily at 7:00 PM Import File -> Filter -> Send Email -> Wait -> Filter -> Send Email
+utomation 1: Scheduled to run daily at 7:00 PM Automation 2: Scheduled to run daily at 9:00 AM Import File -> Filter -> Send Email -> Filter -> Send Email
+utomation 1: Triggered Automation 2: Scheduled to run daily at 9:00 AM Import File -> Filter -> Send Email -> Filter -> Send Email
+
+During discovery, the customer outlines data requirements and the anticipated use of Marketing Cloud with the following criteria: - Customer data will be fully refreshed every night via Import File Activity from the customer’s data warehouse. - Contact records will be augmented by relational data tables via Contact Builder. - Customer ID will be used as the unique identifier for each contact. Which statement differentiates the use of data extensions over lists?
+*ata extensions are necessary for Contact Builder.
+ata extensions allow for add/update Import File Activity.
+ata extensions can store HTML code as an attribute.
+ata extensions support Customer ID to be used as Subscriber Key.
+
+A customer is collecting data from a Smart Capture form that stores submissions in a data extension. The customer wants an email was sent to the marketing manager each morning that contains the previous days submissions as a CSV attachment. Assuming that the customer has the attachments feature enabled. Which automation workflow will accomplish this?
+cheduled Automation: Data Extract > SQL Query > Transfer File > Send Email
+riggered Automation: SQL Query > Data Extract > Transfer File > Send Email
+*cheduled Automation: SQL Query > Data Extract > Transfer File > Send Email
+riggered Automation: Data Extract > SQL Query > Transfer File > Send Email
+
+ABC Company has to import a file that will be different every time. What method should be used?
+dd Only
+pdate Only
+*verwrite
+dd/Update
+
+ABC Company wants to import files at certain standard times, but occasionally a file will be dropped on a Friday if the 30th of the month falls on a weekend. What is the flow?
+ user-initiated message to send an email to customers who made a purchase daily.
+*riggered Import - user initiated send (not scheduled).
+ scheduled automation to send emails to customers who made a purchase daily.
+
+Northern Trail Outfitters (NTO) experienced a 24-hour website outage beginning on a peak shopping day, as a result, a number of logged-in customer’s shopping sessions were disrupted. When the site is back online, the retailer would like to encourage those shoppers to return the site and continue their shopping. What action should Northern Trail Outfitters (NTO) take?
+reate and send an apology email which includes a discount for a future purchase to all customers.
+o NOT send an email, as outage may have increased negative sentiment, resulting in unsubscribes.
+*mport a file of logged-in customers into NTO’s existing Abandoned Cart journey in Journey Builder.
+reate a user-initiated message to logged-in customers to send once the website is restored.
+
+Northern Trail Outfitters is concerned with their sender reputation and needs consistent visibility into subscribers who report their email as spam. How should they determine which subscribers reported their email as spam so they can flag those records in their customer service database?
+*n automation that queries the Complaint data view.
+n automation that queries the Unsubscribe data view.
+n automation that generates the Spam Complaints Over Time Report.
+n automation that generates the Unsubscribe Event Extract.
+
+When joining a data extension in Contact Builder, in which scenario should a consultant mark the Use as Root checkbox?
+upplemental data for an interaction in Journey Builder.
+ne-to-Many Relationship to the Contact Record.
+ata for both Email and MobileConnect sends.
+*atabase of record other than All Subscribers.
+
+ABC Company needs to reduce the amount of work when managing messages to customers, but cannot add any more personnel due to budget constraints. There has been an increased number of customer purchases on their website, and the team currently sends batch order confirmations. What solution will decrease manual workloads on the team and will improve their customers experience?
+ user-initiated message to send an email to customers who made a purchase daily.
+* triggered message to send an email as soon as a customer completes a purchase.
+ scheduled automation to send emails to customers who made a purchase daily.
+ triggered automation to send emails to customers who have made a purchase.
+
+A customer executes a large number of sends via Marketing Cloud connect and is concerned about API limits. What should the consultant suggest to minimize the impact of Marketing Cloud Connect on daily API limits? (Choose two.)
+ilter data
+*pgrade the MC account to ConnectedApp
+urn off link details tracking
+*urn off Individual Levels Tracking
+
+Marketing Cloud user needs the email addresses of everyone who unsubscribed from a particular email send. This user does not know SQL and does not have access to the enhanced FTP account. What functionality should be used to retrieve the necessary data?
+y Reports
+*y Tracking
+ata Views
+racking Extract
+
+A customer needs to import data from an SFTP site. The customer wants to: - Segment the contents of the file and then send emails. - Transfer the file to the SFTP site at various times daily. - Send to data extensions. Which workflow should meet these requirements?
+riggered Automation: Import File > Group Refresh > Send Email(s)
+cheduled Automation: Import File > SQL Query(s) > Send Email(s)
+*riggered Automation: Import File > SQL Query(s) > Send Email(s)
+cheduled Automation: Transfer File > Import File > SQL Query(s) > Send Email(s)
+
+A customer wants to create a journey in Journey Builder with the goal of making users activate their accounts within 72 hours of registration. - New account registrations are stored in a data extension via an API call with a Boolean field indicating whether the subscriber has activated their account. - The journey should send activation reminder emails 24 hours and 48 hours after creating an account. Which sequence of activities should be used for the customer’s journey?
+*4 hour Wait > Decision Split > Send Email > 24 hour Wait > Decision Split > Send Email
+4 hour Wait > Decision Split > Send Email > 48 hour Wait > Decision Split > Send Email
+ecision Split >24 hour Wait > Send Email > Decision Split > 48 hour Wait > Send Email
+ecision Split >24 hour Wait > Send Email > Decision Split > 24 hour Wait > Send Email
+
+A consultant is configuring Marketing Cloud Connect in Marketing Cloud. The customer requires that integrated users only have access to Sales Cloud data visible to them in their Salesforce account. How would the consultant ensure that this requirement is met?
+nsure that the User is assigned as System Administrator in Sales Cloud.
+*heck the Scope by User box in Marketing Cloud.
+nsure that the User has the correct profile in Marketing Cloud.
+reate a User in Sales Cloud with a System Administrator Profile.
+
+A customer provides a file containing only new and updated subscriber records exported from its marketing database. - The file will be uploaded to the customer’s Enhanced FTP automatically at 3 a.m. daily. - The customer requires that the import completes prior to 4 a.m. - On average, the file will contain about two million rows of data each day. Based on the customer’s requirements and recommended best practices, how should the daily file be imported?
+mport the file into a list, using the ‘update only’ method.
+mport the file into a list, using the ‘add and update’ method.
+*mport the file into a data extension, using the ‘add and update’ method.
+mport the file into a data extension, using the ‘overwrite’ method.
+
+Which three statements about Send Log Data is correct? (Choose three.)
+*an be stored for periods of time.
+*ses Measures, filters and programs.
+dded to a standard view.
+*ccessed using query.
+an be viewed in standard report.
+
+Which two statements about a database of record are correct? (Choose two.)
+t is any data structure in which multiple opt-in statuses can be stored for a subscriber.
+*t is a system in which a subscriber’s status is maintained.
+t is any database containing subscriber data.
+*t is a centralized storage repository of data about objects or people.
+
+A customer wants to integrate their website with Marketing Cloud so users can update their marketing communication preferences. The customer has in-house web development resources available and is interested in leveraging tools such as Journey Builder in the future. What solution should the consultant propose?
+onfigure a data structure using lists and leverage the out-of-the-box Preference Center.
+onfigure a relational data structure using data extensions and leverage a Web Collect form hosted in CloudPages.
+onfigure a data structure using lists and leverage a SmartCapture form the client can iFrame into their website.
+*onfigure a relational data structure using data extensions and consult with the customer on API integration with their website.
+
+A user receives a message stating that there is an error binding data bound member when testing an Entry Event in Journey Builder. What can a user do to ensure that contacts enter this interaction successfully based on the error message? (Choose two.)
+mport new subscribers to the All Subscribers table.
+ire the event in both Automation Studio and the Entry Event.
+*ake sure the contact is above the High Water Mark on the source data.
+*elect a source DE with a root relationship to the contact.
+
+A customer is interested in designing a solution to ensure that subscribers only receive categories of emails that they want to receive. The built-in subscription center will be used as part of the solution. Which feature should be utilized to make this happen?
+end Logging
+*ublication Lists
+rofile Center
+ubscriber Keys
+
+A customer has several values that need to be used in the body of an email send: - The data would be stored in a reference data extension, related on SubscriberKey. - There may be one or more records for each subscriber. - The audience is generally over 1 million subscribers. - The content is time sensitive and should be sent as quickly as possible. - The customer is not using “Catch and release” sending. - The reference data extension contains 25 columns. What method should be used?
+ynamic content via the Dynamic Content Wizard.
+MPscript a single Lookup Function.
+erver side JavaScript a single LookupOrderedRows Function.
+*MPscript a single LookupOrderRows Function.
+
+Subscribers are collected on a customer’s website whose subscription database of record is Salesforce Marketing Cloud. The customer sends up to five emails per week based on subscriber activity. The list is: - Compiled in a database in the website Content Management System (CMS). - Imported into Marketing Cloud nightly at 11 p.m. What action should be taken if a third party is sending a message for the customer outside of Marketing Cloud?
+nsubscribes should be synchronized between senders.
+*hey will need to integrate with the Marketing Cloud SOAP API.
+ngagement metrics will be passed into Marketing Cloud.
+he third-party send list should be pulled from the CMS.
+
+A customer team wants to retarget subscribers who click on links of key items promoted across email campaigns. The customer has indicated the following: - Emails will be built using a custom dynamic template for these messages. - Links will vary over time and across campaigns. - Click activity will be cross-referenced with subscribers’ regional markets on a master subscriber data extension. - Retargeting messages will dynamically populate content based on regional market. In order for this solution to be viable, which skill set does the customer team need to possess?
+TML
+SJS
+*MPscript
+QL
+
+An entertainment company is hosting events across the country in different venues. They want to use Contact Builder to feed Journey Builder. Contact who enter a journey will go through a decision split based on the type of event. The journey will send a series of emails and one of them will contain the venue details dynamically populated with AMP script. The Company collects the following information: - Customer data (email address, first name, last name…). - Event registration (email address, event ID, event name, event type, venue ID…). - Venue details (venue ID, venue name, venue address…). - Payment details (email address, event ID, total paid…). The Company does not want to link everything in Contact Builder. Which are the two data sources that must be incorporated inside Contact Builder? (Choose two.)
+vent Registration
+*ustomer Data
+*enue Details
+ayment Details
+
+A financial services customer states that families often share email addresses across multiple checking, savings, loan, and credit accounts. The customer needs to allow individual accounts to use the same email address in Marketing Cloud but maintain separate subscriber attributes. Which component should be discussed with the customer to allow for this use case?
+*ubscriber Key
+ontact ID
+ata Extensions
+ember Record
+
+A company collects subscriptions on its website. It does the following: - Compiles that subscription list in a database in the website Content Management System (CMS). - Posts this encrypted list to Marketing Cloud nightly at 11 p.m. - Uses Marketing Cloud as the database of record. - Sends up to five emails a week based on subscriber engagement with prior sends. Which automation sequence (excluding waits) should cover these requirements?
+ile Transfer > Import File > Measures > Send Email
+ile Transfer > SQL Query > Measures > Send Email
+ile Transfer > Data Extract > Filters > Send Email
+*ile Transfer > Import File > SQL Query > Send Email
+
+What is the capability of the Import within Contact Builder? (Choose two.)
+*he target destination can be a DE, list, or All Contacts for Mobile Push or Connect.
+he data source can be a local file, data filter, or file on any FTP.
+ike the Import Wizard, the Contact Builder import definition can be executed without saving.
+*n order to use Map by Header Row, the fields in the DE and file must match exactly.
+
+As part of their brand guidelines, ABC Company uses a custom brand font for all print marketing materials. ABC Company wants to use their custom brand font in email as well. What is the recommended best practice for font usage in email?
+uild an email as one image, with all text saved in the brand font.
+*se a web-safe font for text that closely matches the brands custom font.
+dit an emails HTML to list the custom brand font in the style tags font-family property.
+uild an email using multiple images, with all text saved in the brand font
+
+A customer wants to automate the send of a monthly promotional email. The customer will upload an audience file to their account’s Enhanced SFTP on a monthly basis on the 15th day of each month, expecting the email to be deployed upon completion of the import activity. However, if the 15th of the month falls on a Saturday or Sunday, the customer will provide the file on the Friday prior to the 15th and expect the promotional email to be sent on that Friday. Which method should be used to automate their monthly promotional email?
+reate a scheduled daily automation which includes an Import File Activity and Send Email Activity.
+*reate a file drop automation which includes an Import File Activity and Send Email Activity.
+reate a scheduled monthly automation which includes an Import File Activity and triggered send.
+reate a file drop automation which includes an Import File Activity and triggered send.
+
+A customer wants to display a subscriber’s first name and the date of send in its monthly newsletter. Subscriber first name data is stored in a data extension that will not be used in the send definition. Which option should be in this scenario?
+uide Template Language
+ersonalization strings
+*MPscript
+QL Query
+
+A Consultant has a data extension that contains all current product information. The customer wants to refresh data each morning by importing a CSV containing today’s product catalog. The product catalog is never the same; products can be added and removed. Which import type should be used?
+*verwrite
+pdate Only
+dd Only
+dd/Update
+
+ABC Company is expanding its marketing efforts globally. Each country’s marketing department has its own business unit and is responsible for the creation and execution of all the marketing campaigns. The Marketing Cloud Administrator is having trouble keeping up with the constant influx of new users and would like to speed up the turnaround of granting new users access to the Marketing Cloud. In what two ways can this be accomplished? (Choose two.)
+ssign Channel Managers the role of Marketing Cloud Analyst.
+ssign Administration User permissions to individual users.
+*ssign Administration User permissions to the Channel Manager role.
+*ssign Administration User permissions to each business unit.
+
+A customer will provide a single daily file on the Marketing Cloud SFTP at 3 AM and needs an alert if the file is not present on time. The file needs to be: - Imported into a staging data extension. - Separated into two different data extensions. Which workflow should meet these requirements?
+ile Drop Automation: Import File Activity > SQL Query Activity 1 > SQL Query Activity 2
+cheduled Automation: File Transfer Activity > Import File Activity > SQL Query Activity 1 > SQL Query Activity 2
+*cheduled Automation: Import File Activity > SQL Query Activity 1 > SQL Query Activity 2
+ile Drop Automation: File Transfer Activity > Import File Activity > Filter Activity > SQL Query Activity 1
+
+A customer executes a large number of sends via Marketing Cloud Connect and is concerned about API Limits. What should the consultant suggest to minimize the impact of Marketing Cloud Connect on daily API limits?
+ilter target audiences based on mapped profile attributes to reduce Bulk API calls.
+se Data Stream to sync object data into a Data Extension in the Marketing Cloud.
+hare Sales Cloud user licenses across Marketing Cloud users.
+*pgrade the Marketing Cloud Account to ConnectedApp Authentication.
+
+Which data object should be used in conjunction with data extensions to create an opt-down strategy for customers?
+rofile attributes
+*ublication Lists
+reference Lists
+reference attributes
+
+A customer plans to configure multiple Business Units (BU) to support the digital marketing efforts of five international offices. Which reason warrants this implementation?
+upport non-English responses with Reply Mail Management.
+ocalized language and display options based on location and culture.
+ocalized physical mailing address displayed in the default email footer.
+*racking information for campaigns sent by each office.
+
+When more than one subscriber email address field is created within Contact Builder, what action tells the platform which email address to prioritize in the Email application?
+reate a new Import to populate subscriber email addresses into All Subscribers.
+dd all email address fields into the Mobile Application and Predictive Intelligence Applications.
+reate a new Attribute Group referencing all email address fields in Data Designer.
+*dd all email address fields into the Contact Configuration screen in the correct order.
+
+Which two statements are correct regarding tracking aliases? (Choose two.)
+hey are found in Tracking and some standard reports.
+hey are associated with a URL in HTML as: tag=”alias text”.
+*hey can differentiate click activity in an email to the same URL.
+*hey are primarily relevant when used with email conversion tracking.
+
+A company wants to create a customer journey which targets subscribers based on website behavior. There are three relevant groups: customers who searched for an item, customers who abandoned a cart, and customers who made a purchase on the website. Which questions are relevant to design the data structure for this solution? Choose 3.
+How many messages should be included in each journey?
+*Should a single customer exist in multiple journeys at the same time?
+*How are subscribers identified in your web analytics?
+How long after the behavior occurs will a sub need to enter a journey?
+*Should customers exit the journey when the goal is met?
+
+A company wants to use data extensions to store subscriber data. What are data extension retention policies? Choose 1.
+*Settings to define when a data extension or the data within the data extension is deleted.
+Settings to control when a data extension creates a back-up of the data it contains.
+Settings to prevent users from deleting a data extension created by another user.
+Settings to “soft” delete all data in a DE so there is no data loss.
+
+A company executes a large number of sends with MC Connect and is concerned about SF API limits. How can the number of API calls from MC Connect towards SF be minimized? Choose 1.
+Share Sales Cloud user licenses across MC users
+*Use Connect App authentication
+Filter target audiences on mapped profile attributes to reduce Bulk API calls
+Use Data Stream to sync object data into a Data Extension in the Marketing Cloud
+
+A company collects data from a Smart Capture form and stores submission in a data extension in MC. Automation Studio should be used to send an email to the marketing manager each morning, with all Smart Capture submission from the previous day attached as a CSV file. Assuming the email attachments feature is enabled, which order of activities should be used to achieve this? Choose 1.
+*Scheduled Automation: SQL Query > Data Extra > Transfer File > Send Email
+Scheduled Automation: Data Extract > SQL Query > Transfer File > Send Email
+Triggered Automation: SQL Query > Data Extract > Transfer File > Send Email
+Triggered Automation: Data Extract > SQL Query > Transfer File > Send Email
+
+A company wants to use Journey Builder to send welcome emails based on subscriber data. Emails should be sent weekly for up to five weeks. If a subscriber makes a purchase within the five weeks, a boolean set flag in data extension should be set and the subscriber should stop receiving welcome emails. Which activity sequence should be used for this? Choose 1.
+*Define Goal as Exit Criteria > Update Contact Data > Send Email > Wait
+Define Goal as Exit Criteria > Send Email > Wait > Decision Split
+Random Split > Send Email > Wait > Define Goal
+Update Contact Data > Wait > Send Email > Join
+
+A company wants to automate marketing activities. Which statements are correct concerning automation tools in Marketing Cloud? Choose 3.
+Journey Builder allows users to update a contact record in an interaction or import data into a data extension
+*Like Journey Builder, Automation Studio allows users to define the parameters for a send within the tool
+Automation Studio and Journey Builder allow users to define a wait state based on duration or duration + time
+*Like Automation Studio, Journey Builder allows users to repeat an interaction indefinitely
+*Automation Studio allows users to inject Contacts from a data extension into an interaction in Journey Builder
+
+A company notices a decline in conversion rates from emails sent with Marketing Cloud. What actions can be taken to increase subscriber engagement? Choose 2.
+*Increase the use of dynamic content in emails
+*Adopt a Cart Abandonment Email Campaign
+Increase volume of emails to a wider audience
+Introduce more identity verification steps in check out process
+
+A company wants to use Automation Studio to import a subscriber file from a remote SFTP site, segment the subscribers, and send emails to the different segments. The import file is placed on the SFTP site at various times daily and data extensions should be used for email sends. Which activity order accurately describes the data flow for this? Choose 1.
+Scheduled Automation: Transfer File > Import File > SQL Query(s) > Send Email(s)
+*Triggered Automation: Import File > SQL Query(s) > Send Email
+Scheduled Automation: Import File > SQL Query(s) > Send Email(s)
+Triggered Automation: Import File > Group Refresh > Send Email(s)
+
+A company wants to send emails to subscribers who clicks on product links promoted across different email campaigns. A dynamic email template should be created for those re-targeting messages. Click activity should be cross-referenced with a subscriber attribute, to display different content based on the attribute. Which skillset if required to create such email templates? Choose 1.
+HTML
+SQL
+SSJS
+*AMPscript
+
+A company uses MC as the database of record for subscriber data. The company sends up to five emails to customers each week. The subscriber list for this is compiled in the company’s website Content Management System and imported into MC daily at 11pm. What should be considered, if a third-party system wants to send emails to customers outside of MC? Choose 1.
+Engagement metrics will be passed into MC
+Unsubscribed need to be synchronized between senders
+*They will need to integrate with the MC SOAP API
+The third-party send list should be pulled from the CMS.
+
+A company uses MC Connect and wants to send an email from Salesforce on behalf of the record owner. The email address of the record owner should be used as the From address in the email send. How can this be achieved? Choose 2.
+*Use the Send From record Owner option
+Use a custom Delivery Profile
+*Use a custom Send Classification
+Use the Organization-Wide Email address
+
+A company uses a third-party company to maintain the database of record and to keep track of customer purchases. The database of record can only be synchronized with other systems once a day, to create and merge new records. It uses a numeric “Email ID” field to identify both business unit and email addresses. the company wants to create a welcome journey and send emails to newly registered customers. The new customers should be connected to the “Email ID” in the database of record. Which key issues should be addressed with this setup? Choose 3.
+Will the company need a custom preference center?
+Will new users have an “Email ID”?
+What publication lists will be used?
+*How will Marketing Cloud and the database sync up?
+*What will be used as the subscriber key?
+
+A company wants to gather new email subscribers as part of a raffle at a customer event. Participants should be able to enter their contact information in a tablet-based webform which stores the information in a data extension. The winner of the raffle should be randomly selected. After the event, an email should be sent to all participants to gather opt-in for marketing emails. Which MC features should be recommended for this solution? Choose 2.
+Web Collect
+Data Extension
+*Smart Capture
+*Send email activity containing a link to subscription center
+
+The company wants to launch a daily deal email campaign and is concerned about its sender reputation. The company wants to identify subscribers who report emails as spam, and store those subscribers in a data extension. How can this be achieved? Choose 1.
+An automation that generates the Unsubscribe Event Extract
+An automation that generates the Complaint Tracking Extract
+*An automation that queries the Complaint data view
+An automation that queries the Unsubscribe data view
+
+The company wants to display the subscriber’s first name and the send date in a monthly newsletter. The subscriber’s first name is stored in a data extension which is not used in the send definition. How can this be achieved? Choose 1.
+*AMPscript
+SQL Query
+Personalization Strings
+Guide Template Language
+
+A company wants to configure MC Connect in a way that integrated users only have access to SF data visible to them in their SF account. How can this be achieved? Choose 1.
+Ensure that the User is assigned a System Administrator in Sales Cloud
+Ensure that the User has the correct profile in MC
+*Check the Scope by User box in MC
+Create a User in Sales Cloud with a System Administrator Profile
+
+A company wants to use Journey Builder to compare engagement across three different emails, and then send a follow-up email to contacts who did not engage with any of the three emails. Which activity sequence should be used for this? Choose 1.
+Engagement Split > Send Email > Wait > Random Split > Send email
+Random Split > Send email > Join > Decision Split > Wait > Send Email
+*Random Split > Send email > Wait > Engagement Split > Join > Send email
+Decision Split > Send email > Engagement Split > Send email
+
+A company needs to provide an IT staff member with access to MC to maintain suppression lists, data relationships, and subscriber attributes. Which role should be assigned to this employee? Choose 1.
+Content Creator
+Administrator
+Analyst
+*Data Manager
+
+A company has acquired a company called Super Courses . To perform cross-marketing activities for the two brands, the company wants to integrate Super Courses into the existing Marketing Cloud account. It was recommended to create a separate business unit for Super Courses, and setup an additional Sender Authentication Package (SAP) with the private domain supercourses.com. What are the implications of this recommendation on emails sent from the Super Courses business unit? Choose 2.
+The email headers and footers will reflect the private domain of the company as it is the parent company.
+The existing company SAP can be applied simultaneously to the Super Courses business unit for cross-marketing emails.
+*The domain supercourses.com will be used for all link wrapping, image URLs, and landing page URLs.
+The dedicated IP address included in the Super Courses SAP will have the same reputation as the ones used for the company.
+*The domain supercourses.com will act as the from email address for the emails and authenticated with SPF or DKIM.
+
+A company wants to use Contact Builder to import data into Marketing Cloud. Which statements are true concerning Contact Builder imports? Choose 2.
+*In order to use Map by Header Row, the fields in the DE and file must match exactly.
+*The target destination can be a DE, list, or All Contacts for Mobile Push or Connect.
+Like the Import Wizard, the Contact Builder import definition can be executed without saving.
+The data source can be a local file, data filter, or file on any FTP.
+
+A company wants to use Automation Studio activities to extract an encrypted list of subscribers from an external system, and add them to a Subscriber List on a weekly basis. Which activity order accurately describes the data flow for this? Choose 1.
+Import File > Extract File
+Import File > Data Extract
+Data Extract > Import File
+*File Transfer > Import File
+
+A company wants to create an email campaign to send renewal reminders to customers whose subscriptions end in 15 day and 7 days. The expiration date for subscription is stored for each customer in common data extension. The campaign should be maintained by a non-technical marketing user with no administrative permissions. Which Marketing Cloud features should be used to achieve this? Choose 3.
+*Template-based emails
+*Data Filter
+Suppression list
+*Automation Studio
+Triggered Send
+
+A company employs several email specialists for creating content, testing/sending emails, and defining activities and workflows in Automation Studio. The email specialists need access to data in multiple business units. The company prefers to avoid creating custom roles unless it is absolutely necessary. How should roles be created and assigned according to best practices? Choose 1.
+Alter the roles of Content Creator and Data Manager by denying permissions and then assign the roles to the ‘ Email Specialists.
+*Check “Allow” automation permissions for the Content Creator Role and assign it to the Email Specialists.
+Check “Allow” automation permissions for the Content Creator Role and assign it to the Business Units.
+Create a custom Email Specialist role with needed permissions and assign it to the Email Specialists.
+
+A company plans to configure multiple business units in Marketing Cloud, to support the digital marketing activities of five internal offices. Which reason supports the use of business units? Choose 2.
+Localized language and display options based on location and culture.
+*Separate tracking information for campaigns sent by each office.
+*Localized physical mailing address displayed in the default email footer.
+Support non-English responses with Reply Mail Management.
+
+A company operates in Europe and Asia and offers a common loyalty program for both regions. Each region provides a pre-segmented CSV file for email campaigns, with a “Version” column that indicates which email a subscriber should receive. Which questions are relevant to determine an improved segmentation strategy? Choose 2.
+Will customers be able to sign up for the loyalty program at the store?
+Is the purpose of these emails for acquisition, retention, or transactional?
+*Will “Version” values/meanings change, precluding reusable AMPscript?
+*Will multiple languages be used, with a “From Name” lookup table needed?
+
+A company wants to store financial data related to invoices in data extensions. Which field type should be used for this data? Choose 1.
+Float
+*Decimal
+Number
+Currency
+
+A company collects new subscribers from its website. New subscribers are stored in a subscription list within the Content Management System of the website. This list is encrypted and placed on the Enhanced FTP at 11PM every day. Marketing Cloud is the database of records and sends up to five emails a week, based on subscriber engagement from prior sends. Which order of Automation Studio activities accurately describes the data flow for this? Choose 1.
+*File Transfer > Import > Query > Sends
+File Transfer > Query > Measures > Sends
+File Transfer > Data Extract > Filters > Sends
+File Transfer > Import > Measures > Sends
+
+A company wants to send a daily email promotion with minimal effort. A dynamic template should be built to highlight the new inventory each day. A small team will manage this email campaign and should be able to build, test, and send the daily email in less than an hour. Images included in the email will be hosted on the website CMS. Which questions are relevant to identify strategies for designing the dynamic email template? Choose 3.
+What From Name will be used for these emails?
+*What is the maximum file size of the images being used?
+*How often will email content be image-only with text overlaying images?
+How often will the layout of the content in a content area change?
+Will image URLs be available publicly?
+
+A company noticed that a subscriber is still receiving emails, although he has asked multiple times to be removed from a publication list by replying to Marketing Cloud emails. What are relevant troubleshooting steps to resolve this? Choose 3.
+Confirm that the subscriber’s request contained one of the standard terms that qualify for automatic unsubscribe.
+*Confirm that the RMM setting ‘Unsubscribe Manual Requests’ is set to YES.
+*Confirm that an email address was provided as the Routing Address for Remaining Replies.
+Confirm that the RMM setting ‘Delete auto-replies and out-of-office replies’ is set to NO.
+*Confirm that Reply Mail Management (RMM) is configured for the customer’s account.
+
+A company created a journey in Journey Builder. While testing, an error message states “Error binding data bound member.” and no contacts enter the journey. How can this be resolved? Choose 2.
+Fire the event in both Automation Studio and the Entry Event.
+Import new subscribers to the All Subscribers table.
+*Make sure the contact is above the High Water Mark on the source data.
+*Select a source DE with a root relationship to the contact.
+
+A company has doubled in size over the past years and wants to configure business units to better manage Marketing Cloud operations Which statements regarding business units are correct? Choose 2.
+Business Units can have more than one parent Business Unit.
+*Business Units can share information with other Business Units.
+*Business Units can mirror an organization’s operational structure.
+Subscribers can only appear in one Business Unit.
+
+A company wants to integrate the company website with Marketing Cloud, to allow subscribers to update their marketing communication preferences. An integration with Journey Builder is also planned. In-house web developers are available to integrate the website with Marketing Cloud. Which Marketing Cloud configuration should be suggested to achieve this? Choose 1.
+Data structure using Lists and leverage a SmartCapture form that the client can iFrame into their website.
+Relational data structure using Data Extensions and leverage a SmartCapture form that is hosted in Landing Pages.
+Data structure using Lists and leverage the out-of-the-box Preference Center.
+*Relational data structure using Data Extensions and consult with the customer on API integration with their website.
+
+A company wants to include 25 fields from a related data extension in an email send. The data extension can be referenced by SubscriberKey and contains one or more records for each subscriber. The email audience is larger than 1 million and the email should be sent as quickly as possible. Which method should be used to populate this information? Choose 1.
+Dynamic content via the Dynamic Content Wizard
+*AMPscript a single LookupOrderedRows Function
+AMPscript a single Lookup Function
+Server Side Javascript a single LookupOrderedRows Function
+
+A company newly purchased Marketing Cloud including the Sender Authentication Package (SAP). The company wants to fully migrate their existing email marketing platform to Marketing Cloud within three weeks. The company has 3 million customers to which emails are sent twice a week without known deliverability issues. Which IP warming restrictions should be considered? Choose 2.
+*IP warming takes four to six weeks to be able to fully send to all 3 million customers.
+IP warming can be accelerated by migrating to pre-warmed IP addresses.
+IP warming can be bypassed, given their historical lack of deliverability issues.
+*IP warming is important to establish a positive sender reputation.
+
+A company uses Marketing Cloud Connect and wants to send an email to a subset of subscribers in a Synchronized Data Extension. The subscribers should be filtered based on custom object data and tracking information should be pushed back to Salesforce. How can this be achieved? Choose 2.
+Use Data Filters to segment data to output a Sendable Data Extension.
+*Use Data Stream to sync Sales Cloud objects to the Marketing Cloud.
+Use Query Activities to create a Sendable Synchronized Data Extension.
+*Use Data Filters or Query Activities to output a Sendable Salesforce Data Extension.
+
+A company created a new email address field in Contact Builder. How can Marketing Cloud be configured to use email addresses in this new field? Choose 1.
+Create a new Attribute Group referencing all email address fields in Data Designer.
+Create a new Import to populate subscriber email addresses into All Subscribers.
+Add all email address fields into the Mobile Application and Predictive Intelligence Applications.
+*Add all email address fields into the Contact Configuration screen in the correct order
+
+A company wants to the use the Web Analytics Connector to better understand the behavior of subscriber visiting their website from Marketing Cloud emails. What are the features of the Web Analytics Connector? Choose 3.
+Use the web analytics platform to trigger behavioral marketing emails.
+*Track web activity from a click on an email URL back to a specific email campaign.
+*Recognize web traffic as originating from email instead of another channel.
+*Match subscribers to web activity by passing Subscriber ID through email links.
+Pass web conversion data back into Marketing Cloud for use in email reporting.
+
+A company wants to define Attribute Groups in Contact Builder. Which statements are true concerting Attribute Groups? Choose 2.
+link data extensions to subscriber lists
+link subscriber lists to contacts.
+*link data extensions to other data extensions.
+*link data extensions to contacts.
+
+A company wants to use Automation Studio activities to send a welcome email to new customers. Data relevant for the welcome campaign is stored in two data extensions: Customers and NewAccounts. The Customers data extension is used by multiple campaigns and updated daily at 1AM. NewAccounts data is encrypted and placed on the Enhanced FTP at 10PM every day. Which activity order accurately describes the data flow for this? Choose 1.
+Scheduled automation that starts at 2AM that executes Data Extract Activity, Import Activity, Query Activity, Wait Activity, and Send Email Activity.
+*Scheduled automation that starts at 2AM that executes File Transfer Activity, Import Activity, Query Activity, Wait Activity, and Send Email Activity.
+Scheduled automation that starts at 12AM and executes a File Transfer Activity, Import Activity, Query Activities, Wait Activity, and Send Email Activity.
+Triggered automation that executes File Transfer Activity, Import Activity, Query Activity, Wait Activity, and Send Email Activity.
+
+A company wants to use Send Logs to report on historical sends. Which statements concerning Send Logs are true? Choose 3.
+Can be incorporated into standard reports.
+Can be added to a standard data view.
+*Can be accessed via Query activities.
+*Can be included in measures and filters.
+*Can be stored for a set period of time.
+
+A company uses Marketing Cloud Connect wants a Marketing Cloud user to send an email to a Salesforce report via Guided Send. How can this be achieved? Choose 1.
+*Assign the integrated user the Marketing Cloud AppExchange User permission set in Sales Cloud.
+Create a Salesforce Data Extension for the user to select during a Guided Send.
+Create data validation rules for the integrated user in Sales Cloud.
+Add custom links to the page layouts in Marketing Cloud.
+
+A company wants to use Journey Builder to remind customers to activate their account within 72h after registration. Account registrations are stored in a data extension via an API call. A boolean flag in the data extension indicates whether the account is activated or not. The journey should send activation reminders 24h and 48h after registration. Customers exit the journey if they activate their account. Which activity sequence should be used for this? Choose 1.
+24 hour Wait > Decision Split > Send Email > 48 hour Wait > Decision Split > Send Email
+Decision Split > 24 hour Wait > Send Email > Decision Split > 48 hour Wait > Send Email
+*24 hour Wait > Decision Split > Send Email > 24 hour Wait > Decision Split > Send Email
+Decision Split > 24 hour Wait > Send Email > Decision Split > 24 hour Wait > Send Email
+
+A company wants to use Contact Builder to manage data extension records. Which data operations are supported in Contact Builder? Choose 2.
+Extract Data
+Edit Multiple Records
+*Clear Records
+*Add Single Record
+
+A company states that multiple subscribers often share a common email address. Which Marketing Cloud features can be used to maintain different subscriber attributes for the same email address? Choose 1.
+Member Record
+Data Extensions
+*Subscriber Key
+Contact ID
+
+A company created a journey in Journey Builder. What are possible reasons for contacts to fail entering a journey? Choose 4.
+*The contact falls below the High Water Mark.
+*The entry event was not fired via Automation Studio.
+*The contact did not meet the entry criteria.
+The interaction has an A/B/n split, and the contact does not meet the criteria
+*The contact did not meet the filter criteria.
+
+A company wants to generate a report with email metrics for each business unit. Email metrics should include: number of sends, delivery rate, overall bounce rate, block bounce rate, open rate, click rate, complaint rate, and unsubscribe rate. Which standard email reports contains this information? Choose 1.
+Campaign Email Tracking Report
+*Account Send Summary Report
+Email Send Report
+Email Performance Over Time Report
+
+A company wants to define Attribute Groups in Contact Builder to incorporate data from external systems. Which statements are true concerting Attribute Groups? Choose 2.
+They replicate the structure from the external system data into templates.
+They can contain only one data extension.
+*They link data extensions to other data extensions or contacts.
+*They can be created from templates to accomplish certain tasks.
+
+A company wants to promote Marketing Cloud as the database of record. What is a correct statement about a database of record? Choose 2.
+A database of record is a data structure in which multiple opt-in statuses can be stored for a subscriber.
+*A database of record is a system in which a subscriber’s status is maintained.
+A database of record is any database containing subscriber data.
+*A database of record is a centralized storage repository of data about objects or people.
+
+A company wants to automate monthly promotion emails with Automation Studio. A file containing relevant subscribers is uploaded on the 15th day of each month to the Enhanced FTP. However, if the 15th day of a month is a Saturday or Sunday, the file will be placed on the Enhanced FTP on the Friday prior the 15th day. In both cases, the promotion emails should be sent as soon as the data import of the file is completed. Which automation configuration should be used to achieve this? Choose 1.
+Scheduled daily automation that includes an import activity and user-initiated send.
+Scheduled monthly automation that includes an import activity and triggered send.
+*Triggered automation that includes an import activity and user-initiated send.
+Triggered automation that includes an import activity and triggered send.
+
+A company has configured two domains in same Marketing Cloud account. The domain certificationaid.com was configured with SAP, and the domain crtaid.com as a private domain. Which URL will appear in email links and images? Choose 1.
+*certificationaid.com
+crtaid.com
+Depends on the From email address
+exct.net
+
+A company wants to use Journey Builder to create a “post-purchasing communication” journey. Which re-entry settings would be appropriate for this? Choose 2.
+Re-entry after time
+*Re-entry only after exiting
+*Re-entry anytime
+No re-entry
+
+A company states following data requirements and anticipated use of Marketing Cloud: customer data will be fully refreshed every night via Import activity from the data warehouse; customer data will contain 5 million records and over 40 attributes; Contact records will be augmented with relational data tables in Contact Builder; one attribute will store HTML code with up to 1000 characters; a customer ID will be used as the unique identifier for each Contact. Which of those statements makes the use of data extensions instead of lists necessary? Choose 1.
+Data extensions support Customer ID to be used as Subscriber Key.
+Data extensions can store HTML code as an attribute.
+*Data extensions are necessary for Contact Builder.
+Data extensions allow for add/update Import activity.
+
+A company wants to used the Subscription Center to ensure that subscribers only receive emails for which they have opted-in. Which Marketing Cloud feature should be used to achieve this? Choose 1.
+Profile Center
+Send Logging
+Subscriber Keys
+*Publication Lists
+
+A company wants to collect email addresses with Smart Capture, segment the data, and send emails including data from a related data extensions. Which skillset is required to achieve this? Choose 1.
+AMPScript
+HTML
+CSS
+*SQL
+
+A company wants to create three data extensions in Contact Builder: Customers containing customer information, Orders containing order information, and Products containing product information. How should those data extension be linked within an Attribute Group? Choose 1.
+*Customer Data Customers Orders Products
+*Customer Data Customers Orders Products
+Customer Data Products Orders Customers
+*Customer Data Customers Orders Products
+
+A company wants to target subscriber who are most likely to buy a services. What data can help to identify those subscribers? Choose 3.
+*Conversion rate
+*Lifetime purchase value
+*Last purchase date
+Proximity to store
+
+A company uses Salesforce Sales Cloud as the database of record for subscribers. The company wants to use Contact Builder to store more customer information and to establish more effective one-to-one messages across channels. How can this be achieved? Choose 2.
+*Combine each individual’s channel contact information under one record.
+Conduct manual imports of customer information from Sales Cloud.
+*Use Marketing Cloud Connect to include data from Sales Cloud.
+Create a data extension to incorporate the imported data from a Salesforce Dashboard.
+
+A company wants to send a quarterly re-engagement email to subscribers who have not opened-in the previous three months. An existing Paste HTML email should be used for the first send, and only minor changes should be done for future sends. To build the subscriber audience for the first and future sends, an existing Measure should be used. Email sends are deployed manually for now, but might be automated in the future. Which email creation methods should be used for this? Choose 1.
+Guided Send
+Automated Send
+*User-Initiated Send
+Triggered Send
+
+A company wants use Automation Studio to export subscriber engagement data from Marketing Cloud into a data warehouse. All email open and click activity data should be exported from Marketing Cloud daily. The export must be provided in a single file on a SFTP site, and meet specific requirements to allow importing into the data warehouse. Which order or activities should be used to achieve this? Choose 1.
+*SQL Query activity to pull Data View information into data extension -> Data Extract activity of data extension > Transfer activity
+Extract activity of Tracking Extracts that combines data into required file > Transfer activity
+Report activity that generates Recent Send Summary report > Report delivered directly to FTP
+Extract activity of data view tables > Query activity to create the required file > Transfer activity
+
+A company wants to implement an opt-down strategy for customers. Which Marketing Cloud feature should be used to achieve this? Choose 1.
+Preference attributes
+*Publication Lists
+Preference Lists
+Profile attributes
+
+A company exports a file containing new and updated subscribers from an external database on a daily basis. The file will be uploaded to the Marketing Cloud Enhanced FTP at 3AM every day. The company requires that the import is completed before 4AM. The file contains around 2 million rows each day. How should this file be imported into Marketing Cloud? Choose 1.
+Import the file to a list with the ‘add and update’ method.
+*Import the file to a data extension with the ‘add and update’ method.
+Import the file to a data extension with the ‘overwrite’ method.
+Import the file to a list with the ‘update only’ method.
+
+A company wants to use Automation Studio to send an email to all subscribers who have made a purchase. The relevant data for this exists in two data extensions: Subscribers and OrderTable. The email should contain information from both data extensions, such as: CustomerID, FirstName, EmailAddress, OrderID, OrderDate and ShippedDate. Which SQL should be used to achieve this? Choose 1.
+SELECT * FROM Subscribers WHERE CustomerlD, FirstName, EmailAddress, OrderlD, OrderDate, ShippedDate - JOIN OrderTable On CustomerlD=CustomerlD
+SELECT T1.CustomerID, T1.FirstName, T1. EmailAddress, T2.OrderlD, T2.0rderDate, T2.ShippedDate FROM ‘ Subscribers OUTER JOIN OrderTable ON Subscribers.CustomerlD=OrderTable.CustomerlD
+*SELECT T1.CustomerID, T1.FirstName, T1.EmailAddress, T2.OrderlD, T2.OrderDate, T2.ShippedDate FROM Subscribers T1 INNER JOIN OrderTable T2 ON T1.CustomerID=T2.CustomerID
+SELECT CustomerlD, FirstName, EmailAddress, OrderlD, OrderDate, ShippedDate FROM Subscribers INNER JOIN OrderTable ON CustomerlD=CustomerlD
+
+A company uses Contact Builder to create and relate data extensions. In which scenario should the Use as Root checkbox be checked? Choose 1.
+*Database of record other than All Subscribers.
+Data for both Email and MobileConnect sends.
+One-to-Many Relationship to the Contact Record.
+Supplemental data for an interaction in Journey Builder.
+
+A company wants monthly customer newsletters to appear to be sent on behalf of each subscriber’s account representative. Segmenting the email audience by sales representative should be avoided. How can this be achieved? Choose 2.
+Match the external keys of the sender profile and data extension containing account representative details.
+Pick “Choose from list,” selecting the from name and from email values from the list of account users.
+*Populate substitution strings in the sender profile for the profile attributes containing from name and from email values.
+*Utilize data extension AMPScript lookups to dynamically populate the from name and from email values.
+
+ABC Company has doubled in size over the last couple of years. Because of this growth they have decided to organize their company into Business Units to better manage operations. Which statement is correct regarding the Business Unit functionality within Marketing Cloud? (Choose two.)
+*usiness Units can mirror an organizations operational structure.
+*usiness Units can share information with other Business Units.
+ubscribers can only appear in one Business Unit.
+usiness Units can have more than one parent Business Unit.
+
+A large retail group consists of a corporate team and several divisions operating under different brand names. All plan to share one Marketing Cloud account. Each brand has its own marketing department and operates independently, with its own creative assets, subscribers, and data structure. What are the two reasons why the recommended account configuration is one corporate Parent account, with each brand configured as a separate child Business Unit? (Choose two.)
+*ubscribers can be maintained at the Business Unit level.
+ser roles can be customized to allow or deny specific permissions.
+*rands can set their own physical address and SAP.
+mail sends can be separated into Tracking folders for each brand.
+
+A customer is developing a new eCommerce section of their website and plans to leverage transactional data in customer journeys. Which two Marketing Cloud features will support this effort? (Choose two.)
+ata Designer
+loud Pages
+*eb Analytics Connector
+*ontent Builder
+
+What are data extension data retention policies?
+ettings to control when a data extension creates a back-up of the data it contains.
+ettings to prevent users from deleting a Data Extension created by another user.
+ettings to “soft” delete all data in a Data Extension so there is no data loss.
+*ettings to define when a data extension or the data within the data extension is deleted.
+
+ABC Company has scenario of a journey for “post-purchasing communication”. Which re-entry setting is correct?
+e-entry after time
+*e-entry only after exiting
+o re-entry
+e-entry anytime
+
+The ABC Company marketing team is launching a new email campaign. ABC Company’s Email Specialist wants to perform quality assurance checks on the email prior to send and has asked about using the Validate functionality for this effort. Which three items will Validate check in an email message? (Choose three.)
+ords or phrases used may trigger spam filters.
+*orrect syntax is used on any AMPscript in the emails code.
+*ersonalization strings map to attributes or data extension fields.
+rammar and spelling in the email text is correct.
+*ach content area specified in a dynamic content rule exists.
+
+Customer Event gathers data through a tablet-based webform as part of a raffle into a data extension. Winner is randomly selected. After the event, an email should be sent to the participants to gather opt ins for marketing emails. Define two things necessary. (Choose two.)
+ata extension with opt in status
+*martCapture
+ebCollect
+*end email activity which contains a link to subscription center
+
+The customer has the following requirements for storing engagement data in their data warehouse: - All email open and click activity must be pulled daily from Marketing Cloud. - Output files must meet the specific requirements for the data warehouse. - All the activity must be provided via SFTP in one file. Which automation workflow meets the customer requirements?
+eport activity that generates Recent Send Summary report > Report delivered directly to SFTP
+ata Extract activity of Tracking Extracts that combines data into required file > File Transfer Activity
+*QL Query Activity to pull data view information > Data Extract Activity of data extension > File Transfer Activity
+ata Extract Activity of data view tables > SQL Query Activity to create the required file > File Transfer Activity
+
+To fuel their expansion, ABC Company recently acquired Eagle Outfitters (EO). There is currently a thirty percent overlap between the guests of each brand and they will be pursuing cross-marketing opportunities. It was recommended that their Marketing Cloud account now include a separate business unit for EO and the company secure a new sender authentication package for EO using the private domain e-EO.com. Select the statement that correctly describes the implication of this recommendation. (Choose two.)
+he email headers for EO will still reflect the private domain for ABC Company since that is the parent company.
+he IP address included in the sender authentication package will have the same reputation as the ones being used for ABC Company.
+*he private domain, e-EO.com, will be used for all link wrapping, image URLs, and landing page URLs.
+he EO business unit can also have the ABC Company authentication package applied simultaneously for cross-marketing emails.
+*he e-EO.com domain will act as the from address for the emails and authenticate using SPF,
+
+Which two statements are correct regarding Attribute Groups? (Choose two.)
+*hey link data extensions to Contacts.
+hey link subscriber lists to Contacts.
+*hey link data extensions to other data extensions.
+hey link data extensions to subscriber lists
+
+ABC Company has a requirement to create a distinction between marketing and transactional emails in terms of From Name and IP Address for reputation purposes. Which two actions should ABC Company take in order to create Send Classifications? (Choose two.)
+efine custom Reply Mail Management.
+*efine a Delivery Profile.
+efine a Subscriber – specific From Name.
+*efine a Sender Profile.
+
+A publishing company has presented the following: - A need to send renewal reminders to customers whose subscriptions expire in 15 days and 7 days. - A campaign needs to be created and managed by a general marketing user who will not have administrative rights and who is not technical. - The customers’ expiration date is included in the data file. What component should the customers’ solution include? (Choose three.)
+*utomation Studio
+riggered Send
+uppression list
+*ata Filter
+*emplate-based emails
+
+A subscriber asked to be removed from a customer’s email list multiple times by replying directly to the customer’s marketing message, but continues to receive emails. Which three settings should be confirmed? (Choose three.)
+*eply Mail Management (RMM) is configured for the customer’s account.
+he RMM setting ‘Delete auto-replies and out-of-office replies’ is set to NO.
+*n email address was provided as the Routing Address for Remaining Replies.
+*he RMM setting ‘Unsubscribe Manual Requests’ is set to YES.
+he subscriber’s request contained one of the standard terms that qualify for automatic unsubscribe.
+
+A retail company wants to create journeys to target subscribers based on website behavior. They have identified three separate groups: customers who searched for an item, abandoned a cart, and made a purchase. Which three questions should the consultant ask to design the data structure for this solution? (Choose three.)
+*ow long after the behavior occurs will a subscriber need to enter a journey?
+*ow are subscribers identified in your web analytics?
+hould customers exit the journey when the goal is met?
+ow many messages should be included in each journey?
+*hould a single customer exist in multiple journeys at the same time?
+
+A retail company does business in both the United States and Canada. They have a loyalty program in which a customer can enroll. The company will provide a pre-segmented customer file, per campaign, which has a “Version” data field indicating the type of email the customer is to receive. Which two questions should be asked to determine a data/segmentation strategy? (Choose two.)
+*ill “Version” values/meanings change, precluding reusable AMPscript?
+*ill a lookup table be needed for a dynamic From Name?
+ill customers be able to sign up for the loyalty program at the store?
+s the purpose of these emails for acquisition or retention or transactional?
+
+A company is hosting a series of events and wants its customers who register to enter into a journey. Which two methods are viable configurations for entry? (Choose two.)
+ form hosted on the company website that fires the entry event via SOAP API.
+* form hosted on the company website that fires the entry event via REST API.
+ SmartCapture form hosted in CloudPages that updates a Profile attribute.
+* SmartCapture form hosted in CloudPage that populates the entry source.
+
+A customer needs to compare the engagement across three creative versions, and then send a follow-up email for those contacts who did not engage with any of the test versions. Which sequence of activities would best accomplish this?
+ngagement Split > Send email > Wait > Random Split > Send email
+*andom Split > Send email > Wait > Engagement Split > Join > Send email
+ecision Split > Send email > Engagement Split > Send email
+andom Split > Send email > Join > Decision Split > Wait > Send email
+
+What action should be taken to increase subscriber engagement? (Choose two.)
+*dopt a Cart Abandonment Email Campaign.
+*ncrease the use of dynamic content in emails.
+ntroduce more identity verification steps in check out process.
+ncrease volume of emails to a wider audience.
+
+Northern Trail Outfitters (NTO) is launching a new campaign, driving them to redesign their data structure. NTO needs to change the cardinality between two data extensions inside Contact Builder. What are two consequences of this change? (Choose two.)
+ll filters created before will adapt automatically to the new cardinality.
+ne of the data extensions must be deleted from the attribute group in order to change the cardinality.
+*ll scheduled sends using a filter based on one of the data extensions should be reviewed.
+* contact may not show up in the filter based on one of the data extensions.
+
+Which three statements are correct regarding the automation tools in Marketing Cloud? (Choose three.)
+*ourney Builder and Automation Studio allow users to define the parameters for a send within the tool.
+utomation Studio and Journey Builder allow users to repeat an interaction indefinitely.
+utomation Studio and Journey Builder allow users to define a wait activity based on duration.
+*ourney Builder allows users to inject Contacts from a data extension which is updated by Automation Studio.
+*ourney Builder allows users to update a contact record in a journey or import data into a data
+
+Collect addresses through Smartcapture, segment the data, send emails referencing data from a data extension. What skillset is needed?
+MPscript
+SS
+TML
+*QL
+
+A consultant wants to send an email to subscribers who have made a purchase. The data used for the send exists on two data extensions named Subscribers and Orders, and the customer needs to include key information from both tables, such as: - CustomerID - FirstName, - EmailAddress - OrderID - OrderDate - ShippedDate Which SQL statement should the consultant use?
+ELECT * FROM Subscribers WHERE CustomerID, FirstName, EmailAddress, OrderID, OrderDate, ShippedDate JOIN Orders On CustomerID=CustomerID
+ELECT CustomerID, FirstName, EmailAddress, OrderID, OrderDate, ShippedDate FROM Subscribers INNER JOIN Orders ON CustomerID=CustomerID
+*ELECT T1.CustomerID, T1.FirstName, T1.EmailAddress, T2.OrderID, T2.OrderDate, T2.ShippedDate FROM Subscribers T1 INNER JOIN Orders T2 ON T1.CustomerID=T2.CustomerID
+ELECT T1.CustomerID, T1.FirstName, T1.EmailAddress, T2.OrderID, T2.OrderDate, T2.ShippedDate FROM Subscribers OUTER JOIN Orders ON Subscribers.CustomerID=Orders.CustomerID
+
+A customer has an eCommerce site and imports data into three data extensions daily: Orders, Order_Details, and Products. The data extensions contain the following information: - Orders: OrderID, CustomerID, OrderNumber, OrderDate, OrderTotal, GrandTotal. - Order_Details: ProductID, OrderID, Qty, UnitPrice, ExtendedPrice, Discount. - Products: ProductID, SKU, Name, Description, Cost, Price. Which two actions should be taken in Data Designer? (Choose two.)
+reate a one-to-many relationship between Orders and Order_Details.
+reate a one-to-one relationship between Orders and Order_Details.
+reate a one-to-one relationship between Order_Details and Products.
+reate a one-to-one relationship between the contact record and Order_Details.
+
+ABC Company needs to provide an IT staff member with access to Marketing Cloud. The staff member needs to perform the following tasks: - Maintain ABC Company’s master suppression list. - Configure data relationships. - Create new subscriber attributes. Which role should be assigned to the IT staff member?
+dministrator
+*ata Manager
+nalyst
+ontent Creator
+
+The Corporate Apparel Division of ABC Company is moving to Marketing Cloud and will be using ABC existing account. The Corporate Apparel team has asked for a recommendation on whether they should have a separate business unit. Which consideration warrants the creation of a separate business unit for Corporate Apparels instance of Marketing Cloud?
+*anaging Unsubscribes for the Corporate Apparel Division only.
+ending from a separate IP Address and Domain.
+sing different From Name and Email Address settings.
+randing for the Corporate Apparel is different from ABC Company.
+
+ABC Company wants to better understand subscriber behavior on their website upon arrival via an email message. A local member of a Marketing Cloud user group mentioned the Web Analytics Connector. Which benefit is offered by installing the Web Analytics Connector in a Marketing Cloud account? (Choose three.)
+*ecognize web traffic as originating from email instead of another channel.
+*rack web activity from a click on an email URL back to a specific email campaign.
+*atch subscribers to web activity by passing Subscriber ID through email links.
+se the web analytics platform to trigger behavioral remarketing emails.
+ass web conversion data back into Marketing Cloud for use in email reporting.
+
+What storage model should be used if a subscriber has more than one value for an attribute?
+rofile Attribute
+*ata Extensions
+ists
+ublication Lists
+
+A large retail company has selected Marketing Cloud and has asked to be fully migrated from their existing platform in three weeks. They have communicated the following: - They currently have three million customers. - They email customers twice a week with no known deliverability issues. - Their contract includes one Sender Authentication Package (SAP). What response articulates proper IP warming? (Choose two.)
+P ramp-up can be accelerated by migrating to pre-warmed IP addresses.
+*P ramp-up is important to establish a positive sender reputation.
+*P ramp-up takes four to six weeks to be able to fully send to all three million customers.
+P ramp-up can be bypassed, given their historical lack of deliverability issues.
+
+Northern Trail Outfitters (NTO): - Employs Email Specialists responsible for creating content, testing, sending emails, defining the activities for Automation Studio, and creating automations. - Prefers NOT to use custom roles unless it is absolutely necessary. How should a consultant create and assign roles for NTO?
+*heck “Allow” automation permissions for the Content Creator Role and assign it to the Email Specialists.
+lter the roles of Content Creator and Data Manager by denying permissions and then assign the roles to the Email Specialists.
+heck “Allow” automation permissions for the Content Creator Role and assign it to the Business Units.
+reate a custom Email Specialist role with needed permissions and assign it to the Email Specialists.
+
+A start-up meal delivery company recently launched in Canada to great success. Through their website, customers can order individual meal kits for up to six people or subscribe to a weekly meal kit delivery. As a new company, resources are limited, but demand is taxing their manual processes for sending out ecommerce messages, such as order confirmation and subscription confirmations. What recommendation would best provide a scalable solution for the start-up?
+n automated program to send daily transactional messages.
+ triggered automation to send transactional messages.
+*riggered email sends to deliver transactional messages.
+ manual email send for each transactional message.
+
+What are two ways Contact builder can alter the data in Data Extensions? (Choose two.)
+*dd Single Record
+*lear Records
+xtract Data
+
+What functionality is contained in Journey Builder that does not exist in Automation Studio?
+he ability to send an email to a Salesforce audience.
+*he option to convert a qualified Lead to a Contact.
+ative execution of a Server-side JavaScript activity.
+lexibility to wait based on duration or a specific time.
+
+A university plans to use Journey Builder to improve their 1:1 marketing to potential students, current students, and alumni. The university currently has student data in the Sales Cloud. Other data, such as course catalog, student demographics, and alumni information, is stored in external systems. Which two actions should the Consultant recommend? (Choose two.)
+*se Data Designer to link student and alumni data to the contact record.
+*se Synchronized Data Sources to obtain data from the Sales Cloud.
+reate an Import Activity to import alumni data into Salesforce Report.
+reate list attributes to store student data from the Sales Cloud.
+
+A customer wants to send an email from Sales Cloud on behalf of the record owner. How should the consultant meet this requirement? (Choose two.)
+se a custom Delivery Profile.
+*se a custom Send Classification.
+*se the Send From Record Owner option.
+se the Organization-Wide Email address.
+
+A customer wants to automate a series of three emails as part of a Membership Renewal drip campaign. Email #1 will be sent one month prior to the member’s renewal date. Email #2 will be sent one week prior to the member’s renewal date. Email #3 will be sent on the member’s renewal date. A master audience is updated in real time via the API. Which steps should be included in the customer’s automation?
+mport File Activity > three Send Activities to the master data extension.
+hree Send Activities to the master data extension.
+*hree Filter Activities > three Send Activities to the filtered audiences.
+mport File Activity > three Filter Activities > three Send Activities to the filtered audiences.
+
+A customer wants to automate the process of sending a series of welcome emails based on the subscriber’s data. - Emails should be sent weekly for up to five weeks. - If a subscriber makes a purchase, they should stop receiving welcome emails. - A Boolean flag should be set in a data extension if the subscriber makes it through the welcome series. Which steps should be used to accomplish this in Journey Builder?
+pdate Contact Data, Wait, Send Email, Join.
+andom Split, Send Email, Wait Define Goal.
+efine Goal, Send Email, Wait, Decision Split.
+*efine Goal, Update Contact Data, Send Email, Wait.
+
+Northern Trail Outfitters (NTO) plans to use Contact Builder to increase the scope of customer information they can see in an effort to establish more effective 1:1 relationships. Northern Trail Outfitters (NTO) has a separate instance of Sales Cloud serving as its current customer master database. What two actions should be taken when using Contact Builder? (Choose two.)
+onduct manual imports of customer information from Sales Cloud.
+reate a data extension to incorporate the imported data from Dashboard.
+*ombine each individual’s channel contact information under one record.
+*se Marketing Cloud Connect to include data from Sales Cloud.
+
+An online retail customer needs daily promotional email content to generate with minimal time spent on creation. Their service contract includes building a custom dynamic template for this purpose. The customer has communicated the following: - The email content will highlight new inventory each day. - A small team will run both their digital marketing operations and their email program. - A user needs to build, test, and send a daily email in less than an hour. - Images for the emails will be hosted on their website CMS. Which three questions are relevant to identify strategies for designing the custom template for the customer’s daily promotional email? (Choose three.)
+hat From Name will be used for these emails?
+*ow often will email content be image-only with text overlaying images?
+*hat is the maximum file size of the images being used?
+ill image URLs be available publicly?
+*ow often will the layout of the content in a content area change?
+
+ABC Company is considering adopting Attribute Groups when incorporating data from their external systems. What statements are accurate regarding Attribute Groups? (Choose two.)
+*hey link data extensions to other data extensions or contacts.
+*hey can be created by templates to accomplish certain tasks.
+hey can contain only one data extension.
+hey replicate the structure from the external system data into templates.
+
+A restaurant supply company captures email subscribers and leads through trade shows. They hold a giveaway at each trade show to entice booth visitors to leave their contact information. In the past, they have used a fishbowl to capture business cards, but need to update this to an online sweepstakes entry vehicle displayed on a mounted tablet. Individuals should only be allowed to enter once, and the winner will be selected randomly. All entrants receive a follow-up email after the trade show asking them to confirm their opt-in for a monthly newsletter. Which two components are appropriate for this solution? (Choose two.)
+icrosite with Web Collect to store entrants on a data extension.
+end Email Activity with a link to a subscription center.
+*ata Extension with double opt-in status defined.
+*icrosite with Smart Capture to store entrants on a data extension.
+
+What are the similarities between Automation Studio and Journey Builder? (Choose three.)
+*bility to define an email send.
+he option to convert a qualified Lead to a Contact.
+*ire an event from Automation Studio to Journey Builder.
+*ave duration plus wait activity (look for answers that start with JB or AS).
+
+What are two possible outcomes when “Send as Multipart MIME” is selected during the send process? (Choose two.)
+he email will avoid detection by various SPAM filters.
+*pen and click activity are tracked in either version.
+*n auto-generated text version will be sent with your HTML email.
+ custom text version will be sent with your HTML email.
+
+A customer with limited technical resources has requested assistance in setting up a small email deployment that the customer will maintain long term. The email will display men’s shoes to males in the audience and women’s shoes to females in the audience. The sendable data extension contains a field with a value of Male or Female. Which method should a consultant recommended to ensure content is displayed properly within the email?
+*ynamic Content Wizard
+MPscript conditional against the Gender field
+MPscriptLookupRows functions
+B Test content type
+
+How do you add a contact in contact builder? (Choose two.)
+mport to All Subscribers List.
+dd manually to All Subscribers.
+*mport to MyLists.
+*mport to DE.
+
+ABC Company has decided to use Journey builder to launch event-driven lifecycle marketing programs. This includes personalized interactions with customers with the goal of increasing purchase frequency. What two pieces of information would help ABC Company achieve this objective? (Choose two.)
+umber of items per order
+*hannel preference of customers
+*ast purchase date
+roducts purchased from a competitor
+
+A customer would like to send a quarterly re-engagement email to subscribers who have not opened in the previous three months. The customer’s plans are to: - Use an existing Paste HTML email for the first send. - Make only minor changes to the email creative for future sends. - Use an existing Measure to build the subscriber audience for current and future sends. - Deploy emails manually for now, but possibly automate in the future. Which configuration is recommended for the re-engagement email send?
+riggered Send
+uided Send
+utomated Send
+*ser-Initiated Send
+
+Northern Trail Outfitters (NTO) wants its monthly distributor newsletter email to appear to be sent on behalf of the subscriber’s account representative without segmenting the audience by sales representative. In which two ways could this distributor-specific sender profile be configured in the Marketing Cloud account with Sender Authentication Package Implemented? (Choose two.)
+*tilize AMPscript data extension lookups to dynamically populate the From Name and From Email Values.
+*se substitution strings to populate the From Name and From Email values in the sender profile.
+ick “Choose from list,” selecting the From Name and From Email Values from the list of account users.
+atch the external keys of the sender profile and data extension containing account representative details.
+
+A customer has three data extensions that need to be added to Contact Builder. - Customers contains customer information. - Orders contains order information. - Products contains product information. How should these data extensions be linked within an Attribute Group?
+ustomer Data Products Orders Customers.
+*ustomer Data Customers Orders Products.
+*ustomer Data Customers Orders Products.
+*ustomer Data Customers Orders Products.
+
+A customer would like to store financial data related to invoicing in its data extensions. Which field type should be used?
+umber
+loat
+*ecimal
+urrency
+
+ABC Company has doubled in size over the last couple of years. Because of this growth they have decided to organize their company into Business Units to better manage operations. Which statement is correct regarding the Business Unit functionality within Marketing Cloud? (Choose two.)
+*usiness Units can mirror an organizations operational structure.
+*usiness Units can share information with other Business Units.
+ubscribers can only appear in one Business Unit.
+usiness Units can have more than one parent Business Unit.
+
+A large retail group consists of a corporate team and several divisions operating under different brand names. All plan to share one Marketing Cloud account. Each brand has its own marketing department and operates independently, with its own creative assets, subscribers, and data structure. What are the two reasons why the recommended account configuration is one corporate Parent account, with each brand configured as a separate child Business Unit? (Choose two.)
+*ubscribers can be maintained at the Business Unit level.
+ser roles can be customized to allow or deny specific permissions.
+*rands can set their own physical address and SAP.
+mail sends can be separated into Tracking folders for each brand.
+
+A customer is developing a new eCommerce section of their website and plans to leverage transactional data in customer journeys. Which two Marketing Cloud features will support this effort? (Choose two.)
+ata Designer
+loud Pages
+*eb Analytics Connector
+*ontent Builder
+
+What are data extension data retention policies?
+ettings to control when a data extension creates a back-up of the data it contains.
+ettings to prevent users from deleting a Data Extension created by another user.
+ettings to “soft” delete all data in a Data Extension so there is no data loss.
+*ettings to define when a data extension or the data within the data extension is deleted.
+
+ABC Company has scenario of a journey for “post-purchasing communication”. Which re-entry setting is correct?
+e-entry after time
+*e-entry only after exiting
+o re-entry
+e-entry anytime
+
+The ABC Company marketing team is launching a new email campaign. ABC Company’s Email Specialist wants to perform quality assurance checks on the email prior to send and has asked about using the Validate functionality for this effort. Which three items will Validate check in an email message? (Choose three.)
+ords or phrases used may trigger spam filters.
+*orrect syntax is used on any AMPscript in the emails code.
+*ersonalization strings map to attributes or data extension fields.
+rammar and spelling in the email text is correct.
+*ach content area specified in a dynamic content rule exists.
+
+Customer Event gathers data through a tablet-based webform as part of a raffle into a data extension. Winner is randomly selected. After the event, an email should be sent to the participants to gather opt ins for marketing emails. Define two things necessary. (Choose two.)
+ata extension with opt in status
+*martCapture
+ebCollect
+*end email activity which contains a link to subscription center
+
+The customer has the following requirements for storing engagement data in their data warehouse: - All email open and click activity must be pulled daily from Marketing Cloud. - Output files must meet the specific requirements for the data warehouse. - All the activity must be provided via SFTP in one file. Which automation workflow meets the customer requirements?
+eport activity that generates Recent Send Summary report > Report delivered directly to SFTP
+ata Extract activity of Tracking Extracts that combines data into required file > File Transfer Activity
+*QL Query Activity to pull data view information > Data Extract Activity of data extension > File Transfer Activity
+ata Extract Activity of data view tables > SQL Query Activity to create the required file > File Transfer Activity
+
+To fuel their expansion, ABC Company recently acquired Eagle Outfitters (EO). There is currently a thirty percent overlap between the guests of each brand and they will be pursuing cross-marketing opportunities. It was recommended that their Marketing Cloud account now include a separate business unit for EO and the company secure a new sender authentication package for EO using the private domain e-EO.com. Select the statement that correctly describes the implication of this recommendation. (Choose two.)
+he email headers for EO will still reflect the private domain for ABC Company since that is the parent company.
+he IP address included in the sender authentication package will have the same reputation as the ones being used for ABC Company.
+*he private domain, e-EO.com, will be used for all link wrapping, image URLs, and landing page URLs.
+he EO business unit can also have the ABC Company authentication package applied simultaneously for cross-marketing emails.
+*he e-EO.com domain will act as the from address for the emails and authenticate using SPF,
+
+Which two statements are correct regarding Attribute Groups? (Choose two.)
+*hey link data extensions to Contacts.
+hey link subscriber lists to Contacts.
+*hey link data extensions to other data extensions.
+hey link data extensions to subscriber lists
+
+ABC Company has a requirement to create a distinction between marketing and transactional emails in terms of From Name and IP Address for reputation purposes. Which two actions should ABC Company take in order to create Send Classifications? (Choose two.)
+efine custom Reply Mail Management.
+*efine a Delivery Profile.
+efine a Subscriber – specific From Name.
+*efine a Sender Profile.
+
+A publishing company has presented the following: - A need to send renewal reminders to customers whose subscriptions expire in 15 days and 7 days. - A campaign needs to be created and managed by a general marketing user who will not have administrative rights and who is not technical. - The customers’ expiration date is included in the data file. What component should the customers’ solution include? (Choose three.)
+*utomation Studio
+riggered Send
+uppression list
+*ata Filter
+*emplate-based emails
+
+A customer has three data extensions that need to be added to Contact Builder. - Customers contains customer information. - Orders contains order information. - Products contains product information. How should these data extensions be linked within an Attribute Group?
+ustomer Data Products Orders Customers.
+*ustomer Data Customers Orders Products.
+*ustomer Data Customers Orders Products.
+*ustomer Data Customers Orders Products.
+
+Northern Trail Outfitters (NTO) wants its monthly distributor newsletter email to appear to be sent on behalf of the subscriber’s account representative without segmenting the audience by sales representative. In which two ways could this distributor-specific sender profile be configured in the Marketing Cloud account with Sender Authentication Package Implemented? (Choose two.)
+*tilize AMPscript data extension lookups to dynamically populate the From Name and From Email Values.
+*se substitution strings to populate the From Name and From Email values in the sender profile.
+ick “Choose from list,” selecting the From Name and From Email Values from the list of account users.
+atch the external keys of the sender profile and data extension containing account representative details.
+
+A customer would like to send a quarterly re-engagement email to subscribers who have not opened in the previous three months. The customer’s plans are to: - Use an existing Paste HTML email for the first send. - Make only minor changes to the email creative for future sends. - Use an existing Measure to build the subscriber audience for current and future sends. - Deploy emails manually for now, but possibly automate in the future. Which configuration is recommended for the re-engagement email send?
+riggered Send
+uided Send
+utomated Send
+*ser-Initiated Send
+
+ABC Company has decided to use Journey builder to launch event-driven lifecycle marketing programs. This includes personalized interactions with customers with the goal of increasing purchase frequency. What two pieces of information would help ABC Company achieve this objective? (Choose two.)
+umber of items per order
+*hannel preference of customers
+*ast purchase date
+roducts purchased from a competitor
+
+How do you add a contact in contact builder? (Choose two.)
+mport to All Subscribers List.
+dd manually to All Subscribers.
+*mport to MyLists.
+*mport to DE.
+
+A customer with limited technical resources has requested assistance in setting up a small email deployment that the customer will maintain long term. The email will display men’s shoes to males in the audience and women’s shoes to females in the audience. The sendable data extension contains a field with a value of Male or Female. Which method should a consultant recommended to ensure content is displayed properly within the email?
+*ynamic Content Wizard
+MPscript conditional against the Gender field
+MPscriptLookupRows functions
+B Test content type
+
+What are two possible outcomes when “Send as Multipart MIME” is selected during the send process? (Choose two.)
+he email will avoid detection by various SPAM filters.
+*pen and click activity are tracked in either version.
+*n auto-generated text version will be sent with your HTML email.
+ custom text version will be sent with your HTML email.
+
+What are the similarities between Automation Studio and Journey Builder? (Choose three.)
+*bility to define an email send.
+he option to convert a qualified Lead to a Contact.
+*ire an event from Automation Studio to Journey Builder.
+*ave duration plus wait activity (look for answers that start with JB or AS).
+
+A restaurant supply company captures email subscribers and leads through trade shows. They hold a giveaway at each trade show to entice booth visitors to leave their contact information. In the past, they have used a fishbowl to capture business cards, but need to update this to an online sweepstakes entry vehicle displayed on a mounted tablet. Individuals should only be allowed to enter once, and the winner will be selected randomly. All entrants receive a follow-up email after the trade show asking them to confirm their opt-in for a monthly newsletter. Which two components are appropriate for this solution? (Choose two.)
+icrosite with Web Collect to store entrants on a data extension.
+end Email Activity with a link to a subscription center.
+*ata Extension with double opt-in status defined.
+*icrosite with Smart Capture to store entrants on a data extension.
+
+ABC Company is considering adopting Attribute Groups when incorporating data from their external systems. What statements are accurate regarding Attribute Groups? (Choose two.)
+*hey link data extensions to other data extensions or contacts.
+*hey can be created by templates to accomplish certain tasks.
+hey can contain only one data extension.
+hey replicate the structure from the external system data into templates.
+
+An online retail customer needs daily promotional email content to generate with minimal time spent on creation. Their service contract includes building a custom dynamic template for this purpose. The customer has communicated the following: - The email content will highlight new inventory each day. - A small team will run both their digital marketing operations and their email program. - A user needs to build, test, and send a daily email in less than an hour. - Images for the emails will be hosted on their website CMS. Which three questions are relevant to identify strategies for designing the custom template for the customer’s daily promotional email? (Choose three.)
+hat From Name will be used for these emails?
+*ow often will email content be image-only with text overlaying images?
+*hat is the maximum file size of the images being used?
+ill image URLs be available publicly?
+*ow often will the layout of the content in a content area change?
+
+Northern Trail Outfitters (NTO) plans to use Contact Builder to increase the scope of customer information they can see in an effort to establish more effective 1:1 relationships. Northern Trail Outfitters (NTO) has a separate instance of Sales Cloud serving as its current customer master database. What two actions should be taken when using Contact Builder? (Choose two.)
+onduct manual imports of customer information from Sales Cloud.
+reate a data extension to incorporate the imported data from Dashboard.
+*ombine each individual’s channel contact information under one record.
+*se Marketing Cloud Connect to include data from Sales Cloud.
+
+A customer wants to automate the process of sending a series of welcome emails based on the subscriber’s data. - Emails should be sent weekly for up to five weeks. - If a subscriber makes a purchase, they should stop receiving welcome emails. - A Boolean flag should be set in a data extension if the subscriber makes it through the welcome series. Which steps should be used to accomplish this in Journey Builder?
+pdate Contact Data, Wait, Send Email, Join.
+andom Split, Send Email, Wait Define Goal.
+efine Goal, Send Email, Wait, Decision Split.
+*efine Goal, Update Contact Data, Send Email, Wait.
+
+A customer wants to automate a series of three emails as part of a Membership Renewal drip campaign. Email #1 will be sent one month prior to the member’s renewal date. Email #2 will be sent one week prior to the member’s renewal date. Email #3 will be sent on the member’s renewal date. A master audience is updated in real time via the API. Which steps should be included in the customer’s automation?
+mport File Activity > three Send Activities to the master data extension.
+hree Send Activities to the master data extension.
+*hree Filter Activities > three Send Activities to the filtered audiences.
+mport File Activity > three Filter Activities > three Send Activities to the filtered audiences.
+
+A customer wants to send an email from Sales Cloud on behalf of the record owner. How should the consultant meet this requirement? (Choose two.)
+se a custom Delivery Profile.
+*se a custom Send Classification.
+*se the Send From Record Owner option.
+se the Organization-Wide Email address.
+
+A university plans to use Journey Builder to improve their 1:1 marketing to potential students, current students, and alumni. The university currently has student data in the Sales Cloud. Other data, such as course catalog, student demographics, and alumni information, is stored in external systems. Which two actions should the Consultant recommend? (Choose two.)
+*se Data Designer to link student and alumni data to the contact record.
+*se Synchronized Data Sources to obtain data from the Sales Cloud.
+reate an Import Activity to import alumni data into Salesforce Report.
+reate list attributes to store student data from the Sales Cloud.
+
+What functionality is contained in Journey Builder that does not exist in Automation Studio?
+he ability to send an email to a Salesforce audience.
+*he option to convert a qualified Lead to a Contact.
+ative execution of a Server-side JavaScript activity.
+lexibility to wait based on duration or a specific time.
+
+What are two ways Contact builder can alter the data in Data Extensions? (Choose two.)
+*dd Single Record
+*lear Records
+xtract Data
+
+A start-up meal delivery company recently launched in Canada to great success. Through their website, customers can order individual meal kits for up to six people or subscribe to a weekly meal kit delivery. As a new company, resources are limited, but demand is taxing their manual processes for sending out ecommerce messages, such as order confirmation and subscription confirmations. What recommendation would best provide a scalable solution for the start-up?
+n automated program to send daily transactional messages.
+ triggered automation to send transactional messages.
+*riggered email sends to deliver transactional messages.
+ manual email send for each transactional message.
+
+Northern Trail Outfitters (NTO): - Employs Email Specialists responsible for creating content, testing, sending emails, defining the activities for Automation Studio, and creating automations. - Prefers NOT to use custom roles unless it is absolutely necessary. How should a consultant create and assign roles for NTO?
+*heck “Allow” automation permissions for the Content Creator Role and assign it to the Email Specialists.
+lter the roles of Content Creator and Data Manager by denying permissions and then assign the roles to the Email Specialists.
+heck “Allow” automation permissions for the Content Creator Role and assign it to the Business Units.
+reate a custom Email Specialist role with needed permissions and assign it to the Email Specialists.
+
+A large retail company has selected Marketing Cloud and has asked to be fully migrated from their existing platform in three weeks. They have communicated the following: - They currently have three million customers. - They email customers twice a week with no known deliverability issues. - Their contract includes one Sender Authentication Package (SAP). What response articulates proper IP warming? (Choose two.)
+P ramp-up can be accelerated by migrating to pre-warmed IP addresses.
+*P ramp-up is important to establish a positive sender reputation.
+*P ramp-up takes four to six weeks to be able to fully send to all three million customers.
+P ramp-up can be bypassed, given their historical lack of deliverability issues.
+
+What storage model should be used if a subscriber has more than one value for an attribute?
+rofile Attribute
+*ata Extensions
+ists
+ublication Lists
+
+ABC Company wants to better understand subscriber behavior on their website upon arrival via an email message. A local member of a Marketing Cloud user group mentioned the Web Analytics Connector. Which benefit is offered by installing the Web Analytics Connector in a Marketing Cloud account? (Choose three.)
+*ecognize web traffic as originating from email instead of another channel.
+*rack web activity from a click on an email URL back to a specific email campaign.
+*atch subscribers to web activity by passing Subscriber ID through email links.
+se the web analytics platform to trigger behavioral remarketing emails.
+ass web conversion data back into Marketing Cloud for use in email reporting.
+
+The Corporate Apparel Division of ABC Company is moving to Marketing Cloud and will be using ABC existing account. The Corporate Apparel team has asked for a recommendation on whether they should have a separate business unit. Which consideration warrants the creation of a separate business unit for Corporate Apparels instance of Marketing Cloud?
+*anaging Unsubscribes for the Corporate Apparel Division only.
+ending from a separate IP Address and Domain.
+sing different From Name and Email Address settings.
+randing for the Corporate Apparel is different from ABC Company.
+
+ABC Company needs to provide an IT staff member with access to Marketing Cloud. The staff member needs to perform the following tasks: - Maintain ABC Company’s master suppression list. - Configure data relationships. - Create new subscriber attributes. Which role should be assigned to the IT staff member?
+dministrator
+*ata Manager
+nalyst
+ontent Creator
+
+A customer has an eCommerce site and imports data into three data extensions daily: Orders, Order_Details, and Products. The data extensions contain the following information: - Orders: OrderID, CustomerID, OrderNumber, OrderDate, OrderTotal, GrandTotal. - Order_Details: ProductID, OrderID, Qty, UnitPrice, ExtendedPrice, Discount. - Products: ProductID, SKU, Name, Description, Cost, Price. Which two actions should be taken in Data Designer? (Choose two.)
+*reate a one-to-many relationship between Orders and Order_Details.
+reate a one-to-one relationship between Orders and Order_Details.
+reate a one-to-one relationship between Order_Details and Products.
+reate a one-to-one relationship between the contact record and Order_Details.
+
+A consultant wants to send an email to subscribers who have made a purchase. The data used for the send exists on two data extensions named Subscribers and Orders, and the customer needs to include key information from both tables, such as: - CustomerID - FirstName, - EmailAddress - OrderID - OrderDate - ShippedDate Which SQL statement should the consultant use?
+ELECT * FROM Subscribers WHERE CustomerID, FirstName, EmailAddress, OrderID, OrderDate, ShippedDate JOIN Orders On CustomerID=CustomerID
+ELECT CustomerID, FirstName, EmailAddress, OrderID, OrderDate, ShippedDate FROM Subscribers INNER JOIN Orders ON CustomerID=CustomerID
+*ELECT T1.CustomerID, T1.FirstName, T1.EmailAddress, T2.OrderID, T2.OrderDate, T2.ShippedDate FROM Subscribers T1 INNER JOIN Orders T2 ON T1.CustomerID=T2.CustomerID
+ELECT T1.CustomerID, T1.FirstName, T1.EmailAddress, T2.OrderID, T2.OrderDate, T2.ShippedDate FROM Subscribers OUTER JOIN Orders ON Subscribers.CustomerID=Orders.CustomerID
+
+Collect addresses through Smartcapture, segment the data, send emails referencing data from a data extension. What skillset is needed?
+MPscript
+SS
+TML
+*QL
+
+Which three statements are correct regarding the automation tools in Marketing Cloud? (Choose three.)
+*ourney Builder and Automation Studio allow users to define the parameters for a send within the tool.
+utomation Studio and Journey Builder allow users to repeat an interaction indefinitely.
+utomation Studio and Journey Builder allow users to define a wait activity based on duration.
+*ourney Builder allows users to inject Contacts from a data extension which is updated by Automation Studio.
+*ourney Builder allows users to update a contact record in a journey or import data into a data
+
+Northern Trail Outfitters (NTO) is launching a new campaign, driving them to redesign their data structure. NTO needs to change the cardinality between two data extensions inside Contact Builder. What are two consequences of this change? (Choose two.)
+ll filters created before will adapt automatically to the new cardinality.
+ne of the data extensions must be deleted from the attribute group in order to change the cardinality.
+*ll scheduled sends using a filter based on one of the data extensions should be reviewed.
+* contact may not show up in the filter based on one of the data extensions.
+
+What action should be taken to increase subscriber engagement? (Choose two.)
+*dopt a Cart Abandonment Email Campaign.
+*ncrease the use of dynamic content in emails.
+ntroduce more identity verification steps in check out process.
+ncrease volume of emails to a wider audience.
+
+A customer needs to compare the engagement across three creative versions, and then send a follow-up email for those contacts who did not engage with any of the test versions. Which sequence of activities would best accomplish this?
+ngagement Split > Send email > Wait > Random Split > Send email
+*andom Split > Send email > Wait > Engagement Split > Join > Send email
+ecision Split > Send email > Engagement Split > Send email
+andom Split > Send email > Join > Decision Split > Wait > Send email
+
+A company is hosting a series of events and wants its customers who register to enter into a journey. Which two methods are viable configurations for entry? (Choose two.)
+ form hosted on the company website that fires the entry event via SOAP API.
+* form hosted on the company website that fires the entry event via REST API.
+ SmartCapture form hosted in CloudPages that updates a Profile attribute.
+* SmartCapture form hosted in CloudPage that populates the entry source.
+
+A retail company does business in both the United States and Canada. They have a loyalty program in which a customer can enroll. The company will provide a pre-segmented customer file, per campaign, which has a “Version” data field indicating the type of email the customer is to receive. Which two questions should be asked to determine a data/segmentation strategy? (Choose two.)
+*ill “Version” values/meanings change, precluding reusable AMPscript?
+*ill a lookup table be needed for a dynamic From Name?
+ill customers be able to sign up for the loyalty program at the store?
+s the purpose of these emails for acquisition or retention or transactional?
+
+A retail company wants to create journeys to target subscribers based on website behavior. They have identified three separate groups: customers who searched for an item, abandoned a cart, and made a purchase. Which three questions should the consultant ask to design the data structure for this solution? (Choose three.)
+*ow long after the behavior occurs will a subscriber need to enter a journey?
+*ow are subscribers identified in your web analytics?
+hould customers exit the journey when the goal is met?
+ow many messages should be included in each journey?
+*hould a single customer exist in multiple journeys at the same time?
+
+A subscriber asked to be removed from a customer’s email list multiple times by replying directly to the customer’s marketing message, but continues to receive emails. Which three settings should be confirmed? (Choose three.)
+*eply Mail Management (RMM) is configured for the customer’s account.
+he RMM setting ‘Delete auto-replies and out-of-office replies’ is set to NO.
+*n email address was provided as the Routing Address for Remaining Replies.
+*he RMM setting ‘Unsubscribe Manual Requests’ is set to YES.
+he subscriber’s request contained one of the standard terms that qualify for automatic unsubscribe.
+
+Northern Trail Outfitters (NTO) wants to set up a welcome journey that leverages customer data across three data extensions: Customers, Orders, and Products. What is the best way to facilitate this within Contact Builder?
+reate three distinct Attribute Groups that link Customers to Contacts, Orders to Customers, and Products to Orders.
+*reate a single Attribute Group that links Customers to Contacts, Orders to Customers, and Products to Orders.
+reate three distinct Attribute Groups that link each data extension directly to Contacts.
+reate a single Attribute Group that links Contacts to Customers, Orders to Products, and Products to Customers.
+
+A marketer wants to create and edit email content, as well as generate reports and manage subscriber data. Using the principle of least privilege, which two pre-defined roles should be assigned? (Choose two.)
+dministrator
+ata Manager
+*ontent Creator
+*nalyst
+
+A customer wants to link web analytics data to subscriber data. How should this be set up in Data Designer?
+ink to the Marketing Cloud API
+*ink to Marketing Cloud data extensions
+ink to the Web Analytics SFTP
+ink to the Web Analytics Provider API
+
+Northern Trail Outfitters has purchased a new Marketing Cloud account with two dedicated IP addresses. One IP address will be used for commercial sends, while the other will be reserved for transactional messages. Their customer base includes 1.5 million email addresses. What should the consultant recommend?
+end to unengaged subscribers during the first two weeks of IP warning in order to give them the opportunity to interact.
+ocus on warning the IP address for commercial sends, because it is not necessary to warm an IP address used only for transactional sends.
+uppress sends to AQL email addresses during the first two weeks of IP warning, then resume sending to them during the third week.
+*plit marketing campaigns over a number of days while migrating over smaller triggered campaigns during the warning period.
+
+Northern Trail Outfitters (NTO) uses Marketing Cloud to connect with its individual consumers, retailers and wholesale buyers, and its corporate apparel customers. Marketing Cloud is currently configured with data extensions containing Store, Order, Product, and Contact information. NTO is in the process of implementing Data Designer and linking its data extensions. How should consumers, retailers, and wholesale buyers be defined in Data Designer?
+any-to-Many Relationship
+ne-to-One Relationship
+opulation
+*ne-to-Many Relationship
+
+During discovery a consultant confirmed: - A master audience file containing contact information and data points will be used for segmentation and imported nightly. - The customer would like to implement a mechanism that consistently prevents sending promotional emails to subscribers who work for their top three competitors. What feature should a consultant include in the solution?
+n exclusion list
+n auto-exclusion list
+*n auto-suppression list
+ global unsubscribe
+
+A financial company wants to use Marketing Cloud to send late payment notices to accounts whose payment due date lapsed the previous week. The company has shared the following: - Payments.csv will arrive on the Enhanced SFTP each Monday at 1 a.m. - Payments.csv will be encrypted. - Payments.csv will contain data from the previous week. - Late payment notices will be sent each Monday at noon. - They need to receive a file containing customers who opened or clicked on the late payment notice email within five days after send. Which automation sequence represents a viable solution?
+ile Transfer > Import File > Filter > Wait > Send Email > Wait > SQL Query > Data Extract > File Transfer
+*mport File > File Transfer > SQL Query > Wait > Send Email > Wait > SQL Query > Data Extract > File Transfer
+ile Transfer > Import File > Filter > Wait > Send Email > SQL Query > Wait > Data Extract > File Transfer
+ile Transfer > File Transfer > Import File > SQL Query > Wait > Send Email > SQL Query > File Transfer
+
+Which three statements about Send Log data are correct? (Choose three.)
+*an be included in measures and filters.
+*an be stored for a set period of time.
+*an be accessed via SQL Query Activities.
+an be added to a standard data view.
+an be incorporated into standard reports.
+
+Northern Trail Outfitters (NTO) account will be used for email communications with its clients and employees. They want to send from two different subdomains, so they have delegated e.nto.com as their SAP domain and mail.nto.com as an additional Private Domain. Which statement describes how this will impact the account?
+*inks within emails will be wrapped with the same subdomain used for the From Address within the Sender Profile.
+inks within emails will be wrapped with e.nto.com, and images within Content Builder will use e.nto.com.
+inks within emails will be wrapped with mail.nto.com, but images within Content Builder will use e.nto.com.
+inks within emails will be wrapped with e.nto.com, but images within Content Builder will use mail.nto.com.
+
+A pharmaceutical company is hosting a monthly event and will be sending an invitation to new local contacts. The customer would like to automatically update a data extension to determine who will be attending. - The data extension will hold each contact’s response as well as the time stamp of the click. - The contact will receive an email two days after the click event. - Both emails should be sent via Journey Builder. What is the optimal solution to record the click activity prior to sending the second email?
+everage the Decision Split and create a Custom Activity.
+se a landing page to record the click and trigger an email.
+*everage the Engagement Split and the Update Contact Activity.
+se a landing page to record the click in the data extension.
+
+Northern Trail Outfitters (NTO) wants to implement a drip campaign to its highest-value outdoor sports customers. NTO is including a deep product discount and wants to limit the audience to not only its best customers, but also those customers most likely to respond. Which three criteria should they use to create an audience for this campaign? (Choose three.)
+*onversion Rate
+*ast Purchase Date
+ges in Household
+roximity to Store
+*ifetime Purchase Value
+
+Which three statements are correct about Data Designer? (Choose three.)
+ach attribute group contains one data extension, and each data extension can include up to 50 attributes.
+*ach attribute group can contain multiple lists, and each list can include multiple attributes.
+*ata extensions can be linked to either the contact record or different data extensions, including data extensions from other attribute groups.
+ach attribute group can contain multiple data extensions, and each data extension can include multiple attributes.
+*ata extensions should be linked directly to the contact record prior to being linked to different data
+
+In which two ways can Contact Builder be used to affect data stored on a data extension? (Choose two.)
+*lear the data from a data extension
+*dd a single record to a data extension
+xport data from a data extension to any SFTP location
+econcile contact data on multiple Contact IDs
+
+Northern Trail Outfitters (NTO) wants to use dynamic content within their emails to provide customers with more personalized communications. This includes using a Dynamic Sender Profile to customize the From Name and From Email Address to use the regional store manager’s information. If a new manager is assigned to a region, NTO only wants to update the information in one place. What data should a consultant ensure exists within Marketing Cloud in order to facilitate this?
+*ach customer’s region code and the manager’s name and email address for each region code.
+ame and email address for each regional store manager stored on a lookup table.
+egional store manager’s name and email address for each customer.
+egion code, regional store manager’s name, and email address for each customer.
+
+An existing triggered send needs to be updated with new content. (Choose the BEST answer.)
+Archive current message interaction –> Edit Message Content –> Restart Triggered Email
+*Pause Message Interaction –> Edit Message Content –> Publish Changes –> Restart Triggered Email Interaction
+Copy send definition –> Select updated content –> Archive Original definition –> start new definition
+Open send definition –> edit message content –> publish changes
+
+How are Publication Lists used?
+o build dynamic content rules by subscriber type
+*o allow subscribers to opt-down/out instead of unsubscribing from all
+o send communication to all subscribers, regardless of opt-in status
+o manage subscribers in guided and triggered email sends
+
+By which three standard methods could contacts be injected into a journey? (Choose three.)
+redictive Intelligence Event
+*ales / Service Cloud Event
+*ate-Based Event
+obile Response Event
+*loudPages Form Submit Event
+
+A customer has an email newsletter to send out, but wants to deliver it with a targeted message for customers within a specified age range. These data have been defined in attributes from a sign-up landing page. How should the customer individualize the email content?
+uide Template Language
+ubstitution Strings
+*ynamic Content Areas
+ersonalization Strings
+
+A customer needs to import data from an SFTP site. The customer wants to: - Segment the contents of the file and then send emails. - Transfer the file to the SFTP site at various times daily. - Send to data extensions. What sequence of automation activities should meet these requirements?
+ile Drop: Import File > Group Refresh > Send Email(s)
+cheduled: Import File > SQL Query(s) > Send Email(s)
+*ile Drop: Import File > SQL Query(s) > Send Email(s)
+cheduled: Transfer File > Import File > SQL Query(s) > Send Email(s)
+
+A customer team wants to retarget subscribers who click on links of key items promoted across email campaigns. Click activity will be cross-referenced with subscribers’ regional markets on a master subscriber data extension. What skill set should the customer team have for this solution to be viable?
+TML
+SJS
+*MPscript
+QL
+
+Is link wrapping supported by private domains?
+, it’s supported by the SAP and Private domains
+* it’s only supported by SAP
+
