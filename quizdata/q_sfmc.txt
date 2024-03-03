@@ -1,3 +1,65 @@
+A Marketing Cloud admin wants to maximize login security to ensure that data is protected. Which two settings are recommended?
+*THE LOGIN EXPIRES AFTER INACTIVITY SET TO 90 DAYS. 
+*THE INVALID LOGINS BEFORELOCKOUT SET TO 3 ATTEMPTS.
+THE SESSION TIMEOUT SET TO 8 HOURS.
+THE MINIMUM USERNAME LENGTH SET TO 6 CHARACTERS.
+Explanation: Setting login expiration to 90 days is a best practice. Setting invalid logins before lockout to 3 attempts is a best practice. 
+
+Northern Trail Outfitters wants to switch on the out-of-the-box audit trail functionality in the Marketing Cloud account, however they cannot see the option to enable it. What could be the likely cause?
+*USER IS MISSING THE MARKETING CLOUD SECURITY ADMINISTRATOR RIGHTS.
+USER IS MISSING THE MARKETING CLOUD ADMINISTRATOR RIGHTS.
+USER IS MISSING THE MARKETING CLOUD VIEWER RIGHTS.
+USER IS MISSING THE MARKETING CLOUD API USER RIGHTS.
+Explanation: Security Administrator rights give you permission to control Audit Trail functionality.  Administrator rights do not give you permission to control Audit Trail functionality. Viewing rights give you the ability to view components in Marketing Cloud, but do not give you permission to control Audit Trail functionality. API user rights control the API access for a user, but do not give you permission to control Audit Trail functionality.
+
+Northern Trail Outfitters plans to integrate their Sales Cloud Contacts. How should their Marketing Cloud admin configure the Sync of the contact object so that only marketable contacts are synced over?
+*SELECT ALL RECORDS WITH AN EMAIL ADDRESS.
+SELECT ALL RECORDS.
+SELECT ALL MARKETABLE RECORDS 
+SELECT ALL NEW RECORDS.
+Explanation: Selecting all records with an email address ensures only contacts that can be sent an email are synced. Selecting all records will select all contacts within Sales Cloud, including contacts that don’t have a valid email address. All marketable records is not an option within the setup. Selecting all new records will only sync newly created contacts and will not include any previous contacts with email addresses.
+
+Which two metrics will a Marketing Cloud admin be able to view under Setup Home, given the apps are provisioned in the account?
+A GRAPH DISPLAYING THE NUMBER AND STATES OF AUTOMATIONS FROM THE LAST 14 DAYS.
+THE TOTAL NUMBER OF EMAILS SENT FROM YOUR ACCOUNT WITHIN THE LAST 7 DAYS.
+*THE TOTAL NUMBER OF USERS IN YOUR ACCOUNT.
+*THE TOTAL NUMBER OF CONTENT PIECES IN YOUR ACCOUNT, INCLUDING A SUBTOTAL OF SHARED ASSETS.
+Explanation: The total number of users is shown under Setup Home. The total number of content pieces in your account, including a subtotal of shared assets is shown under Setup Home. Graph shows the number and states of the automations from the last 7 days in your account.
+
+What are the functionalities that you can work on within Setup Home? Pick two (2) options.
+*CREATE DATA EXTENSIONS.
+*MANAGE FTP ACCOUNT. 
+CREATE AUTOMATIONS.
+ENABLE MARKETING CLOUD CONNECT.
+Explanation: Create Data Extensions is available under Setup Home. Manage FTP accounts is available under Setup Home.
+
+As a Marketing Cloud Administrator you have been told about how heavy scripting in the email leads to severe delays in sending emails out the door. The Marketing department has asked you whether there is a possibility to speed things up. Which of the below functionality will be best suited for the need?
+*ENABLING BURST SENDING.
+SENDING THROUGH JOURNEY BUILDER.
+SENDING THROUGH AUTOMATION STUDIO.
+DO NOT USE SCRIPTING IN EMAILS.
+Explanation: Burst Send allows pre build of emails so that send happens quicker.
+
+Northern Trail Outfitters (NTO) is adding Mobile Studio to its marketing tools. Currently, NTO uses Email Studio and Journey Builder to send email messages. They are using a unique alphanumeric as the Subscriber Key in Email Studio. What should the administrator do to prevent duplicates across all Marketing Cloud channels?
+TURN ON CONTACT MATCHING IN SETUP.
+USE MERGE FUNCTIONALITY FOR NEW MOBILE CONTACTS.
+*USE A SINGLE CONTACT KEY VALUE.
+USE CHANNEL-SPECIFIC UNIQUE IDENTIFIERS.
+
+A Marketing Cloud administrator is asked by the Legal Team to automatically process certain keywords (such as “Unsubscribe”) when received as a reply to an email send, and to remove the Out of Office replies to help the team better interact with customer responses. Which functionality should they use?
+*REPLY MAIL MANAGEMENT.
+TRACKING EXTRACTS.
+SQL QUERY IN AUTOMATION STUDIO.
+PREFERENCE MANAGEMENT CENTER.
+Explanation: Reply Mail Management (RMM) is used to define how the system handles replies to an email send. Tracking Extracts are used to define reports on user activity when an email is sent. SQL Queries cannot access this data to create an auto response based mechanism. Preference Management Center is used to capture user preferences, such as unsubscribes.
+
+A Marketing Cloud admin has created some profile attributes, but doesn’t want the customer to see them in the profile center. How should the attributes be configured?
+*MARK THE ATTRIBUTE AS HIDDEN.
+MARK THE ATTRIBUTE AS READ-ONLY
+MARK THE ATTRIBUTE AS A PROFILE ATTRIBUTE.
+MARK THE ATTRIBUTE AS A PREFERENCE CENTER ATTRIBUTE.
+Explanation: Hidden attributes do not display in the profile center. There is not a preference center option for profile attributes.
+
 A customer wants Sales Cloud users to create and send Marketing Cloud emails. Which two recommendations should the consultant make? (Choose two.)
 *The consultant should enable deep linking in Marketing Cloud Connect configuration.
 *Each user should have a one-to-one relationship between the Marketing Cloud user and the Sales Cloud user.
