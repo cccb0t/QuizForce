@@ -19,7 +19,7 @@ class Answer:
     def __str__(self):
         return ('*' if self.correct else '') + self.answer
 
-class Question:
+class QAE:
     def __init__(self, question: str, answers: list, explanation: str = None):
         self.question = question
         self.answers = answers
@@ -42,9 +42,22 @@ class Quiz:
     def __init__(self, questions: list):
         self.questions = questions
 
+    def __str__(self):
+        return '\n\n'.join(list(map(str, self.questions)))
+
     @classmethod
     def run_from_file(cls, path: str, numQ=None, shuffle_questions=True, shuffle_answers=True, feedback=True, requiz=True):
         cls.from_file(path).run(numQ=numQ, shuffle_questions=shuffle_questions, shuffle_answers=shuffle_answers, feedback=feedback, requiz=requiz)
+
+    @classmethod
+    def from_string(cls, string: str):
+        return cls(list(map(QAE.from_string, string.split('\n\n'))))
+
+    @classmethod
+    def from_file(cls, path: str):
+        with open(path) as file_handle:
+            return cls.from_string(file_handle.read().strip())
+
 
     def run(self, numQ=None, shuffle_questions=True, shuffle_answers=True, feedback=True, requiz=True):
         questions = self.questions
@@ -64,7 +77,7 @@ class Quiz:
                     return read_answer_indices(num_answers)
             return [string.ascii_uppercase.index(key) for key in answers]
 
-        def ask_question(question: Question) -> bool:
+        def ask_question(question: QAE) -> bool:
             nonlocal question_counter
             question_counter += 1
             print(f'Question {question_counter}/{len(questions)}:')
@@ -98,7 +111,55 @@ class Quiz:
             wrong_questions = [questions[i] for i, correct in enumerate(results) if not correct]
             Quiz(wrong_questions).run(len(wrong_questions), shuffle_questions, shuffle_answers, feedback, False)
 
-    def analyze(self):
+    def analyze(self, path: str):
+        with open(path, 'r') as file:
+            content = file.read().strip()
+
+        # Split content into QAE units based on \n\n separator
+        qae_units = content.split('\n\n')
+        correct_options_distribution = {}
+        duplicates = {}
+        line_number = 1
+
+        for unit in qae_units:
+            # Split unit into lines for more detailed analysis
+            lines = unit.split('\n')
+            question = lines[0]
+            answers = lines[1:]
+            explanation_index = next((i for i, line in enumerate(answers) if line.startswith('Explanation: ')), None)
+            if explanation_index is not None:
+                answers = answers[:explanation_index]
+
+            # Calculate correct answers distribution
+            correct_answers_count = sum(1 for answer in answers if answer.startswith('*'))
+            correct_options_distribution[correct_answers_count] = correct_options_distribution.get(correct_answers_count, 0) + 1
+
+            # Check for and record duplicates
+            if question in duplicates:
+                duplicates[question].append(line_number)
+            else:
+                duplicates[question] = [line_number]
+
+            # Update line_number for the next unit
+            line_number += len(lines) + 2  # +2 for the separation between QAE units
+
+        # Print correct options distribution
+        print("Correct options distribution per question:")
+        for count, num_questions in correct_options_distribution.items():
+            print(f"{count} correct answer(s): {num_questions} question(s)")
+
+        # Print duplicate questions
+        print("\nDuplicate Questions:")
+        dup_index = 1
+        duplicate_questions = {k: v for k, v in duplicates.items() if len(v) > 1}
+        if not duplicate_questions:
+            print("None found.")
+        else:
+            for question, lines in duplicate_questions.items():
+                print(f'{dup_index}) found on line(s): {", ".join(map(str, lines))}\n{question}\n')
+                dup_index += 1
+
+    def analyze_old(self):
         # Identifying duplicate questions
         seen_questions = {}
         duplicates = []
@@ -128,18 +189,6 @@ class Quiz:
                 print()
                 qcount=qcount+1
 
-
-    @classmethod
-    def from_string(cls, string: str):
-        return cls(list(map(Question.from_string, string.split('\n\n'))))
-
-    @classmethod
-    def from_file(cls, path: str):
-        with open(path) as file_handle:
-            return cls.from_string(file_handle.read().strip())
-    def __str__(self):
-        return '\n\n'.join(list(map(str, self.questions)))
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Run a quiz.')
     parser.add_argument('quiz_file', help='Path to the quiz file.')
@@ -154,7 +203,7 @@ if __name__ == '__main__':
 
     if args.analyze:
         quiz = Quiz.from_file(args.quiz_file)
-        quiz.analyze()
+        quiz.analyze(args.quiz_file)
     else:
         Quiz.run_from_file(args.quiz_file, numQ=args.numQ, shuffle_questions=args.shuffle_questions, shuffle_answers=args.shuffle_answers, feedback=args.feedback, requiz=args.requiz)
 

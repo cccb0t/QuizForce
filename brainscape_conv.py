@@ -1,4 +1,3 @@
-#v20240302_2133
 import sys
 
 def parse_source_file(file_path):
@@ -11,6 +10,14 @@ def parse_source_file(file_path):
     parsing_correct_answers = False
     skip_next_line = False  # Flag to skip the question number line
     question_text = ""
+    
+    def remove_prefix(text):
+        # Function to remove the answer letter prefix more flexibly
+        if ". " in text:
+            return text.split('. ', 1)[1]  # Split on first occurrence of ". " and return the second part
+        elif " " in text:
+            return text.split(' ', 1)[1]  # Split on first occurrence of " " and return the second part
+        return text  # No prefix to remove
     
     for line in lines:
         if line.startswith('--'):
@@ -28,18 +35,19 @@ def parse_source_file(file_path):
         elif line.startswith('A') and len(line.strip()) == 1:
             parsing_correct_answers = True
         elif parsing_correct_answers:
-            correct_answers.add(line.strip()[3:])  # Remove the answer letter prefix
+            correct_answers.add(remove_prefix(line.strip()))  # Use remove_prefix to handle the prefix
         elif line.strip():
             if not question_text:
                 question_text = line.strip()
             else:
-                answers.append(line.strip()[3:])  # Remove the answer letter prefix
+                answers.append(remove_prefix(line.strip()))  # Use remove_prefix for answers as well
                 
     # Add the last question if any
     if question_text:
         questions.append((question_text, answers, correct_answers))
     
     return questions
+
 
 def write_target_file(questions, file_path):
     with open(file_path, 'w', encoding='utf-8') as file:
