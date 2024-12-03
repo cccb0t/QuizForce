@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Question</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="progress">
+            <p>Question {{ progress.current }}/{{ progress.total }}</p>
+            <p>Current Score: {{ "%.1f"|format(progress.percentage) }}%</p>
+        </div>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="feedback">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <div class="question">
+            <h2>{{ question }}</h2>
+            
+            <form id="answer-form" action="{{ url_for('question') }}" method="post">
+                <div class="answers">
+                    {% for answer in answers %}
+                    <div class="answer {% if answer.selected %}selected{% endif %}" onclick="selectAnswer('{{ answer.label }}')">
+                        <label>
+                            <span class="answer-label">{{ answer.label }})</span>
+                            {{ answer.text }}
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="input-area">
+                    <input type="text" id="answer-input" name="answer" placeholder="Enter answer (A-Z or 1-9)" required>
+                    <button type="submit">Submit</button>
+                </div>
+
+                <input type="hidden" name="action" id="action-input" value="next">
+            </form>
+
+            <div class="navigation-controls">
+                {% if progress.current > 1 %}
+                    <button onclick="navigate('prev')" class="nav-button"><i class="fas fa-arrow-left"></i> Previous</button>
+                {% else %}
+                    <button disabled class="nav-button disabled"><i class="fas fa-arrow-left"></i> Previous</button>
+                {% endif %}
+
+                <span class="question-number">{{ progress.current }} / {{ progress.total }}</span>
+
+                {% if progress.current < progress.total %}
+                    <button onclick="navigate('next')" class="nav-button">Next <i class="fas fa-arrow-right"></i></button>
+                {% else %}
+                    <button onclick="finishQuiz()" class="nav-button finish">Finish Quiz</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectAnswer(label) {
+            document.getElementById('answer-input').value = label;
+            document.getElementById('action-input').value = 'submit';
+            document.getElementById('answer-form').submit();
+        }
+
+        function navigate(direction) {
+            document.getElementById('action-input').value = direction;
+            document.getElementById('answer-form').submit();
+        }
+
+        function finishQuiz() {
+            window.location.href = "{{ url_for('results') }}";
+        }
+
+        // Add hover effect to answers
+        document.querySelectorAll('.answer').forEach(answer => {
+            answer.style.cursor = 'pointer';
+            
+            answer.addEventListener('mouseover', function() {
+                if (!this.classList.contains('selected')) {
+                    this.style.backgroundColor = '#f8f9fa';
+                }
+            });
+            
+            answer.addEventListener('mouseout', function() {
+                if (!this.classList.contains('selected')) {
+                    this.style.backgroundColor = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

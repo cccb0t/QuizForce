@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Configure Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Configure Quiz</h1>
+        <form action="{{ url_for('start_quiz') }}" method="post">
+            <div class="form-group">
+                <label>Number of Questions:</label>
+                <input type="number" name="numQ" min="1">
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="shuffle_questions" checked>
+                    Shuffle Questions
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="shuffle_answers" checked>
+                    Shuffle Answers
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="feedback" checked>
+                    Show Feedback
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="requiz" checked>
+                    Requiz Wrong Answers
+                </label>
+            </div>
+            
+            <button type="submit">Start Quiz</button>
+        </form>
+    </div>
+</body>
+</html> 
