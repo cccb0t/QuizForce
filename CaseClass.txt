@@ -1,146 +1,204 @@
-public with sharing class GetCaseReturnContext {
+public with sharing class DealerActionCaseService {
 
-    public class InputWrapper {
-        @InvocableVariable(required=false label='Days Back')
-        public Integer daysBack;
+    public class DealerActionCaseDTO {
+        public Id id;
+        public String subject;
+        public String description;
+        public String status;
+        public DateTime createdDate;
+
+        public List<CommentDTO> comments = new List<CommentDTO>();
+        public List<AttachmentDTO> attachments = new List<AttachmentDTO>();
+        public List<FileDTO> files = new List<FileDTO>();
+
+        public class CommentDTO {
+            public Id id;
+            public String body;
+            public DateTime createdDate;
+        }
+
+        public class AttachmentDTO {
+            public Id id;
+            public String name;
+            public String contentType;
+            public Integer bodyLength;
+        }
+
+        public class FileDTO {
+            public Id id;
+            public String title;
+            public String fileType;
+            public Integer contentSize;
+        }
     }
 
-    @InvocableMethod(label='Get Recent Case Return Context as JSON')
-    public static List<ReturnContextWrapper> getContext(List<InputWrapper> inputList) {
-        List<ReturnContextWrapper> results = new List<ReturnContextWrapper>();
-        Integer daysBack = 30;
+    public static String exportDealerActionCases(Date sinceDate) {
+        // STEP 1: Track first Dealer Action Required status change per case
+        Map<Id, Datetime> caseIdToFirstDealerAction = new Map<Id, Datetime>();
 
-        if (inputList != null && !inputList.isEmpty()) {
-            InputWrapper input = inputList[0];
-            if (input.daysBack != null) {
-                daysBack = input.daysBack;
-            }
-        }
-
-        DateTime fromDate = System.now().addDays(-daysBack);
-
-        // Query recent cases
-        List<Case> cases = [
-            SELECT Id, CaseNumber, Status, Subject, Description, CreatedDate, LastModifiedDate, Owner.Name
-            FROM Case
-            WHERE CreatedDate >= :fromDate
-        ];
-
-        Set<Id> caseIds = new Set<Id>();
-        for (Case c : cases) {
-            caseIds.add(c.Id);
-        }
-
-        Map<Id, Case> caseMap = new Map<Id, Case>(cases);
-
-        // Query Case History for all status changes
-        Map<Id, CaseHistory> firstStatusChangeMap = new Map<Id, CaseHistory>();
         for (CaseHistory ch : [
-            SELECT CaseId, Field, OldValue, NewValue, CreatedDate, CreatedBy.Name
+            SELECT CaseId, Field, NewValue, CreatedDate
             FROM CaseHistory
-            WHERE CaseId IN :caseIds AND Field = 'Status' AND CreatedDate >= :fromDate
-            ORDER BY CreatedDate ASC
+            WHERE Field = 'Status' AND CreatedDate >= :sinceDate
         ]) {
-            if (ch.NewValue == 'Dealer Action Required' && !firstStatusChangeMap.containsKey(ch.CaseId)) {
-                firstStatusChangeMap.put(ch.CaseId, ch);
-            }
-        }
-
-        // Query Case Comments
-        Map<Id, List<CaseComment>> commentMap = new Map<Id, List<CaseComment>>();
-        for (CaseComment cc : [
-            SELECT Id, ParentId, CommentBody, CreatedDate, CreatedBy.Name
-            FROM CaseComment
-            WHERE ParentId IN :caseIds AND CreatedDate >= :fromDate
-            ORDER BY CreatedDate ASC
-        ]) {
-            if (!commentMap.containsKey(cc.ParentId)) {
-                commentMap.put(cc.ParentId, new List<CaseComment>());
-            }
-            commentMap.get(cc.ParentId).add(cc);
-        }
-
-        // Query attachments via ContentDocumentLinks (one-by-one due to SOQL limits)
-        Map<Id, List<String>> attachmentMap = new Map<Id, List<String>>();
-        for (Id caseId : caseIds) {
-            List<ContentDocumentLink> links = [
-                SELECT ContentDocumentId
-                FROM ContentDocumentLink
-                WHERE LinkedEntityId = :caseId
-            ];
-
-            Set<Id> docIds = new Set<Id>();
-            for (ContentDocumentLink link : links) {
-                docIds.add(link.ContentDocumentId);
-            }
-
-            if (!docIds.isEmpty()) {
-                List<ContentVersion> versions = [
-                    SELECT Title, FileExtension, ContentDocumentId
-                    FROM ContentVersion
-                    WHERE ContentDocumentId IN :docIds
-                    AND IsLatest = true
-                ];
-
-                for (ContentVersion cv : versions) {
-                    if (!attachmentMap.containsKey(caseId)) {
-                        attachmentMap.put(caseId, new List<String>());
-                    }
-                    attachmentMap.get(caseId).add(cv.Title + '.' + cv.FileExtension);
+            if (String.valueOf(ch.NewValue) == 'Dealer Action Required') {
+                if (!caseIdToFirstDealerAction.containsKey(ch.CaseId) ||
+                    ch.CreatedDate < caseIdToFirstDealerAction.get(ch.CaseId)) {
+                    caseIdToFirstDealerAction.put(ch.CaseId, ch.CreatedDate);
                 }
             }
         }
 
-        // Construct result
-        for (Case c : cases) {
-            Id caseId = c.Id;
-            CaseHistory ch = firstStatusChangeMap.get(caseId);
-            List<CaseComment> comments = commentMap.get(caseId);
-            List<String> files = attachmentMap.get(caseId);
+        if (caseIdToFirstDealerAction.isEmpty()) {
+            return '[]';
+        }
 
-            Map<String, Object> data = new Map<String, Object>();
-            data.put('caseId', c.Id);
-            data.put('caseNumber', c.CaseNumber);
-            data.put('status', c.Status);
-            data.put('subject', c.Subject);
-            data.put('description', c.Description);
-            data.put('owner', c.Owner != null ? c.Owner.Name : null);
-            data.put('createdDate', String.valueOf(c.CreatedDate));
-            data.put('lastModifiedDate', String.valueOf(c.LastModifiedDate));
+        Set<Id> caseIds = caseIdToFirstDealerAction.keySet();
 
-            List<Map<String, Object>> commentList = new List<Map<String, Object>>();
-            if (ch != null) {
-                data.put('statusChangedAt', String.valueOf(ch.CreatedDate));
-                data.put('statusChangedBy', ch.CreatedBy.Name);
-                data.put('oldStatus', ch.OldValue);
+        // STEP 2: Load base Case data
+        Map<Id, Case> caseMap = new Map<Id, Case>([
+            SELECT Id, Subject, Description, Status, CreatedDate
+            FROM Case
+            WHERE Id IN :caseIds
+        ]);
 
-                // Filter comments to those within ±30 minutes of status change
-                if (comments != null) {
-                    for (CaseComment cc : comments) {
-                        if (cc.CreatedDate >= ch.CreatedDate.addMinutes(-30) && cc.CreatedDate <= ch.CreatedDate.addMinutes(30)) {
-                            Map<String, Object> cmt = new Map<String, Object>();
-                            cmt.put('author', cc.CreatedBy.Name);
-                            cmt.put('created', String.valueOf(cc.CreatedDate));
-                            cmt.put('body', cc.CommentBody);
-                            commentList.add(cmt);
+        // STEP 3: Case Comments with 10-min grace window
+        Map<Id, List<DealerActionCaseDTO.CommentDTO>> commentsByCaseId = new Map<Id, List<DealerActionCaseDTO.CommentDTO>>();
+        for (CaseComment cc : [
+            SELECT Id, ParentId, CommentBody, CreatedDate
+            FROM CaseComment
+            WHERE ParentId IN :caseIds
+        ]) {
+            Datetime changeTime = caseIdToFirstDealerAction.get(cc.ParentId);
+            if (changeTime != null && cc.CreatedDate <= changeTime.addMinutes(10)) {
+                DealerActionCaseDTO.CommentDTO dto = new DealerActionCaseDTO.CommentDTO();
+                dto.id = cc.Id;
+                dto.body = cc.CommentBody;
+                dto.createdDate = cc.CreatedDate;
+
+                if (!commentsByCaseId.containsKey(cc.ParentId)) {
+                    commentsByCaseId.put(cc.ParentId, new List<DealerActionCaseDTO.CommentDTO>());
+                }
+                commentsByCaseId.get(cc.ParentId).add(dto);
+            }
+        }
+
+        // STEP 4: Attachments on or before status change
+        Map<Id, List<DealerActionCaseDTO.AttachmentDTO>> attachmentsByCaseId = new Map<Id, List<DealerActionCaseDTO.AttachmentDTO>>();
+        for (Attachment att : [
+            SELECT Id, ParentId, Name, ContentType, BodyLength, CreatedDate
+            FROM Attachment
+            WHERE ParentId IN :caseIds
+        ]) {
+            Datetime changeTime = caseIdToFirstDealerAction.get(att.ParentId);
+            if (changeTime != null && att.CreatedDate <= changeTime) {
+                DealerActionCaseDTO.AttachmentDTO dto = new DealerActionCaseDTO.AttachmentDTO();
+                dto.id = att.Id;
+                dto.name = att.Name;
+                dto.contentType = att.ContentType;
+                dto.bodyLength = att.BodyLength;
+
+                if (!attachmentsByCaseId.containsKey(att.ParentId)) {
+                    attachmentsByCaseId.put(att.ParentId, new List<DealerActionCaseDTO.AttachmentDTO>());
+                }
+                attachmentsByCaseId.get(att.ParentId).add(dto);
+            }
+        }
+
+        // STEP 5: Files added on or before status change
+        Map<Id, List<DealerActionCaseDTO.FileDTO>> filesByCaseId = new Map<Id, List<DealerActionCaseDTO.FileDTO>>();
+
+        List<ContentDocumentLink> links = [
+            SELECT ContentDocumentId, LinkedEntityId, CreatedDate
+            FROM ContentDocumentLink
+            WHERE LinkedEntityId IN :caseIds
+        ];
+
+        Set<Id> docIds = new Set<Id>();
+        Map<Id, List<Id>> caseIdToDocIds = new Map<Id, List<Id>>();
+
+        for (ContentDocumentLink link : links) {
+            Datetime changeTime = caseIdToFirstDealerAction.get(link.LinkedEntityId);
+            if (changeTime != null && link.CreatedDate <= changeTime) {
+                docIds.add(link.ContentDocumentId);
+
+                if (!caseIdToDocIds.containsKey(link.LinkedEntityId)) {
+                    caseIdToDocIds.put(link.LinkedEntityId, new List<Id>());
+                }
+                caseIdToDocIds.get(link.LinkedEntityId).add(link.ContentDocumentId);
+            }
+        }
+
+        Map<Id, ContentDocument> docMap = new Map<Id, ContentDocument>([
+            SELECT Id, LatestPublishedVersionId, Title, FileType
+            FROM ContentDocument
+            WHERE Id IN :docIds
+        ]);
+
+        Set<Id> versionIds = new Set<Id>();
+        for (ContentDocument doc : docMap.values()) {
+            if (doc.LatestPublishedVersionId != null) {
+                versionIds.add(doc.LatestPublishedVersionId);
+            }
+        }
+
+        Map<Id, ContentVersion> versionMap = new Map<Id, ContentVersion>([
+            SELECT Id, ContentDocumentId, Title, FileType, ContentSize
+            FROM ContentVersion
+            WHERE Id IN :versionIds
+        ]);
+
+        for (Id caseId : caseIds) {
+            List<Id> linkedDocIds = caseIdToDocIds.get(caseId);
+            if (linkedDocIds != null) {
+                List<DealerActionCaseDTO.FileDTO> fileList = new List<DealerActionCaseDTO.FileDTO>();
+                for (Id docId : linkedDocIds) {
+                    ContentDocument doc = docMap.get(docId);
+                    if (doc != null) {
+                        ContentVersion v = versionMap.get(doc.LatestPublishedVersionId);
+                        if (v != null) {
+                            DealerActionCaseDTO.FileDTO dto = new DealerActionCaseDTO.FileDTO();
+                            dto.id = v.Id;
+                            dto.title = v.Title;
+                            dto.fileType = v.FileType;
+                            dto.contentSize = v.ContentSize;
+                            fileList.add(dto);
                         }
                     }
                 }
+                filesByCaseId.put(caseId, fileList);
             }
-            data.put('comments', commentList);
-            data.put('attachments', files != null ? files : new List<String>());
-
-            results.add(new ReturnContextWrapper(JSON.serialize(data)));
         }
 
-        return results;
-    }
+        // STEP 6: Assemble final DTOs
+        List<DealerActionCaseDTO> result = new List<DealerActionCaseDTO>();
 
-    public class ReturnContextWrapper {
-        @InvocableVariable(label='Case Return Context JSON')
-        public String json;
-        public ReturnContextWrapper(String j) {
-            this.json = j;
+        for (Id caseId : caseIds) {
+            Case c = caseMap.get(caseId);
+            if (c == null) continue;
+
+            DealerActionCaseDTO dto = new DealerActionCaseDTO();
+            dto.id = c.Id;
+            dto.subject = c.Subject;
+            dto.description = c.Description;
+            dto.status = c.Status;
+            dto.createdDate = c.CreatedDate;
+
+            if (commentsByCaseId.containsKey(caseId)) {
+                dto.comments.addAll(commentsByCaseId.get(caseId));
+            }
+
+            if (attachmentsByCaseId.containsKey(caseId)) {
+                dto.attachments.addAll(attachmentsByCaseId.get(caseId));
+            }
+
+            if (filesByCaseId.containsKey(caseId)) {
+                dto.files.addAll(filesByCaseId.get(caseId));
+            }
+
+            result.add(dto);
         }
+
+        return JSON.serializePretty(result);
     }
 }
