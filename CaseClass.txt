@@ -1,7 +1,5 @@
 public with sharing class DealerActionCaseService {
 
-    // ===== Invocable Apex Entry Point =====
-
     @InvocableMethod(label='Export Dealer Action Cases as JSON')
     public static List<ExportResponse> exportCases(List<ExportRequest> requests) {
         if (requests == null || requests.isEmpty() || requests[0].sinceDays == null) {
@@ -25,8 +23,6 @@ public with sharing class DealerActionCaseService {
             this.jsonOutput = json;
         }
     }
-
-    // ===== DTOs =====
 
     public class DealerActionCaseDTO {
         public Id id;
@@ -64,17 +60,13 @@ public with sharing class DealerActionCaseService {
         public Integer contentSize;
     }
 
-    // Helper class to track status change details
     public class StatusChangeMetadata {
         public String oldValue;
         public String newValue;
         public Datetime timestamp;
     }
 
-    // ===== Core Export Logic =====
-
     public static String exportDealerActionCases(Date sinceDate) {
-        // Step 1: Track first "Dealer Action Required" status change per case
         Map<Id, StatusChangeMetadata> allDealerActionChanges = new Map<Id, StatusChangeMetadata>();
 
         for (CaseHistory ch : [
@@ -97,7 +89,7 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 2: Filter by sinceDate
+        // Filter by sinceDate
         Map<Id, StatusChangeMetadata> filteredCaseIdToMetadata = new Map<Id, StatusChangeMetadata>();
         for (Id caseId : allDealerActionChanges.keySet()) {
             StatusChangeMetadata meta = allDealerActionChanges.get(caseId);
@@ -112,14 +104,13 @@ public with sharing class DealerActionCaseService {
 
         Set<Id> caseIds = filteredCaseIdToMetadata.keySet();
 
-        // Step 3: Load base Case records
         Map<Id, Case> caseMap = new Map<Id, Case>([
             SELECT Id, Subject, Description, Status, CreatedDate
             FROM Case
             WHERE Id IN :caseIds
         ]);
 
-        // Step 4: Comments (≤ timestamp + 10 min)
+        // Comments
         Map<Id, List<CommentDTO>> commentsByCaseId = new Map<Id, List<CommentDTO>>();
         for (CaseComment cc : [
             SELECT Id, ParentId, CommentBody, CreatedDate
@@ -140,7 +131,7 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 5: Attachments (≤ timestamp)
+        // Attachments
         Map<Id, List<AttachmentDTO>> attachmentsByCaseId = new Map<Id, List<AttachmentDTO>>();
         for (Attachment att : [
             SELECT Id, ParentId, Name, ContentType, BodyLength, CreatedDate
@@ -162,7 +153,7 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 6: Files (ContentVersion.CreatedDate ≤ timestamp)
+        // Files
         Map<Id, List<FileDTO>> filesByCaseId = new Map<Id, List<FileDTO>>();
         List<ContentDocumentLink> links = [
             SELECT ContentDocumentId, LinkedEntityId
@@ -211,13 +202,18 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 7: Assemble DTOs
+        // Final DTO assembly with 3-day proximity filter
         List<DealerActionCaseDTO> results = new List<DealerActionCaseDTO>();
-
         for (Id caseId : caseIds) {
             Case c = caseMap.get(caseId);
             StatusChangeMetadata meta = filteredCaseIdToMetadata.get(caseId);
             if (c == null || meta == null) continue;
+
+            // NEW filter: Dealer Action Required must occur within 3 days of Case CreatedDate
+            if (c.CreatedDate != null && meta.timestamp != null &&
+                c.CreatedDate.date().daysBetween(meta.timestamp.date()) > 3) {
+                continue;
+            }
 
             DealerActionCaseDTO dto = new DealerActionCaseDTO();
             dto.id = c.Id;
@@ -225,7 +221,6 @@ public with sharing class DealerActionCaseService {
             dto.description = c.Description;
             dto.status = c.Status;
             dto.createdDate = c.CreatedDate;
-
             dto.statusChangeOldValue = meta.oldValue;
             dto.statusChangeNewValue = meta.newValue;
             dto.statusChangeDate = meta.timestamp;
