@@ -101,7 +101,7 @@ public with sharing class DealerActionCaseService {
             WHERE Id IN :caseIds
         ]);
 
-        // Step 4: Apply correct 7-day filter using Case.CreatedDate
+        // Step 4: Apply 7-day filter using full datetime
         Map<Id, StatusChangeMetadata> filteredDAR = new Map<Id, StatusChangeMetadata>();
         for (Id cid : firstDAR.keySet()) {
             Case c = caseMap.get(cid);
@@ -109,8 +109,8 @@ public with sharing class DealerActionCaseService {
 
             if (c == null || meta == null) continue;
 
-            Integer delta = meta.timestamp.date().daysBetween(c.CreatedDate.date());
-            if (delta >= 0 && delta <= 7) {
+            if (meta.timestamp >= c.CreatedDate &&
+                meta.timestamp <= c.CreatedDate.addDays(7)) {
                 filteredDAR.put(cid, meta);
             }
         }
@@ -244,4 +244,3 @@ public with sharing class DealerActionCaseService {
         return JSON.serializePretty(results);
     }
 }
-
