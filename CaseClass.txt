@@ -60,29 +60,34 @@ public with sharing class GetCaseReturnContext {
             commentMap.get(cc.ParentId).add(cc);
         }
 
-        // Query attachments via ContentDocumentLinks
+        // Query attachments via ContentDocumentLinks (one-by-one due to SOQL limits)
         Map<Id, List<String>> attachmentMap = new Map<Id, List<String>>();
-        Map<Id, Id> docIdToCaseId = new Map<Id, Id>();
-        for (ContentDocumentLink link : [
-            SELECT LinkedEntityId, ContentDocumentId
-            FROM ContentDocumentLink
-            WHERE LinkedEntityId IN :caseIds
-        ]) {
-            docIdToCaseId.put(link.ContentDocumentId, link.LinkedEntityId);
-        }
+        for (Id caseId : caseIds) {
+            List<ContentDocumentLink> links = [
+                SELECT ContentDocumentId
+                FROM ContentDocumentLink
+                WHERE LinkedEntityId = :caseId
+            ];
 
-        if (!docIdToCaseId.isEmpty()) {
-            for (ContentVersion cv : [
-                SELECT Title, FileExtension, ContentDocumentId
-                FROM ContentVersion
-                WHERE ContentDocumentId IN :docIdToCaseId.keySet()
-                AND IsLatest = true
-            ]) {
-                Id caseId = docIdToCaseId.get(cv.ContentDocumentId);
-                if (!attachmentMap.containsKey(caseId)) {
-                    attachmentMap.put(caseId, new List<String>());
+            Set<Id> docIds = new Set<Id>();
+            for (ContentDocumentLink link : links) {
+                docIds.add(link.ContentDocumentId);
+            }
+
+            if (!docIds.isEmpty()) {
+                List<ContentVersion> versions = [
+                    SELECT Title, FileExtension, ContentDocumentId
+                    FROM ContentVersion
+                    WHERE ContentDocumentId IN :docIds
+                    AND IsLatest = true
+                ];
+
+                for (ContentVersion cv : versions) {
+                    if (!attachmentMap.containsKey(caseId)) {
+                        attachmentMap.put(caseId, new List<String>());
+                    }
+                    attachmentMap.get(caseId).add(cv.Title + '.' + cv.FileExtension);
                 }
-                attachmentMap.get(caseId).add(cv.Title + '.' + cv.FileExtension);
             }
         }
 
