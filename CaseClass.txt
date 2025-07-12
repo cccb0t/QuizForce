@@ -24,7 +24,6 @@ public with sharing class DealerActionCaseService {
         }
     }
 
-    // ---------- METADATA & OUTPUT STRUCTURES ----------
     public class DealerActionCaseDTO {
         public Id caseId;
         public String subject;
@@ -67,7 +66,6 @@ public with sharing class DealerActionCaseService {
         public Datetime timestamp;
     }
 
-    // ---------- MAIN METHOD ----------
     private static String exportDealerActionCases(Date sinceDate) {
         // Step 1: Query all status history after cutoff
         List<CaseHistory> history = [
@@ -77,54 +75,56 @@ public with sharing class DealerActionCaseService {
             ORDER BY CaseId, CreatedDate
         ];
 
-        // Step 2: Track first status change and first "Dealer Action Required"
-        Map<Id, Datetime> firstStatusChange = new Map<Id, Datetime>();
-        Map<Id, StatusChangeMetadata> firstDealerAction = new Map<Id, StatusChangeMetadata>();
+        // Step 2: Track first "Dealer Action Required"
+        Map<Id, StatusChangeMetadata> firstDAR = new Map<Id, StatusChangeMetadata>();
 
         for (CaseHistory ch : history) {
             Id cid = ch.CaseId;
-
-            if (!firstStatusChange.containsKey(cid)) {
-                firstStatusChange.put(cid, ch.CreatedDate);
-            }
-
             String newStatus = String.valueOf(ch.NewValue)?.trim()?.toLowerCase();
-            if (newStatus == 'dealer action required' && !firstDealerAction.containsKey(cid)) {
+
+            if (newStatus == 'dealer action required' && !firstDAR.containsKey(cid)) {
                 StatusChangeMetadata meta = new StatusChangeMetadata();
                 meta.fromStatus = String.valueOf(ch.OldValue);
                 meta.toStatus = String.valueOf(ch.NewValue);
                 meta.timestamp = ch.CreatedDate;
-                firstDealerAction.put(cid, meta);
+                firstDAR.put(cid, meta);
             }
         }
 
-        // Step 3: Filter cases where DAR occurred within 7 days of first status change
-        Map<Id, StatusChangeMetadata> filteredDAR = new Map<Id, StatusChangeMetadata>();
-        for (Id cid : firstDealerAction.keySet()) {
-            if (!firstStatusChange.containsKey(cid)) continue;
+        if (firstDAR.isEmpty()) return '[]';
 
-            Integer delta = firstDealerAction.get(cid).timestamp.date().daysBetween(firstStatusChange.get(cid).date());
-            if (delta >= 0 && delta <= 7) {
-                filteredDAR.put(cid, firstDealerAction.get(cid));
-            }
-        }
-
-        if (filteredDAR.isEmpty()) return '[]';
-
-        // Step 4: Load cases
-        Set<Id> caseIds = filteredDAR.keySet();
+        // Step 3: Load Case data
+        Set<Id> caseIds = firstDAR.keySet();
         Map<Id, Case> caseMap = new Map<Id, Case>([
             SELECT Id, Subject, Description, Status, CreatedDate
             FROM Case
             WHERE Id IN :caseIds
         ]);
 
+        // Step 4: Apply correct 7-day filter using Case.CreatedDate
+        Map<Id, StatusChangeMetadata> filteredDAR = new Map<Id, StatusChangeMetadata>();
+        for (Id cid : firstDAR.keySet()) {
+            Case c = caseMap.get(cid);
+            StatusChangeMetadata meta = firstDAR.get(cid);
+
+            if (c == null || meta == null) continue;
+
+            Integer delta = meta.timestamp.date().daysBetween(c.CreatedDate.date());
+            if (delta >= 0 && delta <= 7) {
+                filteredDAR.put(cid, meta);
+            }
+        }
+
+        if (filteredDAR.isEmpty()) return '[]';
+
+        Set<Id> filteredCaseIds = filteredDAR.keySet();
+
         // Step 5: Comments
         Map<Id, List<CommentDTO>> commentsByCaseId = new Map<Id, List<CommentDTO>>();
         for (CaseComment cc : [
             SELECT Id, ParentId, CommentBody, CreatedDate
             FROM CaseComment
-            WHERE ParentId IN :caseIds
+            WHERE ParentId IN :filteredCaseIds
         ]) {
             StatusChangeMetadata meta = filteredDAR.get(cc.ParentId);
             if (meta != null && cc.CreatedDate <= meta.timestamp) {
@@ -145,7 +145,7 @@ public with sharing class DealerActionCaseService {
         for (Attachment att : [
             SELECT Id, ParentId, Name, ContentType, BodyLength, CreatedDate
             FROM Attachment
-            WHERE ParentId IN :caseIds
+            WHERE ParentId IN :filteredCaseIds
         ]) {
             StatusChangeMetadata meta = filteredDAR.get(att.ParentId);
             if (meta != null && att.CreatedDate <= meta.timestamp) {
@@ -162,12 +162,12 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 7: Files via ContentDocumentLink
+        // Step 7: Files
         Map<Id, List<FileDTO>> filesByCaseId = new Map<Id, List<FileDTO>>();
         List<ContentDocumentLink> links = [
             SELECT ContentDocumentId, LinkedEntityId
             FROM ContentDocumentLink
-            WHERE LinkedEntityId IN :caseIds
+            WHERE LinkedEntityId IN :filteredCaseIds
         ];
 
         Map<Id, Id> docToCaseId = new Map<Id, Id>();
@@ -197,7 +197,7 @@ public with sharing class DealerActionCaseService {
         for (ContentVersion v : versionMap.values()) {
             Id caseId = docToCaseId.get(v.ContentDocumentId);
             StatusChangeMetadata meta = filteredDAR.get(caseId);
-            if (meta != null && v.CreatedDate <= meta.timestamp) {
+            if (caseId != null && meta != null && v.CreatedDate <= meta.timestamp) {
                 FileDTO dto = new FileDTO();
                 dto.id = v.Id;
                 dto.title = v.Title;
@@ -211,10 +211,9 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 8: Assemble results
+        // Step 8: Assemble DTOs
         List<DealerActionCaseDTO> results = new List<DealerActionCaseDTO>();
-
-        for (Id cid : caseIds) {
+        for (Id cid : filteredCaseIds) {
             Case c = caseMap.get(cid);
             StatusChangeMetadata meta = filteredDAR.get(cid);
             if (c == null || meta == null) continue;
@@ -245,3 +244,4 @@ public with sharing class DealerActionCaseService {
         return JSON.serializePretty(results);
     }
 }
+
