@@ -67,9 +67,8 @@ public with sharing class DealerActionCaseService {
     }
 
     private static String exportDealerActionCases(Date sinceDate) {
-        // Step 1: Track first "Dealer Action Required" status per Case
+        // Step 1: Find first "Dealer Action Required" change per case
         Map<Id, StatusChangeMetadata> firstDAR = new Map<Id, StatusChangeMetadata>();
-
         for (CaseHistory ch : [
             SELECT CaseId, Field, OldValue, NewValue, CreatedDate
             FROM CaseHistory
@@ -89,7 +88,7 @@ public with sharing class DealerActionCaseService {
 
         if (firstDAR.isEmpty()) return '[]';
 
-        // Step 2: Load Case records with no date filtering
+        // Step 2: Load Cases
         Set<Id> candidateCaseIds = firstDAR.keySet();
         Map<Id, Case> caseMap = new Map<Id, Case>();
         for (Case c : [
@@ -99,8 +98,6 @@ public with sharing class DealerActionCaseService {
         ]) {
             caseMap.put(c.Id, c);
         }
-
-        if (caseMap.isEmpty()) return '[]';
 
         // Step 3: Comments
         Map<Id, List<CommentDTO>> commentsByCaseId = new Map<Id, List<CommentDTO>>();
@@ -192,7 +189,7 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 6: Assemble DTOs
+        // Step 6: Build DTOs
         List<DealerActionCaseDTO> results = new List<DealerActionCaseDTO>();
         for (Id cid : candidateCaseIds) {
             Case c = caseMap.get(cid);
@@ -216,7 +213,7 @@ public with sharing class DealerActionCaseService {
             results.add(dto);
         }
 
-        // Final filter: remove any cases with statusChangeDate > CreatedDate + 7 days
+        // Step 7: Final filter
         List<DealerActionCaseDTO> finalResults = new List<DealerActionCaseDTO>();
         for (DealerActionCaseDTO dto : results) {
             if (dto.statusChangeDate != null && dto.caseCreatedDate != null &&
@@ -229,28 +226,26 @@ public with sharing class DealerActionCaseService {
     }
 
     private static String buildJson(List<DealerActionCaseDTO> cases) {
-        StringBuilder sb = new StringBuilder();
-        sb.append('[');
+        String json = '[';
         for (Integer i = 0; i < cases.size(); i++) {
             DealerActionCaseDTO c = cases[i];
-            sb.append('{');
-            sb.append('"caseId":"').append(c.caseId).append('",');
-            sb.append('"subject":').append(JSON.serialize(c.subject)).append(',');
-            sb.append('"description":').append(JSON.serialize(c.description)).append(',');
-            sb.append('"status":').append(JSON.serialize(c.status)).append(',');
-            sb.append('"caseCreatedDate":"').append(c.caseCreatedDate).append('",');
-            sb.append('"statusChangeDate":"').append(c.statusChangeDate).append('",');
-            sb.append('"oldStatus":').append(JSON.serialize(c.oldStatus)).append(',');
-            sb.append('"newStatus":').append(JSON.serialize(c.newStatus)).append(',');
-
-            sb.append('"comments":').append(JSON.serialize(c.comments)).append(',');
-            sb.append('"attachments":').append(JSON.serialize(c.attachments)).append(',');
-            sb.append('"files":').append(JSON.serialize(c.files));
-
-            sb.append('}');
-            if (i < cases.size() - 1) sb.append(',');
+            json += '{';
+            json += '"caseId":"' + c.caseId + '",';
+            json += '"subject":' + JSON.serialize(c.subject) + ',';
+            json += '"description":' + JSON.serialize(c.description) + ',';
+            json += '"status":' + JSON.serialize(c.status) + ',';
+            json += '"caseCreatedDate":"' + c.caseCreatedDate + '",';
+            json += '"statusChangeDate":"' + c.statusChangeDate + '",';
+            json += '"oldStatus":' + JSON.serialize(c.oldStatus) + ',';
+            json += '"newStatus":' + JSON.serialize(c.newStatus) + ',';
+            json += '"comments":' + JSON.serialize(c.comments) + ',';
+            json += '"attachments":' + JSON.serialize(c.attachments) + ',';
+            json += '"files":' + JSON.serialize(c.files);
+            json += '}';
+            if (i < cases.size() - 1) json += ',';
         }
-        sb.append(']');
-        return sb.toString();
+        json += ']';
+        return json;
     }
 }
+
