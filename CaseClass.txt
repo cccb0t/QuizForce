@@ -1,12 +1,39 @@
 public with sharing class DealerActionCaseService {
 
+    // ===== Invocable Apex Entry Point =====
+
+    @InvocableMethod(label='Export Dealer Action Cases as JSON')
+    public static List<ExportResponse> exportCases(List<ExportRequest> requests) {
+        if (requests == null || requests.isEmpty() || requests[0].sinceDays == null) {
+            return new List<ExportResponse>{ new ExportResponse('[]') };
+        }
+
+        Date sinceDate = Date.today().addDays(-requests[0].sinceDays);
+        String json = exportDealerActionCases(sinceDate);
+        return new List<ExportResponse>{ new ExportResponse(json) };
+    }
+
+    public class ExportRequest {
+        @InvocableVariable(label='Since Days' description='How many days back to include')
+        public Integer sinceDays;
+    }
+
+    public class ExportResponse {
+        @InvocableVariable(label='Exported JSON')
+        public String jsonOutput;
+        public ExportResponse(String json) {
+            this.jsonOutput = json;
+        }
+    }
+
+    // ===== DTOs =====
+
     public class DealerActionCaseDTO {
         public Id id;
         public String subject;
         public String description;
         public String status;
         public DateTime createdDate;
-
         public List<CommentDTO> comments = new List<CommentDTO>();
         public List<AttachmentDTO> attachments = new List<AttachmentDTO>();
         public List<FileDTO> files = new List<FileDTO>();
@@ -32,8 +59,9 @@ public with sharing class DealerActionCaseService {
         public Integer contentSize;
     }
 
+    // ===== Core Export Logic =====
+
     public static String exportDealerActionCases(Date sinceDate) {
-        // Step 1: Identify the first time each case was set to Dealer Action Required
         Map<Id, Datetime> caseIdToFirstDealerAction = new Map<Id, Datetime>();
 
         for (CaseHistory ch : [
@@ -55,14 +83,13 @@ public with sharing class DealerActionCaseService {
 
         Set<Id> caseIds = caseIdToFirstDealerAction.keySet();
 
-        // Step 2: Load base Case records
         Map<Id, Case> caseMap = new Map<Id, Case>([
             SELECT Id, Subject, Description, Status, CreatedDate
             FROM Case
             WHERE Id IN :caseIds
         ]);
 
-        // Step 3: Comments (created anytime up to 10 minutes after the status change)
+        // Comments
         Map<Id, List<CommentDTO>> commentsByCaseId = new Map<Id, List<CommentDTO>>();
         for (CaseComment cc : [
             SELECT Id, ParentId, CommentBody, CreatedDate
@@ -86,7 +113,7 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 4: Attachments (created on or before status change)
+        // Attachments
         Map<Id, List<AttachmentDTO>> attachmentsByCaseId = new Map<Id, List<AttachmentDTO>>();
         for (Attachment att : [
             SELECT Id, ParentId, Name, ContentType, BodyLength, CreatedDate
@@ -108,22 +135,19 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 5: Files (using ContentVersion.CreatedDate as proxy)
+        // Files
         Map<Id, List<FileDTO>> filesByCaseId = new Map<Id, List<FileDTO>>();
-
         List<ContentDocumentLink> links = [
             SELECT ContentDocumentId, LinkedEntityId
             FROM ContentDocumentLink
             WHERE LinkedEntityId IN :caseIds
         ];
 
-        // Build docId → caseId map
         Map<Id, Id> docIdToCaseId = new Map<Id, Id>();
         for (ContentDocumentLink link : links) {
             docIdToCaseId.put(link.ContentDocumentId, link.LinkedEntityId);
         }
 
-        // Fetch ContentDocument and ContentVersion
         Map<Id, ContentDocument> docMap = new Map<Id, ContentDocument>([
             SELECT Id, LatestPublishedVersionId, Title, FileType
             FROM ContentDocument
@@ -160,7 +184,7 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 6: Assemble DTOs
+        // Assemble DTOs
         List<DealerActionCaseDTO> results = new List<DealerActionCaseDTO>();
 
         for (Id caseId : caseIds) {
@@ -177,11 +201,9 @@ public with sharing class DealerActionCaseService {
             if (commentsByCaseId.containsKey(caseId)) {
                 dto.comments.addAll(commentsByCaseId.get(caseId));
             }
-
             if (attachmentsByCaseId.containsKey(caseId)) {
                 dto.attachments.addAll(attachmentsByCaseId.get(caseId));
             }
-
             if (filesByCaseId.containsKey(caseId)) {
                 dto.files.addAll(filesByCaseId.get(caseId));
             }
@@ -192,3 +214,4 @@ public with sharing class DealerActionCaseService {
         return JSON.serializePretty(results);
     }
 }
+
