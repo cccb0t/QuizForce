@@ -1,0 +1,142 @@
+public with sharing class GetCaseReturnContext {
+
+    public class InputWrapper {
+        @InvocableVariable(required=false label='Days Back')
+        public Integer daysBack;
+    }
+
+    @InvocableMethod(label='Get Recent Case Return Context as JSON')
+    public static List<ReturnContextWrapper> getContext(List<InputWrapper> inputList) {
+        List<ReturnContextWrapper> results = new List<ReturnContextWrapper>();
+        Integer daysBack = 30;
+
+        if (inputList != null && !inputList.isEmpty()) {
+            InputWrapper input = inputList[0];
+            if (input.daysBack != null) {
+                daysBack = input.daysBack;
+            }
+        }
+
+        DateTime fromDate = System.now().addDays(-daysBack);
+
+        // Query recent cases
+        List<Case> cases = [
+            SELECT Id, CaseNumber, Status, Subject, Description, CreatedDate, LastModifiedDate, Owner.Name
+            FROM Case
+            WHERE CreatedDate >= :fromDate
+        ];
+
+        Set<Id> caseIds = new Set<Id>();
+        for (Case c : cases) {
+            caseIds.add(c.Id);
+        }
+
+        Map<Id, Case> caseMap = new Map<Id, Case>(cases);
+
+        // Query Case History for first status change to 'Dealer Action Required'
+        Map<Id, CaseHistory> firstStatusChangeMap = new Map<Id, CaseHistory>();
+        for (CaseHistory ch : [
+            SELECT CaseId, Field, OldValue, NewValue, CreatedDate, CreatedBy.Name
+            FROM CaseHistory
+            WHERE CaseId IN :caseIds AND Field = 'Status' AND NewValue = 'Dealer Action Required'
+                  AND CreatedDate >= :fromDate
+            ORDER BY CreatedDate ASC
+        ]) {
+            if (!firstStatusChangeMap.containsKey(ch.CaseId)) {
+                firstStatusChangeMap.put(ch.CaseId, ch);
+            }
+        }
+
+        // Query Case Comments
+        Map<Id, List<CaseComment>> commentMap = new Map<Id, List<CaseComment>>();
+        for (CaseComment cc : [
+            SELECT Id, ParentId, CommentBody, CreatedDate, CreatedBy.Name
+            FROM CaseComment
+            WHERE ParentId IN :caseIds AND CreatedDate >= :fromDate
+            ORDER BY CreatedDate ASC
+        ]) {
+            if (!commentMap.containsKey(cc.ParentId)) {
+                commentMap.put(cc.ParentId, new List<CaseComment>());
+            }
+            commentMap.get(cc.ParentId).add(cc);
+        }
+
+        // Query attachments via ContentDocumentLinks
+        Map<Id, List<String>> attachmentMap = new Map<Id, List<String>>();
+        Map<Id, Id> docIdToCaseId = new Map<Id, Id>();
+        for (ContentDocumentLink link : [
+            SELECT LinkedEntityId, ContentDocumentId
+            FROM ContentDocumentLink
+            WHERE LinkedEntityId IN :caseIds
+        ]) {
+            docIdToCaseId.put(link.ContentDocumentId, link.LinkedEntityId);
+        }
+
+        if (!docIdToCaseId.isEmpty()) {
+            for (ContentVersion cv : [
+                SELECT Title, FileExtension, ContentDocumentId
+                FROM ContentVersion
+                WHERE ContentDocumentId IN :docIdToCaseId.keySet()
+                AND IsLatest = true
+            ]) {
+                Id caseId = docIdToCaseId.get(cv.ContentDocumentId);
+                if (!attachmentMap.containsKey(caseId)) {
+                    attachmentMap.put(caseId, new List<String>());
+                }
+                attachmentMap.get(caseId).add(cv.Title + '.' + cv.FileExtension);
+            }
+        }
+
+        // Construct result
+        for (Case c : cases) {
+            Id caseId = c.Id;
+            CaseHistory ch = firstStatusChangeMap.get(caseId);
+            List<CaseComment> comments = commentMap.get(caseId);
+            List<String> files = attachmentMap.get(caseId);
+
+            Map<String, Object> data = new Map<String, Object>();
+            data.put('caseId', c.Id);
+            data.put('caseNumber', c.CaseNumber);
+            data.put('status', c.Status);
+            data.put('subject', c.Subject);
+            data.put('description', c.Description);
+            data.put('owner', c.Owner != null ? c.Owner.Name : null);
+            data.put('createdDate', String.valueOf(c.CreatedDate));
+            data.put('lastModifiedDate', String.valueOf(c.LastModifiedDate));
+
+            List<Map<String, Object>> commentList = new List<Map<String, Object>>();
+            if (ch != null) {
+                data.put('statusChangedAt', String.valueOf(ch.CreatedDate));
+                data.put('statusChangedBy', ch.CreatedBy.Name);
+                data.put('oldStatus', ch.OldValue);
+
+                // Filter comments to those within ±30 minutes of status change
+                if (comments != null) {
+                    for (CaseComment cc : comments) {
+                        if (cc.CreatedDate >= ch.CreatedDate.addMinutes(-30) && cc.CreatedDate <= ch.CreatedDate.addMinutes(30)) {
+                            Map<String, Object> cmt = new Map<String, Object>();
+                            cmt.put('author', cc.CreatedBy.Name);
+                            cmt.put('created', String.valueOf(cc.CreatedDate));
+                            cmt.put('body', cc.CommentBody);
+                            commentList.add(cmt);
+                        }
+                    }
+                }
+            }
+            data.put('comments', commentList);
+            data.put('attachments', files != null ? files : new List<String>());
+
+            results.add(new ReturnContextWrapper(JSON.serialize(data)));
+        }
+
+        return results;
+    }
+
+    public class ReturnContextWrapper {
+        @InvocableVariable(label='Case Return Context JSON')
+        public String json;
+        public ReturnContextWrapper(String j) {
+            this.json = j;
+        }
+    }
+}
