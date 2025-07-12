@@ -67,7 +67,7 @@ public with sharing class DealerActionCaseService {
     }
 
     private static String exportDealerActionCases(Date sinceDate) {
-        // Step 1: Find first "Dealer Action Required" change per case
+        // Step 1: Track first "Dealer Action Required" per case
         Map<Id, StatusChangeMetadata> firstDAR = new Map<Id, StatusChangeMetadata>();
         for (CaseHistory ch : [
             SELECT CaseId, Field, OldValue, NewValue, CreatedDate
@@ -99,7 +99,7 @@ public with sharing class DealerActionCaseService {
             caseMap.put(c.Id, c);
         }
 
-        // Step 3: Comments
+        // Step 3: Comments before statusChangeDate
         Map<Id, List<CommentDTO>> commentsByCaseId = new Map<Id, List<CommentDTO>>();
         for (CaseComment cc : [
             SELECT Id, ParentId, CommentBody, CreatedDate
@@ -120,29 +120,26 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 4: Attachments
+        // Step 4: All Attachments (no timestamp filtering)
         Map<Id, List<AttachmentDTO>> attachmentsByCaseId = new Map<Id, List<AttachmentDTO>>();
         for (Attachment att : [
             SELECT Id, ParentId, Name, ContentType, BodyLength, CreatedDate
             FROM Attachment
             WHERE ParentId IN :candidateCaseIds
         ]) {
-            StatusChangeMetadata meta = firstDAR.get(att.ParentId);
-            if (meta != null && att.CreatedDate <= meta.timestamp) {
-                AttachmentDTO dto = new AttachmentDTO();
-                dto.id = att.Id;
-                dto.name = att.Name;
-                dto.contentType = att.ContentType;
-                dto.bodyLength = att.BodyLength;
+            AttachmentDTO dto = new AttachmentDTO();
+            dto.id = att.Id;
+            dto.name = att.Name;
+            dto.contentType = att.ContentType;
+            dto.bodyLength = att.BodyLength;
 
-                if (!attachmentsByCaseId.containsKey(att.ParentId)) {
-                    attachmentsByCaseId.put(att.ParentId, new List<AttachmentDTO>());
-                }
-                attachmentsByCaseId.get(att.ParentId).add(dto);
+            if (!attachmentsByCaseId.containsKey(att.ParentId)) {
+                attachmentsByCaseId.put(att.ParentId, new List<AttachmentDTO>());
             }
+            attachmentsByCaseId.get(att.ParentId).add(dto);
         }
 
-        // Step 5: Files
+        // Step 5: All Files (no timestamp filtering)
         Map<Id, List<FileDTO>> filesByCaseId = new Map<Id, List<FileDTO>>();
         Map<Id, Id> docToCaseId = new Map<Id, Id>();
         for (ContentDocumentLink link : [
@@ -174,8 +171,7 @@ public with sharing class DealerActionCaseService {
 
         for (ContentVersion v : versionMap.values()) {
             Id caseId = docToCaseId.get(v.ContentDocumentId);
-            StatusChangeMetadata meta = firstDAR.get(caseId);
-            if (caseId != null && meta != null && v.CreatedDate <= meta.timestamp) {
+            if (caseId != null) {
                 FileDTO dto = new FileDTO();
                 dto.id = v.Id;
                 dto.title = v.Title;
@@ -213,7 +209,7 @@ public with sharing class DealerActionCaseService {
             results.add(dto);
         }
 
-        // Step 7: Final filter
+        // Step 7: Final filter (status change within 7 days of case creation)
         List<DealerActionCaseDTO> finalResults = new List<DealerActionCaseDTO>();
         for (DealerActionCaseDTO dto : results) {
             if (dto.statusChangeDate != null && dto.caseCreatedDate != null &&
@@ -222,30 +218,6 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        return buildJson(finalResults);
-    }
-
-    private static String buildJson(List<DealerActionCaseDTO> cases) {
-        String json = '[';
-        for (Integer i = 0; i < cases.size(); i++) {
-            DealerActionCaseDTO c = cases[i];
-            json += '{';
-            json += '"caseId":"' + c.caseId + '",';
-            json += '"subject":' + JSON.serialize(c.subject) + ',';
-            json += '"description":' + JSON.serialize(c.description) + ',';
-            json += '"status":' + JSON.serialize(c.status) + ',';
-            json += '"caseCreatedDate":"' + c.caseCreatedDate + '",';
-            json += '"statusChangeDate":"' + c.statusChangeDate + '",';
-            json += '"oldStatus":' + JSON.serialize(c.oldStatus) + ',';
-            json += '"newStatus":' + JSON.serialize(c.newStatus) + ',';
-            json += '"comments":' + JSON.serialize(c.comments) + ',';
-            json += '"attachments":' + JSON.serialize(c.attachments) + ',';
-            json += '"files":' + JSON.serialize(c.files);
-            json += '}';
-            if (i < cases.size() - 1) json += ',';
-        }
-        json += ']';
-        return json;
+        return JSON.serializePretty(finalResults);
     }
 }
-
