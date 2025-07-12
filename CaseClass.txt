@@ -33,16 +33,15 @@ public with sharing class GetCaseReturnContext {
 
         Map<Id, Case> caseMap = new Map<Id, Case>(cases);
 
-        // Query Case History for first status change to 'Dealer Action Required'
+        // Query Case History for all status changes
         Map<Id, CaseHistory> firstStatusChangeMap = new Map<Id, CaseHistory>();
         for (CaseHistory ch : [
             SELECT CaseId, Field, OldValue, NewValue, CreatedDate, CreatedBy.Name
             FROM CaseHistory
-            WHERE CaseId IN :caseIds AND Field = 'Status' AND NewValue = 'Dealer Action Required'
-                  AND CreatedDate >= :fromDate
+            WHERE CaseId IN :caseIds AND Field = 'Status' AND CreatedDate >= :fromDate
             ORDER BY CreatedDate ASC
         ]) {
-            if (!firstStatusChangeMap.containsKey(ch.CaseId)) {
+            if (ch.NewValue == 'Dealer Action Required' && !firstStatusChangeMap.containsKey(ch.CaseId)) {
                 firstStatusChangeMap.put(ch.CaseId, ch);
             }
         }
