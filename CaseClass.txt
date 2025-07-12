@@ -67,21 +67,17 @@ public with sharing class DealerActionCaseService {
     }
 
     private static String exportDealerActionCases(Date sinceDate) {
-        // Step 1: Query all status history after cutoff
-        List<CaseHistory> history = [
+        // Step 1: Query and find first "Dealer Action Required" per Case
+        Map<Id, StatusChangeMetadata> firstDAR = new Map<Id, StatusChangeMetadata>();
+
+        for (CaseHistory ch : [
             SELECT CaseId, Field, OldValue, NewValue, CreatedDate
             FROM CaseHistory
             WHERE Field = 'Status' AND CreatedDate >= :sinceDate
-            ORDER BY CaseId, CreatedDate
-        ];
-
-        // Step 2: Track first "Dealer Action Required"
-        Map<Id, StatusChangeMetadata> firstDAR = new Map<Id, StatusChangeMetadata>();
-
-        for (CaseHistory ch : history) {
+            ORDER BY CreatedDate ASC
+        ]) {
             Id cid = ch.CaseId;
             String newStatus = String.valueOf(ch.NewValue)?.trim()?.toLowerCase();
-
             if (newStatus == 'dealer action required' && !firstDAR.containsKey(cid)) {
                 StatusChangeMetadata meta = new StatusChangeMetadata();
                 meta.fromStatus = String.valueOf(ch.OldValue);
@@ -93,33 +89,31 @@ public with sharing class DealerActionCaseService {
 
         if (firstDAR.isEmpty()) return '[]';
 
-        // Step 3: Load Case data
-        Set<Id> caseIds = firstDAR.keySet();
-        Map<Id, Case> caseMap = new Map<Id, Case>([
+        // Step 2: Load only Cases where DAR happened within 7 days of CreatedDate
+        Set<Id> candidateCaseIds = firstDAR.keySet();
+        Map<Id, Case> filteredCases = new Map<Id, Case>();
+        Map<Id, StatusChangeMetadata> filteredDAR = new Map<Id, StatusChangeMetadata>();
+
+        for (Case c : [
             SELECT Id, Subject, Description, Status, CreatedDate
             FROM Case
-            WHERE Id IN :caseIds
-        ]);
-
-        // Step 4: Apply 7-day filter using full datetime
-        Map<Id, StatusChangeMetadata> filteredDAR = new Map<Id, StatusChangeMetadata>();
-        for (Id cid : firstDAR.keySet()) {
-            Case c = caseMap.get(cid);
-            StatusChangeMetadata meta = firstDAR.get(cid);
-
-            if (c == null || meta == null) continue;
+            WHERE Id IN :candidateCaseIds
+        ]) {
+            StatusChangeMetadata meta = firstDAR.get(c.Id);
+            if (meta == null) continue;
 
             if (meta.timestamp >= c.CreatedDate &&
                 meta.timestamp <= c.CreatedDate.addDays(7)) {
-                filteredDAR.put(cid, meta);
+                filteredCases.put(c.Id, c);
+                filteredDAR.put(c.Id, meta);
             }
         }
 
-        if (filteredDAR.isEmpty()) return '[]';
+        if (filteredCases.isEmpty()) return '[]';
 
-        Set<Id> filteredCaseIds = filteredDAR.keySet();
+        Set<Id> filteredCaseIds = filteredCases.keySet();
 
-        // Step 5: Comments
+        // Step 3: Collect Comments before or at statusChangeDate
         Map<Id, List<CommentDTO>> commentsByCaseId = new Map<Id, List<CommentDTO>>();
         for (CaseComment cc : [
             SELECT Id, ParentId, CommentBody, CreatedDate
@@ -140,7 +134,7 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 6: Attachments
+        // Step 4: Collect Attachments
         Map<Id, List<AttachmentDTO>> attachmentsByCaseId = new Map<Id, List<AttachmentDTO>>();
         for (Attachment att : [
             SELECT Id, ParentId, Name, ContentType, BodyLength, CreatedDate
@@ -162,7 +156,7 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 7: Files
+        // Step 5: Collect Files via ContentDocumentLink
         Map<Id, List<FileDTO>> filesByCaseId = new Map<Id, List<FileDTO>>();
         List<ContentDocumentLink> links = [
             SELECT ContentDocumentId, LinkedEntityId
@@ -211,10 +205,10 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 8: Assemble DTOs
+        // Step 6: Assemble Results
         List<DealerActionCaseDTO> results = new List<DealerActionCaseDTO>();
         for (Id cid : filteredCaseIds) {
-            Case c = caseMap.get(cid);
+            Case c = filteredCases.get(cid);
             StatusChangeMetadata meta = filteredDAR.get(cid);
             if (c == null || meta == null) continue;
 
