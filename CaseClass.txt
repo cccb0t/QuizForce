@@ -1,6 +1,5 @@
 public with sharing class DealerActionCaseService {
 
-    // Main DTO
     public class DealerActionCaseDTO {
         public Id id;
         public String subject;
@@ -109,34 +108,26 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 5: Files (via ContentDocumentLink on or before status change)
+        // Step 5: Files (using ContentVersion.CreatedDate as proxy)
         Map<Id, List<FileDTO>> filesByCaseId = new Map<Id, List<FileDTO>>();
 
         List<ContentDocumentLink> links = [
-            SELECT ContentDocumentId, LinkedEntityId, CreatedDate
+            SELECT ContentDocumentId, LinkedEntityId
             FROM ContentDocumentLink
             WHERE LinkedEntityId IN :caseIds
         ];
 
-        Set<Id> docIds = new Set<Id>();
-        Map<Id, List<Id>> caseToDocIds = new Map<Id, List<Id>>();
-
+        // Build docId → caseId map
+        Map<Id, Id> docIdToCaseId = new Map<Id, Id>();
         for (ContentDocumentLink link : links) {
-            Datetime changeTime = caseIdToFirstDealerAction.get(link.LinkedEntityId);
-            if (changeTime != null && link.CreatedDate <= changeTime) {
-                docIds.add(link.ContentDocumentId);
-
-                if (!caseToDocIds.containsKey(link.LinkedEntityId)) {
-                    caseToDocIds.put(link.LinkedEntityId, new List<Id>());
-                }
-                caseToDocIds.get(link.LinkedEntityId).add(link.ContentDocumentId);
-            }
+            docIdToCaseId.put(link.ContentDocumentId, link.LinkedEntityId);
         }
 
+        // Fetch ContentDocument and ContentVersion
         Map<Id, ContentDocument> docMap = new Map<Id, ContentDocument>([
             SELECT Id, LatestPublishedVersionId, Title, FileType
             FROM ContentDocument
-            WHERE Id IN :docIds
+            WHERE Id IN :docIdToCaseId.keySet()
         ]);
 
         Set<Id> versionIds = new Set<Id>();
@@ -147,30 +138,25 @@ public with sharing class DealerActionCaseService {
         }
 
         Map<Id, ContentVersion> versionMap = new Map<Id, ContentVersion>([
-            SELECT Id, ContentDocumentId, Title, FileType, ContentSize
+            SELECT Id, ContentDocumentId, Title, FileType, ContentSize, CreatedDate
             FROM ContentVersion
             WHERE Id IN :versionIds
         ]);
 
-        for (Id caseId : caseIds) {
-            List<Id> linkedDocIds = caseToDocIds.get(caseId);
-            if (linkedDocIds != null) {
-                List<FileDTO> fileList = new List<FileDTO>();
-                for (Id docId : linkedDocIds) {
-                    ContentDocument doc = docMap.get(docId);
-                    if (doc != null) {
-                        ContentVersion v = versionMap.get(doc.LatestPublishedVersionId);
-                        if (v != null) {
-                            FileDTO dto = new FileDTO();
-                            dto.id = v.Id;
-                            dto.title = v.Title;
-                            dto.fileType = v.FileType;
-                            dto.contentSize = v.ContentSize;
-                            fileList.add(dto);
-                        }
-                    }
+        for (ContentVersion v : versionMap.values()) {
+            Id caseId = docIdToCaseId.get(v.ContentDocumentId);
+            Datetime changeTime = caseIdToFirstDealerAction.get(caseId);
+            if (caseId != null && changeTime != null && v.CreatedDate <= changeTime) {
+                FileDTO dto = new FileDTO();
+                dto.id = v.Id;
+                dto.title = v.Title;
+                dto.fileType = v.FileType;
+                dto.contentSize = v.ContentSize;
+
+                if (!filesByCaseId.containsKey(caseId)) {
+                    filesByCaseId.put(caseId, new List<FileDTO>());
                 }
-                filesByCaseId.put(caseId, fileList);
+                filesByCaseId.get(caseId).add(dto);
             }
         }
 
