@@ -12,7 +12,7 @@ public with sharing class DealerActionCaseService {
     }
 
     public class ExportRequest {
-        @InvocableVariable(label='Since Days' description='How many days back to include')
+        @InvocableVariable(label='Since Days')
         public Integer sinceDays;
     }
 
@@ -67,35 +67,48 @@ public with sharing class DealerActionCaseService {
     }
 
     public static String exportDealerActionCases(Date sinceDate) {
-        // Step 1: Query and track first Dealer Action Required status per case
-        Map<Id, StatusChangeMetadata> caseIdToMetadata = new Map<Id, StatusChangeMetadata>();
-
-        for (CaseHistory ch : [
+        // Step 1: Query case history with sinceDate filter
+        List<CaseHistory> histories = [
             SELECT CaseId, Field, OldValue, NewValue, CreatedDate
             FROM CaseHistory
-            WHERE Field = 'Status'
-              AND CreatedDate >= :sinceDate
-        ]) {
+            WHERE Field = 'Status' AND CreatedDate >= :sinceDate
+            ORDER BY CaseId, CreatedDate
+        ];
+
+        Map<Id, Datetime> firstStatusChange = new Map<Id, Datetime>();
+        Map<Id, StatusChangeMetadata> firstDAR = new Map<Id, StatusChangeMetadata>();
+
+        for (CaseHistory ch : histories) {
+            Id cid = ch.CaseId;
+
+            if (!firstStatusChange.containsKey(cid)) {
+                firstStatusChange.put(cid, ch.CreatedDate);
+            }
+
             String newVal = String.valueOf(ch.NewValue)?.trim()?.toLowerCase();
-            if (newVal == 'dealer action required') {
-                if (!caseIdToMetadata.containsKey(ch.CaseId) ||
-                    ch.CreatedDate < caseIdToMetadata.get(ch.CaseId).timestamp) {
-
-                    StatusChangeMetadata meta = new StatusChangeMetadata();
-                    meta.oldValue = String.valueOf(ch.OldValue);
-                    meta.newValue = String.valueOf(ch.NewValue);
-                    meta.timestamp = ch.CreatedDate;
-
-                    caseIdToMetadata.put(ch.CaseId, meta);
-                }
+            if (newVal == 'dealer action required' && !firstDAR.containsKey(cid)) {
+                StatusChangeMetadata meta = new StatusChangeMetadata();
+                meta.oldValue = String.valueOf(ch.OldValue);
+                meta.newValue = String.valueOf(ch.NewValue);
+                meta.timestamp = ch.CreatedDate;
+                firstDAR.put(cid, meta);
             }
         }
 
-        if (caseIdToMetadata.isEmpty()) {
-            return '[]';
+        // Step 2: Filter to cases where DAR occurred within 7 days of earliest status change
+        Map<Id, StatusChangeMetadata> filteredMetadata = new Map<Id, StatusChangeMetadata>();
+        for (Id cid : firstDAR.keySet()) {
+            if (!firstStatusChange.containsKey(cid)) continue;
+
+            Integer delta = firstDAR.get(cid).timestamp.date().daysBetween(firstStatusChange.get(cid).date());
+            if (delta >= 0 && delta <= 7) {
+                filteredMetadata.put(cid, firstDAR.get(cid));
+            }
         }
 
-        Set<Id> caseIds = caseIdToMetadata.keySet();
+        if (filteredMetadata.isEmpty()) return '[]';
+
+        Set<Id> caseIds = filteredMetadata.keySet();
 
         Map<Id, Case> caseMap = new Map<Id, Case>([
             SELECT Id, Subject, Description, Status, CreatedDate
@@ -103,34 +116,11 @@ public with sharing class DealerActionCaseService {
             WHERE Id IN :caseIds
         ]);
 
-        // Step 2: Filter by 7-day window after case creation
-        Map<Id, StatusChangeMetadata> filteredMetadata = new Map<Id, StatusChangeMetadata>();
-        for (Id caseId : caseMap.keySet()) {
-            Case c = caseMap.get(caseId);
-            StatusChangeMetadata meta = caseIdToMetadata.get(caseId);
-
-            if (c == null || meta == null || c.CreatedDate == null) continue;
-
-            Integer daysBetween = meta.timestamp.date().daysBetween(c.CreatedDate.date());
-
-            // Keep only those where the status change is within 7 days after case creation
-            if (daysBetween >= 0 && daysBetween <= 7) {
-                filteredMetadata.put(caseId, meta);
-            }
-        }
-
-        if (filteredMetadata.isEmpty()) {
-            return '[]';
-        }
-
-        Set<Id> filteredCaseIds = filteredMetadata.keySet();
-
-        // Step 3: Comments
         Map<Id, List<CommentDTO>> commentsByCaseId = new Map<Id, List<CommentDTO>>();
         for (CaseComment cc : [
             SELECT Id, ParentId, CommentBody, CreatedDate
             FROM CaseComment
-            WHERE ParentId IN :filteredCaseIds
+            WHERE ParentId IN :caseIds
         ]) {
             StatusChangeMetadata meta = filteredMetadata.get(cc.ParentId);
             if (meta != null && cc.CreatedDate <= meta.timestamp.addMinutes(10)) {
@@ -146,12 +136,11 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 4: Attachments
         Map<Id, List<AttachmentDTO>> attachmentsByCaseId = new Map<Id, List<AttachmentDTO>>();
         for (Attachment att : [
             SELECT Id, ParentId, Name, ContentType, BodyLength, CreatedDate
             FROM Attachment
-            WHERE ParentId IN :filteredCaseIds
+            WHERE ParentId IN :caseIds
         ]) {
             StatusChangeMetadata meta = filteredMetadata.get(att.ParentId);
             if (meta != null && att.CreatedDate <= meta.timestamp) {
@@ -168,12 +157,11 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 5: Files
         Map<Id, List<FileDTO>> filesByCaseId = new Map<Id, List<FileDTO>>();
         List<ContentDocumentLink> links = [
             SELECT ContentDocumentId, LinkedEntityId
             FROM ContentDocumentLink
-            WHERE LinkedEntityId IN :filteredCaseIds
+            WHERE LinkedEntityId IN :caseIds
         ];
 
         Map<Id, Id> docIdToCaseId = new Map<Id, Id>();
@@ -217,9 +205,9 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // Step 6: Assemble DTOs
         List<DealerActionCaseDTO> results = new List<DealerActionCaseDTO>();
-        for (Id caseId : filteredCaseIds) {
+
+        for (Id caseId : caseIds) {
             Case c = caseMap.get(caseId);
             StatusChangeMetadata meta = filteredMetadata.get(caseId);
             if (c == null || meta == null) continue;
@@ -250,3 +238,4 @@ public with sharing class DealerActionCaseService {
         return JSON.serializePretty(results);
     }
 }
+
