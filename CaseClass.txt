@@ -1,5 +1,6 @@
 public with sharing class DealerActionCaseService {
 
+    // Main DTO
     public class DealerActionCaseDTO {
         public Id id;
         public String subject;
@@ -10,30 +11,30 @@ public with sharing class DealerActionCaseService {
         public List<CommentDTO> comments = new List<CommentDTO>();
         public List<AttachmentDTO> attachments = new List<AttachmentDTO>();
         public List<FileDTO> files = new List<FileDTO>();
+    }
 
-        public class CommentDTO {
-            public Id id;
-            public String body;
-            public DateTime createdDate;
-        }
+    public class CommentDTO {
+        public Id id;
+        public String body;
+        public DateTime createdDate;
+    }
 
-        public class AttachmentDTO {
-            public Id id;
-            public String name;
-            public String contentType;
-            public Integer bodyLength;
-        }
+    public class AttachmentDTO {
+        public Id id;
+        public String name;
+        public String contentType;
+        public Integer bodyLength;
+    }
 
-        public class FileDTO {
-            public Id id;
-            public String title;
-            public String fileType;
-            public Integer contentSize;
-        }
+    public class FileDTO {
+        public Id id;
+        public String title;
+        public String fileType;
+        public Integer contentSize;
     }
 
     public static String exportDealerActionCases(Date sinceDate) {
-        // STEP 1: Track first Dealer Action Required status change per case
+        // Step 1: Identify the first time each case was set to Dealer Action Required
         Map<Id, Datetime> caseIdToFirstDealerAction = new Map<Id, Datetime>();
 
         for (CaseHistory ch : [
@@ -55,36 +56,39 @@ public with sharing class DealerActionCaseService {
 
         Set<Id> caseIds = caseIdToFirstDealerAction.keySet();
 
-        // STEP 2: Load base Case data
+        // Step 2: Load base Case records
         Map<Id, Case> caseMap = new Map<Id, Case>([
             SELECT Id, Subject, Description, Status, CreatedDate
             FROM Case
             WHERE Id IN :caseIds
         ]);
 
-        // STEP 3: Case Comments with 10-min grace window
-        Map<Id, List<DealerActionCaseDTO.CommentDTO>> commentsByCaseId = new Map<Id, List<DealerActionCaseDTO.CommentDTO>>();
+        // Step 3: Comments (created anytime up to 10 minutes after the status change)
+        Map<Id, List<CommentDTO>> commentsByCaseId = new Map<Id, List<CommentDTO>>();
         for (CaseComment cc : [
             SELECT Id, ParentId, CommentBody, CreatedDate
             FROM CaseComment
             WHERE ParentId IN :caseIds
         ]) {
             Datetime changeTime = caseIdToFirstDealerAction.get(cc.ParentId);
-            if (changeTime != null && cc.CreatedDate <= changeTime.addMinutes(10)) {
-                DealerActionCaseDTO.CommentDTO dto = new DealerActionCaseDTO.CommentDTO();
-                dto.id = cc.Id;
-                dto.body = cc.CommentBody;
-                dto.createdDate = cc.CreatedDate;
+            if (changeTime != null) {
+                Datetime windowEnd = changeTime.addMinutes(10);
+                if (cc.CreatedDate <= windowEnd) {
+                    CommentDTO dto = new CommentDTO();
+                    dto.id = cc.Id;
+                    dto.body = cc.CommentBody;
+                    dto.createdDate = cc.CreatedDate;
 
-                if (!commentsByCaseId.containsKey(cc.ParentId)) {
-                    commentsByCaseId.put(cc.ParentId, new List<DealerActionCaseDTO.CommentDTO>());
+                    if (!commentsByCaseId.containsKey(cc.ParentId)) {
+                        commentsByCaseId.put(cc.ParentId, new List<CommentDTO>());
+                    }
+                    commentsByCaseId.get(cc.ParentId).add(dto);
                 }
-                commentsByCaseId.get(cc.ParentId).add(dto);
             }
         }
 
-        // STEP 4: Attachments on or before status change
-        Map<Id, List<DealerActionCaseDTO.AttachmentDTO>> attachmentsByCaseId = new Map<Id, List<DealerActionCaseDTO.AttachmentDTO>>();
+        // Step 4: Attachments (created on or before status change)
+        Map<Id, List<AttachmentDTO>> attachmentsByCaseId = new Map<Id, List<AttachmentDTO>>();
         for (Attachment att : [
             SELECT Id, ParentId, Name, ContentType, BodyLength, CreatedDate
             FROM Attachment
@@ -92,21 +96,21 @@ public with sharing class DealerActionCaseService {
         ]) {
             Datetime changeTime = caseIdToFirstDealerAction.get(att.ParentId);
             if (changeTime != null && att.CreatedDate <= changeTime) {
-                DealerActionCaseDTO.AttachmentDTO dto = new DealerActionCaseDTO.AttachmentDTO();
+                AttachmentDTO dto = new AttachmentDTO();
                 dto.id = att.Id;
                 dto.name = att.Name;
                 dto.contentType = att.ContentType;
                 dto.bodyLength = att.BodyLength;
 
                 if (!attachmentsByCaseId.containsKey(att.ParentId)) {
-                    attachmentsByCaseId.put(att.ParentId, new List<DealerActionCaseDTO.AttachmentDTO>());
+                    attachmentsByCaseId.put(att.ParentId, new List<AttachmentDTO>());
                 }
                 attachmentsByCaseId.get(att.ParentId).add(dto);
             }
         }
 
-        // STEP 5: Files added on or before status change
-        Map<Id, List<DealerActionCaseDTO.FileDTO>> filesByCaseId = new Map<Id, List<DealerActionCaseDTO.FileDTO>>();
+        // Step 5: Files (via ContentDocumentLink on or before status change)
+        Map<Id, List<FileDTO>> filesByCaseId = new Map<Id, List<FileDTO>>();
 
         List<ContentDocumentLink> links = [
             SELECT ContentDocumentId, LinkedEntityId, CreatedDate
@@ -115,17 +119,17 @@ public with sharing class DealerActionCaseService {
         ];
 
         Set<Id> docIds = new Set<Id>();
-        Map<Id, List<Id>> caseIdToDocIds = new Map<Id, List<Id>>();
+        Map<Id, List<Id>> caseToDocIds = new Map<Id, List<Id>>();
 
         for (ContentDocumentLink link : links) {
             Datetime changeTime = caseIdToFirstDealerAction.get(link.LinkedEntityId);
             if (changeTime != null && link.CreatedDate <= changeTime) {
                 docIds.add(link.ContentDocumentId);
 
-                if (!caseIdToDocIds.containsKey(link.LinkedEntityId)) {
-                    caseIdToDocIds.put(link.LinkedEntityId, new List<Id>());
+                if (!caseToDocIds.containsKey(link.LinkedEntityId)) {
+                    caseToDocIds.put(link.LinkedEntityId, new List<Id>());
                 }
-                caseIdToDocIds.get(link.LinkedEntityId).add(link.ContentDocumentId);
+                caseToDocIds.get(link.LinkedEntityId).add(link.ContentDocumentId);
             }
         }
 
@@ -149,15 +153,15 @@ public with sharing class DealerActionCaseService {
         ]);
 
         for (Id caseId : caseIds) {
-            List<Id> linkedDocIds = caseIdToDocIds.get(caseId);
+            List<Id> linkedDocIds = caseToDocIds.get(caseId);
             if (linkedDocIds != null) {
-                List<DealerActionCaseDTO.FileDTO> fileList = new List<DealerActionCaseDTO.FileDTO>();
+                List<FileDTO> fileList = new List<FileDTO>();
                 for (Id docId : linkedDocIds) {
                     ContentDocument doc = docMap.get(docId);
                     if (doc != null) {
                         ContentVersion v = versionMap.get(doc.LatestPublishedVersionId);
                         if (v != null) {
-                            DealerActionCaseDTO.FileDTO dto = new DealerActionCaseDTO.FileDTO();
+                            FileDTO dto = new FileDTO();
                             dto.id = v.Id;
                             dto.title = v.Title;
                             dto.fileType = v.FileType;
@@ -170,8 +174,8 @@ public with sharing class DealerActionCaseService {
             }
         }
 
-        // STEP 6: Assemble final DTOs
-        List<DealerActionCaseDTO> result = new List<DealerActionCaseDTO>();
+        // Step 6: Assemble DTOs
+        List<DealerActionCaseDTO> results = new List<DealerActionCaseDTO>();
 
         for (Id caseId : caseIds) {
             Case c = caseMap.get(caseId);
@@ -196,9 +200,9 @@ public with sharing class DealerActionCaseService {
                 dto.files.addAll(filesByCaseId.get(caseId));
             }
 
-            result.add(dto);
+            results.add(dto);
         }
 
-        return JSON.serializePretty(result);
+        return JSON.serializePretty(results);
     }
 }
