@@ -1,6 +1,6 @@
-public with sharing class DealerActionCaseService {
+public with sharing class CaseFullDetailsService {
 
-    @InvocableMethod(label='Export Dealer Action Cases as JSON')
+    @InvocableMethod(label='Case Full Details as JSON')
     public static List<ExportResponse> exportCases(List<ExportRequest> requests) {
         if (requests == null || requests.isEmpty() || requests[0].sinceDays == null) {
             return new List<ExportResponse>{ new ExportResponse('[]') };
@@ -29,22 +29,23 @@ public with sharing class DealerActionCaseService {
         public String subject;
         public String description;
         public String status;
-        public DateTime caseCreatedDate;
         public String ownerName;
+        public Datetime caseCreatedDate;
 
-        public DateTime statusChangeDate;
+        public Datetime statusChangeDate;
         public String oldStatus;
         public String newStatus;
 
         public List<CommentDTO> comments = new List<CommentDTO>();
         public List<AttachmentDTO> attachments = new List<AttachmentDTO>();
         public List<FileDTO> files = new List<FileDTO>();
+        public List<FeedDTO> feedEntries = new List<FeedDTO>();
     }
 
     public class CommentDTO {
         public Id id;
         public String body;
-        public DateTime createdDate;
+        public Datetime createdDate;
         public String createdByName;
     }
 
@@ -62,6 +63,14 @@ public with sharing class DealerActionCaseService {
         public Integer contentSize;
     }
 
+    public class FeedDTO {
+        public Id id;
+        public String type;
+        public String body;
+        public Datetime createdDate;
+        public String createdByName;
+    }
+
     private class StatusChangeMetadata {
         public String fromStatus;
         public String toStatus;
@@ -69,44 +78,38 @@ public with sharing class DealerActionCaseService {
     }
 
     private static String exportDealerActionCases(Date sinceDate) {
-        // Step 1: First "Dealer Action Required" per case
         Map<Id, StatusChangeMetadata> firstDAR = new Map<Id, StatusChangeMetadata>();
+
         for (CaseHistory ch : [
             SELECT CaseId, Field, OldValue, NewValue, CreatedDate
             FROM CaseHistory
             WHERE Field = 'Status' AND CreatedDate >= :sinceDate
-            ORDER BY CreatedDate ASC
+            ORDER BY CaseId, CreatedDate ASC
         ]) {
-            Id cid = ch.CaseId;
             String newStatus = String.valueOf(ch.NewValue)?.trim()?.toLowerCase();
-            if (newStatus == 'dealer action required' && !firstDAR.containsKey(cid)) {
+            if (newStatus == 'dealer action required' && !firstDAR.containsKey(ch.CaseId)) {
                 StatusChangeMetadata meta = new StatusChangeMetadata();
                 meta.fromStatus = String.valueOf(ch.OldValue);
                 meta.toStatus = String.valueOf(ch.NewValue);
                 meta.timestamp = ch.CreatedDate;
-                firstDAR.put(cid, meta);
+                firstDAR.put(ch.CaseId, meta);
             }
         }
 
         if (firstDAR.isEmpty()) return '[]';
 
-        // Step 2: Load Cases with Owner Name
-        Set<Id> candidateCaseIds = firstDAR.keySet();
-        Map<Id, Case> caseMap = new Map<Id, Case>();
-        for (Case c : [
+        Set<Id> caseIds = firstDAR.keySet();
+        Map<Id, Case> caseMap = new Map<Id, Case>([
             SELECT Id, Subject, Description, Status, CreatedDate, Owner.Name
             FROM Case
-            WHERE Id IN :candidateCaseIds
-        ]) {
-            caseMap.put(c.Id, c);
-        }
+            WHERE Id IN :caseIds
+        ]);
 
-        // Step 3: Comments before statusChangeDate (with CreatedBy.Name)
-        Map<Id, List<CommentDTO>> commentsByCaseId = new Map<Id, List<CommentDTO>>();
+        Map<Id, List<CommentDTO>> commentsByCase = new Map<Id, List<CommentDTO>>();
         for (CaseComment cc : [
             SELECT Id, ParentId, CommentBody, CreatedDate, CreatedBy.Name
             FROM CaseComment
-            WHERE ParentId IN :candidateCaseIds
+            WHERE ParentId IN :caseIds
         ]) {
             StatusChangeMetadata meta = firstDAR.get(cc.ParentId);
             if (meta != null && cc.CreatedDate <= meta.timestamp) {
@@ -116,19 +119,18 @@ public with sharing class DealerActionCaseService {
                 dto.createdDate = cc.CreatedDate;
                 dto.createdByName = cc.CreatedBy != null ? cc.CreatedBy.Name : null;
 
-                if (!commentsByCaseId.containsKey(cc.ParentId)) {
-                    commentsByCaseId.put(cc.ParentId, new List<CommentDTO>());
+                if (!commentsByCase.containsKey(cc.ParentId)) {
+                    commentsByCase.put(cc.ParentId, new List<CommentDTO>());
                 }
-                commentsByCaseId.get(cc.ParentId).add(dto);
+                commentsByCase.get(cc.ParentId).add(dto);
             }
         }
 
-        // Step 4: Attachments (all)
-        Map<Id, List<AttachmentDTO>> attachmentsByCaseId = new Map<Id, List<AttachmentDTO>>();
+        Map<Id, List<AttachmentDTO>> attachmentsByCase = new Map<Id, List<AttachmentDTO>>();
         for (Attachment att : [
-            SELECT Id, ParentId, Name, ContentType, BodyLength, CreatedDate
+            SELECT Id, ParentId, Name, ContentType, BodyLength
             FROM Attachment
-            WHERE ParentId IN :candidateCaseIds
+            WHERE ParentId IN :caseIds
         ]) {
             AttachmentDTO dto = new AttachmentDTO();
             dto.id = att.Id;
@@ -136,27 +138,26 @@ public with sharing class DealerActionCaseService {
             dto.contentType = att.ContentType;
             dto.bodyLength = att.BodyLength;
 
-            if (!attachmentsByCaseId.containsKey(att.ParentId)) {
-                attachmentsByCaseId.put(att.ParentId, new List<AttachmentDTO>());
+            if (!attachmentsByCase.containsKey(att.ParentId)) {
+                attachmentsByCase.put(att.ParentId, new List<AttachmentDTO>());
             }
-            attachmentsByCaseId.get(att.ParentId).add(dto);
+            attachmentsByCase.get(att.ParentId).add(dto);
         }
 
-        // Step 5: Files (all)
-        Map<Id, List<FileDTO>> filesByCaseId = new Map<Id, List<FileDTO>>();
-        Map<Id, Id> docToCaseId = new Map<Id, Id>();
+        Map<Id, List<FileDTO>> filesByCase = new Map<Id, List<FileDTO>>();
+        Map<Id, Id> docToCase = new Map<Id, Id>();
         for (ContentDocumentLink link : [
             SELECT ContentDocumentId, LinkedEntityId
             FROM ContentDocumentLink
-            WHERE LinkedEntityId IN :candidateCaseIds
+            WHERE LinkedEntityId IN :caseIds
         ]) {
-            docToCaseId.put(link.ContentDocumentId, link.LinkedEntityId);
+            docToCase.put(link.ContentDocumentId, link.LinkedEntityId);
         }
 
         Map<Id, ContentDocument> docMap = new Map<Id, ContentDocument>([
             SELECT Id, LatestPublishedVersionId, Title, FileType
             FROM ContentDocument
-            WHERE Id IN :docToCaseId.keySet()
+            WHERE Id IN :docToCase.keySet()
         ]);
 
         Set<Id> versionIds = new Set<Id>();
@@ -167,30 +168,48 @@ public with sharing class DealerActionCaseService {
         }
 
         Map<Id, ContentVersion> versionMap = new Map<Id, ContentVersion>([
-            SELECT Id, ContentDocumentId, Title, FileType, ContentSize, CreatedDate
+            SELECT Id, ContentDocumentId, Title, FileType, ContentSize
             FROM ContentVersion
             WHERE Id IN :versionIds
         ]);
 
-        for (ContentVersion v : versionMap.values()) {
-            Id caseId = docToCaseId.get(v.ContentDocumentId);
+        for (ContentVersion ver : versionMap.values()) {
+            Id caseId = docToCase.get(ver.ContentDocumentId);
             if (caseId != null) {
                 FileDTO dto = new FileDTO();
-                dto.id = v.Id;
-                dto.title = v.Title;
-                dto.fileType = v.FileType;
-                dto.contentSize = v.ContentSize;
+                dto.id = ver.Id;
+                dto.title = ver.Title;
+                dto.fileType = ver.FileType;
+                dto.contentSize = ver.ContentSize;
 
-                if (!filesByCaseId.containsKey(caseId)) {
-                    filesByCaseId.put(caseId, new List<FileDTO>());
+                if (!filesByCase.containsKey(caseId)) {
+                    filesByCase.put(caseId, new List<FileDTO>());
                 }
-                filesByCaseId.get(caseId).add(dto);
+                filesByCase.get(caseId).add(dto);
             }
         }
 
-        // Step 6: Assemble DTOs
+        Map<Id, List<FeedDTO>> feedByCase = new Map<Id, List<FeedDTO>>();
+        for (CaseFeed feed : [
+            SELECT Id, ParentId, Type, Body, CreatedDate, CreatedBy.Name
+            FROM CaseFeed
+            WHERE ParentId IN :caseIds
+        ]) {
+            FeedDTO dto = new FeedDTO();
+            dto.id = feed.Id;
+            dto.type = feed.Type;
+            dto.body = feed.Body;
+            dto.createdDate = feed.CreatedDate;
+            dto.createdByName = feed.CreatedBy != null ? feed.CreatedBy.Name : null;
+
+            if (!feedByCase.containsKey(feed.ParentId)) {
+                feedByCase.put(feed.ParentId, new List<FeedDTO>());
+            }
+            feedByCase.get(feed.ParentId).add(dto);
+        }
+
         List<DealerActionCaseDTO> results = new List<DealerActionCaseDTO>();
-        for (Id cid : candidateCaseIds) {
+        for (Id cid : caseIds) {
             Case c = caseMap.get(cid);
             StatusChangeMetadata meta = firstDAR.get(cid);
             if (c == null || meta == null) continue;
@@ -200,28 +219,20 @@ public with sharing class DealerActionCaseService {
             dto.subject = c.Subject;
             dto.description = c.Description;
             dto.status = c.Status;
-            dto.caseCreatedDate = c.CreatedDate;
             dto.ownerName = (c.Owner != null) ? c.Owner.Name : null;
+            dto.caseCreatedDate = c.CreatedDate;
             dto.statusChangeDate = meta.timestamp;
             dto.oldStatus = meta.fromStatus;
             dto.newStatus = meta.toStatus;
 
-            dto.comments = commentsByCaseId.containsKey(cid) ? commentsByCaseId.get(cid) : new List<CommentDTO>();
-            dto.attachments = attachmentsByCaseId.containsKey(cid) ? attachmentsByCaseId.get(cid) : new List<AttachmentDTO>();
-            dto.files = filesByCaseId.containsKey(cid) ? filesByCaseId.get(cid) : new List<FileDTO>();
+            dto.comments = commentsByCase.containsKey(cid) ? commentsByCase.get(cid) : new List<CommentDTO>();
+            dto.attachments = attachmentsByCase.containsKey(cid) ? attachmentsByCase.get(cid) : new List<AttachmentDTO>();
+            dto.files = filesByCase.containsKey(cid) ? filesByCase.get(cid) : new List<FileDTO>();
+            dto.feedEntries = feedByCase.containsKey(cid) ? feedByCase.get(cid) : new List<FeedDTO>();
 
             results.add(dto);
         }
 
-        // Step 7: Filter cases where status change occurred within 7 days of creation
-        List<DealerActionCaseDTO> finalResults = new List<DealerActionCaseDTO>();
-        for (DealerActionCaseDTO dto : results) {
-            if (dto.statusChangeDate != null && dto.caseCreatedDate != null &&
-                dto.statusChangeDate.getTime() <= dto.caseCreatedDate.addDays(7).getTime()) {
-                finalResults.add(dto);
-            }
-        }
-
-        return JSON.serializePretty(finalResults);
+        return JSON.serializePretty(results);
     }
 }
